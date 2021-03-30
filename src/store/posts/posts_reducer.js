@@ -1,4 +1,4 @@
-import { GET_POSTS } from '../types';
+import { GET_POSTS } from './posts_action';
 
 export default function postsReducer(state = {}, action) {
   switch (action.type) {
