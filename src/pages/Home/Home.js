@@ -4,6 +4,7 @@ import A11yHidden from '../../components/A11yHidden/A11yHidden.styled';
 import { Button } from 'components';
 import Icon from 'components/Icon/Icon';
 import Paragraph from 'components/Paragraph/Paragraph';
+import Footer from 'containers/Footer/Footer';
 
 const Home = () => {
   return (
@@ -15,31 +16,7 @@ const Home = () => {
           <Icon type="more" color="red" width="20" />
           <Icon type="instagram" color="red" width="32" />
           <Icon type="facebook" color="red" width="133" />
-          <Icon />
-          <Paragraph title="ABOUT" type="normal" headingNumber={3}>
-            We are Luxury Vehicle Protection <br />
-            Services, providing vehicle protection, <br />
-            repair, and detailing services based in <br />
-            North York, Toronto, Ontario.
-          </Paragraph>
-          <Paragraph
-            title="SERVICES"
-            type="list"
-            headingNumber={3}
-            items={[
-              'Ceramic Pro',
-              'Paint Protection Film',
-              'Window Tinting',
-              'Detailing & Paint Correction',
-            ]}
-            icon
-          />
-          <Paragraph
-            title="Working Hour"
-            type="list"
-            headingNumber={3}
-            items={['Monday – Friday: 8 am – 6 pm', 'Saturday: 8 am – 3 pm']}
-          />
+
           <Paragraph
             title="Customer Reviews"
             type="title"
@@ -48,6 +25,11 @@ const Home = () => {
           >
             Our customers value &amp; trust us with their vehicles.
           </Paragraph>
+
+          <Footer>
+            <Footer.Logo />
+            <Footer.Content />
+          </Footer>
         </HomeLayout.FormContainer>
       </HomeLayout.Container>
     </HomeLayout>

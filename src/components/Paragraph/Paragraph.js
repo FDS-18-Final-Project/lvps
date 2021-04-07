@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 const ParagraphWrapper = styled.div`
   color: ${({ colors }) => colors.sub};
+  line-height: 1.4;
 
   h${({ headingNumber }) => headingNumber} {
     font-weight: bold;
@@ -45,23 +46,19 @@ const Paragraph = ({
   let Comp = `h${headingNumber}`;
 
   return (
-    <ParagraphWrapper
-      headingNumber={headingNumber}
-      icon={icon}
-      type={type}
-      colors={colors}
-    >
+    <ParagraphWrapper headingNumber={headingNumber} colors={colors}>
       <Comp>{title}</Comp>
       {type === 'list' && (
         <ul>
           {items.map((item) => (
-            <li>
+            <li key={item}>
               {icon && (
-                <Icon type="facebook" width="30" height="30">
+                <Icon type={icon} width="20" height="20">
                   <span>{item}</span>
                 </Icon>
               )}
-              {icon || item}
+              {/* 아이콘이 있으면 item 안보여주고, 없으면 icon 보여줘 */}
+              {icon ? null : item}
             </li>
           ))}
         </ul>
@@ -78,17 +75,16 @@ Paragraph.defaultProps = {
   type: 'normal',
   headingNumber: 3,
   items: [],
-  icon: false,
   // TODO: main black 컬러로 변경
   colors: { main: 'black', sub: 'black' },
 };
 
 Paragraph.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   type: PropTypes.string,
   headingNumber: PropTypes.number,
   items: PropTypes.array,
-  icon: PropTypes.bool,
+  icon: PropTypes.string,
   colors: PropTypes.object,
 };
 
