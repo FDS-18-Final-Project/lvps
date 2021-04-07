@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import App from './app/App';
 // style
-import { Normalize } from 'styled-normalize';
 import { ThemeProvider } from 'styled-components';
+import GlobalStyle from 'styles/GlobalStyle';
 import theme from './utils/theme';
 //redux
 import { Provider } from 'react-redux';
@@ -18,12 +18,15 @@ import { autoA11yTest } from './utils/autoA11yTest';
 // 한국어 출력
 autoA11yTest();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const ReduxStore = createStore(appReducers, composeEnhancers(applyMiddleware(promiseMiddleware)));
+const ReduxStore = createStore(
+  appReducers,
+  composeEnhancers(applyMiddleware(promiseMiddleware))
+);
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={ReduxStore}>
-      <Normalize />
+      <GlobalStyle />
       <ThemeProvider theme={theme}>
         <App></App>
       </ThemeProvider>

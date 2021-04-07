@@ -12,14 +12,14 @@ export default {
   },
   argTypes: {
     type: {
-      description: '로고 이름과 타입(스크린 리더에서 읽힘)',
+      description: '아이콘 이름과 타입',
       control: {
         type: 'select',
         options: ['facebook', 'instagram', 'more'],
       },
     },
     color: {
-      description: '로고색',
+      description: '아이콘 색',
       control: {
         type: 'select',
         options: ['red', 'blue', 'orange'],

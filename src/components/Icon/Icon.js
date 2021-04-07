@@ -11,8 +11,8 @@ const IconWrapper = styled.div`
   }
 `;
 
-const Icon = ({ type, color, ...restProps }) => {
-  let Comp = null;
+const Icon = ({ type, color, children, ...restProps }) => {
+  let Comp = type;
 
   switch (type) {
     case 'facebook':
@@ -29,8 +29,9 @@ const Icon = ({ type, color, ...restProps }) => {
   }
 
   return (
-    <IconWrapper color={color}>
+    <IconWrapper color={color} className="icon-wrapper">
       <Comp title={type} {...restProps} />
+      {children}
     </IconWrapper>
   );
 };
