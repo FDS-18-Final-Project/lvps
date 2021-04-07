@@ -1,87 +1,134 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components'
+import { oneOf, bool, string } from 'prop-types'
 
-const fullWidthStyle = css`
-  ${props =>
-    props.fullWidth &&
-    css`
-      width: 100%;
-    `}
-`;
-
-const disabledStyle = css`
+// 버튼 색상 스타일링
+const compColor = css`
   ${props => {
-    if (props.disabled && props.type === 'primary') {
-      return css`
-        color: #d4e0ed;
-        background: #97aabd;
-        cursor: not-allowed;
-      `;
-    }
-    if (props.disabled && props.type === 'secondary') {
-      return css`
-        color: #97aabd;
-        background: #d4e0ed;
-        cursor: not-allowed;
-      `;
-    }
-  }}
-`;
-
-const typeStyle = css`
-  ${props => {
-    switch (props.type) {
-      case 'primary':
-        return css`
-          color: #ffffff;
-          background: #0074e9;
-        `;
+    switch (props.mode) {
+      case 'primary': 
+        return css `
+          color: white;
+          background-color: #EB1527;
+          border: none;
+        `
       case 'secondary':
         return css`
-          color: #0074e9;
-          background: #ffffff;
-        `;
-      default:
-        return css`
-          color: #ffffff;
-          background: #0074e9;
-        `;
+          color: black;
+          background-color: white;
+          border: 4px solid #EB1527;
+        `
+      default: 
+        return css `
+            color: white;
+            background-color: #EB1527;
+            border: none;
+          `
     }
   }}
-`;
+`
+
+// 마우스 호버 버튼 스타일링
+const hoveredCompColor = css`
+  &:hover {
+    color: white;
+    background-color: #EB1527;
+  }
+`
+
+// 버튼 모양 스타일링 (모바일 디자인 필요)
+const compDesign = css`
+  display: block;
+  box-sizing: border-box;
+  width: 465px;
+  height: 96px;
+  margin: 0;
+  padding: 25px 115px 25px 55px;
+  font-size: 36px;
+  font-weight: 700;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+
+  &:focus {
+    outline: none;
+  }
+`
+
 const StyledButton = styled.button`
-  width: ${props => props.width || '200px'};
-  height: ${props => props.height || '50px'};
-  border: ${props => props.border || 0};
-  border-radius: ${props => props.borderRadius || '5px'};
-  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3);
+  ${compColor}
+  ${hoveredCompColor}
+  ${compDesign}
+`
 
-  ${typeStyle}
-  ${disabledStyle};
-  ${fullWidthStyle};
-`;
+const StyledAnchor = styled.a`
+  ${compColor}
+  ${hoveredCompColor}
+  ${compDesign}
+`
 
-const Button = ({ type, disabled, children, ariaLabel, ...restProps }) => {
+// button 컴포넌트
+const Button = ({ 
+  type, 
+  mode, 
+  disabled, 
+  children, 
+  ...restProps }) => {
+  return (<StyledButton
+    type={type}
+    mode={mode}
+    disabled={disabled}
+    {...restProps}
+  >
+    {children}
+  </StyledButton>
+)}
+
+// a 컴포넌트
+const Anchor = ({
+  mode,
+  role,
+  href,
+  children,
+  ...restProps }) => {
+  return (<StyledAnchor
+    role={role}
+    href={href}
+    {...restProps}
+  >
+    {children}
+  </StyledAnchor>
+)}
+
+
+// 버튼 컴포넌트
+export default function ButtonComp ({ 
+  tag,
+  ...restProps}) {
+  const Tag = tag === 'button' ? Button : Anchor
+  
   return (
-    <StyledButton type={type} disabled={disabled} aria-label={ariaLabel} {...restProps}>
-      {children}
-    </StyledButton>
-  );
-};
+    <Tag {...restProps} />
+  )
 
-Button.propTypes = {
-  type: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  children: PropTypes.string
-};
+}
 
-Button.defaultProps = {
-  type: 'primary',
+ButtonComp.propTypes = {
+  tag: oneOf(['button', 'a']),
+  type: string,
+  mode: oneOf(['primary', 'secondary']),
+  disabled: bool,
+  role: string,
+  href: string,
+}
+
+ButtonComp.defaultProps = {
+  tag: 'button',
+  type: 'button',
+  mode: 'primary',
   disabled: false,
-  children: '버튼'
-};
+  role: 'button',
+  href: '/',
+  children: 'Button',
+}
 
-Button.displayName = 'Button';
-
-export default Button;
+ButtonComp.displayName = 'Button'
