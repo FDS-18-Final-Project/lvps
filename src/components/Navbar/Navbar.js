@@ -20,8 +20,8 @@ const NavbarWrapper = styled.ul`
     color: inherit;
   }
 
-  li + li {
-    margin-left: 20px;
+  li {
+    margin: 0 20px;
   }
 `;
 
