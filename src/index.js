@@ -14,6 +14,7 @@ import appReducers from './store';
 
 //web accessbility
 import { autoA11yTest } from './utils/autoA11yTest';
+
 // 한국어 출력
 autoA11yTest();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
