@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import App from './app/App';
-
+// style
+import { Normalize } from 'styled-normalize';
+import { ThemeProvider } from 'styled-components';
+import theme from './utils/theme';
 //redux
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -19,7 +22,10 @@ const ReduxStore = createStore(appReducers, composeEnhancers(applyMiddleware(pro
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={ReduxStore}>
-      <App></App>
+      <Normalize />
+      <ThemeProvider theme={theme}>
+        <App></App>
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

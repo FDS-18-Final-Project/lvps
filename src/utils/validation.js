@@ -1,34 +1,19 @@
-let uuid;
+import * as Yup from 'yup';
 
-export const getId = () => {
-  return uuid || Date.now().toString(32);
-};
-
-export const validate = element => {
-  let error = [true, ''];
-
-  let valid = undefined;
-  if (element.validation.required) {
-    valid = element.value.trim() !== '';
-    const message = valid ? '' : 'This field is required.';
-    error = !valid ? [false, message] : error;
-  }
-
-  // for maxLength
-  if (valid && element.validation.maxLength) {
-    const { maxLength } = element.validation;
-    valid = element.value.trim().length <= maxLength;
-    const message = `${!valid ? `I am sorry, the maximum length is ${maxLength}` : ''}`;
-    error = !valid ? [valid, message] : error;
-  }
-
-  // for minLength
-  if (valid && element.validation.minLength) {
-    const { minLength } = element.validation;
-    valid = element.value.trim().length >= minLength;
-    const message = `${!valid ? `I am sorry, the minimum length is ${minLength}` : ''}`;
-    error = !valid ? [valid, message] : error;
-  }
-
-  return error;
+export const validationRules = {
+  fullname: Yup.string().required('Please input your name'),
+  email: Yup.string()
+    .email('Email must be a valid email format')
+    .required('Please input your email')
+    .min(5, 'Please input more than 5 characters for your email'),
+  phoneNumber: Yup.number('Please input your phone number with only number')
+    .required('Please input your phone number')
+    .integer('Please input your phone number with only number')
+    .positive(),
+  makeAndModel: Yup.string().required('Please input your car make and model'),
+  year: Yup.number('Please input the year of your car')
+    .required('Please input the year of your car')
+    .integer('Please input the year of your car')
+    .positive(),
+  postalCode: Yup.string().required('Please input your postalcode')
 };

@@ -15,7 +15,7 @@ export default {
     }
   },
   argTypes: {
-    type: {
+    mode: {
       control: {
         type: 'select',
         options: ['primary', 'secondary']
@@ -34,27 +34,27 @@ export const PrimaryNormalButton = Template.bind({});
 
 PrimaryNormalButton.args = {
   children: '버튼',
-  type: 'primary'
+  mode: 'primary'
 };
 
 export const PrimaryDisabledButton = Template.bind({});
 
 PrimaryDisabledButton.args = {
   children: '버튼',
-  type: 'primary',
+  mode: 'primary',
   disabled: true
 };
 export const SecondaryNormalButton = Template.bind({});
 
 SecondaryNormalButton.args = {
   children: '버튼',
-  type: 'secondary'
+  mode: 'secondary'
 };
 
 export const SecondaryDisabledButton = Template.bind({});
 
 SecondaryDisabledButton.args = {
   children: '버튼',
-  type: 'secondary',
+  mode: 'secondary',
   disabled: true
 };

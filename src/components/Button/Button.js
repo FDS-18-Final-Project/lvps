@@ -12,14 +12,14 @@ const fullWidthStyle = css`
 
 const disabledStyle = css`
   ${props => {
-    if (props.disabled && props.type === 'primary') {
+    if (props.disabled && props.mode === 'primary') {
       return css`
         color: #d4e0ed;
         background: #97aabd;
         cursor: not-allowed;
       `;
     }
-    if (props.disabled && props.type === 'secondary') {
+    if (props.disabled && props.mode === 'secondary') {
       return css`
         color: #97aabd;
         background: #d4e0ed;
@@ -31,7 +31,7 @@ const disabledStyle = css`
 
 const typeStyle = css`
   ${props => {
-    switch (props.type) {
+    switch (props.mode) {
       case 'primary':
         return css`
           color: #ffffff;
@@ -50,11 +50,14 @@ const typeStyle = css`
     }
   }}
 `;
+
 const StyledButton = styled.button`
+  display: ${props => props.display || 'block'};
   width: ${props => props.width || '200px'};
   height: ${props => props.height || '50px'};
   border: ${props => props.border || 0};
   border-radius: ${props => props.borderRadius || '5px'};
+  margin: ${props => props.margin || 0};
   box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3);
 
   ${typeStyle}
@@ -62,24 +65,28 @@ const StyledButton = styled.button`
   ${fullWidthStyle};
 `;
 
-const Button = ({ type, disabled, children, ariaLabel, ...restProps }) => {
+const Button = ({ type, mode, disabled, children, ariaLabel, ...restProps }) => {
   return (
-    <StyledButton type={type} disabled={disabled} aria-label={ariaLabel} {...restProps}>
+    <StyledButton type={type} mode={mode} disabled={disabled} aria-label={ariaLabel} {...restProps}>
       {children}
     </StyledButton>
   );
 };
 
 Button.propTypes = {
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  mode: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-  children: PropTypes.string
+  children: PropTypes.string,
+  ariaLabel: PropTypes.string
 };
 
 Button.defaultProps = {
-  type: 'primary',
+  type: 'button',
+  mode: 'primary',
   disabled: false,
-  children: '버튼'
+  children: '버튼',
+  ariaLabel: ''
 };
 
 Button.displayName = 'Button';
