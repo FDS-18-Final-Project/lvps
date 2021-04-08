@@ -3,10 +3,9 @@ import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
-  body {
-    font-family: 'Helvetica Neue LT Pro, sans-serif;
+  * {
+    font-family: 'Helvetica Neue LT Pro', sans-serif;    
   }
-
 `
 
 export default GlobalStyle;

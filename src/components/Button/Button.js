@@ -44,6 +44,7 @@ const compDesign = css`
   margin: 0;
   font-size: 36px;
   font-weight: 700;
+  font-family: inherit;
   text-decoration: none;
   align-items: center;
   justify-content: center;
