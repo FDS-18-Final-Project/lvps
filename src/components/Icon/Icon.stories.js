@@ -15,7 +15,7 @@ export default {
       description: '아이콘 이름과 타입',
       control: {
         type: 'select',
-        options: ['facebook', 'instagram', 'more'],
+        options: ['facebook', 'instagram', 'rightArrow'],
       },
     },
     color: {
@@ -43,8 +43,8 @@ Instagram.args = {
   color: 'red',
 };
 
-export const More = Template.bind({});
-More.args = {
-  type: 'more',
+export const RightArrow = Template.bind({});
+RightArrow.args = {
+  type: 'rightArrow',
   color: 'red',
 };
