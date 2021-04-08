@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { ReactComponent as Facebook } from 'assets/facebook.svg';
 import { ReactComponent as Instagram } from 'assets/instagram.svg';
-import { ReactComponent as More } from 'assets/more.svg';
+import { ReactComponent as RightArrow } from 'assets/rightArrow.svg';
 import { ReactComponent as Map } from 'assets/map.svg';
 
 const IconWrapper = styled.div`
@@ -28,14 +28,14 @@ const Icon = ({ type, color, children, ...restProps }) => {
     case 'instagram':
       Comp = Instagram;
       break;
-    case 'more':
-      Comp = More;
+    case 'rightArrow':
+      Comp = RightArrow;
       break;
     case 'map':
       Comp = Map;
       break;
     default:
-      throw new Error('타입을 잘못 입력하신것 같아요!');
+      throw new Error('타입을 입력하지 않으셨거나 잘못 입력하신것 같아요!');
   }
 
   return (
@@ -49,7 +49,6 @@ const Icon = ({ type, color, children, ...restProps }) => {
 IconWrapper.displayName = 'IconWrapper';
 
 Icon.defaultProps = {
-  type: '',
   color: 'red',
 };
 

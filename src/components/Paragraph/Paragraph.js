@@ -6,7 +6,7 @@ const ParagraphWrapper = styled.div`
   color: ${({ colors }) => colors.sub};
   line-height: 1.4;
 
-  h${({ headingNumber }) => headingNumber} {
+  h${({ headingNum }) => headingNum} {
     font-weight: bold;
     // TODO: rem으로 변경
     margin-bottom: 5px;
@@ -37,16 +37,16 @@ const ParagraphWrapper = styled.div`
 const Paragraph = ({
   title,
   type,
-  headingNumber,
+  headingNum,
   items,
   icon,
   children,
   colors,
 }) => {
-  let Comp = `h${headingNumber}`;
+  let Comp = `h${headingNum}`;
 
   return (
-    <ParagraphWrapper headingNumber={headingNumber} colors={colors}>
+    <ParagraphWrapper headingNum={headingNum} colors={colors}>
       <Comp>{title}</Comp>
       {type === 'list' && (
         <ul>
@@ -73,7 +73,7 @@ ParagraphWrapper.displayName = 'ParagraphWrapper';
 Paragraph.defaultProps = {
   title: '',
   type: 'normal',
-  headingNumber: 3,
+  headingNum: 3,
   items: [],
   // TODO: main black 컬러로 변경
   colors: { main: 'black', sub: 'black' },
@@ -82,7 +82,7 @@ Paragraph.defaultProps = {
 Paragraph.propTypes = {
   title: PropTypes.string,
   type: PropTypes.string,
-  headingNumber: PropTypes.number,
+  headingNum: PropTypes.number,
   items: PropTypes.array,
   icon: PropTypes.string,
   colors: PropTypes.object,

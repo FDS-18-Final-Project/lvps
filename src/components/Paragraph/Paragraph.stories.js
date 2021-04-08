@@ -21,7 +21,7 @@ export default {
         options: ['normal', 'list', 'title'],
       },
     },
-    headingNumber: {
+    headingNum: {
       description: '해딩 타입',
       control: {
         type: 'select',
@@ -37,7 +37,7 @@ export const Normal = Template.bind({});
 Normal.args = {
   title: 'blabla',
   type: 'normal',
-  headingNumber: 3,
+  headingNum: 3,
   children: '내용이 들어갈 자리',
 };
 
@@ -45,7 +45,7 @@ export const List = Template.bind({});
 List.args = {
   title: 'blabla',
   type: 'list',
-  headingNumber: 3,
+  headingNum: 3,
   items: ['첫 번째', '두 번째'],
 };
 
@@ -53,7 +53,7 @@ export const Title = Template.bind({});
 Title.args = {
   title: 'blabla',
   type: 'title',
-  headingNumber: 1,
+  headingNum: 1,
   children: '내용이 들어갈 자리',
   colors: { main: 'black', sub: 'gray' },
 };
