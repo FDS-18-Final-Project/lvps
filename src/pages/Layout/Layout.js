@@ -6,15 +6,10 @@ export const HomeLayout = styled.main``;
 
 HomeLayout.Container = styled.section`
   width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto;
 `;
 
-HomeLayout.FormHeader = styled.div`
-  text-align: center;
-  font-size: 4rem;
-`;
-
-HomeLayout.FormBody = styled.div``;
+HomeLayout.FormContainer = styled.div``;
 
 HomeLayout.displayName = 'HomeLayout';
 /* -------------------------------------------------------------------------- */

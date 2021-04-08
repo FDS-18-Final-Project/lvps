@@ -1,99 +1,52 @@
 /* eslint-disable import/no-anonymous-default-export */
-import Button from './Button';
+import MainBanner from './MainBanner'
 
 //스토리 구성 객체
 export default {
-  title: ' MMAuto/UI/button',
-  components: Button,
+  title: ' MMAuto/UI/MainBanner',
+  components: MainBanner,
   parameters: {
     docs: {
       description: {
         component:
-          'tag 선택에 따라 button 또는 a 요소로 변경되는 버튼 컴포넌트입니다.'
+          '메인 페이지 배너 컴포넌트입니다.'
       }
     },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%88%98%EC%A0%95?node-id=3%3A476'
+      url: 'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%88%98%EC%A0%95?node-id=12%3A356'
    }
   },
   argTypes: {
-    tag: {
-      type: 'select',
-      options: ['button', 'a']
-    },
-    type: { type: 'text' },
-    mode: {
-      type: 'select',
-      options: ['primary', 'secondary']
+    bgImg: { type: 'text' },
+    title: { type: 'text' },
+    desc: { type: 'text'},
+  },
+}
 
-    },
-    disabled: { control: 'boolean' },
-    children: { type: 'text' },
-    role: { type: 'text' },
-    href: { type: 'text' },
-  }
-};
-
-const Template = args => <Button {...args}></Button>;
+const Template = args => <MainBanner {...args}></MainBanner>;
 
 //스토리 구성 객체 기본 내보내기
-export const PrimaryNormalButton = Template.bind({});
+export const BannerAboutUs = Template.bind({});
 
-PrimaryNormalButton.args = {
-  tag: 'button',
-  type: 'button',
-  mode: 'primary',
-  disabled: false,
-  children: 'Get a Free Quote',
+BannerAboutUs.args = {
+  bgImg: '/',
+  title: 'About Us',
+  desc: 'MM Auto Care For Your Car',
 };
 
-export const PrimaryNormalAnchor = Template.bind({});
+export const BannerServices = Template.bind({});
 
-PrimaryNormalAnchor.args = {
-  tag: 'a',
-  mode: 'primary',
-  role: 'button',
-  href: '/',
-  children: 'Get a Free Quote',
+BannerServices.args = {
+  bgImg: '/',
+  title: 'Services',
+  desc: 'MM Auto Care For Your Car',
 };
 
-export const SecondaryNormalButton = Template.bind({});
+export const BannerDetailing = Template.bind({});
 
-SecondaryNormalButton.args = {
-  tag: 'button',
-  type: 'button',
-  mode: 'secondary',
-  disabled: false,
-  children: 'Get a Free Quote',
-};
-
-export const SecondaryNormalAnchor = Template.bind({});
-
-SecondaryNormalAnchor.args = {
-  tag: 'a',
-  mode: 'secondary',
-  role: 'button',
-  href: '/',
-  children: 'Get a Free Quote',
-};
-
-export const SecondaryHoverButton = Template.bind({});
-
-SecondaryHoverButton.args = {
-  tag: 'button',
-  type: 'button',
-  mode: 'secondary',
-  disabled: false,
-  children: 'Get a Free Quote',
-};
-
-export const SecondaryHoverAnchor = Template.bind({});
-
-SecondaryHoverAnchor.args = {
-  tag: 'a',
-  mode: 'secondary',
-  role: 'button',
-  href: '/',
-  children: 'Get a Free Quote',
+BannerDetailing.args = {
+  bgImg: '/',
+  title: 'Detailing & Paint Correction',
+  desc: 'MM Auto Care For Your Car',
 };

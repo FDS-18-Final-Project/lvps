@@ -5,10 +5,9 @@ import A11yHidden from '../../components/A11yHidden/A11yHidden.styled';
 const Home = () => {
   return (
     <HomeLayout>
-      <A11yHidden as='h2'>Main Page</A11yHidden>
+      <A11yHidden>Main Page</A11yHidden>
       <HomeLayout.Container>
-        <HomeLayout.FormHeader>Get a Quote</HomeLayout.FormHeader>
-        <HomeLayout.FormBody></HomeLayout.FormBody>
+        <HomeLayout.FormContainer></HomeLayout.FormContainer>
       </HomeLayout.Container>
     </HomeLayout>
   );

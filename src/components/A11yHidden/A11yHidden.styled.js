@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-const A11yHidden = styled.span`
+const A11yHidden = styled.h2`
   overflow: hidden;
   position: absolute;
   clip: rect(0, 0, 0, 0);

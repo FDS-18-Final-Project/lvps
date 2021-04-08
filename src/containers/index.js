@@ -1,2 +1,1 @@
-export { default as Header } from './Header/Header';
-export { default as Footer } from './Footer/Footer';
+// 예시 export { default as Header } from './Header/Header';
