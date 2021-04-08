@@ -1,67 +1,134 @@
 import styled, { css } from 'styled-components'
-import { string } from 'prop-types'
+import { oneOf, bool, string } from 'prop-types'
 
-// 메인 배너 스타일링
-const MainBannerBg = css`
-  background-color: pink;
-  // backgroung image로 변경해야함
-  background-image: url(${props => (props.bgImg)});
+// 버튼 색상 스타일링
+const compColor = css`
+  ${props => {
+    switch (props.mode) {
+      case 'primary': 
+        return css `
+          color: white;
+          background-color: #EB1527;
+          border: none;
+        `
+      case 'secondary':
+        return css`
+          color: black;
+          background-color: white;
+          border: 4px solid #EB1527;
+        `
+      default: 
+        return css `
+            color: white;
+            background-color: #EB1527;
+            border: none;
+          `
+    }
+  }}
 `
 
-const textColor = css`
-  color: white;
+// 마우스 호버 버튼 스타일링
+const hoveredCompColor = css`
+  &:hover {
+    color: white;
+    background-color: #EB1527;
+  }
 `
 
-const MainBannerTitle = styled.h2`
-  display: inline-block;
-  font-size: 70px;
-  font-weight: 900;
-  margin: 0;
-  // title 하단 경계선 길이 확인 필요
-  padding: 0 20px 45px 0;
-  border-bottom: 4px solid ${textColor.color};
-`
-
-const MainBannerDesc = styled.p`
-  // 텍스트 길이에 따라 width 지정 필요
-  margin-top: 45px;
-  font-size: 36px;
-  font-weight: 500;
-`
-
-const StyledMainBanner = styled.div`
+// 버튼 모양 스타일링 (모바일 디자인 필요)
+const compDesign = css`
+  display: flex;
   box-sizing: border-box;
-  width: 100%;
-  height: 840px;
-  padding-top: 240px;
-  padding-left: 200px;
-  padding-bottom: 400px;
+  width: 465px;
+  height: 96px;
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
 
-  ${MainBannerBg}
-  ${textColor}
+  &:focus {
+    outline: none;
+  }
 `
 
-// 메인 배너 컴포넌트
-export default function MainBanner({ bgImg, title, desc}) {
-  return (
-  <StyledMainBanner bgImg={bgImg}>
-    <MainBannerTitle>{title}</MainBannerTitle>
-    <MainBannerDesc>{desc}</MainBannerDesc>
-  </StyledMainBanner>
-  )
+const StyledButton = styled.button`
+  ${compColor}
+  ${hoveredCompColor}
+  ${compDesign}
+`
+
+const StyledAnchor = styled.a`
+  ${compColor}
+  ${hoveredCompColor}
+  ${compDesign}
+`
+
+// button 컴포넌트
+const Button = ({ 
+  type, 
+  mode, 
+  disabled, 
+  children, 
+  ...restProps }) => {
+  return (<StyledButton
+    type={type}
+    mode={mode}
+    disabled={disabled}
+    {...restProps}
+  >
+    {children}
+  </StyledButton>
+)}
+
+// a 컴포넌트
+const Anchor = ({
+  mode,
+  role,
+  href,
+  children,
+  ...restProps }) => {
+  return (<StyledAnchor
+    role={role}
+    href={href}
+    {...restProps}
+  >
+    {children}
+  </StyledAnchor>
+)}
+
+// 버튼 컴포넌트
+const ButtonComp = ({ 
+  tag,
+  ...restProps}) => {
+  const Tag = tag === 'button' ? Button : Anchor
   
+  return (
+    <Tag {...restProps} />
+  )
+
 }
 
-MainBanner.propTypes = {
-  bgImg: string,
-  title: string, 
-  desc: string,
+ButtonComp.propTypes = {
+  tag: oneOf(['button', 'a']),
+  type: string,
+  mode: oneOf(['primary', 'secondary']),
+  disabled: bool,
+  role: string,
+  href: string,
 }
 
-MainBanner.defaultProps = {
-  title: 'Main Banner Title',
-  desc: 'Main Banner Description',
-  bgImg: '',
+ButtonComp.defaultProps = {
+  tag: 'button',
+  type: 'button',
+  mode: 'primary',
+  disabled: false,
+  role: 'button',
+  href: '/',
+  children: 'Button',
 }
 
-MainBanner.displayName = 'MainBanner'
+ButtonComp.displayName = 'Button'
+
+export default ButtonComp;
