@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from 'theme/theme';
 import GetAQuoteBanner from './GetAQuoteBanner';
@@ -21,15 +22,17 @@ export default {
 };
 
 const Template = (args) => (
-  <ThemeProvider theme={theme}>
-    <GetAQuoteBanner {...args} />
-  </ThemeProvider>
+  <BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <GetAQuoteBanner {...args} />
+    </ThemeProvider>
+  </BrowserRouter>
 );
 
 export const GetAQuoteBannerBlock = Template.bind({});
 
 GetAQuoteBannerBlock.args = {
-  children: [<GetAQuoteBanner.Title />, <GetAQuoteBanner.Link />],
+  children: [<GetAQuoteBanner.Title />, <GetAQuoteBanner.LinkButton />],
 };
 
 GetAQuoteBannerBlock.storyName = 'Get a quote 배너';

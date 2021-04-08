@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import theme from '../../utils/theme';
+import theme from 'theme/theme';
 import AccordionItem from 'components/AccodionItem/AccordionItem';
 import GlobalStyle from '../../styles/GlobalStyle';
 import AccordionList from './AccordionList';
@@ -142,12 +142,12 @@ const accordionState = [
 ];
 
 //template 만들기
-const Template = args => (
+const Template = (args) => (
   <BrowserRouter>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <AccordionList {...args}>
-        {args.accordion.map(item => (
+        {args.accordion.map((item) => (
           <AccordionItem item={item} />
         ))}
       </AccordionList>

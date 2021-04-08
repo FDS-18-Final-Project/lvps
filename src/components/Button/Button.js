@@ -4,10 +4,9 @@ import { oneOf, bool, string } from 'prop-types';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-
 // 버튼 색상 스타일링
 const compColor = css`
-  ${props => {
+  ${(props) => {
     switch (props.mode) {
       case 'primary':
         return css`
@@ -73,7 +72,6 @@ const StyledAnchor = styled(motion(Link))`
 // button 컴포넌트
 
 const Button = ({ type, mode, disabled, children, ...restProps }) => {
-
   return (
     <StyledButton type={type} mode={mode} disabled={disabled} {...restProps}>
       {children}
@@ -84,8 +82,6 @@ const Button = ({ type, mode, disabled, children, ...restProps }) => {
 // a 컴포넌트
 
 const LinkA = ({ mode, role, href, children, ...restProps }) => {
-
-
   return (
     <StyledAnchor role={role} href={href} {...restProps}>
       {children}
@@ -97,7 +93,6 @@ const LinkA = ({ mode, role, href, children, ...restProps }) => {
 
 const ButtonComp = ({ tag, ...restProps }) => {
   const Tag = tag === 'button' ? Button : LinkA;
-
 
   return <Tag {...restProps} />;
 };
@@ -119,10 +114,9 @@ Button.defaultProps = {
   role: 'button',
   href: '/',
 
-  children: 'Button'
+  children: 'Button',
 };
 
 Button.displayName = 'Button';
 
-export default Button;
-
+export default ButtonComp;

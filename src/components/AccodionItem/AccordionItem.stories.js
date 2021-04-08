@@ -1,9 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import theme from '../../utils/theme';
+import theme from 'theme/theme';
 import AccordionItem from 'components/AccodionItem/AccordionItem';
-import GlobalStyle from '../../styles/GlobalStyle';
+import GlobalStyle from 'styles/GlobalStyle';
 
 export default {
   title: 'MMAuto/Component/AccodionItem',
@@ -39,7 +39,7 @@ export default {
 };
 
 //template 만들기
-const Template = args => (
+const Template = (args) => (
   <BrowserRouter>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
