@@ -1,10 +1,17 @@
 import { Icon } from 'components';
+import { ThemeProvider } from 'styled-components';
+import theme from 'theme/theme';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  title: 'MMAuto/UI/Icon',
+  title: 'MMAuto/Component/Icon',
   Component: Icon,
   parameters: {
+    docs: {
+      description: {
+        component: '**Icon** 컴포넌트는 아이콘 사용을 위한 컴포넌트 입니다..',
+      },
+    },
     design: {
       type: 'figma',
       url:
@@ -16,25 +23,24 @@ export default {
       description: '아이콘 이름과 타입',
       control: {
         type: 'select',
-        options: ['facebook', 'instagram', 'rightArrow']
-      }
+        options: ['facebook', 'instagram', 'rightArrow', 'map'],
+      },
     },
     color: {
-      description: '아이콘 색',
-      control: {
-        type: 'select',
-        options: ['red', 'blue', 'orange'],
-      },
+      description: '아이콘 색'
     },
   },
 };
 
-const Template = args => <Icon {...args} />;
+const Template = (args) => (
+  <ThemeProvider theme={theme}>
+    <Icon {...args} />
+  </ThemeProvider>
+);
 
 export const Facebook = Template.bind({});
 Facebook.args = {
   type: 'facebook',
-  // TODO: theme 색상 정해서 main 등으로 바꾸기
   color: 'red',
 };
 
@@ -47,7 +53,5 @@ Instagram.args = {
 export const RightArrow = Template.bind({});
 RightArrow.args = {
   type: 'rightArrow',
-
-  color: 'red'
-
+  color: 'red',
 };

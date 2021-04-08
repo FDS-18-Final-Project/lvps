@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Helvetica Neue LT Pro', sans-serif;    
   }
-`
+`;
 
 
 export default GlobalStyle;

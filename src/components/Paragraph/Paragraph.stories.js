@@ -1,10 +1,18 @@
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle from 'styles/GlobalStyle';
+import theme from 'theme/theme';
 import Paragraph from './Paragraph';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  title: 'MMAuto/UI/Paragraph',
+  title: 'MMAuto/Component/Paragraph',
   Component: Paragraph,
   parameters: {
+    docs: {
+      description: {
+        component: '**Paragraph** 컴포넌트는 제목과 내용으로 구성됩니다.',
+      },
+    },
     design: {
       type: 'figma',
       url:
@@ -32,7 +40,14 @@ export default {
   },
 };
 
-const Template = args => <Paragraph {...args} />;
+const Template = (args) => (
+  <>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <Paragraph {...args} />
+    </ThemeProvider>
+  </>
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
