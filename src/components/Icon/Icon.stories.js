@@ -1,5 +1,6 @@
 import Icon from './Icon';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: 'MMAuto/UI/Icon',
   Component: Icon,
@@ -28,7 +29,7 @@ export default {
   },
 };
 
-const Template = (args) => <Icon {...args} />;
+const Template = args => <Icon {...args} />;
 
 export const Facebook = Template.bind({});
 Facebook.args = {

@@ -1,15 +1,13 @@
 import React from 'react';
 import Routes from '../routes';
 import { BrowserRouter } from 'react-router-dom';
-import Logo from '../components/Logo/Logo';
-import Navbar from '@components/Navbar/Navbar';
 import Footer from 'containers/Footer/Footer';
+import Header from 'containers/Header/Header';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Logo tag="h2" />
-      <Navbar />
+      <Header />
       <Routes />
       <Footer>
         <Footer.Logo />
