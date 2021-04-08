@@ -9,7 +9,7 @@ const ParagraphWrapper = styled.div`
   h${({ headingNum }) => headingNum} {
     font-weight: bold;
     // TODO: rem으로 변경
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     color: ${({ colors }) => colors.main};
   }
 

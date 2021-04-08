@@ -1,7 +1,7 @@
 import Paragraph from './Paragraph';
 
 export default {
-  title: 'MMAuto/UI/Paragraph',
+  title: 'MMAuto/Component/Paragraph',
   Component: Paragraph,
   parameters: {
     design: {
