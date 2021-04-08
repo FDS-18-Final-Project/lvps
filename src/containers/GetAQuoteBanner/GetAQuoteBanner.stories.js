@@ -1,9 +1,17 @@
+import { ThemeProvider } from 'styled-components';
+import theme from 'theme/theme';
 import GetAQuoteBanner from './GetAQuoteBanner';
 
 export default {
   title: 'MMAuto/Container/GetAQuoteBanner',
   component: GetAQuoteBanner,
   parameters: {
+    docs: {
+      description: {
+        component:
+          '**GetAQuoteBanner** 컨테이너는 메인 화면의 한 section 입니다.',
+      },
+    },
     design: {
       type: 'figma',
       url:
@@ -12,7 +20,11 @@ export default {
   },
 };
 
-const Template = (args) => <GetAQuoteBanner {...args} />;
+const Template = (args) => (
+  <ThemeProvider theme={theme}>
+    <GetAQuoteBanner {...args} />
+  </ThemeProvider>
+);
 
 export const GetAQuoteBannerBlock = Template.bind({});
 

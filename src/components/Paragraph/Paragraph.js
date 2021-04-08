@@ -8,29 +8,37 @@ const ParagraphWrapper = styled.div`
 
   h${({ headingNum }) => headingNum} {
     font-weight: bold;
-    // TODO: rem으로 변경
-    margin-bottom: 10px;
+    margin-bottom: ${({ theme }) => theme.margins.base};
     color: ${({ colors }) => colors.main};
   }
 
-  // TODO: theme으로 fontSize 변경
   h1 {
-    font-size: 3rem;
+    font-size: ${({ theme }) => theme.fontSizes.titleLarge};
   }
   h2 {
-    font-size: 2.5rem;
+    font-size: ${({ theme }) => theme.fontSizes.titleBase};
   }
   h3 {
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.fontSizes.small};
   }
 
   .icon-wrapper {
     display: flex;
     align-items: center;
   }
+  li {
+    font-size: ${({ size }) => `${size}px`};
+  }
   span {
-    // TODO: rem으로 변경
-    margin-left: 5px;
+    margin-left: ${({ theme }) => theme.margins.small};
+  }
+  p {
+    font-size: ${({ size }) => `${size}px`};
+  }
+  li,
+  p,
+  span {
+    font-weight: 300;
   }
 `;
 
@@ -42,11 +50,12 @@ const Paragraph = ({
   icon,
   children,
   colors,
+  size,
 }) => {
   let Comp = `h${headingNum}`;
 
   return (
-    <ParagraphWrapper headingNum={headingNum} colors={colors}>
+    <ParagraphWrapper headingNum={headingNum} colors={colors} size={size}>
       <Comp>{title}</Comp>
       {type === 'list' && (
         <ul>
@@ -57,26 +66,14 @@ const Paragraph = ({
                   <span>{item}</span>
                 </Icon>
               )}
-              {/* 아이콘이 있으면 item 안보여주고, 없으면 icon 보여줘 */}
               {icon ? null : item}
             </li>
           ))}
         </ul>
       )}
-      {children}
+      <p>{children}</p>
     </ParagraphWrapper>
   );
-};
-
-ParagraphWrapper.displayName = 'ParagraphWrapper';
-
-Paragraph.defaultProps = {
-  title: '',
-  type: 'normal',
-  headingNum: 3,
-  items: [],
-  // TODO: main black 컬러로 변경
-  colors: { main: 'black', sub: 'black' },
 };
 
 Paragraph.propTypes = {
@@ -87,5 +84,15 @@ Paragraph.propTypes = {
   icon: PropTypes.string,
   colors: PropTypes.object,
 };
+
+Paragraph.defaultProps = {
+  title: '',
+  type: 'normal',
+  headingNum: 3,
+  items: [],
+  colors: { main: '#2D2D2D', sub: '#2D2D2D' },
+};
+
+ParagraphWrapper.displayName = 'ParagraphWrapper';
 
 export default Paragraph;

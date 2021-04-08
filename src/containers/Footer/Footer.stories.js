@@ -1,9 +1,15 @@
+import GlobalStyle from 'styles/GlobalStyle';
 import Footer from './Footer';
 
 export default {
   title: 'MMAuto/Container/Footer',
   component: Footer,
   parameters: {
+    docs: {
+      description: {
+        component: '**Footer** 컨테이너는 각 페이지의 footer section 입니다.',
+      },
+    },
     design: {
       type: 'figma',
       url:
@@ -12,7 +18,12 @@ export default {
   },
 };
 
-const Template = (args) => <Footer {...args} />;
+const Template = (args) => (
+  <>
+    <GlobalStyle />
+    <Footer {...args} />
+  </>
+);
 
 export const FooterBlock = Template.bind({});
 
