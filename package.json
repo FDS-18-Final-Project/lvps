@@ -18,6 +18,7 @@
     "redux-promise": "^0.6.0",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7",
+    "styled-reset": "^4.3.4",
     "web-vitals": "^1.0.1",
     "yup": "^0.32.9"
   },
