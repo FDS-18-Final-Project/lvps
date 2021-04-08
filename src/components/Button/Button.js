@@ -1,92 +1,113 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
+import { oneOf, bool, string } from 'prop-types';
 
-const fullWidthStyle = css`
-  ${props =>
-    props.fullWidth &&
-    css`
-      width: 100%;
-    `}
-`;
-
-const disabledStyle = css`
-  ${props => {
-    if (props.disabled && props.mode === 'primary') {
-      return css`
-        color: #d4e0ed;
-        background: #97aabd;
-        cursor: not-allowed;
-      `;
-    }
-    if (props.disabled && props.mode === 'secondary') {
-      return css`
-        color: #97aabd;
-        background: #d4e0ed;
-        cursor: not-allowed;
-      `;
-    }
-  }}
-`;
-
-const typeStyle = css`
+// 버튼 색상 스타일링
+const compColor = css`
   ${props => {
     switch (props.mode) {
       case 'primary':
         return css`
-          color: #ffffff;
-          background: #0074e9;
+          color: white;
+          background-color: #eb1527;
+          border: none;
         `;
       case 'secondary':
         return css`
-          color: #0074e9;
-          background: #ffffff;
+          color: black;
+          background-color: white;
+          border: 4px solid #eb1527;
         `;
       default:
         return css`
-          color: #ffffff;
-          background: #0074e9;
+          color: white;
+          background-color: #eb1527;
+          border: none;
         `;
     }
   }}
 `;
 
-const StyledButton = styled.button`
-  display: ${props => props.display || 'block'};
-  width: ${props => props.width || '200px'};
-  height: ${props => props.height || '50px'};
-  border: ${props => props.border || 0};
-  border-radius: ${props => props.borderRadius || '5px'};
-  margin: ${props => props.margin || 0};
-  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3);
-
-  ${typeStyle}
-  ${disabledStyle};
-  ${fullWidthStyle};
+// 마우스 호버 버튼 스타일링
+const hoveredCompColor = css`
+  &:hover {
+    color: white;
+    background-color: #eb1527;
+  }
 `;
 
-const Button = ({ type, mode, disabled, children, ariaLabel, ...restProps }) => {
+// 버튼 모양 스타일링 (모바일 디자인 필요)
+const compDesign = css`
+  display: flex;
+  box-sizing: border-box;
+  width: 465px;
+  height: 96px;
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  font-family: inherit;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const StyledButton = styled.button`
+  ${compColor}
+  ${hoveredCompColor}
+  ${compDesign}
+`;
+
+const StyledAnchor = styled.a`
+  ${compColor}
+  ${hoveredCompColor}
+  ${compDesign}
+`;
+
+// button 컴포넌트
+const ButtonComp = ({ type, mode, disabled, children, ...restProps }) => {
   return (
-    <StyledButton type={type} mode={mode} disabled={disabled} aria-label={ariaLabel} {...restProps}>
+    <StyledButton type={type} mode={mode} disabled={disabled} {...restProps}>
       {children}
     </StyledButton>
   );
 };
 
+// a 컴포넌트
+const AnchorComp = ({ mode, role, href, children, ...restProps }) => {
+  return (
+    <StyledAnchor role={role} href={href} {...restProps}>
+      {children}
+    </StyledAnchor>
+  );
+};
+
+// 버튼 컴포넌트
+const Button = ({ tag, ...restProps }) => {
+  const Tag = tag === 'button' ? ButtonComp : AnchorComp;
+
+  return <Tag {...restProps} />;
+};
+
 Button.propTypes = {
-  type: PropTypes.string,
-  mode: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  children: PropTypes.string,
-  ariaLabel: PropTypes.string
+  tag: oneOf(['button', 'a']),
+  type: string,
+  mode: oneOf(['primary', 'secondary']),
+  disabled: bool,
+  role: string,
+  href: string
 };
 
 Button.defaultProps = {
+  tag: 'button',
   type: 'button',
   mode: 'primary',
   disabled: false,
-  children: '버튼',
-  ariaLabel: ''
+  role: 'button',
+  href: '/',
+  children: 'Button'
 };
 
 Button.displayName = 'Button';

@@ -1,7 +1,7 @@
-import Icon from './Icon';
+import { Icon } from 'components';
 
 export default {
-  title: 'MMAuto/UI/Icon',
+  title: 'MMAuto/Component/Icon',
   Component: Icon,
   parameters: {
     design: {

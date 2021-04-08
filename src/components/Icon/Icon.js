@@ -15,7 +15,7 @@ const IconWrapper = styled.div`
     margin-right: 5px;
   }
   path {
-    fill: ${(props) => props.color};
+    fill: ${props => props.color};
   }
 `;
 
@@ -28,15 +28,16 @@ const Icon = ({ type, color, children, ...restProps }) => {
   );
 };
 
-IconWrapper.displayName = 'IconWrapper';
-
 Icon.defaultProps = {
-  color: 'red',
+  type: 'rightArrow',
+  color: 'red'
 };
 
 Icon.propTypes = {
   type: PropTypes.string.isRequired,
-  color: PropTypes.string,
+  color: PropTypes.string
 };
+
+IconWrapper.displayName = 'IconWrapper';
 
 export default Icon;
