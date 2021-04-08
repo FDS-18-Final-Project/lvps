@@ -7,6 +7,9 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
+  body {
+    font-family: 'Helvetica Neue LT Pro, sans-serif';
+  }
 `;
 
 export default GlobalStyle;
