@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const HomeLayout = styled.main``;
 
 HomeLayout.Container = styled.section`
-  width: 1200px;
+  width: 100%;
   margin: 40px auto;
 `;
 
