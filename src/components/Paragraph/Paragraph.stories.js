@@ -1,5 +1,6 @@
 import Paragraph from './Paragraph';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: 'MMAuto/UI/Paragraph',
   Component: Paragraph,
@@ -31,7 +32,7 @@ export default {
   },
 };
 
-const Template = (args) => <Paragraph {...args} />;
+const Template = args => <Paragraph {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
