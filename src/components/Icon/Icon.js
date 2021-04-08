@@ -5,6 +5,11 @@ import { ReactComponent as Facebook } from 'assets/facebook.svg';
 import { ReactComponent as Instagram } from 'assets/instagram.svg';
 import { ReactComponent as RightArrow } from 'assets/rightArrow.svg';
 import { ReactComponent as Map } from 'assets/map.svg';
+import { ReactComponent as CheckedCar } from 'assets/checkedCar.svg';
+import { ReactComponent as ClickHand } from 'assets/clickHand.svg';
+import { ReactComponent as Close } from 'assets/close.svg';
+import { ReactComponent as SearchWhite } from 'assets/search-white.svg';
+import { ReactComponent as SearchGray } from 'assets/search-gray.svg';
 
 const IconWrapper = styled.div`
   // TODO: rem으로 변경
@@ -14,7 +19,7 @@ const IconWrapper = styled.div`
     margin-right: 5px;
   }
   path {
-    fill: ${(props) => props.color};
+    fill: ${props => props.color};
   }
 `;
 
@@ -34,27 +39,43 @@ const Icon = ({ type, color, children, ...restProps }) => {
     case 'map':
       Comp = Map;
       break;
+    case 'checkedCar':
+      Comp = CheckedCar;
+      break;
+    case 'clickHand':
+      Comp = ClickHand;
+      break;
+    case 'close':
+      Comp = Close;
+      break;
+    case 'searchWhite':
+      Comp = SearchWhite;
+      break;
+    case 'searchGray':
+      Comp = SearchGray;
+      break;
     default:
       throw new Error('타입을 입력하지 않으셨거나 잘못 입력하신것 같아요!');
   }
 
   return (
-    <IconWrapper color={color} className="icon-wrapper">
+    <IconWrapper color={color} className='icon-wrapper'>
       <Comp title={type} {...restProps} />
       {children}
     </IconWrapper>
   );
 };
 
-IconWrapper.displayName = 'IconWrapper';
-
 Icon.defaultProps = {
-  color: 'red',
+  type: 'rightArrow',
+  color: 'red'
 };
 
 Icon.propTypes = {
   type: PropTypes.string.isRequired,
-  color: PropTypes.string,
+  color: PropTypes.string
 };
+
+IconWrapper.displayName = 'IconWrapper';
 
 export default Icon;
