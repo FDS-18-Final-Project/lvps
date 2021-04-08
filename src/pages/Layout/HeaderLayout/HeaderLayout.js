@@ -15,7 +15,6 @@ const HeaderLayoutFlexContainer = styled.div`
   justify-content: ${props => props.justify};
   align-items: ${props => props.align};
 `;
-
 function HeaderLayout({ children }) {
   return <HeaderWrapper>{children}</HeaderWrapper>;
 }
