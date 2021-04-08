@@ -8,8 +8,7 @@ const GetAQuoteBannerBlock = styled.section`
   justify-content: space-between;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.red_05};
-  // TODO: theme으로 변경
-  padding: 108px 200px;
+  padding: ${({ theme }) => theme.calcInterval([108, 200])};
 `;
 
 const GetAQuoteBanner = ({ children }) => {
@@ -33,5 +32,9 @@ GetAQuoteBanner.Title = () => {
 GetAQuoteBanner.Link = () => {
   return <Button mode="secondary">Get a Free Quote</Button>;
 };
+
+GetAQuoteBannerBlock.displayName = 'GetAQuoteBannerBlock';
+GetAQuoteBanner.Title.displayName = 'GetAQuoteBanner-Title';
+GetAQuoteBanner.Link.displayName = 'GetAQuoteBanner-Link';
 
 export default GetAQuoteBanner;

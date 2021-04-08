@@ -86,4 +86,8 @@ Footer.Content = () => {
   );
 };
 
+FooterContent.displayName = 'Footer';
+Footer.Logo.displayName = 'Footer-Logo';
+Footer.Content.displayName = 'Footer-Content';
+
 export default Footer;
