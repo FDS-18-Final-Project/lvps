@@ -103,4 +103,5 @@ AccordionItem.defaultProps = {
   },
 };
 
+ItemWrapper.displayName = 'AccordionItemWrapper';
 export default React.memo(AccordionItem);

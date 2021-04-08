@@ -93,4 +93,6 @@ AccordionList.defaultProps = {
   accordion: accordionState,
 };
 
+AccordionWrapper.displayName = 'AccordionWrapper';
+
 export default AccordionList;
