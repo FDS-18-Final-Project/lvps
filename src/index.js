@@ -5,7 +5,10 @@ import App from './app/App';
 // style
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'styles/GlobalStyle';
-import theme from './utils/theme';
+
+// theme
+import theme from 'theme/theme';
+
 //redux
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';

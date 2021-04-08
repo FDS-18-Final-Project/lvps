@@ -1,5 +1,4 @@
-/* eslint-disable import/no-anonymous-default-export */
-import Card from './Card';
+import { Card } from 'components';
 import { withDesign } from 'storybook-addon-designs';
 
 export default {
