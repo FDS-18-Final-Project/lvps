@@ -1,5 +1,4 @@
-/* eslint-disable import/no-anonymous-default-export */
-import Icon from './Icon';
+import { Icon } from 'components';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -17,8 +16,8 @@ export default {
       description: '아이콘 이름과 타입',
       control: {
         type: 'select',
-        options: ['facebook', 'instagram', 'rightArrow'],
-      },
+        options: ['facebook', 'instagram', 'rightArrow']
+      }
     },
     color: {
       description: '아이콘 색',
@@ -48,5 +47,7 @@ Instagram.args = {
 export const RightArrow = Template.bind({});
 RightArrow.args = {
   type: 'rightArrow',
-  color: 'red',
+
+  color: 'red'
+
 };

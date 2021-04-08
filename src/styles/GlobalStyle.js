@@ -3,6 +3,7 @@ import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
+
   a {
     text-decoration: none;
     color: inherit;
@@ -14,5 +15,11 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 `;
+
+  * {
+    font-family: 'Helvetica Neue LT Pro', sans-serif;    
+  }
+`
+
 
 export default GlobalStyle;
