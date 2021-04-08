@@ -10,6 +10,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Helvetica Neue LT Pro, sans-serif';
   }
+  ul, ol, li {
+    list-style: none;
+  }
 `;
 
 export default GlobalStyle;

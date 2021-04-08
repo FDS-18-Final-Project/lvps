@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../../utils/theme';
 
 export default {
-  title: 'MMAuto/UI/Logo',
+  title: 'MMAuto/Component/Logo',
   component: Logo,
   parameters: {
     docs: {

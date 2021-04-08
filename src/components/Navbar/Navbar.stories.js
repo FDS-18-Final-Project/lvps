@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../../utils/theme';
 
 export default {
-  title: 'MMAuto/UI/Navbar',
+  title: 'MMAuto/Component/Navbar',
   component: Navbar,
   parameters: {
     docs: {

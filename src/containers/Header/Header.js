@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from '@components/Navbar/Navbar';
-import Logo from '@components/Logo/Logo';
+import Navbar from 'components/Navbar/Navbar';
+import Logo from 'components/Logo/Logo';
 import HeaderLayout from 'pages/Layout/HeaderLayout/HeaderLayout';
 import Icon from 'components/Icon/Icon';
 
