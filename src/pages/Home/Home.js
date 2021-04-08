@@ -1,6 +1,6 @@
 import React from 'react';
 import { HomeLayout } from '../index';
-import A11yHidden from '../../components/A11yHidden/A11yHidden.styled';
+import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 
 const Home = () => {
   return (
