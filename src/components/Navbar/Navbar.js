@@ -5,7 +5,9 @@ import styled from 'styled-components';
 
 const NavbarWrapper = styled.ul`
   padding: 0;
+  margin: 0;
   list-style: none;
+  width: 100%;
   display: flex;
   flex-direction: ${props => props.direction};
   justify-content: ${props => props.justify};
@@ -15,13 +17,21 @@ const NavbarWrapper = styled.ul`
   a {
     display: inline-block;
     padding: 2rem 0;
-
+    transition: 0.4s;
     text-decoration: none;
     color: inherit;
+
+    &:hover {
+      color: rgba(235, 21, 39, 0.8);
+    }
   }
 
   li {
     margin: 0 20px;
+  }
+
+  .active {
+    color: rgba(235, 21, 39, 0.8);
   }
 `;
 

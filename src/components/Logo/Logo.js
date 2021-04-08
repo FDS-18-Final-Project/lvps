@@ -8,7 +8,6 @@ const Heading = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: ${props => props.theme.paddings.xl};
   margin: 0;
   max-width: ${props => `${props.maxWidth}px`};
 
@@ -49,4 +48,6 @@ Logo.propTypes = {
 };
 
 Heading.displayName = 'Logo Heading';
+Image.displayName = 'Logo Image';
+
 export default Logo;
