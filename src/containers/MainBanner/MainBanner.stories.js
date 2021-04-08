@@ -1,5 +1,4 @@
-/* eslint-disable import/no-anonymous-default-export */
-import MainBanner from './MainBanner'
+import MainBanner from './MainBanner';
 
 //스토리 구성 객체
 export default {
@@ -8,21 +7,21 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          '메인 페이지 배너 컴포넌트입니다.'
+        component: '메인 페이지 배너 컴포넌트입니다.'
       }
     },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%88%98%EC%A0%95?node-id=12%3A356'
-   }
+      url:
+        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%88%98%EC%A0%95?node-id=12%3A356'
+    }
   },
   argTypes: {
     bgImg: { type: 'text' },
     title: { type: 'text' },
-    desc: { type: 'text'},
-  },
-}
+    desc: { type: 'text' }
+  }
+};
 
 const Template = args => <MainBanner {...args}></MainBanner>;
 
@@ -32,7 +31,7 @@ export const BannerAboutUs = Template.bind({});
 BannerAboutUs.args = {
   bgImg: '/',
   title: 'About Us',
-  desc: 'MM Auto Care For Your Car',
+  desc: 'MM Auto Care For Your Car'
 };
 
 export const BannerServices = Template.bind({});
@@ -40,7 +39,7 @@ export const BannerServices = Template.bind({});
 BannerServices.args = {
   bgImg: '/',
   title: 'Services',
-  desc: 'MM Auto Care For Your Car',
+  desc: 'MM Auto Care For Your Car'
 };
 
 export const BannerDetailing = Template.bind({});
@@ -48,5 +47,5 @@ export const BannerDetailing = Template.bind({});
 BannerDetailing.args = {
   bgImg: '/',
   title: 'Detailing & Paint Correction',
-  desc: 'MM Auto Care For Your Car',
+  desc: 'MM Auto Care For Your Car'
 };
