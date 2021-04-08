@@ -2,6 +2,7 @@ import { Icon } from 'components';
 import { ThemeProvider } from 'styled-components';
 import theme from 'theme/theme';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: 'MMAuto/Component/Icon',
   Component: Icon,
@@ -26,7 +27,7 @@ export default {
       },
     },
     color: {
-      description: '아이콘 색',
+      description: '아이콘 색'
     },
   },
 };

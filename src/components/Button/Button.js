@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 import { oneOf, bool, string } from 'prop-types';
 
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+
+
 // 버튼 색상 스타일링
 const compColor = css`
   ${props => {
@@ -60,14 +64,16 @@ const StyledButton = styled.button`
   ${compDesign}
 `;
 
-const StyledAnchor = styled.a`
+const StyledAnchor = styled(motion(Link))`
   ${compColor}
   ${hoveredCompColor}
   ${compDesign}
 `;
 
 // button 컴포넌트
-const ButtonComp = ({ type, mode, disabled, children, ...restProps }) => {
+
+const Button = ({ type, mode, disabled, children, ...restProps }) => {
+
   return (
     <StyledButton type={type} mode={mode} disabled={disabled} {...restProps}>
       {children}
@@ -76,7 +82,10 @@ const ButtonComp = ({ type, mode, disabled, children, ...restProps }) => {
 };
 
 // a 컴포넌트
-const AnchorComp = ({ mode, role, href, children, ...restProps }) => {
+
+const LinkA = ({ mode, role, href, children, ...restProps }) => {
+
+
   return (
     <StyledAnchor role={role} href={href} {...restProps}>
       {children}
@@ -85,8 +94,10 @@ const AnchorComp = ({ mode, role, href, children, ...restProps }) => {
 };
 
 // 버튼 컴포넌트
-const Button = ({ tag, ...restProps }) => {
-  const Tag = tag === 'button' ? ButtonComp : AnchorComp;
+
+const ButtonComp = ({ tag, ...restProps }) => {
+  const Tag = tag === 'button' ? Button : LinkA;
+
 
   return <Tag {...restProps} />;
 };
@@ -97,7 +108,7 @@ Button.propTypes = {
   mode: oneOf(['primary', 'secondary']),
   disabled: bool,
   role: string,
-  href: string
+  href: string,
 };
 
 Button.defaultProps = {
@@ -107,9 +118,11 @@ Button.defaultProps = {
   disabled: false,
   role: 'button',
   href: '/',
+
   children: 'Button'
 };
 
 Button.displayName = 'Button';
 
 export default Button;
+

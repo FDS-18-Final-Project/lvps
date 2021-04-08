@@ -3,6 +3,7 @@ import GlobalStyle from 'styles/GlobalStyle';
 import theme from 'theme/theme';
 import Paragraph from './Paragraph';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: 'MMAuto/Component/Paragraph',
   Component: Paragraph,
