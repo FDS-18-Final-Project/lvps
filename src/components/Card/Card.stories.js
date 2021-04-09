@@ -2,7 +2,7 @@ import { Card } from 'components';
 import { withDesign } from 'storybook-addon-designs';
 
 export default {
-  title: 'MMAuto/UI/Card',
+  title: 'MMAuto/Component/Card',
   component: Card,
   decorators: [withDesign],
   parameters: {

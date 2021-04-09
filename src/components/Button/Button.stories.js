@@ -1,8 +1,10 @@
 import { Button } from 'components';
+import { BrowserRouter } from 'react-router-dom';
+import GlobalStyle from '../../styles/GlobalStyle';
 
 //스토리 구성 객체
 export default {
-  title: ' MMAuto/UI/button',
+  title: ' MMAuto/Component/Button',
   components: Button,
   parameters: {
     docs: {
@@ -37,7 +39,12 @@ export default {
   }
 };
 
-const Template = args => <Button {...args}></Button>;
+const Template = args => (
+  <BrowserRouter>
+    <GlobalStyle />
+    <Button {...args}></Button>
+  </BrowserRouter>
+);
 
 //스토리 구성 객체 기본 내보내기
 export const PrimaryNormalButton = Template.bind({});

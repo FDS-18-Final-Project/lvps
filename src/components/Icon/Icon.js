@@ -7,15 +7,14 @@ const IconWrapper = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  margin-bottom: ${({ theme }) => theme.margins.base};
 
-  // TODO: rem으로 변경
-  margin-bottom: 10px;
   svg {
-    // TODO: rem으로 변경
-    margin-right: 5px;
+    margin-right: ${({ theme }) => theme.margins.small};
   }
+
   path {
-    fill: ${props => props.color};
+    fill: ${({ color }) => color};
   }
 `;
 
@@ -28,14 +27,14 @@ const Icon = ({ type, color, children, ...restProps }) => {
   );
 };
 
-Icon.defaultProps = {
-  type: 'rightArrow',
-  color: 'red'
-};
-
 Icon.propTypes = {
   type: PropTypes.string.isRequired,
-  color: PropTypes.string
+  color: PropTypes.string,
+};
+
+Icon.defaultProps = {
+  type: 'rightArrow',
+  color: 'red',
 };
 
 IconWrapper.displayName = 'IconWrapper';

@@ -8,6 +8,7 @@ import { ReactComponent as Close } from './svg/close.svg';
 import { ReactComponent as SearchWhite } from './svg/search-white.svg';
 import { ReactComponent as SearchGray } from './svg/search-gray.svg';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   facebook: Facebook,
   instagram: Instagram,
