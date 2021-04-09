@@ -11,13 +11,13 @@ export default {
     docs: {
       description: {
         component:
-          '이미지와 링크가 있는 SubBanner 컨테이너입니다. title과 LinkText, imagePath를 전달할 수 있고 children으로 description을 전달합니다',
+          'ServiecInfo 컨테이너입니다. title과 subtitle, LinkText, imagePath를 전달할 수 있고 children으로 description을 전달합니다 mode에 right, left로 이미지 위치를 변경할 수 있습니다.',
       },
     },
     design: {
       type: 'figma',
       url:
-        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=34%3A70',
+        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=470%3A265',
     },
   },
   argTypes: {

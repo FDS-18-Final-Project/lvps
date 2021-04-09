@@ -36,7 +36,7 @@ const NavbarWrapper = styled.ul`
   }
 `;
 
-function Navbar({ ...restProps }) {
+const Navbar = ({ ...restProps }) => {
   return (
     <NavbarWrapper {...restProps}>
       <li>
@@ -56,12 +56,6 @@ function Navbar({ ...restProps }) {
       </li>
     </NavbarWrapper>
   );
-}
-
-Navbar.defaultProps = {
-  direction: 'row',
-  justify: 'space-between',
-  align: 'center',
 };
 
 Navbar.propTypes = {
@@ -80,6 +74,12 @@ Navbar.propTypes = {
     'flex-start',
     'flex-end',
   ]),
+};
+
+Navbar.defaultProps = {
+  direction: 'row',
+  justify: 'space-between',
+  align: 'center',
 };
 
 NavbarWrapper.displayName = 'NavbarWrapper';

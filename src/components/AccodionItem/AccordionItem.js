@@ -64,7 +64,7 @@ const variants = {
   },
 };
 
-function AccordionItem({ item, onClick }) {
+const AccordionItem = ({ item, onClick }) => {
   return (
     <ItemWrapper>
       <StyledButton
@@ -91,7 +91,7 @@ function AccordionItem({ item, onClick }) {
       </StyledButton>
     </ItemWrapper>
   );
-}
+};
 
 AccordionItem.propTypes = {
   item: object.isRequired,

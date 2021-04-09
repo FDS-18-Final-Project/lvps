@@ -1,5 +1,5 @@
 import { LinkIcon, Paragraph } from 'components/';
-import HeaderLayout from 'pages/Layout/HeaderLayout/HeaderLayout';
+import { Layout } from 'pages';
 import { oneOf } from 'prop-types';
 import { string } from 'prop-types';
 import React from 'react';
@@ -40,7 +40,14 @@ const ServiceInfoWrapper = styled.div`
   }
 `;
 
-function ServiceInfo({ title, subTitle, imagePath, linkText, mode, children }) {
+const ServiceInfo = ({
+  title,
+  subTitle,
+  imagePath,
+  linkText,
+  mode,
+  children,
+}) => {
   return (
     <ServiceInfoWrapper mode={mode}>
       <Paragraph
@@ -51,13 +58,13 @@ function ServiceInfo({ title, subTitle, imagePath, linkText, mode, children }) {
       >
         {subTitle}
       </Paragraph>
-      <HeaderLayout.FlexContainer>
+      <Layout.FlexContainer>
         {mode === 'left' && (
-          <HeaderLayout.FlexContainer flex="1">
+          <Layout.FlexContainer flex="1">
             <img src={imagePath} alt="dummyimage" />
-          </HeaderLayout.FlexContainer>
+          </Layout.FlexContainer>
         )}
-        <HeaderLayout.FlexContainer
+        <Layout.FlexContainer
           className="ServiceInfoContentBox"
           direction="column"
           justify="space-between"
@@ -65,23 +72,15 @@ function ServiceInfo({ title, subTitle, imagePath, linkText, mode, children }) {
         >
           <p>{children}</p>
           <LinkIcon mode="primary">{linkText}</LinkIcon>
-        </HeaderLayout.FlexContainer>
+        </Layout.FlexContainer>
         {mode === 'right' && (
-          <HeaderLayout.FlexContainer flex={1}>
+          <Layout.FlexContainer flex={1}>
             <img src={imagePath} alt="dummyimage" />
-          </HeaderLayout.FlexContainer>
+          </Layout.FlexContainer>
         )}
-      </HeaderLayout.FlexContainer>
+      </Layout.FlexContainer>
     </ServiceInfoWrapper>
   );
-}
-
-ServiceInfo.defaultProps = {
-  title: 'Ceramic Pro',
-  subTitle: 'Meet Our Skilled Crew.',
-  imagePath: 'assets/dummyCar.png',
-  linkText: 'Read More',
-  mode: 'right',
 };
 
 ServiceInfo.propTypes = {
@@ -92,4 +91,13 @@ ServiceInfo.propTypes = {
   mode: oneOf(['left', 'right']),
 };
 
+ServiceInfo.defaultProps = {
+  title: 'Ceramic Pro',
+  subTitle: 'Meet Our Skilled Crew.',
+  imagePath: 'assets/dummyCar.png',
+  linkText: 'Read More',
+  mode: 'right',
+};
+
+ServiceInfoWrapper.displayName = 'ServiceInfoWrapper';
 export default ServiceInfo;

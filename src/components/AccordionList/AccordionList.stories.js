@@ -16,6 +16,11 @@ export default {
           '배열을 받아 AccordionItem 컴포넌트로 이루어진 리스르를 만들어주는 AccordionList 컴포넌트입니다.',
       },
     },
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=233%3A2548',
+    },
   },
   argTypes: {
     accordion: {

@@ -1,9 +1,9 @@
 import { Paragraph } from 'components/';
-import HeaderLayout from 'pages/Layout/HeaderLayout/HeaderLayout';
 import React from 'react';
 import LinkIcon from '../../components/LinkIcon/LinkIcon';
 import styled from 'styled-components';
 import { node, string } from 'prop-types';
+import { Layout } from 'pages';
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,13 +15,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const LayoutWrapper = styled(HeaderLayout.FlexContainer)`
+const LayoutWrapper = styled(Layout.FlexContainer)`
   #paragraph {
     width: 465px;
   }
 `;
 
-function SubBanner({ title, linkText, imagePath, children }) {
+const SubBanner = ({ title, linkText, imagePath, children }) => {
   return (
     <Wrapper>
       <LayoutWrapper direction="column" flex={1}>
@@ -35,13 +35,6 @@ function SubBanner({ title, linkText, imagePath, children }) {
       </LayoutWrapper>
     </Wrapper>
   );
-}
-
-SubBanner.defaultProps = {
-  title: 'About us',
-  linkText: 'More About us',
-  imagePath: 'assets/dummyImage.png',
-  children: 'Quality Protection Services',
 };
 
 SubBanner.propTypes = {
@@ -49,6 +42,13 @@ SubBanner.propTypes = {
   linkText: string.isRequired,
   imagePath: string.isRequired,
   children: node,
+};
+
+SubBanner.defaultProps = {
+  title: 'About us',
+  linkText: 'More About us',
+  imagePath: 'assets/dummyImage.png',
+  children: 'Quality Protection Services',
 };
 
 Wrapper.displayName = 'SubBannerWrapper';
