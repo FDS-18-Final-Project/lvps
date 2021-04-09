@@ -15,7 +15,6 @@ const Heading = styled.h1`
     display: block;
     width: 100%;
     height: 100%;
-    text-decoration: none;
     color: inherit;
   }
 
@@ -26,7 +25,7 @@ const Heading = styled.h1`
 `;
 
 // 사용 할 tag 전달
-function Logo({ tag, ...restProps }) {
+const Logo = ({ tag, ...restProps }) => {
   return (
     <Heading as={tag} {...restProps}>
       <Link to="/">
@@ -34,17 +33,17 @@ function Logo({ tag, ...restProps }) {
       </Link>
     </Heading>
   );
-}
-
-Logo.defaultProps = {
-  tag: 'h1',
-  maxWidth: 200,
-  height: 50,
 };
 
 Logo.propTypes = {
   tag: oneOf(['h1', 'h2', 'h3']),
-  maxWidth: number,
+  maxWidth: number
+};
+
+Logo.defaultProps = {
+  tag: 'h1',
+  maxWidth: 200,
+  height: 'auto'
 };
 
 Heading.displayName = 'Logo Heading';

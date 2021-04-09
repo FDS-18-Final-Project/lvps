@@ -2,9 +2,10 @@ import AccordionItem from 'components/AccodionItem/AccordionItem';
 import { array } from 'prop-types';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import theme from 'theme/theme';
 
 const AccordionWrapper = styled.ul`
-  padding: 10px;
+  padding: ${theme.paddings.base};
 `;
 
 const accordionState = [
@@ -15,9 +16,9 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: true,
+    active: true
   },
   {
     id: 2,
@@ -26,9 +27,9 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
+    active: false
   },
   {
     id: 3,
@@ -37,9 +38,9 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
+    active: false
   },
   {
     id: 4,
@@ -48,9 +49,9 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
+    active: false
   },
   {
     id: 5,
@@ -59,13 +60,13 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
-  },
+    active: false
+  }
 ];
 
-function AccordionList({ accordion }) {
+const AccordionList = ({ accordion }) => {
   const [accordionItemList, setAccordionItemList] = useState(accordion);
 
   const handleClick = id => {
@@ -83,14 +84,16 @@ function AccordionList({ accordion }) {
       ))}
     </AccordionWrapper>
   );
-}
+};
 
 AccordionList.propTypes = {
-  accordion: array,
+  accordion: array
 };
 
 AccordionList.defaultProps = {
-  accordion: accordionState,
+  accordion: accordionState
 };
+
+AccordionWrapper.displayName = 'AccordionWrapper';
 
 export default AccordionList;
