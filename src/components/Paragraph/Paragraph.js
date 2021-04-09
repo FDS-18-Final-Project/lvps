@@ -1,6 +1,9 @@
 import Icon from 'components/Icon/Icon';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import theme from 'theme/theme';
+
+const { margins, fontSizes } = theme;
 
 const ParagraphWrapper = styled.div`
   color: ${({ colors }) => colors.sub};
@@ -8,18 +11,18 @@ const ParagraphWrapper = styled.div`
 
   h${({ headingNum }) => headingNum} {
     font-weight: bold;
-    margin-bottom: ${({ theme }) => theme.margins.base};
+    margin-bottom: ${margins.base};
     color: ${({ colors }) => colors.main};
   }
 
   h1 {
-    font-size: ${({ theme }) => theme.fontSizes.titleLarge};
+    font-size: ${fontSizes.titleLarge};
   }
   h2 {
-    font-size: ${({ theme }) => theme.fontSizes.titleBase};
+    font-size: ${fontSizes.titleBase};
   }
   h3 {
-    font-size: ${({ theme }) => theme.fontSizes.small};
+    font-size: ${fontSizes.small};
   }
 
   .icon-wrapper {
@@ -30,7 +33,7 @@ const ParagraphWrapper = styled.div`
     font-size: ${({ size }) => `${size}px`};
   }
   span {
-    margin-left: ${({ theme }) => theme.margins.small};
+    margin-left: ${margins.small};
   }
   p {
     font-size: ${({ size }) => `${size}px`};

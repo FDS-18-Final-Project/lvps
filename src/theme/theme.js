@@ -1,6 +1,6 @@
-const calcRem = size => `${size / 16}rem`;
+export const calcRem = size => `${size / 16}rem`;
 
-const calcInterval = intervalLists =>
+export const calcInterval = intervalLists =>
   intervalLists.reduce((interval, intervalItem, idx) => {
     interval += calcRem(intervalItem);
     if (intervalLists.length - 1 !== idx) interval += ' ';

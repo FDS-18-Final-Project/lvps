@@ -1,9 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import AccordionItem from 'components/AccodionItem/AccordionItem';
-import GlobalStyle from '../../styles/GlobalStyle';
 import theme from 'theme/theme';
+import AccordionItem from 'components/AccodionItem/AccordionItem';
+import GlobalStyle from 'styles/GlobalStyle';
 
 export default {
   title: 'MMAuto/Component/AccodionItem',
@@ -14,11 +14,6 @@ export default {
         component:
           '객체를 받아 랜더링하는 Accodion list의 Accodion item 컴포넌트입니다.',
       },
-    },
-    design: {
-      type: 'figma',
-      url:
-        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=34%3A68',
     },
   },
   argTypes: {
