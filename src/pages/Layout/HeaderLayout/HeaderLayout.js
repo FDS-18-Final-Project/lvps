@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import theme from 'theme/theme';
 
 const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  background: #2d2d2d;
+  background: ${theme.colors.black};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  color: #fff;
+  color: ${theme.colors.white};
 `;
 
 const HeaderLayoutFlexContainer = styled.div`
