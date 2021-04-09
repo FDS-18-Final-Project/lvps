@@ -1,10 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import theme from '../../utils/theme';
 import AccordionItem from 'components/AccodionItem/AccordionItem';
 import GlobalStyle from '../../styles/GlobalStyle';
 import AccordionList from './AccordionList';
+import theme from 'theme/theme';
 
 export default {
   title: 'MMAuto/Component/AccordionList',

@@ -2,7 +2,7 @@
 import Logo from './Logo';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import theme from '../../utils/theme';
+import theme from 'theme/theme';
 
 export default {
   title: 'MMAuto/Component/Logo',
@@ -11,7 +11,7 @@ export default {
     docs: {
       description: {
         component:
-          '**Home**으로 이동할 수 있는 Logo 컴포넌트입니다. tag로 h1, h2, h3을 전달할 수 있습니다. width로 크기조절 가능',
+          '**Home**으로 이동할 수 있는 Logo 컴포넌트입니다. tag로 h1, h2, h3을 전달할 수 있습니다. maxWidth로 크기조절 가능',
       },
     },
   },

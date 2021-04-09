@@ -2,7 +2,7 @@
 import Navbar from './Navbar';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import theme from '../../utils/theme';
+import theme from 'theme/theme';
 
 export default {
   title: 'MMAuto/Component/Navbar',
