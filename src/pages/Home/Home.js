@@ -1,7 +1,7 @@
 import React from 'react';
 import { HomeLayout } from '../index';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
-import { GetAQuoteBanner } from 'containers';
+import { GetAQuoteBanner, Review } from 'containers';
 
 const Home = () => {
   return (
@@ -13,6 +13,10 @@ const Home = () => {
             <GetAQuoteBanner.Title />
             <GetAQuoteBanner.Link />
           </GetAQuoteBanner>
+          <Review>
+            <Review.Title />
+            <Review.Contents />
+          </Review>
         </HomeLayout.FormContainer>
       </HomeLayout.Container>
     </HomeLayout>
