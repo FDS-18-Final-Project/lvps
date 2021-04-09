@@ -14,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
   ul, ol, li {
     list-style: none;
   }
-  
   * {
     font-family: 'Helvetica Neue LT Pro', sans-serif;    
   }

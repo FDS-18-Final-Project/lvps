@@ -1809,6 +1809,7 @@
   "resolved" "https://registry.npmjs.org/@storybook/addon-docs/-/addon-docs-6.1.21.tgz"
   "version" "6.1.21"
   dependencies:
+    "@babel/core" "^7.12.1"
     "@babel/generator" "^7.12.1"
     "@babel/parser" "^7.12.3"
     "@babel/plugin-transform-react-jsx" "^7.12.1"
@@ -12865,11 +12866,7 @@
     "node-dir" "^0.1.10"
     "strip-indent" "^3.0.0"
 
-<<<<<<< HEAD
 "react-dom@^17.0.2", "react-dom@>=16.8 || ^17.0.0":
-=======
-"react-dom@^17.0.2":
->>>>>>> a66aa3131465f06f114b1e4e0f8a83026ebff533
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -13142,7 +13139,7 @@
     "use-composed-ref" "^1.0.0"
     "use-latest" "^1.0.0"
 
-"react@^17.0.2":
+"react@^17.0.2", "react@>=16.8 || ^17.0.0":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
