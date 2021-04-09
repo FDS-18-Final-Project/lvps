@@ -10,7 +10,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Logo, Icon, Navbar 컴포넌트가 모여있는 HeaderContainer입니다.'
+        component:
+          'Logo, Icon, Navbar 컴포넌트가 모여있는 HeaderContainer입니다.'
       }
     },
     design: {
@@ -22,7 +23,7 @@ export default {
 };
 
 //template 만들기
-const Template = (args) => (
+const Template = args => (
   <BrowserRouter>
     <ThemeProvider theme={theme}>
       <Header {...args} />

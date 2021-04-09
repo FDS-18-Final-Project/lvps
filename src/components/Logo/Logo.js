@@ -38,12 +38,12 @@ function Logo({ tag, ...restProps }) {
 Logo.defaultProps = {
   tag: 'h1',
   maxWidth: 200,
-  height: 'auto',
+  height: 50
 };
 
 Logo.propTypes = {
   tag: oneOf(['h1', 'h2', 'h3']),
-  maxWidth: number,
+  maxWidth: number
 };
 
 Heading.displayName = 'Logo Heading';
