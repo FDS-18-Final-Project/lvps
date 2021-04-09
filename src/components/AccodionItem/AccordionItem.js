@@ -14,7 +14,9 @@ const StyledButton = styled(Button)`
   font-weight: 400;
   overflow: hidden;
   position: relative;
-
+  &:hover {
+    border: ${`1px solid ${theme.colors.lightGray}`};
+  }
   h3 {
     font-size: ${theme.fontSizes.lg};
     padding: ${theme.calcInterval([13, 0])};

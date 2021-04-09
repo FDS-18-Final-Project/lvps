@@ -18,16 +18,16 @@ const LinkIconContainer = styled.div`
 `;
 const styleIcon = {
   secondary: {
-    fill: 'black'
-  }
+    fill: 'black',
+  },
 };
 const styleHoverIcon = {
   secondary: {
-    fill: 'white'
+    fill: 'white',
   },
   primary: {
-    fill: 'red'
-  }
+    fill: 'red',
+  },
 };
 const IconContainer = styled.div`
   width: 30px;
@@ -35,7 +35,6 @@ const IconContainer = styled.div`
   position: absolute;
   top: 35px;
   right: 40px;
-
   & div {
     width: 100%;
     height: 100%;
@@ -59,9 +58,9 @@ const LinkIcon = ({ ...restProps }) => {
         role={restProps.role}
         href={restProps.href}
         children={restProps.children}
-      />
+      ></Button>
       <IconContainer mode={restProps.mode}>
-        <Icon type='rightArrow' color='white' />
+        <Icon type="rightArrow" color="white" />
       </IconContainer>
     </LinkIconContainer>
   );
@@ -73,7 +72,7 @@ LinkIcon.propTypes = {
   mode: oneOf(['primary', 'secondary']),
   role: string,
   href: string,
-  children: string
+  children: string,
 };
 
 LinkIcon.defaultProps = {
@@ -82,7 +81,7 @@ LinkIcon.defaultProps = {
   mode: 'secondary',
   role: 'button',
   href: '/get-a-quote',
-  children: 'Get a Free Quote'
+  children: 'Get a Free Quote',
 };
 
 LinkIconContainer.displayName = 'LinkIconContainer';

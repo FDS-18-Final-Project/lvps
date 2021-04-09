@@ -13,6 +13,7 @@ const HeaderWrapper = styled.div`
 const HeaderLayoutFlexContainer = styled.div`
   display: flex;
   flex: ${props => props.flex};
+  flex-direction: ${props => props.direction};
   justify-content: ${props => props.justify};
   align-items: ${props => props.align};
 `;
@@ -31,6 +32,7 @@ HeaderLayout.FlexContainer = ({ tag = 'div', children, ...restProps }) => {
 HeaderLayout.FlexContainer.defaultProps = {
   justify: 'center',
   align: 'center',
+  direction: 'row',
 };
 
 HeaderLayout.FlexContainer.displayName = 'LayoutFlexWrapper';
