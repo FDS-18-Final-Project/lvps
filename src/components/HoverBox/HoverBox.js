@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { string } from 'prop-types';
-import { Link } from 'react-router-dom'
-import { colors, fontSizes } from 'theme/theme'
+import styled from "styled-components";
+import { string } from "prop-types";
+import { Link } from "react-router-dom";
+import { colors, fontSizes } from "theme/theme";
 
 // HoverBox 컴포넌트 스타일링
 const Item = styled(Link)`
@@ -12,11 +12,11 @@ const Item = styled(Link)`
   border-bottom: 1px solid ${colors.white};
   &:last-child {
     border-bottom: none;
-  };
+  }
   padding: 15px 30px 15px 30px;
   align-items: left;
   justify-content: center;
-  
+
   background-color: ${colors.red_06};
   color: ${colors.white};
 
@@ -38,7 +38,7 @@ const HoverBoxItem = ({ to, children, ...restProps }) => {
     <Item to={to} {...restProps}>
       {children}
     </Item>
-  )  
+  );
 };
 
 HoverBoxItem.propTypes = {
@@ -47,22 +47,24 @@ HoverBoxItem.propTypes = {
 };
 
 HoverBoxItem.defaultProps = {
-  to: '/',
-  children: 'HoverBox item'
+  to: "/",
+  children: "HoverBox item",
 };
 
 const HoverBoxItemVal = [
-  'Ceramic Coating', 
-  'Paint Protection Films', 
-  'Detailing & Paint Correction', 
-  'Window Tinting', 
-  'Detailing & Paint Correction'
-]
+  "Ceramic Coating",
+  "Paint Protection Films",
+  "Detailing & Paint Correction",
+  "Window Tinting",
+  "Detailing & Paint Correction",
+];
 
 const HoverBox = () => {
-  return HoverBoxItemVal.map(value => <HoverBoxItem children={value} />)
+  return HoverBoxItemVal.map((value, idx) => (
+    <HoverBoxItem key={idx} children={value} />
+  ));
 };
 
-HoverBox.displayName = 'HoverBox';
+HoverBox.displayName = "HoverBox";
 
 export default HoverBox;

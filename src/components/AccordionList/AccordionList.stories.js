@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import theme from '../../utils/theme';
+import theme from 'theme/theme';
 import AccordionItem from 'components/AccodionItem/AccordionItem';
 import GlobalStyle from '../../styles/GlobalStyle';
 import AccordionList from './AccordionList';
@@ -13,9 +13,9 @@ export default {
     docs: {
       description: {
         component:
-          '배열을 받아 AccordionItem 컴포넌트로 이루어진 리스르를 만들어주는 AccordionList 컴포넌트입니다.',
-      },
-    },
+          '배열을 받아 AccordionItem 컴포넌트로 이루어진 리스르를 만들어주는 AccordionList 컴포넌트입니다.'
+      }
+    }
   },
   argTypes: {
     accordion: {
@@ -29,9 +29,9 @@ export default {
               'Quality Protection',
               'ServicesQuality Protection',
               'ServicesQuality Protection',
-              'Services',
+              'Services'
             ],
-            active: true,
+            active: true
           },
           {
             id: 2,
@@ -40,9 +40,9 @@ export default {
               'Quality Protection',
               'ServicesQuality Protection',
               'ServicesQuality Protection',
-              'Services',
+              'Services'
             ],
-            active: false,
+            active: false
           },
           {
             id: 3,
@@ -51,9 +51,9 @@ export default {
               'Quality Protection',
               'ServicesQuality Protection',
               'ServicesQuality Protection',
-              'Services',
+              'Services'
             ],
-            active: false,
+            active: false
           },
           {
             id: 4,
@@ -62,9 +62,9 @@ export default {
               'Quality Protection',
               'ServicesQuality Protection',
               'ServicesQuality Protection',
-              'Services',
+              'Services'
             ],
-            active: false,
+            active: false
           },
           {
             id: 5,
@@ -73,14 +73,14 @@ export default {
               'Quality Protection',
               'ServicesQuality Protection',
               'ServicesQuality Protection',
-              'Services',
+              'Services'
             ],
-            active: false,
-          },
-        ],
-      },
-    },
-  },
+            active: false
+          }
+        ]
+      }
+    }
+  }
 };
 
 const accordionState = [
@@ -91,9 +91,9 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: true,
+    active: true
   },
   {
     id: 2,
@@ -102,9 +102,9 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
+    active: false
   },
   {
     id: 3,
@@ -113,9 +113,9 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
+    active: false
   },
   {
     id: 4,
@@ -124,9 +124,9 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
+    active: false
   },
   {
     id: 5,
@@ -135,19 +135,19 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
-  },
+    active: false
+  }
 ];
 
 //template 만들기
-const Template = args => (
+const Template = (args) => (
   <BrowserRouter>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <AccordionList {...args}>
-        {args.accordion.map(item => (
+        {args.accordion.map((item) => (
           <AccordionItem item={item} />
         ))}
       </AccordionList>
@@ -160,5 +160,5 @@ const Template = args => (
 export const AccondionList = Template.bind({});
 
 AccondionList.args = {
-  accordion: accordionState,
+  accordion: accordionState
 };
