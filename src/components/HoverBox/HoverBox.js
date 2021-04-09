@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { string } from 'prop-types';
 import { Link } from 'react-router-dom'
+import { colors, fontSizes } from 'theme/theme'
 
 // HoverBox 컴포넌트 스타일링
 const Item = styled(Link)`
@@ -8,7 +9,7 @@ const Item = styled(Link)`
   box-sizing: border-box;
   width: 410px;
   height: 64px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid ${colors.white};
   &:last-child {
     border-bottom: none;
   };
@@ -16,18 +17,18 @@ const Item = styled(Link)`
   align-items: left;
   justify-content: center;
   
-  background-color: #7D2E2E;
-  color: white;
+  background-color: ${colors.red_06};
+  color: ${colors.white};
 
   text-decoration: none;
-  font-size: 24px;
+  font-size: ${fontSizes.base};
   font-weight: 500;
   font-family: inherit;
 
   // 디자인 시안에 따라 수정 필요
   &:hover {
-    background-color: white;
-    color: #7D2E2E;
+    background-color: ${colors.white};
+    color: ${colors.red_06};
   }
 `;
 
