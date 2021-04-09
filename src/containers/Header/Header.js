@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from 'components/Navbar/Navbar';
 import Logo from 'components/Logo/Logo';
 import Icon from 'components/Icon/Icon';
 import { Layout } from 'pages';
 
 const Header = () => {
+  const [isShow, setIsShow] = useState(false);
+
   return (
     <Layout>
       <Layout.FlexContainer flex={1}>
@@ -14,7 +16,13 @@ const Header = () => {
         <Navbar />
       </Layout.FlexContainer>
       <Layout.FlexContainer flex={1}>
-        <Icon type="instagram" color="#fff" width="30px" />
+        <Icon type="searchWhite" color="#fff" width="30px" />
+        <Icon
+          type="instagram"
+          color="#fff"
+          width="30px"
+          style={{ margin: '0 50px' }}
+        />
         <Icon type="facebook" color="#fff" width="30px" />
       </Layout.FlexContainer>
     </Layout>
