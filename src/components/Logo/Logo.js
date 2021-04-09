@@ -1,15 +1,15 @@
-import { oneOf, number } from 'prop-types';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { ReactComponent as Image } from '../../assets/Logo.svg';
+import { oneOf, number } from 'prop-types'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import { ReactComponent as Image } from '../../assets/Logo.svg'
 
 const Heading = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
-  max-width: ${props => `${props.maxWidth}px`};
+  max-width: ${(props) => `${props.maxWidth}px`};
 
   a {
     display: block;
@@ -23,7 +23,7 @@ const Heading = styled.h1`
     width: 100%;
     height: 100%;
   }
-`;
+`
 
 // 사용 할 tag 전달
 function Logo({ tag, ...restProps }) {
@@ -33,21 +33,21 @@ function Logo({ tag, ...restProps }) {
         <Image title="Logo" />
       </Link>
     </Heading>
-  );
+  )
 }
 
 Logo.defaultProps = {
   tag: 'h1',
   maxWidth: 200,
   height: 50,
-};
+}
 
 Logo.propTypes = {
   tag: oneOf(['h1', 'h2', 'h3']),
   maxWidth: number,
-};
+}
 
-Heading.displayName = 'Logo Heading';
-Image.displayName = 'Logo Image';
+Heading.displayName = 'Logo Heading'
+Image.displayName = 'Logo Image'
 
-export default Logo;
+export default Logo

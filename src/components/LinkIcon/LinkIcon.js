@@ -18,7 +18,10 @@ const LinkIconContainer = styled.div`
 `;
 const styleIcon = {
   secondary: {
-    fill: 'black'
+    fill: 'red'
+  },
+  primary: {
+    fill: 'white'
   }
 };
 const styleHoverIcon = {
@@ -58,11 +61,12 @@ const LinkIcon = ({ ...restProps }) => {
         mode={restProps.mode}
         role={restProps.role}
         href={restProps.href}
-        children={restProps.children}
-      />
-      <IconContainer mode={restProps.mode}>
-        <Icon type='rightArrow' color='white' />
-      </IconContainer>
+        label={restProps.children}
+      >
+        <IconContainer mode={restProps.mode}>
+          <Icon type="rightArrow" color="white" />
+        </IconContainer>
+      </Button>
     </LinkIconContainer>
   );
 };
