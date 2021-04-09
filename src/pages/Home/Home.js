@@ -21,6 +21,5 @@ const Home = () => {
       </HomeLayout.Container>
     </HomeLayout>
   );
-};
 
 export default Home;
