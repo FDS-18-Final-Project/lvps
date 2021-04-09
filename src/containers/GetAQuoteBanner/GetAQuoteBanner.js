@@ -2,13 +2,15 @@ import { LinkIcon, Paragraph } from 'components';
 import styled from 'styled-components';
 import theme from 'theme/theme';
 
+const { colors, calcInterval } = theme;
+
 const GetAQuoteBannerBlock = styled.section`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.red_05};
-  padding: ${({ theme }) => theme.calcInterval([108, 200])};
+  background-color: ${colors.red_05};
+  padding: ${calcInterval([108, 200])};
 `;
 
 const GetAQuoteBanner = ({ children }) => {

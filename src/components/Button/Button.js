@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 // 버튼 색상 스타일링
 const compColor = css`
-  ${props => {
+  ${(props) => {
     switch (props.mode) {
       case 'primary':
         return css`
@@ -70,6 +70,7 @@ const StyledAnchor = styled(motion(Link))`
 
 // button 컴포넌트
 
+
 const ButtonComp = ({ type, mode, disabled, children, ...restProps }) => {
   return (
     <StyledButton type={type} mode={mode} disabled={disabled} {...restProps}>
@@ -89,9 +90,9 @@ const LinkA = ({ mode, role, href, children, ...restProps }) => {
 };
 
 // 버튼 컴포넌트
+
 const Button = ({ tag, ...restProps }) => {
   const Tag = tag === 'button' ? ButtonComp : LinkA;
-
   return <Tag {...restProps} />;
 };
 
@@ -111,7 +112,7 @@ Button.defaultProps = {
   disabled: false,
   role: 'button',
   href: '/',
-  children: 'Button'
+  children: 'Button',
 };
 
 Button.displayName = 'Button';

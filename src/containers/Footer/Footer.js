@@ -1,21 +1,24 @@
+import Logo from 'components/Logo/Logo';
 import Paragraph from 'components/Paragraph/Paragraph';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from 'theme/theme';
+
+const { colors, calcRem, calcInterval } = theme;
 
 const FooterWrapper = styled.footer`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-around;
-  background-color: ${({ theme }) => theme.colors.black};
-  padding: ${({ theme }) => theme.calcInterval([186, 230, 188, 200])};
+  background-color: ${colors.black};
+  padding: ${calcInterval([186, 230, 188, 200])};
 `;
 
 const FooterContent = styled.div`
   display: grid;
-  grid-template-rows: repeat(2, ${({ theme }) => theme.calcRem(190)});
-  grid-template-columns: repeat(2, ${({ theme }) => theme.calcRem(460)});
-  gap: 112px 60px;
+  grid-template-rows: repeat(2, ${calcRem(190)});
+  grid-template-columns: repeat(2, ${calcRem(460)});
+  gap: ${calcInterval([112, 60])};
 `;
 
 const Footer = ({ children }) => {
@@ -27,7 +30,7 @@ const Footer = ({ children }) => {
 };
 
 Footer.Logo = () => {
-  return <div style={{ background: 'white' }}>로고</div>;
+  return <Logo maxWidth={790} />;
 };
 
 Footer.Content = () => {

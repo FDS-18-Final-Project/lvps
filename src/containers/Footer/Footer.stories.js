@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from 'styles/GlobalStyle';
 import Footer from './Footer';
 
@@ -19,10 +20,10 @@ export default {
 };
 
 const Template = (args) => (
-  <>
+  <BrowserRouter>
     <GlobalStyle />
     <Footer {...args} />
-  </>
+  </BrowserRouter>
 );
 
 export const FooterBlock = Template.bind({});

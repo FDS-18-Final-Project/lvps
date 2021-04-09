@@ -22,7 +22,7 @@ export default {
 };
 
 //template 만들기
-const Template = args => (
+const Template = (args) => (
   <BrowserRouter>
     <ThemeProvider theme={theme}>
       <Header {...args} />

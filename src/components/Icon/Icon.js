@@ -2,15 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import svg from 'assets';
+import theme from 'theme/theme';
+
+const { margins } = theme;
 
 const IconWrapper = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  margin-bottom: ${({ theme }) => theme.margins.base};
+  margin-bottom: ${margins.base};
 
   svg {
-    margin-right: ${({ theme }) => theme.margins.small};
+    margin-right: ${margins.small};
   }
 
   path {

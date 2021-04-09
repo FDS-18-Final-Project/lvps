@@ -142,12 +142,12 @@ const accordionState = [
 ];
 
 //template 만들기
-const Template = args => (
+const Template = (args) => (
   <BrowserRouter>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <AccordionList {...args}>
-        {args.accordion.map(item => (
+        {args.accordion.map((item) => (
           <AccordionItem item={item} />
         ))}
       </AccordionList>
