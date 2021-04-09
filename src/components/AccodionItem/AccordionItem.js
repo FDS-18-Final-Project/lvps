@@ -2,38 +2,39 @@ import Icon from 'components/Icon/Icon';
 import { object, func } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import theme from 'theme/theme';
 import { Button } from '..';
 
 const StyledButton = styled(Button)`
   display: block;
   width: 100%;
   height: 3.7rem;
-  background: #fff;
-  color: inherit;
-  padding: 0px 50px 50px;
-  border: 1px solid #aaa;
+  padding: ${theme.calcInterval([0, 50, 50])};
+  border: ${`1px solid ${theme.colors.lightGray}`};
   font-weight: 400;
   overflow: hidden;
-  list-style: none;
   position: relative;
-
+  &:hover {
+    border: ${`1px solid ${theme.colors.lightGray}`};
+  }
   h3 {
-    font-size: 2rem;
-    padding: 13px 0;
+    font-size: ${theme.fontSizes.lg};
+    padding: ${theme.calcInterval([13, 0])};
     text-align: center;
-    border-bottom: 1px solid #c9c9c9;
+    border-bottom: ${`1px solid ${theme.colors.lightGray}`};
     font-weight: bold;
   }
+
   p {
     display: flex;
     flex-direction: column;
     margin-top: 25px;
     margin-left: -15px;
-    font-size: 1.5rem;
-    color: #c9c9c9;
+    font-size: ${theme.fontSizes.base};
+    color: ${theme.colors.lightGray};
 
     span {
-      padding: 5px;
+      padding: ${theme.paddings.small};
     }
   }
   div {
@@ -50,14 +51,14 @@ const ItemWrapper = styled.li`
 
 const variants = {
   visible: {
-    color: '#fff',
-    backgroundColor: '#eb1527',
+    color: theme.colors.white,
+    backgroundColor: theme.colors.redMain,
     height: 'auto',
     transition: { duration: 0.5, type: 'tween' },
   },
   hidden: {
-    color: '#000',
-    backgroundColor: '#fff',
+    color: theme.colors.black,
+    backgroundColor: theme.colors.white,
     height: '3.7rem',
     transition: { duration: 0.5, type: 'tween' },
   },
@@ -78,7 +79,15 @@ function AccordionItem({ item, onClick }) {
             <span key={i}>{des}</span>
           ))}
         </p>
-        <Icon type="rightArrow" color="#fff" width="16" height="28" />
+        {item.active && (
+          <Icon
+            title="rigthArrow Link"
+            type="rightArrow"
+            color={theme.colors.white}
+            width="16"
+            height="28"
+          />
+        )}
       </StyledButton>
     </ItemWrapper>
   );
@@ -103,4 +112,5 @@ AccordionItem.defaultProps = {
   },
 };
 
+ItemWrapper.displayName = 'AccordionItemWrapper';
 export default React.memo(AccordionItem);

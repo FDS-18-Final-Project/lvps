@@ -15,7 +15,6 @@ const Heading = styled.h1`
     display: block;
     width: 100%;
     height: 100%;
-    text-decoration: none;
     color: inherit;
   }
 
@@ -39,8 +38,13 @@ function Logo({ tag, ...restProps }) {
 Logo.defaultProps = {
   tag: 'h1',
   maxWidth: 200,
+<<<<<<< HEAD
   height: 50,
 }
+=======
+  height: 'auto',
+};
+>>>>>>> 8ecd1a4e3d8241ae9a3fec0ec376e5df70016e7e
 
 Logo.propTypes = {
   tag: oneOf(['h1', 'h2', 'h3']),

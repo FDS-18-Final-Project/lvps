@@ -38,7 +38,6 @@ const IconContainer = styled.div`
   position: absolute;
   top: 35px;
   right: 40px;
-
   & div {
     width: 100%;
     height: 100%;
@@ -61,7 +60,7 @@ const LinkIcon = ({ ...restProps }) => {
         mode={restProps.mode}
         role={restProps.role}
         href={restProps.href}
-        label={restProps.children}
+        children={restProps.children}
       >
         <IconContainer mode={restProps.mode}>
           <Icon type="rightArrow" color="white" />

@@ -2,6 +2,7 @@ import { oneOf } from 'prop-types';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import theme from 'theme/theme';
 
 const NavbarWrapper = styled.ul`
   padding: 0;
@@ -12,11 +13,11 @@ const NavbarWrapper = styled.ul`
   flex-direction: ${props => props.direction};
   justify-content: ${props => props.justify};
   align-items: ${props => props.align};
-  font-size: ${props => props.theme.fontSizes.xxxl};
+  font-size: ${theme.fontSizes.base};
 
   a {
     display: inline-block;
-    padding: 2rem 0;
+    padding: ${theme.calcRem(32)} 0;
     transition: 0.4s;
     text-decoration: none;
     color: inherit;
