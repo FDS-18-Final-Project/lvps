@@ -56,7 +56,7 @@ const IconContainer = styled.div`
   }
 `;
 
-const LinkIcon = ({ ...restProps }) => {
+const LinkIcon = ({ style, ...restProps }) => {
   return (
     <LinkIconContainer mode={restProps.mode}>
       <Button

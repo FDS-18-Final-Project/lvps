@@ -66,7 +66,7 @@ const accordionState = [
   }
 ];
 
-function AccordionList({ accordion }) {
+const AccordionList = ({ accordion }) => {
   const [accordionItemList, setAccordionItemList] = useState(accordion);
 
   const handleClick = id => {
@@ -84,7 +84,7 @@ function AccordionList({ accordion }) {
       ))}
     </AccordionWrapper>
   );
-}
+};
 
 AccordionList.propTypes = {
   accordion: array
