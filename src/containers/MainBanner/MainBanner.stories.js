@@ -2,7 +2,7 @@ import MainBanner from './MainBanner';
 
 //스토리 구성 객체
 export default {
-  title: ' MMAuto/UI/MainBanner',
+  title: ' MMAuto/Component/MainBanner',
   components: MainBanner,
   parameters: {
     docs: {

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import theme from '../../utils/theme';
+import theme from '../../theme/theme';
 import AccordionItem from 'components/AccodionItem/AccordionItem';
 import GlobalStyle from '../../styles/GlobalStyle';
 
@@ -11,10 +11,9 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          '객체를 받아 랜더링하는 Accodion list의 Accodion item 컴포넌트입니다.',
-      },
-    },
+        component: '객체를 받아 랜더링하는 Accodion list의 Accodion item 컴포넌트입니다.'
+      }
+    }
   },
   argTypes: {
     item: {
@@ -28,14 +27,14 @@ export default {
               'Quality Protection',
               'ServicesQuality Protection',
               'ServicesQuality Protection',
-              'Services',
+              'Services'
             ],
-            active: true,
-          },
-        ],
-      },
-    },
-  },
+            active: true
+          }
+        ]
+      }
+    }
+  }
 };
 
 //template 만들기
@@ -60,10 +59,10 @@ Accondion.args = {
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
-  },
+    active: false
+  }
 };
 
 export const AccondionActive = Template.bind({});
@@ -76,8 +75,8 @@ AccondionActive.args = {
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: true,
-  },
+    active: true
+  }
 };
