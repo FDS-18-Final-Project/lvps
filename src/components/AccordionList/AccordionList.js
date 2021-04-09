@@ -2,9 +2,10 @@ import AccordionItem from 'components/AccodionItem/AccordionItem';
 import { array } from 'prop-types';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import theme from 'theme/theme';
 
 const AccordionWrapper = styled.ul`
-  padding: 10px;
+  padding: ${theme.paddings.base};
 `;
 
 const accordionState = [
@@ -92,5 +93,7 @@ AccordionList.propTypes = {
 AccordionList.defaultProps = {
   accordion: accordionState,
 };
+
+AccordionWrapper.displayName = 'AccordionWrapper';
 
 export default AccordionList;

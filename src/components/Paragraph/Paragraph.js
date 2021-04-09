@@ -54,15 +54,21 @@ const Paragraph = ({
   children,
   colors,
   size,
+  ...restProps
 }) => {
   let Comp = `h${headingNum}`;
 
   return (
-    <ParagraphWrapper headingNum={headingNum} colors={colors} size={size}>
+    <ParagraphWrapper
+      headingNum={headingNum}
+      colors={colors}
+      size={size}
+      {...restProps}
+    >
       <Comp>{title}</Comp>
       {type === 'list' && (
         <ul>
-          {items.map((item) => (
+          {items.map(item => (
             <li key={item}>
               {icon && (
                 <Icon type={icon} width="20" height="20">
