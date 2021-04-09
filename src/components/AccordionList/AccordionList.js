@@ -16,9 +16,9 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: true,
+    active: true
   },
   {
     id: 2,
@@ -27,9 +27,9 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
+    active: false
   },
   {
     id: 3,
@@ -38,9 +38,9 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
+    active: false
   },
   {
     id: 4,
@@ -49,9 +49,9 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
+    active: false
   },
   {
     id: 5,
@@ -60,10 +60,10 @@ const accordionState = [
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
-  },
+    active: false
+  }
 ];
 
 function AccordionList({ accordion }) {
@@ -87,11 +87,11 @@ function AccordionList({ accordion }) {
 }
 
 AccordionList.propTypes = {
-  accordion: array,
+  accordion: array
 };
 
 AccordionList.defaultProps = {
-  accordion: accordionState,
+  accordion: accordionState
 };
 
 AccordionWrapper.displayName = 'AccordionWrapper';
