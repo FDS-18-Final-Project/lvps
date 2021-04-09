@@ -3,14 +3,14 @@ import Routes from '../routes';
 import { BrowserRouter } from 'react-router-dom';
 import Footer from 'containers/Footer/Footer';
 import Header from 'containers/Header/Header';
-import AboutUs from '../containers/AboutUs/AboutUs';
+import SubBanner from '../containers/SubBanner/SubBanner';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
       <Routes />
-      <AboutUs />
+      <SubBanner />
       <Footer>
         <Footer.Logo />
         <Footer.Content />

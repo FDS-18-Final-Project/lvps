@@ -17,6 +17,7 @@ const compColor = css`
             color: #eb1527;
             background-color: white;
             border: 4px solid #eb1527;
+            padding-left: 53px;
           }
         `;
       case 'secondary':
@@ -80,9 +81,10 @@ const ButtonComp = ({ type, mode, children, ...restProps }) => {
 
 // a 컴포넌트
 
-const LinkA = ({ mode, role, href, children, ...restProps }) => {
+const LinkA = ({ mode, role, label, href, children, ...restProps }) => {
   return (
     <StyledAnchor mode={mode} role={role} to={href} {...restProps}>
+      {label && label}
       {children}
     </StyledAnchor>
   );

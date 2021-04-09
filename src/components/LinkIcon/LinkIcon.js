@@ -60,7 +60,7 @@ const LinkIcon = ({ ...restProps }) => {
         mode={restProps.mode}
         role={restProps.role}
         href={restProps.href}
-        children={restProps.children}
+        label={restProps.children}
       >
         <IconContainer mode={restProps.mode}>
           <Icon type="rightArrow" color="white" />
