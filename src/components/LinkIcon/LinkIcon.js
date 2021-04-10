@@ -2,10 +2,12 @@ import React from 'react';
 import { Button, Icon } from 'components';
 import styled from 'styled-components';
 import { oneOf, string } from 'prop-types';
+import theme from 'theme/theme';
 
 const LinkIconContainer = styled.div`
   position: relative;
-  width: 465px;
+  width: ${props => props.width || '465px'};
+  height: ${props => props.height || 'auto'};
   font-weight: 700px;
   line-height: 150%;
   font-family: inherit;
@@ -18,17 +20,21 @@ const LinkIconContainer = styled.div`
 `;
 const styleIcon = {
   secondary: {
-    fill: 'black'
+    fill: `${theme.colors.redMain}`
+  },
+  primary: {
+    fill: `${theme.colors.white}`
   }
 };
 const styleHoverIcon = {
   secondary: {
-    fill: 'white'
+    fill: `${theme.colors.white}`
   },
   primary: {
-    fill: 'red'
+    fill: `${theme.colors.redMain}`
   }
 };
+
 const IconContainer = styled.div`
   width: 30px;
   height: 30px;
@@ -50,7 +56,7 @@ const IconContainer = styled.div`
   }
 `;
 
-const LinkIcon = ({ ...restProps }) => {
+const LinkIcon = ({ style, ...restProps }) => {
   return (
     <LinkIconContainer mode={restProps.mode}>
       <Button
@@ -58,11 +64,12 @@ const LinkIcon = ({ ...restProps }) => {
         mode={restProps.mode}
         role={restProps.role}
         href={restProps.href}
-        children={restProps.children}
-      />
-      <IconContainer mode={restProps.mode}>
-        <Icon type='rightArrow' color='white' />
-      </IconContainer>
+        label={restProps.children}
+      >
+        <IconContainer mode={restProps.mode}>
+          <Icon type="rightArrow" color="white" />
+        </IconContainer>
+      </Button>
     </LinkIconContainer>
   );
 };
