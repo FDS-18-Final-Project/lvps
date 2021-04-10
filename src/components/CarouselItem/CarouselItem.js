@@ -1,37 +1,68 @@
 import styled from 'styled-components';
 import theme from 'theme/theme';
 
-const { fontSizes, interval } = theme;
+import { motion } from 'framer-motion';
+const { fontSizes, interval, calcRem } = theme;
 
-const CarouselItemWrapper = styled.li`
-  width: 100%;
+const CarouselItemWrapper = styled(motion.li)`
+  width: 90%;
+  opacity: 0;
   font-size: ${fontSizes.lg};
+  margin: 0 auto;
+  padding: 0 5%;
   text-align: center;
-  /* padding: 0 100px; */
-  background: green;
-  border-right: 1px solid black;
+  position: absolute;
 
-  p {
-    color: ${({ colors }) => colors.main};
-    width: 916px;
-    height: 350px;
-    line-height: 54px;
-    margin-bottom: ${interval.base};
-  }
+  transition: transform 0.5s, opacity 0.5s;
+  transform: ${({ prev }) => (prev ? 'translateX(-100%)' : '')};
+  transform: ${({ next }) => (next ? 'translateX(100%)' : '')};
 
-  span {
-    margin-bottom: 15px;
-    display: block;
-    color: ${({ colors }) => colors.sub};
+  ${({ active }) =>
+    active &&
+    `
+    opacity: 1;
+  `}
+`;
+
+const CarouselItemContent = styled.p`
+  width: 85%;
+  margin: auto;
+  color: ${({ colors }) => colors.main};
+  line-height: ${calcRem(54)};
+  margin-bottom: ${interval.base};
+  height: ${calcRem(350)};
+`;
+
+const CarouselItemInfo = styled.span`
+  margin-bottom: ${calcRem(15)};
+  display: block;
+  line-height: ${calcRem(54)};
+  color: ${({ colors }) => colors.sub};
+
+  span + span {
+    margin-bottom: ${calcRem(15)};
   }
 `;
 
-const CarouselItem = ({ name, model, children, colors, ...restProps }) => {
+const CarouselItem = ({
+  content,
+  colors,
+  active,
+  prev,
+  next,
+  ...restProps
+}) => {
   return (
-    <CarouselItemWrapper colors={colors} {...restProps}>
-      <p>{children}</p>
-      <span aria-label="writer">{name}</span>
-      <span aria-label="model name">{model}</span>
+    <CarouselItemWrapper active={active} prev={prev} next={next} {...restProps}>
+      <CarouselItemContent colors={colors}>
+        {content.review}
+      </CarouselItemContent>
+      <CarouselItemInfo aria-label="writer" colors={colors}>
+        {content.name}
+      </CarouselItemInfo>
+      <CarouselItemInfo aria-label="model name" colors={colors}>
+        {content.model}
+      </CarouselItemInfo>
     </CarouselItemWrapper>
   );
 };

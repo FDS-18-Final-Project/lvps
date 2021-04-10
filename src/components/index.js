@@ -6,3 +6,5 @@ export { default as Paragraph } from './Paragraph/Paragraph';
 export { default as Card } from './Card/Card';
 export { default as HoverBox } from './HoverBox/HoverBox';
 export { default as Carousel } from './Carousel/Carousel';
+export { default as CarouselItem } from './CarouselItem/CarouselItem';
+export { default as Indicator } from './Indicator/Indicator';
