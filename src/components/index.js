@@ -4,6 +4,7 @@ export { default as Button } from './Button/Button';
 export { default as Icon } from './Icon/Icon';
 export { default as Paragraph } from './Paragraph/Paragraph';
 export { default as Card } from './Card/Card';
+export { default as Divider } from './Divider/Divider';
 export { default as HoverBox } from './HoverBox/HoverBox';
 export { default as AccordionItem } from './AccodionItem/AccordionItem';
 export { default as AccordionList } from './AccordionList/AccordionList';

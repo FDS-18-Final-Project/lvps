@@ -2,7 +2,7 @@ import MainBanner from './MainBanner';
 
 //스토리 구성 객체
 export default {
-  title: ' MMAuto/Component/MainBanner',
+  title: ' MMAuto/Container/MainBanner',
   components: MainBanner,
   parameters: {
     docs: {
@@ -31,21 +31,5 @@ export const BannerAboutUs = Template.bind({});
 BannerAboutUs.args = {
   bgImg: '/',
   title: 'About Us',
-  desc: 'MM Auto Care For Your Car'
-};
-
-export const BannerServices = Template.bind({});
-
-BannerServices.args = {
-  bgImg: '/',
-  title: 'Services',
-  desc: 'MM Auto Care For Your Car'
-};
-
-export const BannerDetailing = Template.bind({});
-
-BannerDetailing.args = {
-  bgImg: '/',
-  title: 'Detailing & Paint Correction',
   desc: 'MM Auto Care For Your Car'
 };
