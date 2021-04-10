@@ -89,5 +89,7 @@ Review.Contents = () => {
 
 ReviewWrapper.displayName = 'ReviewWrapper';
 ReviewTitleWrapper.displayName = 'ReviewTitleWrapper';
+Review.Title.displayName = 'Review-Title';
+Review.Contents.displayName = 'Review-Contents';
 
 export default Review;

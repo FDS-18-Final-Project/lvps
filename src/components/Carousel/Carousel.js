@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import theme from 'theme/theme';
 import { Icon, CarouselItem, Indicator } from 'components/';
 
@@ -97,4 +98,17 @@ const Carousel = ({ contents }) => {
     </>
   );
 };
+
+Carousel.propTypes = {
+  contents: PropTypes.array.isRequired,
+};
+
+Carousel.defaultProps = {
+  contents: [],
+};
+
+CarouselContainer.displayName = 'CarouselContainer';
+Slider.displayName = 'Slider';
+CarouselButton.displayName = 'CarouselButton';
+
 export default Carousel;

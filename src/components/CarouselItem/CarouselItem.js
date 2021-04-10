@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import theme from 'theme/theme';
 
 import { motion } from 'framer-motion';
-const { fontSizes, interval, calcRem } = theme;
+const { colors, fontSizes, interval, calcRem } = theme;
 
 const CarouselItemWrapper = styled(motion.li)`
   width: 90%;
@@ -66,5 +67,25 @@ const CarouselItem = ({
     </CarouselItemWrapper>
   );
 };
+
+CarouselItem.propTypes = {
+  content: PropTypes.object.isRequired,
+  colors: PropTypes.object,
+  active: PropTypes.bool,
+  prev: PropTypes.bool,
+  next: PropTypes.bool,
+};
+
+CarouselItem.defaultProps = {
+  content: [],
+  colors: { main: colors.black, sub: colors.black },
+  active: true,
+  prev: false,
+  next: false,
+};
+
+CarouselItemWrapper.displayName = 'CarouselItemWrapper';
+CarouselItemContent.displayName = 'CarouselItemContent';
+CarouselItemInfo.displayName = 'CarouselItemInfo';
 
 export default CarouselItem;

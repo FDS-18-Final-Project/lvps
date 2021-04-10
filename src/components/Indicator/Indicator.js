@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import theme from 'theme/theme';
 
 const { calcRem } = theme;
@@ -39,5 +40,19 @@ const Indicator = ({ contents, current, onChange, ...restProps }) => {
     </IndicatorWrapper>
   );
 };
+
+Indicator.propTypes = {
+  contents: PropTypes.array.isRequired,
+  current: PropTypes.number,
+  onChange: PropTypes.func,
+};
+
+Indicator.defaultProps = {
+  contents: [],
+  current: 0,
+};
+
+IndicatorWrapper.displayName = 'IndicatorWrapper';
+ItemButton.displayName = 'ItemButton';
 
 export default Indicator;
