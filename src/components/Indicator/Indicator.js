@@ -23,7 +23,7 @@ const ItemButton = styled.button`
 `;
 
 const Indicator = ({ contents, current, onChange, ...restProps }) => {
-  const handleClick = (idx) => {
+  const handleClick = idx => {
     onChange(idx);
   };
 
@@ -44,12 +44,12 @@ const Indicator = ({ contents, current, onChange, ...restProps }) => {
 Indicator.propTypes = {
   contents: PropTypes.array.isRequired,
   current: PropTypes.number,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 };
 
 Indicator.defaultProps = {
   contents: [],
-  current: 0,
+  current: 0
 };
 
 IndicatorWrapper.displayName = 'IndicatorWrapper';
