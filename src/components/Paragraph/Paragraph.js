@@ -41,7 +41,7 @@ const ParagraphWrapper = styled.div`
   li,
   p,
   span {
-    font-weight: 300;
+    font-weight: 500;
   }
 `;
 
