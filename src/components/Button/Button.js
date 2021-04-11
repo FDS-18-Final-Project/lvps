@@ -88,7 +88,6 @@ const ButtonComp = ({ type, children, disabled, ...restProps }) => {
 
 // link 컴포넌트
 const LinkA = ({ role, href, children, ...restProps }) => {
-  console.log(restProps);
   return (
     <StyledLinkA role={role} to={href} {...restProps}>
       {children}
