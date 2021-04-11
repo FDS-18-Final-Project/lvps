@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import theme from 'theme/theme';
+import { motion } from 'framer-motion';
 
 const LayoutWrapper = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ const LayoutWrapper = styled.div`
   color: ${theme.colors.white};
 `;
 
-const LayoutFlexContainer = styled.div`
+const LayoutFlexContainer = styled(motion.div)`
   display: flex;
   flex: ${props => props.flex};
   flex-direction: ${props => props.direction};
@@ -32,7 +33,7 @@ Layout.FlexContainer = ({ tag = 'div', children, ...restProps }) => {
 Layout.FlexContainer.defaultProps = {
   justify: 'center',
   align: 'center',
-  direction: 'row',
+  direction: 'row'
 };
 
 Layout.FlexContainer.displayName = 'LayoutFlexWrapper';
