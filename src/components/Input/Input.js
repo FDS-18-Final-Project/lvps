@@ -1,6 +1,6 @@
 import Icon from 'components/Icon/Icon';
 import Layout from 'pages/Layout/Layout';
-import { node, oneOf } from 'prop-types';
+import { node, oneOf, number } from 'prop-types';
 import { oneOfType } from 'prop-types';
 import { string } from 'prop-types';
 import React from 'react';
@@ -11,8 +11,8 @@ const InputWrapper = styled.div`
   display: flex;
 
   input {
-    width: ${props => props.width};
-    height: ${props => props.height};
+    width: ${props => props.width}px;
+    height: ${props => props.height}px;
     font-size: ${theme.fontSizes.base};
   }
 `;
@@ -29,17 +29,21 @@ const Input = ({ id, type, label, children, ...restProps }) => {
 };
 
 Input.propTypes = {
-  id: string,
+  id: string.isRequired,
   type: oneOf(['text', 'password', 'email', 'number']),
   label: oneOfType([string, node]),
-  children: string
+  children: string,
+  width: number,
+  height: number
 };
 
 Input.defaultProps = {
   id: 'searchInput',
   type: 'text',
   label: <Icon type="searchWhite" color="#fff" width="30px" />,
-  children: 'Service Search'
+  children: 'Service Search',
+  width: 559,
+  height: 50
 };
 
 InputWrapper.displayName = 'InputWrapper';
