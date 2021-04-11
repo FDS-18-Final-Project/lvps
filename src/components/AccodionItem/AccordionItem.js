@@ -8,7 +8,7 @@ import { Button } from '..';
 const StyledButton = styled(Button)`
   display: block;
   width: 100%;
-  height: 4rem;
+  height: 4.5rem;
   padding: ${theme.calcInterval([0, 50, 50])};
   font-weight: 400;
   overflow: hidden;
@@ -67,7 +67,7 @@ const variants = {
   hidden: {
     color: theme.colors.black,
     backgroundColor: theme.colors.white,
-    height: '4.6rem',
+    height: '4.5rem',
     opacity: 1,
     transition: { duration: 0.5, type: 'tween' }
   }
