@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import theme from 'theme/theme';
-
 import { motion } from 'framer-motion';
-const { colors, fontSizes, interval, calcRem } = theme;
 
+const { colors, fontSizes, calcRem } = theme;
 const CarouselItemWrapper = styled(motion.li)`
   width: 90%;
   opacity: 0;
@@ -30,7 +29,7 @@ const CarouselItemContent = styled.p`
   margin: auto;
   color: ${({ colors }) => colors.main};
   line-height: ${calcRem(54)};
-  margin-bottom: ${interval.base};
+  margin-bottom: ${calcRem(50)};
   height: ${calcRem(350)};
 `;
 
@@ -73,7 +72,7 @@ CarouselItem.propTypes = {
   colors: PropTypes.object,
   active: PropTypes.bool,
   prev: PropTypes.bool,
-  next: PropTypes.bool,
+  next: PropTypes.bool
 };
 
 CarouselItem.defaultProps = {
@@ -81,7 +80,7 @@ CarouselItem.defaultProps = {
   colors: { main: colors.black, sub: colors.black },
   active: true,
   prev: false,
-  next: false,
+  next: false
 };
 
 CarouselItemWrapper.displayName = 'CarouselItemWrapper';

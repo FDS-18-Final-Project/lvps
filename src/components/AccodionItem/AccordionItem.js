@@ -34,7 +34,7 @@ const StyledButton = styled(Button)`
     color: ${theme.colors.lightGray};
 
     span {
-      padding: ${theme.paddings.small};
+      padding: ${theme.calcRem(5)};
     }
   }
   div {
@@ -54,14 +54,14 @@ const variants = {
     color: theme.colors.white,
     backgroundColor: theme.colors.redMain,
     height: 'auto',
-    transition: { duration: 0.5, type: 'tween' },
+    transition: { duration: 0.5, type: 'tween' }
   },
   hidden: {
     color: theme.colors.black,
     backgroundColor: theme.colors.white,
     height: '3.7rem',
-    transition: { duration: 0.5, type: 'tween' },
-  },
+    transition: { duration: 0.5, type: 'tween' }
+  }
 };
 
 const AccordionItem = ({ item, onClick }) => {
@@ -95,7 +95,7 @@ const AccordionItem = ({ item, onClick }) => {
 
 AccordionItem.propTypes = {
   item: object.isRequired,
-  onClick: func.isRequired,
+  onClick: func.isRequired
 };
 
 AccordionItem.defaultProps = {
@@ -106,10 +106,10 @@ AccordionItem.defaultProps = {
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: true,
-  },
+    active: true
+  }
 };
 
 ItemWrapper.displayName = 'AccordionItemWrapper';

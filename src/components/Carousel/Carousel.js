@@ -70,6 +70,8 @@ const Carousel = ({ contents }) => {
                 active={idx === currentSlide}
                 prev={idx === prev}
                 next={idx === next}
+                idx={idx}
+                currentSlide={currentSlide}
                 content={review}
                 colors={{ main: colors.lightGray, sub: colors.white }}
               />
@@ -100,11 +102,11 @@ const Carousel = ({ contents }) => {
 };
 
 Carousel.propTypes = {
-  contents: PropTypes.array.isRequired,
+  contents: PropTypes.array.isRequired
 };
 
 Carousel.defaultProps = {
-  contents: [],
+  contents: []
 };
 
 CarouselContainer.displayName = 'CarouselContainer';

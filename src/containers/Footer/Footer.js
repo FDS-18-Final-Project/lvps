@@ -2,14 +2,11 @@ import Logo from 'components/Logo/Logo';
 import Paragraph from 'components/Paragraph/Paragraph';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from 'theme/theme';
+import Layout from 'pages/Layout/Layout';
 
 const { colors, calcRem, calcInterval } = theme;
 
-const FooterWrapper = styled.footer`
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-around;
+const FooterWrapper = styled(Layout.FlexContainer)`
   background-color: ${colors.black};
   padding: ${calcInterval([186, 230, 188, 200])};
 `;
@@ -24,7 +21,9 @@ const FooterContent = styled.div`
 const Footer = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      <FooterWrapper>{children}</FooterWrapper>
+      <FooterWrapper tag="footer" justify="space-around">
+        {children}
+      </FooterWrapper>
     </ThemeProvider>
   );
 };
@@ -59,7 +58,7 @@ Footer.Content = () => {
           'Ceramic Pro',
           'Paint Protection Film',
           'Window Tinting',
-          'Detailing & Paint Correction',
+          'Detailing & Paint Correction'
         ]}
         icon="facebook"
         size="20"
@@ -80,7 +79,7 @@ Footer.Content = () => {
         items={[
           'map 9 Vanley Cres, North York, ON M3J 2B7',
           '(647) 703 5857',
-          'info@lvps.ca',
+          'info@lvps.ca'
         ]}
         icon="map"
         size="20"

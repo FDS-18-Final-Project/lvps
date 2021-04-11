@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import theme from 'theme/theme';
 
 const AccordionWrapper = styled.ul`
-  padding: ${theme.paddings.base};
+  padding: ${theme.calcRem(10)};
 `;
 
 const accordionState = [

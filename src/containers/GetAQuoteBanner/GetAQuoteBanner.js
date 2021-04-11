@@ -1,30 +1,31 @@
 import { LinkIcon, Paragraph } from 'components';
 import styled from 'styled-components';
 import theme from 'theme/theme';
+import Layout from 'pages/Layout/Layout';
 
 const { colors, calcInterval } = theme;
 
-const GetAQuoteBannerBlock = styled.section`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
+const GetAQuoteBannerBlock = styled(Layout.FlexContainer)`
   background-color: ${colors.red_05};
   padding: ${calcInterval([108, 200])};
 `;
 
 const GetAQuoteBanner = ({ children }) => {
-  return <GetAQuoteBannerBlock>{children}</GetAQuoteBannerBlock>;
+  return (
+    <GetAQuoteBannerBlock tag="section" justify="space-between">
+      {children}
+    </GetAQuoteBannerBlock>
+  );
 };
 
 GetAQuoteBanner.Title = () => {
   return (
     <Paragraph
-      type='title'
-      title='Get a free quote'
+      type="title"
+      title="Get a free quote"
       headingNum={2}
       colors={{ main: theme.colors.white, sub: theme.colors.lightGray }}
-      size='24'
+      size="24"
     >
       If you want to check our works, press the button.
     </Paragraph>
@@ -32,7 +33,7 @@ GetAQuoteBanner.Title = () => {
 };
 
 GetAQuoteBanner.Link = () => {
-  return <LinkIcon mode='secondary'>Get a Free Quote</LinkIcon>;
+  return <LinkIcon mode="secondary">Get a Free Quote</LinkIcon>;
 };
 
 GetAQuoteBannerBlock.displayName = 'GetAQuoteBannerBlock';
