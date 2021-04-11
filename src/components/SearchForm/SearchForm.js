@@ -5,12 +5,12 @@ import styled from 'styled-components';
 import theme from 'theme/theme';
 import { A11yHidden } from '..';
 import { motion } from 'framer-motion';
+import { func } from 'prop-types';
 
 const StyledFieldset = styled.fieldset`
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
-
   label {
     align-items: flex-end;
   }
@@ -19,6 +19,7 @@ const StyledFieldset = styled.fieldset`
     border: none;
     border-bottom: 1px solid ${theme.colors.lightGray};
     margin: 0 25px;
+    color: ${theme.colors.white};
   }
 `;
 
@@ -28,8 +29,8 @@ const SearchForm = ({ onClick, ...restProps }) => {
       <StyledFieldset>
         <A11yHidden as="legend">검색 폼</A11yHidden>
         <Input
-          width="559px"
-          height="50px"
+          width={559}
+          height={50}
           label={
             <Icon
               type="searchWhite"
@@ -50,5 +51,11 @@ const SearchForm = ({ onClick, ...restProps }) => {
     </motion.form>
   );
 };
+
+SearchForm.propTypes = {
+  onClick: func
+};
+
+StyledFieldset.displayName = 'FieldSet';
 
 export default SearchForm;
