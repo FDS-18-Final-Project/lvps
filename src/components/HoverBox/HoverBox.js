@@ -1,7 +1,9 @@
-import styled from "styled-components";
-import { string } from "prop-types";
-import { Link } from "react-router-dom";
-import { colors, fontSizes } from "theme/theme";
+import styled from 'styled-components';
+import { string } from 'prop-types';
+import { Link } from 'react-router-dom';
+import theme from 'theme/theme';
+
+const { colors, fontSizes } = theme;
 
 // HoverBox 컴포넌트 스타일링
 const Item = styled(Link)`
@@ -43,20 +45,20 @@ const HoverBoxItem = ({ to, children, ...restProps }) => {
 
 HoverBoxItem.propTypes = {
   to: string,
-  children: string,
+  children: string
 };
 
 HoverBoxItem.defaultProps = {
-  to: "/",
-  children: "HoverBox item",
+  to: '/',
+  children: 'HoverBox item'
 };
 
 const HoverBoxItemVal = [
-  "Ceramic Coating",
-  "Paint Protection Films",
-  "Detailing & Paint Correction",
-  "Window Tinting",
-  "Detailing & Paint Correction",
+  'Ceramic Coating',
+  'Paint Protection Films',
+  'Detailing & Paint Correction',
+  'Window Tinting',
+  'Detailing & Paint Correction'
 ];
 
 const HoverBox = () => {
@@ -65,6 +67,6 @@ const HoverBox = () => {
   ));
 };
 
-HoverBox.displayName = "HoverBox";
+HoverBox.displayName = 'HoverBox';
 
 export default HoverBox;

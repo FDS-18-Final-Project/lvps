@@ -1,114 +1,130 @@
 import styled, { css } from 'styled-components';
-import { oneOf, bool, string } from 'prop-types';
-import { LinkIcon } from 'components';
+import { string, bool } from 'prop-types';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import theme from 'theme/theme';
 
-// 버튼 색상 스타일링
-const compColor = css`
-  ${props => {
-    switch (props.mode) {
-      case 'primary':
-        return css`
-          color: white;
-          background-color: rgb(235, 21, 39);
-          border: none;
-          &:hover {
-            color: #eb1527;
-            background-color: white;
-            border: 4px solid #eb1527;
-            padding-left: 53px;
-          }
-        `;
-      case 'secondary':
-        return css`
-          color: black;
-          background-color: white;
-          border: 4px solid #eb1527;
-          &:hover {
-            color: white;
-            background-color: #eb1527;
-          }
-        `;
-      default:
-        return css`
-          color: white;
-          background-color: #eb1527;
-          border: none;
-        `;
-    }
-  }}
+const { colors, fontSizes, calcRem } = theme;
+
+const modeStyle = {
+  primary: {
+    color: colors.white,
+    'background-color': colors.redMain,
+    border: 'none'
+  },
+  secondary: {
+    color: colors.black,
+    'background-color': colors.white,
+    border: `4px solid ${colors.redMain}`
+  }
+};
+
+const hoverEffect = {
+  primary: {
+    color: colors.redMain,
+    'background-color': colors.white,
+    border: `4px solid ${colors.redMain}`
+  },
+  secondary: {
+    color: colors.white,
+    'background-color': colors.redMain
+  }
+};
+
+const fullWidthStyle = css`
+  ${props =>
+    props.fullWidth &&
+    css`
+      width: 100%;
+    `}
 `;
 
-// 버튼 모양 스타일링 (모바일 디자인 필요)
+const disabledStyle = css`
+  ${props =>
+    props.disabled &&
+    css`
+      cursor: not-allowed;
+      opacity: 0.5;
+    `}
+`;
+
+// 버튼 스타일링 (모바일 디자인 필요)
 const compDesign = css`
   display: flex;
   box-sizing: border-box;
-  width: 465px;
-  height: 96px;
-  margin: 0;
-  font-size: 36px;
-  font-weight: 700;
+  width: ${props => props.width || '465px'};
+  height: ${props => props.height || '96px'};
+  margin: ${props => props.margin || calcRem(0)};
+  padding: 0 0.8em;
+  font-size: ${fontSizes.lg};
+  font-weight: ${props => props.fontWeight || 700};
   font-family: inherit;
   text-decoration: none;
   align-items: center;
-  padding-left: 57px;
+  justify-content: center;
+  cursor: pointer;
 
+  ${props => modeStyle[props.styledMode]}
+  ${fullWidthStyle}
+  ${disabledStyle}
   &:focus {
     outline: none;
+  }
+
+  &:hover {
+    ${props => !props.disabled && hoverEffect[props.styledMode]}
   }
 `;
 
 const StyledButton = styled.button`
-  ${compColor}
   ${compDesign}
 `;
 
-const StyledAnchor = styled(motion(Link))`
-  ${compColor}
+const StyledLinkA = styled(motion(Link))`
   ${compDesign}
 `;
 
 // button 컴포넌트
-
-const ButtonComp = ({ type, mode, children, ...restProps }) => {
+const ButtonComp = ({ type, children, disabled, ...restProps }) => {
   return (
-    <StyledButton type={type} mode={mode} {...restProps}>
+    <StyledButton type={type} disabled={disabled} {...restProps}>
       {children}
     </StyledButton>
   );
 };
 
-// a 컴포넌트
-
-const LinkA = ({ mode, role, label, href, children, ...restProps }) => {
+// link 컴포넌트
+const LinkA = ({ role, href, children, ...restProps }) => {
   return (
-    <StyledAnchor mode={mode} role={role} to={href} {...restProps}>
-      {label && label}
+    <StyledLinkA role={role} to={href} {...restProps}>
       {children}
-    </StyledAnchor>
+    </StyledLinkA>
   );
 };
 
 // 버튼 컴포넌트
-
-const Button = ({ tag, ...restProps }) => {
-  const Tag = tag === 'button' ? ButtonComp : LinkA;
-  return <Tag {...restProps} />;
+const Button = ({ mode, ...restProps }) => {
+  const Comp = mode === 'button' ? ButtonComp : LinkA;
+  return <Comp mode={mode} {...restProps} />;
 };
 
 Button.propTypes = {
-  tag: oneOf(['button', 'a']),
+  mode: string.isRequired,
+  styledMode: string,
   type: string,
-  mode: oneOf(['primary', 'secondary']),
+  disabled: bool,
+  fullWidth: bool,
   role: string,
-  href: string
+  href: string,
+  children: string
 };
 
 Button.defaultProps = {
-  tag: 'button',
+  mode: 'button',
+  styledMode: 'primary',
   type: 'button',
-  mode: 'primary',
+  disabled: false,
+  fullWidth: false,
   role: 'button',
   href: '/',
   children: 'Button'
