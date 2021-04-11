@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { string } from 'prop-types';
 import { Link } from 'react-router-dom';
 import theme from 'theme/theme';
+
 const { colors, fontSizes } = theme;
+
 // HoverBox 컴포넌트 스타일링
 const Item = styled(Link)`
   display: block;

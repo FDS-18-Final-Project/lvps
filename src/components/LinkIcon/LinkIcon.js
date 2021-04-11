@@ -1,23 +1,9 @@
 import React from 'react';
 import { Button, Icon } from 'components';
 import styled from 'styled-components';
-import { oneOf, string } from 'prop-types';
+import { string } from 'prop-types';
 import theme from 'theme/theme';
 
-const LinkIconContainer = styled.div`
-  position: relative;
-  width: ${props => props.width || '465px'};
-  height: ${props => props.height || 'auto'};
-  font-weight: 700px;
-  line-height: 150%;
-  font-family: inherit;
-
-  &:hover {
-    path {
-      ${props => styleHoverIcon[props.mode]}
-    }
-  }
-`;
 const styleIcon = {
   secondary: {
     fill: `${theme.colors.redMain}`
@@ -35,13 +21,24 @@ const styleHoverIcon = {
   }
 };
 
+const LinkIconContainer = styled.div`
+  position: relative;
+  width: ${props => props.width || '465px'};
+  height: ${props => props.height || 'auto'};
+  font-weight: 700px;
+  line-height: 150%;
+  font-family: inherit;
+
+  &:hover {
+    path {
+      ${props => styleHoverIcon[props.styledMode]}
+    }
+  }
+`;
 const IconContainer = styled.div`
   width: 30px;
   height: 30px;
-  position: absolute;
-  top: 35px;
-  right: 40px;
-
+  margin-left: 40px;
   & div {
     width: 100%;
     height: 100%;
@@ -51,22 +48,19 @@ const IconContainer = styled.div`
       height: 100%;
     }
     path {
-      ${props => styleIcon[props.mode]}
+      ${props => {
+        return styleIcon[props.styledMode];
+      }}
     }
   }
 `;
 
-const LinkIcon = ({ style, ...restProps }) => {
+const LinkIcon = ({ styledMode, mode, role, href, children, ...restProps }) => {
   return (
-    <LinkIconContainer mode={restProps.mode}>
-      <Button
-        tag={restProps.tag}
-        mode={restProps.mode}
-        role={restProps.role}
-        href={restProps.href}
-        label={restProps.children}
-      >
-        <IconContainer mode={restProps.mode}>
+    <LinkIconContainer styledMode={styledMode}>
+      <Button mode={mode} role={role} href={href} {...restProps}>
+        {children}
+        <IconContainer styledMode={styledMode}>
           <Icon type="rightArrow" color="white" />
         </IconContainer>
       </Button>
@@ -75,18 +69,18 @@ const LinkIcon = ({ style, ...restProps }) => {
 };
 
 LinkIcon.propTypes = {
-  tag: string,
-  type: oneOf(['button', 'submit']),
-  mode: oneOf(['primary', 'secondary']),
+  mode: string.isRequired,
+  styledMode: string,
+  type: string,
   role: string,
   href: string,
   children: string
 };
 
 LinkIcon.defaultProps = {
-  tag: 'a',
+  mode: 'LinkA',
+  styledMode: 'primary',
   type: 'button',
-  mode: 'secondary',
   role: 'button',
   href: '/get-a-quote',
   children: 'Get a Free Quote'

@@ -21,22 +21,23 @@ export default {
     }
   },
   argTypes: {
-    tag: { type: 'text' },
-    type: {
+    mode: {
       control: {
         type: 'select',
         options: ['button', 'submit']
       }
     },
-    mode: {
+    styledMode: {
       control: {
         type: 'select',
         options: ['primary', 'secondary']
       }
     },
-    children: { type: 'text' },
+    disabled: { control: 'boolean' },
+    fullWidth: { control: 'boolean' },
     role: { type: 'text' },
-    href: { type: 'text' }
+    href: { type: 'text' },
+    children: { type: 'text' }
   }
 };
 
@@ -50,23 +51,24 @@ const Template = args => (
 );
 
 //스토리 구성 객체 기본 내보내기
-export const PrimaryNormalAnchor = Template.bind({});
+export const PrimaryNormalLinkIcon = Template.bind({});
 
-PrimaryNormalAnchor.args = {
-  tag: 'a',
+PrimaryNormalLinkIcon.args = {
+  mode: 'LinkA',
+  styledMode: 'primary',
   type: 'button',
-  mode: 'primary',
-  role: 'button',
-  href: '/get-a-quote',
+  disabled: false,
+  fullWidth: false,
   children: 'Get a Free Quote'
 };
-export const SecondaryNormalAnchor = Template.bind({});
 
-SecondaryNormalAnchor.args = {
-  tag: 'a',
+export const SecondaryNormalLinkIcon = Template.bind({});
+
+SecondaryNormalLinkIcon.args = {
+  mode: 'LinkA',
+  styledMode: 'secondary',
   type: 'button',
-  mode: 'secondary',
-  role: 'button',
-  href: '/get-a-quote',
+  disabled: false,
+  fullWidth: false,
   children: 'Get a Free Quote'
 };
