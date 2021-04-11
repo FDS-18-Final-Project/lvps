@@ -3,6 +3,7 @@ import { string, bool } from 'prop-types';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import theme from 'theme/theme';
+import { fullWidthStyle } from 'styles/Mixin';
 
 const { colors, fontSizes, calcRem } = theme;
 
@@ -30,14 +31,6 @@ const hoverEffect = {
     'background-color': colors.redMain
   }
 };
-
-const fullWidthStyle = css`
-  ${props =>
-    props.fullWidth &&
-    css`
-      width: 100%;
-    `}
-`;
 
 const disabledStyle = css`
   ${props =>

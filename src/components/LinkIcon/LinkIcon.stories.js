@@ -24,7 +24,7 @@ export default {
     mode: {
       control: {
         type: 'select',
-        options: ['button', 'submit']
+        options: ['button', 'LinkA']
       }
     },
     styledMode: {
@@ -56,9 +56,9 @@ export const PrimaryNormalLinkIcon = Template.bind({});
 PrimaryNormalLinkIcon.args = {
   mode: 'LinkA',
   styledMode: 'primary',
-  type: 'button',
   disabled: false,
   fullWidth: false,
+  href: '/get-a-quote',
   children: 'Get a Free Quote'
 };
 
@@ -67,8 +67,8 @@ export const SecondaryNormalLinkIcon = Template.bind({});
 SecondaryNormalLinkIcon.args = {
   mode: 'LinkA',
   styledMode: 'secondary',
-  type: 'button',
   disabled: false,
   fullWidth: false,
+  href: '/get-a-quote',
   children: 'Get a Free Quote'
 };

@@ -3,21 +3,24 @@ import { Button, Icon } from 'components';
 import styled from 'styled-components';
 import { string } from 'prop-types';
 import theme from 'theme/theme';
+import { bool } from 'prop-types';
+import { fullWidthStyle } from 'styles/Mixin';
 
+const { colors } = theme;
 const styleIcon = {
   secondary: {
-    fill: `${theme.colors.redMain}`
+    fill: `${colors.redMain}`
   },
   primary: {
-    fill: `${theme.colors.white}`
+    fill: `${colors.white}`
   }
 };
 const styleHoverIcon = {
   secondary: {
-    fill: `${theme.colors.white}`
+    fill: `${colors.white}`
   },
   primary: {
-    fill: `${theme.colors.redMain}`
+    fill: `${colors.redMain}`
   }
 };
 
@@ -34,6 +37,7 @@ const LinkIconContainer = styled.div`
       ${props => styleHoverIcon[props.styledMode]}
     }
   }
+  ${fullWidthStyle}
 `;
 const IconContainer = styled.div`
   width: 30px;
@@ -55,10 +59,25 @@ const IconContainer = styled.div`
   }
 `;
 
-const LinkIcon = ({ styledMode, mode, role, href, children, ...restProps }) => {
+const LinkIcon = ({
+  styledMode,
+  mode,
+  role,
+  href,
+  children,
+  fullWidth,
+  ...restProps
+}) => {
   return (
-    <LinkIconContainer styledMode={styledMode}>
-      <Button mode={mode} role={role} href={href} {...restProps}>
+    <LinkIconContainer fullWidth={fullWidth} styledMode={styledMode}>
+      <Button
+        mode={mode}
+        styledMode={styledMode}
+        role={role}
+        href={href}
+        fullWidth={fullWidth}
+        {...restProps}
+      >
         {children}
         <IconContainer styledMode={styledMode}>
           <Icon type="rightArrow" color="white" />
@@ -73,6 +92,8 @@ LinkIcon.propTypes = {
   styledMode: string,
   type: string,
   role: string,
+  disabled: bool,
+  fullWidth: bool,
   href: string,
   children: string
 };
@@ -82,6 +103,8 @@ LinkIcon.defaultProps = {
   styledMode: 'primary',
   type: 'button',
   role: 'button',
+  fullWidth: false,
+  disabled: false,
   href: '/get-a-quote',
   children: 'Get a Free Quote'
 };
