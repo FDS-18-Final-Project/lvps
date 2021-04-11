@@ -1,5 +1,5 @@
 import Icon from 'components/Icon/Icon';
-import { Layout } from 'pages';
+import Layout from 'pages/Layout/Layout';
 import { node, oneOf } from 'prop-types';
 import { oneOfType } from 'prop-types';
 import { string } from 'prop-types';

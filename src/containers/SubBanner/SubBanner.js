@@ -3,9 +3,8 @@ import React from 'react';
 import LinkIcon from '../../components/LinkIcon/LinkIcon';
 import styled from 'styled-components';
 import { node, string } from 'prop-types';
-import { Layout } from 'pages';
+import Layout from 'pages/Layout/Layout';
 
-console.log(Layout);
 const Wrapper = styled.div`
   display: flex;
   img {

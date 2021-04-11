@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import Navbar from 'components/Navbar/Navbar';
 import Logo from 'components/Logo/Logo';
 import Icon from 'components/Icon/Icon';
-import { Layout } from 'pages';
 import SearchForm from 'components/SearchForm/SearchForm';
 import { AnimatePresence } from 'framer-motion';
+import Layout from 'pages/Layout/Layout';
 
 const variants = {
   visible: { y: 0, transition: { duration: 0.4 } },

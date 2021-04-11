@@ -3,15 +3,14 @@ import Routes from '../routes';
 import { BrowserRouter } from 'react-router-dom';
 import Footer from 'containers/Footer/Footer';
 import Header from 'containers/Header/Header';
-import SearchForm from 'components/SearchForm/SearchForm';
-import SubBanner from '../containers/SubBanner/SubBanner';
+import { ServiceInfo, SubBanner } from 'containers';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
       <Routes />
-      <SearchForm />
+      <ServiceInfo />
       <SubBanner />
       <Footer>
         <Footer.Logo />

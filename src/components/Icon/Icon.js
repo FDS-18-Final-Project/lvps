@@ -24,7 +24,6 @@ const IconWrapper = styled(motion.div)`
 `;
 
 const Icon = ({ type, color, children, motionProps, ...restProps }) => {
-  console.log(restProps);
   return (
     <IconWrapper color={color} {...motionProps}>
       {React.createElement(svg[type], { ...restProps })}
