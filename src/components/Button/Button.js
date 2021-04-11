@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-import { oneOf, bool, string } from 'prop-types';
-import { LinkIcon } from 'components';
+import { oneOf, string } from 'prop-types';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 

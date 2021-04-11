@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { node, string } from 'prop-types';
 import { Layout } from 'pages';
 
+console.log(Layout);
 const Wrapper = styled.div`
   display: flex;
   img {
@@ -41,14 +42,14 @@ SubBanner.propTypes = {
   title: string.isRequired,
   linkText: string.isRequired,
   imagePath: string.isRequired,
-  children: node,
+  children: node
 };
 
 SubBanner.defaultProps = {
   title: 'About us',
   linkText: 'More About us',
   imagePath: 'assets/dummyImage.png',
-  children: 'Quality Protection Services',
+  children: 'Quality Protection Services'
 };
 
 Wrapper.displayName = 'SubBannerWrapper';
