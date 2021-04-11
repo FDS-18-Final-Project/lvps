@@ -52,6 +52,8 @@ Footer.Content = () => {
       <Paragraph
         title="SERVICES"
         type="list"
+        link
+        to="/"
         headingNumber={3}
         colors={{ main: white, sub: white }}
         items={[

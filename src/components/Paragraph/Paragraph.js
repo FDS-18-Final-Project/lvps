@@ -2,6 +2,7 @@ import Icon from 'components/Icon/Icon';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import theme from 'theme/theme';
+import { Link } from 'react-router-dom';
 
 const { fontSizes, calcRem } = theme;
 
@@ -54,6 +55,8 @@ const Paragraph = ({
   children,
   colors,
   size,
+  link,
+  to,
   ...restProps
 }) => {
   let Comp = `h${headingNum}`;
@@ -69,14 +72,16 @@ const Paragraph = ({
       {type === 'list' && (
         <ul>
           {items.map(item => (
-            <li key={item}>
-              {icon && (
-                <Icon type={icon} width="20" height="20">
-                  <span>{item}</span>
-                </Icon>
-              )}
-              {icon ? null : item}
-            </li>
+            <Link to={to}>
+              <li key={item}>
+                {icon && (
+                  <Icon type={icon} width="20" height="20">
+                    <span>{item}</span>
+                  </Icon>
+                )}
+                {icon ? null : item}
+              </li>
+            </Link>
           ))}
         </ul>
       )}
