@@ -8,21 +8,23 @@ import { Button } from '..';
 const StyledButton = styled(Button)`
   display: block;
   width: 100%;
-  height: 3.7rem;
+  height: 4rem;
   padding: ${theme.calcInterval([0, 50, 50])};
-  border: ${`1px solid ${theme.colors.lightGray}`};
   font-weight: 400;
   overflow: hidden;
   position: relative;
 
+  
   &:hover {
-    border: ${`1px solid ${theme.colors.lightGray}`};
+    border: 0;
     padding: ${theme.calcInterval([0, 50, 50])};
   }
 
   h3 {
     font-size: ${theme.fontSizes.lg};
-    padding: ${theme.calcInterval([13, 0])};
+    padding: ${theme.calcInterval([20, 0])};
+    //line-height: ${theme.calcRem(54)};
+
     text-align: center;
     border-bottom: ${`1px solid ${theme.colors.lightGray}`};
     font-weight: bold;
@@ -35,6 +37,7 @@ const StyledButton = styled(Button)`
     margin-left: -15px;
     font-size: ${theme.fontSizes.base};
     color: ${theme.colors.lightGray};
+    line-height: ${theme.calcRem(36)};
 
     span {
       padding: ${theme.paddings.small};
@@ -58,12 +61,14 @@ const variants = {
     color: theme.colors.white,
     backgroundColor: theme.colors.redMain,
     height: 'auto',
+    opacity: 0.8,
     transition: { duration: 0.5, type: 'tween' }
   },
   hidden: {
     color: theme.colors.black,
     backgroundColor: theme.colors.white,
-    height: '3.7rem',
+    height: '4.6rem',
+    opacity: 1,
     transition: { duration: 0.5, type: 'tween' }
   }
 };

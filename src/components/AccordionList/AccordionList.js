@@ -2,10 +2,11 @@ import AccordionItem from 'components/AccodionItem/AccordionItem';
 import { array } from 'prop-types';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import theme from 'theme/theme';
 
 const AccordionWrapper = styled.ul`
-  padding: ${theme.paddings.base};
+  li + li {
+    margin-top: 5px;
+  }
 `;
 
 const accordionState = [
@@ -66,9 +67,8 @@ const accordionState = [
   }
 ];
 
-const AccordionList = ({ accordion }) => {
+const AccordionList = ({ accordion = accordionState }) => {
   const [accordionItemList, setAccordionItemList] = useState(accordion);
-
   const handleClick = id => {
     setAccordionItemList(
       accordionItemList.map(item =>
