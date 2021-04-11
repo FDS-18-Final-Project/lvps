@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 import { string } from 'prop-types';
 import { Link } from 'react-router-dom';
-
+import theme from 'theme/theme';
+const { colors, fontSizes } = theme;
 // HoverBox 컴포넌트 스타일링
 const Item = styled(Link)`
   display: block;
   box-sizing: border-box;
   width: 410px;
   height: 64px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid ${colors.white};
   &:last-child {
     border-bottom: none;
   }
@@ -16,18 +17,18 @@ const Item = styled(Link)`
   align-items: left;
   justify-content: center;
 
-  background-color: #7d2e2e;
-  color: white;
+  background-color: ${colors.red_06};
+  color: ${colors.white};
 
   text-decoration: none;
-  font-size: 24px;
+  font-size: ${fontSizes.base};
   font-weight: 500;
   font-family: inherit;
 
   // 디자인 시안에 따라 수정 필요
   &:hover {
-    background-color: white;
-    color: #7d2e2e;
+    background-color: ${colors.white};
+    color: ${colors.red_06};
   }
 `;
 
@@ -59,7 +60,9 @@ const HoverBoxItemVal = [
 ];
 
 const HoverBox = () => {
-  return HoverBoxItemVal.map((value, idx) => <HoverBoxItem key={idx} children={value} />);
+  return HoverBoxItemVal.map((value, idx) => (
+    <HoverBoxItem key={idx} children={value} />
+  ));
 };
 
 HoverBox.displayName = 'HoverBox';
