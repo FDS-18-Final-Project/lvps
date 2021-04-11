@@ -3,8 +3,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import theme from 'theme/theme';
+import { motion } from 'framer-motion';
 
-const NavbarWrapper = styled.ul`
+const NavbarWrapper = styled(motion.ul)`
   padding: 0;
   margin: 0;
   list-style: none;
@@ -65,21 +66,21 @@ Navbar.propTypes = {
     'space-between',
     'space-around',
     'flex-start',
-    'flex-end',
+    'flex-end'
   ]),
   align: oneOf([
     'center',
     'space-between',
     'space-around',
     'flex-start',
-    'flex-end',
-  ]),
+    'flex-end'
+  ])
 };
 
 Navbar.defaultProps = {
   direction: 'row',
   justify: 'space-between',
-  align: 'center',
+  align: 'center'
 };
 
 NavbarWrapper.displayName = 'NavbarWrapper';

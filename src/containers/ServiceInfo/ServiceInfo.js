@@ -1,5 +1,5 @@
 import { LinkIcon, Paragraph } from 'components/';
-import { Layout } from 'pages';
+import Layout from 'pages/Layout/Layout';
 import { oneOf } from 'prop-types';
 import { string } from 'prop-types';
 import React from 'react';
@@ -46,7 +46,7 @@ const ServiceInfo = ({
   imagePath,
   linkText,
   mode,
-  children,
+  children
 }) => {
   return (
     <ServiceInfoWrapper mode={mode}>
@@ -88,7 +88,7 @@ ServiceInfo.propTypes = {
   subTitle: string.isRequired,
   imagePath: string.isRequired,
   linkText: string.isRequired,
-  mode: oneOf(['left', 'right']),
+  mode: oneOf(['left', 'right'])
 };
 
 ServiceInfo.defaultProps = {
@@ -96,7 +96,7 @@ ServiceInfo.defaultProps = {
   subTitle: 'Meet Our Skilled Crew.',
   imagePath: 'assets/dummyCar.png',
   linkText: 'Read More',
-  mode: 'right',
+  mode: 'right'
 };
 
 ServiceInfoWrapper.displayName = 'ServiceInfoWrapper';
