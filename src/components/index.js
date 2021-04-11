@@ -13,3 +13,5 @@ export { default as AccordionItem } from './AccodionItem/AccordionItem';
 export { default as AccordionList } from './AccordionList/AccordionList';
 export { default as Logo } from './Logo/Logo';
 export { default as Navbar } from './Navbar/Navbar';
+export { default as Input } from './Input/Input';
+export { default as SearchForm } from './SearchForm/SearchForm';
