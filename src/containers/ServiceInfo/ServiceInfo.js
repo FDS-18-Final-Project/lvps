@@ -4,18 +4,18 @@ import { oneOf } from 'prop-types';
 import { string } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import theme from 'theme/theme';
+import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
 
 const ServiceInfoWrapper = styled.div`
-  padding: ${theme.calcInterval([0, 200, 135])};
+  padding: ${calcInterval([0, 200, 135])};
 
   .ServiceInfoContentBox {
-    height: 490px;
-    margin-top: 32px;
+    height: ${calcRem(490)};
+    margin-top: ${calcRem(32)};
     padding: ${props =>
       props.mode === 'left'
-        ? `0 0 0 ${theme.calcRem(144)}`
-        : `0 ${theme.calcRem(144)} 0 0`};
+        ? `0 0 0 ${calcRem(144)}`
+        : `0 ${calcRem(144)} 0 0`};
 
     div {
       align-self: ${props =>
@@ -24,19 +24,19 @@ const ServiceInfoWrapper = styled.div`
   }
 
   h2 {
-    padding-top: ${theme.calcRem(135)};
-    border-top: 1px solid ${theme.colors.lightGray};
+    padding-top: ${calcRem(135)};
+    border-top: 1px solid ${colors.lightGray};
   }
 
   p {
     margin: 0;
-    font-size: ${theme.fontSizes.base};
-    line-height: ${theme.calcRem(36)};
+    font-size: ${fontSizes.base};
+    line-height: ${calcRem(36)};
   }
   img {
     width: 100%;
-    margin-top: 32px;
-    height: 490px;
+    margin-top: ${calcRem(32)};
+    height: ${calcRem(490)};
   }
 `;
 
@@ -54,7 +54,7 @@ const ServiceInfo = ({
         title={title}
         size={24}
         headingNum={2}
-        colors={{ main: theme.colors.black, sub: theme.colors.redMain }}
+        colors={{ main: colors.black, sub: colors.redMain }}
       >
         {subTitle}
       </Paragraph>

@@ -29,30 +29,30 @@ export const fontSizes = {
   titleLarge: calcRem(70)
 };
 
-// const paddings = {
-//   small: calcRem(5),
-//   base: calcRem(10),
-//   lg: calcRem(12),
-//   xl: calcRem(14),
-//   xxl: calcRem(16),
-//   xxxl: calcRem(18),
-// };
+const paddings = {
+  small: calcRem(5),
+  base: calcRem(10),
+  lg: calcRem(12),
+  xl: calcRem(14),
+  xxl: calcRem(16),
+  xxxl: calcRem(18)
+};
 
-// const margins = {
-//   small: calcRem(5),
-//   base: calcRem(10),
-//   lg: calcRem(12),
-//   xl: calcRem(14),
-//   xxl: calcRem(16),
-//   xxxl: calcRem(18),
-// };
+const margins = {
+  small: calcRem(5),
+  base: calcRem(10),
+  lg: calcRem(12),
+  xl: calcRem(14),
+  xxl: calcRem(16),
+  xxxl: calcRem(18)
+};
 
-// const interval = {
-//   base: calcRem(50),
-//   lg: calcRem(100),
-//   xl: calcRem(150),
-//   xxl: calcRem(200),
-// };
+const interval = {
+  base: calcRem(50),
+  lg: calcRem(100),
+  xl: calcRem(150),
+  xxl: calcRem(200)
+};
 
 export const deviceSizes = {
   mobileS: '320px',
