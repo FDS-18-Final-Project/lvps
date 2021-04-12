@@ -2,45 +2,43 @@ import Icon from 'components/Icon/Icon';
 import { object, func } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import theme from 'theme/theme';
+import { calcInterval, fontSizes, colors, calcRem } from 'theme/theme';
 import { Button } from '..';
 
 const StyledButton = styled(Button)`
   display: block;
   width: 100%;
-  height: 4.5rem;
-  padding: ${theme.calcInterval([0, 50, 50])};
+  height: ${calcRem(72)};
+  padding: ${calcInterval([0, 50, 50])};
   font-weight: 400;
   overflow: hidden;
   position: relative;
 
-  
   &:hover {
     border: 0;
-    padding: ${theme.calcInterval([0, 50, 50])};
+    padding: ${calcInterval([0, 50, 50])};
   }
 
   h3 {
-    font-size: ${theme.fontSizes.lg};
-    padding: ${theme.calcInterval([20, 0])};
-    //line-height: ${theme.calcRem(54)};
-
+    font-size: ${fontSizes.lg};
+    padding: ${calcInterval([20, 0])};
     text-align: center;
-    border-bottom: ${`1px solid ${theme.colors.lightGray}`};
+    border-bottom: ${`1px solid ${colors.lightGray}`};
     font-weight: bold;
+    white-space: nowrap;
   }
 
   p {
     display: flex;
     flex-direction: column;
-    margin-top: 25px;
-    margin-left: -15px;
-    font-size: ${theme.fontSizes.base};
-    color: ${theme.colors.lightGray};
-    line-height: ${theme.calcRem(36)};
+    margin-top: ${calcRem(25)};
+    margin-left: ${calcRem(-15)};
+    font-size: ${fontSizes.base};
+    color: ${colors.lightGray};
+    line-height: ${calcRem(36)};
 
     span {
-      padding: ${theme.paddings.small};
+      padding: ${calcRem(5)};
     }
   }
 
@@ -53,21 +51,21 @@ const StyledButton = styled(Button)`
 `;
 
 const ItemWrapper = styled.li`
-  max-width: 465px;
+  max-width: ${calcRem(465)};
 `;
 
 const variants = {
   visible: {
-    color: theme.colors.white,
-    backgroundColor: theme.colors.redMain,
+    color: colors.white,
+    backgroundColor: colors.redMain,
     height: 'auto',
     opacity: 0.8,
     transition: { duration: 0.5, type: 'tween' }
   },
   hidden: {
-    color: theme.colors.black,
-    backgroundColor: theme.colors.white,
-    height: '4.5rem',
+    color: colors.black,
+    backgroundColor: colors.white,
+    height: calcRem(72),
     opacity: 1,
     transition: { duration: 0.5, type: 'tween' }
   }
@@ -77,10 +75,12 @@ const AccordionItem = ({ item, onClick }) => {
   return (
     <ItemWrapper>
       <StyledButton
-        tag="a"
+        mode="LinkA"
         onClick={() => onClick(item.id)}
+        to={item.active ? '/home' : '/'}
         variants={variants}
         animate={item.active ? 'visible' : 'hidden'}
+        exit="hidden"
       >
         <h3>{item.title}</h3>
         <p>
@@ -92,7 +92,7 @@ const AccordionItem = ({ item, onClick }) => {
           <Icon
             title="rigthArrow Link"
             type="rightArrow"
-            color={theme.colors.white}
+            color={colors.white}
             width="16"
             height="28"
           />
@@ -104,7 +104,7 @@ const AccordionItem = ({ item, onClick }) => {
 
 AccordionItem.propTypes = {
   item: object.isRequired,
-  onClick: func.isRequired
+  onClick: func
 };
 
 AccordionItem.defaultProps = {

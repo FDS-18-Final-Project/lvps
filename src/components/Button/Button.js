@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { string, bool } from 'prop-types';
+import { string, bool, oneOfType, node } from 'prop-types';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import theme from 'theme/theme';
@@ -69,7 +69,7 @@ const compDesign = css`
   }
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled(motion.button)`
   ${compDesign}
 `;
 
@@ -109,7 +109,7 @@ Button.propTypes = {
   fullWidth: bool,
   role: string,
   href: string,
-  children: string
+  children: oneOfType([string, node])
 };
 
 Button.defaultProps = {

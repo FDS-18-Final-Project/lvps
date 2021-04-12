@@ -2,7 +2,7 @@ import { oneOf } from 'prop-types';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import theme from 'theme/theme';
+import { calcRem, fontSizes, calcInterval } from 'theme/theme';
 import { motion } from 'framer-motion';
 
 const NavbarWrapper = styled(motion.ul)`
@@ -14,14 +14,15 @@ const NavbarWrapper = styled(motion.ul)`
   flex-direction: ${props => props.direction};
   justify-content: ${props => props.justify};
   align-items: ${props => props.align};
-  font-size: ${theme.fontSizes.base};
+  font-size: ${fontSizes.base};
 
   a {
     display: inline-block;
-    padding: ${theme.calcRem(32)} 0;
+    padding: ${calcRem(32)} 0;
     transition: 0.4s;
     text-decoration: none;
     color: inherit;
+    white-space: nowrap;
 
     &:hover {
       color: rgba(235, 21, 39, 0.8);
@@ -29,7 +30,7 @@ const NavbarWrapper = styled(motion.ul)`
   }
 
   li {
-    margin: 0 20px;
+    margin: ${calcInterval([0, 20])};
   }
 
   .active {

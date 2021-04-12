@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import theme from 'theme/theme';
+import { colors } from 'theme/theme';
 import { motion } from 'framer-motion';
 
 const LayoutWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  background: ${theme.colors.black};
+  background: ${colors.black};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  color: ${theme.colors.white};
+  color: ${colors.white};
 `;
 
 const LayoutFlexContainer = styled(motion.div)`
