@@ -1,8 +1,7 @@
-import { Paragraph } from 'components/';
 import React from 'react';
-import LinkIcon from '../../components/LinkIcon/LinkIcon';
 import styled from 'styled-components';
 import { node, string } from 'prop-types';
+import { Paragraph, LinkIcon } from 'components/';
 import Layout from 'pages/Layout/Layout';
 import { calcRem } from 'theme/theme';
 

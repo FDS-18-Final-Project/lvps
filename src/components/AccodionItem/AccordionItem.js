@@ -1,9 +1,9 @@
-import Icon from 'components/Icon/Icon';
-import { object, func } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import { object, func } from 'prop-types';
 import { calcInterval, fontSizes, colors, calcRem } from 'theme/theme';
 import { Button } from '..';
+
 
 const StyledButton = styled(Button)`
   display: block;
