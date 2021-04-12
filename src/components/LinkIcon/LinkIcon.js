@@ -21,6 +21,9 @@ const styleHoverIcon = {
   },
   primary: {
     fill: `${colors.redMain}`
+  },
+  hoverBoxTheme: {
+    fill: `${colors.redMain}`
   }
 };
 

@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components';
+<<<<<<< Updated upstream
 import { string, bool, oneOfType, node } from 'prop-types';
+=======
+import { string, bool, number } from 'prop-types';
+>>>>>>> Stashed changes
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import theme from 'theme/theme';
@@ -17,6 +21,11 @@ const modeStyle = {
     color: colors.black,
     'background-color': colors.white,
     border: `4px solid ${colors.redMain}`
+  },
+  hoverBoxTheme: {
+    color: colors.white,
+    'background-color': colors.black,
+    border: `1px solid transparent`
   }
 };
 
@@ -29,12 +38,17 @@ const hoverEffect = {
   secondary: {
     color: colors.white,
     'background-color': colors.redMain
+  },
+  hoverBoxTheme: {
+    color: colors.redMain,
+    'background-color': colors.black,
+    border: `1px solid transparent`
   }
 };
 
 const disabledStyle = css`
-  ${props =>
-    props.disabled &&
+  ${({ disabled }) =>
+    disabled &&
     css`
       cursor: not-allowed;
       opacity: 0.5;
@@ -45,19 +59,19 @@ const disabledStyle = css`
 const compDesign = css`
   display: flex;
   box-sizing: border-box;
-  width: ${props => props.width || '465px'};
-  height: ${props => props.height || '96px'};
-  margin: ${props => props.margin || calcRem(0)};
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  margin: ${({ margin }) => margin};
   padding: 0 0.8em;
   font-size: ${fontSizes.lg};
-  font-weight: ${props => props.fontWeight || 700};
+  font-weight: ${({ fontWeight }) => fontWeight};
   font-family: inherit;
   text-decoration: none;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 
-  ${props => modeStyle[props.styledMode]}
+  ${({ styledMode }) => modeStyle[styledMode]}
   ${fullWidthStyle}
   ${disabledStyle}
   &:focus {
@@ -65,7 +79,7 @@ const compDesign = css`
   }
 
   &:hover {
-    ${props => !props.disabled && hoverEffect[props.styledMode]}
+    ${({ disabled, styledMode }) => !disabled && hoverEffect[styledMode]}
   }
 `;
 
@@ -109,7 +123,15 @@ Button.propTypes = {
   fullWidth: bool,
   role: string,
   href: string,
+<<<<<<< Updated upstream
   children: oneOfType([string, node])
+=======
+  children: string,
+  width: string,
+  height: string,
+  margin: string,
+  'font-weight': number
+>>>>>>> Stashed changes
 };
 
 Button.defaultProps = {
@@ -120,7 +142,11 @@ Button.defaultProps = {
   fullWidth: false,
   role: 'button',
   href: '/',
-  children: 'Button'
+  children: 'Button',
+  width: '465px',
+  height: '96px',
+  marign: calcRem(0),
+  'font-weight': 700
 };
 
 Button.displayName = 'Button';

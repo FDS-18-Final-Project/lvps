@@ -29,7 +29,7 @@ export default {
     styledMode: {
       control: {
         type: 'select',
-        options: ['primary', 'secondary']
+        options: ['primary', 'secondary', 'hoverBoxTheme']
       }
     },
     type: { type: 'text' },
