@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import theme from 'theme/theme';
+import { object, bool } from 'prop-types';
+import { colors, fontSizes, calcRem } from 'theme/theme';
 import { motion } from 'framer-motion';
 
-const { colors, fontSizes, calcRem } = theme;
 const CarouselItemWrapper = styled(motion.li)`
   width: 90%;
   opacity: 0;
@@ -68,11 +67,11 @@ const CarouselItem = ({
 };
 
 CarouselItem.propTypes = {
-  content: PropTypes.object.isRequired,
-  colors: PropTypes.object,
-  active: PropTypes.bool,
-  prev: PropTypes.bool,
-  next: PropTypes.bool
+  content: object.isRequired,
+  colors: object,
+  active: bool,
+  prev: bool,
+  next: bool
 };
 
 CarouselItem.defaultProps = {

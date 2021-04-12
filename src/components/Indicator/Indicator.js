@@ -1,9 +1,7 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import theme from 'theme/theme';
+import { array, number, func } from 'prop-types';
+import { calcRem } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
-
-const { calcRem } = theme;
 
 const ItemButton = styled.button`
   width: ${calcRem(15)};
@@ -37,9 +35,9 @@ const Indicator = ({ contents, current, onChange, ...restProps }) => {
 };
 
 Indicator.propTypes = {
-  contents: PropTypes.array.isRequired,
-  current: PropTypes.number,
-  onChange: PropTypes.func
+  contents: array.isRequired,
+  current: number,
+  onChange: func
 };
 
 Indicator.defaultProps = {

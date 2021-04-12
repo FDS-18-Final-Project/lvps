@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import theme from 'theme/theme';
+import { array } from 'prop-types';
+import { colors, calcRem } from 'theme/theme';
 import { Icon, CarouselItem, Indicator } from 'components/';
-
-const { colors, calcRem } = theme;
 
 const CarouselContainer = styled.div`
   overflow: hidden;
@@ -70,8 +68,6 @@ const Carousel = ({ contents }) => {
                 active={idx === currentSlide}
                 prev={idx === prev}
                 next={idx === next}
-                idx={idx}
-                currentSlide={currentSlide}
                 content={review}
                 colors={{ main: colors.lightGray, sub: colors.white }}
               />
@@ -102,7 +98,7 @@ const Carousel = ({ contents }) => {
 };
 
 Carousel.propTypes = {
-  contents: PropTypes.array.isRequired
+  contents: array.isRequired
 };
 
 Carousel.defaultProps = {

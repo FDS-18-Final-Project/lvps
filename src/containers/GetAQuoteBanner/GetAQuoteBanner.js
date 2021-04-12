@@ -1,9 +1,7 @@
-import { LinkIcon, Paragraph } from 'components';
 import styled from 'styled-components';
-import theme from 'theme/theme';
+import { LinkIcon, Paragraph } from 'components';
+import { colors, calcInterval } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
-
-const { colors, calcInterval } = theme;
 
 const GetAQuoteBannerBlock = styled(Layout.FlexContainer)`
   background-color: ${colors.red_05};
@@ -24,7 +22,7 @@ GetAQuoteBanner.Title = () => {
       type="title"
       title="Get a free quote"
       headingNum={2}
-      colors={{ main: theme.colors.white, sub: theme.colors.lightGray }}
+      colors={{ main: colors.white, sub: colors.lightGray }}
       size="24"
     >
       If you want to check our works, press the button.

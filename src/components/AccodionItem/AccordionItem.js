@@ -13,7 +13,6 @@ const StyledButton = styled(Button)`
   overflow: hidden;
   position: relative;
 
-  
   &:hover {
     border: 0;
     padding: ${theme.calcInterval([0, 50, 50])};
@@ -76,7 +75,7 @@ const AccordionItem = ({ item, onClick }) => {
   return (
     <ItemWrapper>
       <StyledButton
-        tag="a"
+        mode="LinkA"
         onClick={() => onClick(item.id)}
         variants={variants}
         animate={item.active ? 'visible' : 'hidden'}

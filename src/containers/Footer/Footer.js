@@ -1,10 +1,7 @@
-import Logo from 'components/Logo/Logo';
-import Paragraph from 'components/Paragraph/Paragraph';
 import styled, { ThemeProvider } from 'styled-components';
-import theme from 'theme/theme';
+import { Logo, Paragraph } from 'components';
+import { colors, calcRem, calcInterval } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
-
-const { colors, calcRem, calcInterval } = theme;
 
 const FooterWrapper = styled(Layout.FlexContainer)`
   background-color: ${colors.black};
@@ -20,11 +17,9 @@ const FooterContent = styled.div`
 
 const Footer = ({ children }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <FooterWrapper tag="footer" justify="space-around">
-        {children}
-      </FooterWrapper>
-    </ThemeProvider>
+    <FooterWrapper tag="footer" justify="space-around">
+      {children}
+    </FooterWrapper>
   );
 };
 
@@ -33,7 +28,7 @@ Footer.Logo = () => {
 };
 
 Footer.Content = () => {
-  const { white, lightGray } = theme.colors;
+  const { white, lightGray } = colors;
   return (
     <FooterContent>
       <Paragraph

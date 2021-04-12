@@ -1,10 +1,8 @@
 import Icon from 'components/Icon/Icon';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import theme from 'theme/theme';
+import { string, number, array, object } from 'prop-types';
+import { fontSizes, calcRem } from 'theme/theme';
 import { Link } from 'react-router-dom';
-
-const { fontSizes, calcRem } = theme;
 
 const ParagraphWrapper = styled.div`
   color: ${({ colors }) => colors.sub};
@@ -71,8 +69,22 @@ const Paragraph = ({
       <Comp>{title}</Comp>
       {type === 'list' && (
         <ul>
-          {items.map(item => (
-            <Link to={to}>
+          {items.map(item => {
+            if (link) {
+              return (
+                <Link to={to}>
+                  <li key={item}>
+                    {icon && (
+                      <Icon type={icon} width="20" height="20">
+                        <span>{item}</span>
+                      </Icon>
+                    )}
+                    {icon ? null : item}
+                  </li>
+                </Link>
+              );
+            }
+            return (
               <li key={item}>
                 {icon && (
                   <Icon type={icon} width="20" height="20">
@@ -81,8 +93,8 @@ const Paragraph = ({
                 )}
                 {icon ? null : item}
               </li>
-            </Link>
-          ))}
+            );
+          })}
         </ul>
       )}
       <p>{children}</p>
@@ -91,12 +103,12 @@ const Paragraph = ({
 };
 
 Paragraph.propTypes = {
-  title: PropTypes.string,
-  type: PropTypes.string,
-  headingNum: PropTypes.number,
-  items: PropTypes.array,
-  icon: PropTypes.string,
-  colors: PropTypes.object
+  title: string,
+  type: string,
+  headingNum: number,
+  items: array,
+  icon: string,
+  colors: object
 };
 
 Paragraph.defaultProps = {

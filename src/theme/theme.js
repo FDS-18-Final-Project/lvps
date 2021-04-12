@@ -7,7 +7,7 @@ export const calcInterval = intervalLists =>
     return interval;
   }, '');
 
-const colors = {
+export const colors = {
   black: '#2D2D2D',
   white: '#FFFFFF',
   gray: '#949494',
@@ -21,7 +21,7 @@ const colors = {
   red_06: '#7D2E2E'
 };
 
-const fontSizes = {
+export const fontSizes = {
   small: calcRem(20),
   base: calcRem(24),
   lg: calcRem(36),
@@ -54,7 +54,7 @@ const fontSizes = {
 //   xxl: calcRem(200),
 // };
 
-const deviceSizes = {
+export const deviceSizes = {
   mobileS: '320px',
   mobileM: '375px',
   mobileL: '450px',
@@ -63,7 +63,7 @@ const deviceSizes = {
   desktop: '1920px'
 };
 
-const device = {
+export const device = {
   mobileS: `only screen and (max-width: ${deviceSizes.mobileS})`,
   mobileM: `only screen and (max-width: ${deviceSizes.mobileM})`,
   mobileL: `only screen and (max-width: ${deviceSizes.mobileL})`,
@@ -75,9 +75,6 @@ const device = {
 const theme = {
   colors,
   fontSizes,
-  // paddings,
-  // margins,
-  // interval,
   deviceSizes,
   device,
   calcRem,

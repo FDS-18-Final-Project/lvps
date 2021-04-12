@@ -2,11 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import svg from 'assets';
-import theme from 'theme/theme';
+import { calcRem } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import { Link } from 'react-router-dom';
-
-const { calcRem } = theme;
 
 const IconWrapper = styled(Layout.FlexContainer)`
   margin-bottom: ${calcRem(10)};
@@ -37,10 +35,12 @@ const Icon = ({
       justify="flex-start"
       {...motionProps}
     >
-      {link && (
+      {link ? (
         <Link to={to}>{React.createElement(svg[type], { ...restProps })}</Link>
+      ) : (
+        React.createElement(svg[type], { ...restProps })
       )}
-      {React.createElement(svg[type], { ...restProps })}
+
       {children}
     </IconWrapper>
   );

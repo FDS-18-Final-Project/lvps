@@ -1,9 +1,7 @@
-import { Paragraph, Carousel, Icon } from 'components/';
 import styled from 'styled-components';
-import theme from 'theme/theme';
+import { Paragraph, Carousel, Icon } from 'components/';
+import { colors, calcRem, calcInterval } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
-
-const { colors, calcRem, calcInterval } = theme;
 
 const reviews = [
   {
