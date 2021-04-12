@@ -5,7 +5,7 @@ import { oneOfType } from 'prop-types';
 import { string } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import theme from 'theme/theme';
+import { calcRem, colors, fontSizes } from 'theme/theme';
 
 const InputWrapper = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const InputWrapper = styled.div`
   input {
     width: ${props => props.width}px;
     height: ${props => props.height}px;
-    font-size: ${theme.fontSizes.base};
+    font-size: ${fontSizes.base};
   }
 `;
 
@@ -40,10 +40,10 @@ Input.propTypes = {
 Input.defaultProps = {
   id: 'searchInput',
   type: 'text',
-  label: <Icon type="searchWhite" color="#fff" width="30px" />,
+  label: <Icon type="searchWhite" color={colors.white} width={calcRem(30)} />,
   children: 'Service Search',
-  width: 559,
-  height: 50
+  width: calcRem(559),
+  height: calcRem(50)
 };
 
 InputWrapper.displayName = 'InputWrapper';
