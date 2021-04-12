@@ -1,9 +1,8 @@
 import Icon from 'components/Icon/Icon';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import theme from 'theme/theme';
-
-const { margins, fontSizes } = theme;
+import { string, number, array, object } from 'prop-types';
+import { fontSizes, calcRem } from 'theme/theme';
+import { Link } from 'react-router-dom';
 
 const ParagraphWrapper = styled.div`
   color: ${({ colors }) => colors.sub};
@@ -11,7 +10,7 @@ const ParagraphWrapper = styled.div`
 
   h${({ headingNum }) => headingNum} {
     font-weight: bold;
-    margin-bottom: ${margins.base};
+    margin-bottom: ${calcRem(10)};
     color: ${({ colors }) => colors.main};
   }
 
@@ -25,15 +24,15 @@ const ParagraphWrapper = styled.div`
     font-size: ${fontSizes.small};
   }
 
-  .icon-wrapper {
+  /* .icon-wrapper {
     display: flex;
     align-items: center;
-  }
+  } */
   li {
     font-size: ${({ size }) => `${size}px`};
   }
   span {
-    margin-left: ${margins.small};
+    margin-left: ${calcRem(5)};
   }
   p {
     font-size: ${({ size }) => `${size}px`};
@@ -54,6 +53,8 @@ const Paragraph = ({
   children,
   colors,
   size,
+  link,
+  to,
   ...restProps
 }) => {
   let Comp = `h${headingNum}`;
@@ -68,16 +69,32 @@ const Paragraph = ({
       <Comp>{title}</Comp>
       {type === 'list' && (
         <ul>
-          {items.map(item => (
-            <li key={item}>
-              {icon && (
-                <Icon type={icon} width="20" height="20">
-                  <span>{item}</span>
-                </Icon>
-              )}
-              {icon ? null : item}
-            </li>
-          ))}
+          {items.map(item => {
+            if (link) {
+              return (
+                <Link to={to}>
+                  <li key={item}>
+                    {icon && (
+                      <Icon type={icon} width="20" height="20">
+                        <span>{item}</span>
+                      </Icon>
+                    )}
+                    {icon ? null : item}
+                  </li>
+                </Link>
+              );
+            }
+            return (
+              <li key={item}>
+                {icon && (
+                  <Icon type={icon} width="20" height="20">
+                    <span>{item}</span>
+                  </Icon>
+                )}
+                {icon ? null : item}
+              </li>
+            );
+          })}
         </ul>
       )}
       <p>{children}</p>
@@ -86,12 +103,12 @@ const Paragraph = ({
 };
 
 Paragraph.propTypes = {
-  title: PropTypes.string,
-  type: PropTypes.string,
-  headingNum: PropTypes.number,
-  items: PropTypes.array,
-  icon: PropTypes.string,
-  colors: PropTypes.object,
+  title: string,
+  type: string,
+  headingNum: number,
+  items: array,
+  icon: string,
+  colors: object
 };
 
 Paragraph.defaultProps = {
@@ -99,7 +116,7 @@ Paragraph.defaultProps = {
   type: 'normal',
   headingNum: 3,
   items: [],
-  colors: { main: '#2D2D2D', sub: '#2D2D2D' },
+  colors: { main: '#2D2D2D', sub: '#2D2D2D' }
 };
 
 ParagraphWrapper.displayName = 'ParagraphWrapper';

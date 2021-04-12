@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import theme from 'theme/theme';
+import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import { AccordionList } from 'components/';
 import { string } from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ServicesWrapper = styled.div`
-  padding: ${theme.calcInterval([144, 0])};
+  padding: ${calcInterval([144, 0])};
   position: relative;
   display: flex;
   flex-flow: row wrap;
@@ -30,17 +30,18 @@ const ServicesWrapper = styled.div`
   }
 
   h2 {
-    font-size: ${theme.fontSizes.titleBase};
-    color: ${theme.colors.white};
+    font-size: ${fontSizes.titleBase};
+    color: ${colors.white};
     width: 100%;
-    padding-left: ${theme.calcRem(200)};
-    margin-bottom: 60px;
+    padding-left: ${calcRem(200)};
+    margin-bottom: ${calcRem(60)};
   }
 
   img {
     width: 100%;
-    height: 645px;
-    margin-right: 45px;
+    height: ${calcRem(645)};
+    margin-right: ${calcRem(45)};
+    transition: 0.4s;
   }
 `;
 
@@ -102,7 +103,7 @@ const accordionState = [
       'ServicesQuality Protection',
       'Services'
     ],
-    imagePath: 'assets/dummy_background.png',
+    imagePath: 'assets/dummy_car1.png',
     active: false
   }
 ];
@@ -125,18 +126,19 @@ const OurBestServices = ({ title, imagePath }) => {
   return (
     <ServicesWrapper imagePath={imagePath}>
       <h2>{title}</h2>
-      <Layout.FlexContainer flex={2}>
-        <AnimatePresence initial={false}>
+      <AnimatePresence initial={false}>
+        <Layout.FlexContainer flex={2}>
           <motion.img
-            key={setActiveImage()}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 0.5 } }}
-            exit={{ opacity: 1, transition: { duration: 0.1 } }}
+            animate={{
+              opacity: 1
+            }}
+            key={setActiveImage()}
             src={setActiveImage()}
             alt="service"
           />
-        </AnimatePresence>
-      </Layout.FlexContainer>
+        </Layout.FlexContainer>
+      </AnimatePresence>
       <Layout.FlexContainer flex={1} justify="flex-start">
         <AccordionList
           accordion={accordionItemList}

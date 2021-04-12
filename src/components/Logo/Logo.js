@@ -2,6 +2,7 @@ import { oneOf, number } from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { calcRem } from 'theme/theme';
 import { ReactComponent as Image } from '../../assets/Logo.svg';
 
 const Heading = styled.h1`
@@ -9,7 +10,7 @@ const Heading = styled.h1`
   justify-content: center;
   align-items: center;
   margin: 0;
-  max-width: ${props => `${props.maxWidth}px`};
+  max-width: ${props => calcRem(props.maxWidth)};
 
   a {
     display: block;

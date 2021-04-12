@@ -2,10 +2,11 @@ import AccordionItem from 'components/AccodionItem/AccordionItem';
 import { array } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import { calcRem } from 'theme/theme';
 
 const AccordionWrapper = styled.ul`
   li + li {
-    margin-top: 5px;
+    margin-top: ${calcRem(5)};
   }
 `;
 

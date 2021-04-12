@@ -2,20 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import svg from 'assets';
-import theme from 'theme/theme';
-import { motion } from 'framer-motion';
+import { calcRem } from 'theme/theme';
+import Layout from 'pages/Layout/Layout';
+import { Link } from 'react-router-dom';
 
-const { margins } = theme;
-
-const IconWrapper = styled(motion.div)`
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  margin-bottom: ${margins.base};
+const IconWrapper = styled(Layout.FlexContainer)`
+  margin-bottom: ${calcRem(10)};
   position: relative;
 
   svg {
-    margin-right: ${margins.small};
+    margin-right: ${calcRem(5)};
   }
 
   path {
@@ -23,10 +19,28 @@ const IconWrapper = styled(motion.div)`
   }
 `;
 
-const Icon = ({ type, color, children, motionProps, ...restProps }) => {
+const Icon = ({
+  type,
+  color,
+  children,
+  motionProps,
+  link,
+  to,
+  ...restProps
+}) => {
   return (
-    <IconWrapper color={color} {...motionProps}>
-      {React.createElement(svg[type], { ...restProps })}
+    <IconWrapper
+      color={color}
+      align="center"
+      justify="flex-start"
+      {...motionProps}
+    >
+      {link ? (
+        <Link to={to}>{React.createElement(svg[type], { ...restProps })}</Link>
+      ) : (
+        React.createElement(svg[type], { ...restProps })
+      )}
+
       {children}
     </IconWrapper>
   );
