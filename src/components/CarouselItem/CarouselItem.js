@@ -27,12 +27,12 @@ const StyledCarouselItemContainer = styled(motion.li)`
 `;
 
 const StyledCarouselItemContent = styled.p`
-  width: 65%;
+  width: 100%;
   margin: auto;
   color: ${({ colors }) => colors.main};
   line-height: ${calcRem(54)};
   margin-bottom: ${calcRem(50)};
-  height: ${calcRem(350)};
+  height: ${calcRem(300)};
 `;
 
 const StyledCarouselItemInfo = styled.span`

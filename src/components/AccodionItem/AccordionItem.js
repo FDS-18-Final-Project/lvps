@@ -74,7 +74,7 @@ const AccordionItem = ({ item, onClick }) => {
   return (
     <AccordionItemContainer>
       <StyledButton
-        mode="LinkA"
+        mode="link"
         onClick={() => onClick(item.id)}
         to={item.active ? '/home' : '/'}
         variants={variants}

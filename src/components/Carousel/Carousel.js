@@ -10,7 +10,7 @@ const StyledCarouselContainer = styled.div`
   margin: 0 auto;
   position: relative;
   min-height: ${calcRem(525)};
-  margin-bottom: ${calcRem(50)};
+  /* margin-bottom: ${calcRem(40)}; */
 `;
 
 const StyledSlider = styled.ul`
@@ -22,7 +22,7 @@ const StyledSlider = styled.ul`
 const StyledCarouselButton = styled(Icon)`
   position: absolute;
   top: 30%;
-  ${({ direction }) => (direction === 'left' ? 'left: 5%;' : 'right: 5%;')}
+  ${({ direction }) => (direction === 'left' ? 'left: 0;' : 'right: 0;')}
   cursor: pointer;
 `;
 

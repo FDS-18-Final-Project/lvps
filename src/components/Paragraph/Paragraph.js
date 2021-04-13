@@ -24,12 +24,9 @@ const StyledParagraphContainer = styled.div`
     font-size: ${fontSizes.small};
   }
 
-  /* .icon-wrapper {
-    display: flex;
-    align-items: center;
-  } */
   li {
     font-size: ${({ size }) => calcRem(size)};
+    margin-bottom: ${({ type }) => type === 'list' && calcRem(7)};
     a {
       user-select: none;
     }
@@ -73,6 +70,7 @@ const Paragraph = ({
       colors={colors}
       size={size}
       link={link}
+      type={type}
       {...restProps}
     >
       <Comp>{title}</Comp>
@@ -140,7 +138,6 @@ Paragraph.defaultProps = {
   title: '',
   subTitle: '',
   type: 'normal',
-  headingNum: 3,
   items: [],
   colors: { main: colors.black, sub: colors.black },
   size: fontSizes.base,
