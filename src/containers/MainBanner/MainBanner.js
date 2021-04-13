@@ -1,7 +1,7 @@
 import { string } from 'prop-types';
 import styled, { css } from 'styled-components';
 import { colors, fontSizes, calcRem, calcInterval } from 'theme/theme';
-import { Divider, LinkIcon, Paragraph } from 'components';
+import { Button, Divider, Paragraph } from 'components';
 
 const MainBannerBg = css`
   background-image: url(${props => props.bgImg});
@@ -63,7 +63,7 @@ const MainBanner = ({ bgImg }) => {
         size="18"
         colors={{ main: '', sub: colors.lightGray }}
       />
-      <LinkIcon mode="secondary">Get a Free Quote</LinkIcon>
+      <Button mode="secondary">Get a Free Quote</Button>
     </StyledMainBannerBlock>
   );
 };
