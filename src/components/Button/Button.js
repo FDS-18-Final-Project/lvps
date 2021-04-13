@@ -67,7 +67,7 @@ const compDesign = css`
   display: flex;
   box-sizing: border-box;
   width: ${({ width, fullwidth }) => !fullwidth ? calcRem(width) : '100%'};
-  height: ${({ height }) => calcRem(height)}
+  height: ${({ height }) => calcRem(height)};
   margin: ${({ margin }) => calcInterval(changeStringToArray(margin))};
   padding: ${({ padding }) => calcInterval(changeStringToArray(padding))};
   font-size: ${({ fontSize }) => calcRem(fontSize)};
@@ -78,18 +78,18 @@ const compDesign = css`
   justify-content: center;
   cursor: pointer;
 
-  ${({ styledmode }) => modeStyle[styledmode]}
-  ${({disabled}) => disabled && {...disabledStyle}}
+  ${({ styledmode }) => modeStyle[styledmode]};
+  ${({disabled}) => disabled && {...disabledStyle}};
 
   &:focus {
     outline: none;
   }
 
   &:hover {
-    ${({ disabled, styledmode }) => !disabled && hoverEffect[styledmode]}
+    ${({ disabled, styledmode }) => !disabled && hoverEffect[styledmode]};
     
     path {
-      ${props => styleHoverIcon[props.styledmode]}
+      ${props => styleHoverIcon[props.styledmode]};
     }
   }
 
@@ -105,13 +105,9 @@ const compDesign = css`
       margin: 0;
     }
     path {
-      ${props => {
-        return styleIcon[props.styledmode];
-      }}
+      ${props => styleIcon[props.styledmode]};
     }
-  }
-  }
-`;
+  }`;
 
 const StyledButton = styled.button`
   ${compDesign}
@@ -131,6 +127,7 @@ const Button = ({ mode, to, disabled, children, ...restProps }) => {
   const Comp = modeComponent[mode];
   const selectedProp = mode === 'button' ? {'disabled': disabled} : {'to': to};
   console.log({...restProps});
+  console.log(mode, to, disabled, children);
   return <Comp {...restProps} {...selectedProp}>{children}</Comp>;
 };
 
