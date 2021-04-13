@@ -11,6 +11,7 @@ import { ReactComponent as SearchGray } from './svg/search-gray.svg';
 import { ReactComponent as Like } from './svg/like.svg';
 import { ReactComponent as Checked } from './svg/checked.svg';
 import { ReactComponent as Circle } from './svg/circle.svg';
+import { ReactComponent as MobileMenuIcon } from './svg/mobileMenuIcon.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -26,5 +27,6 @@ export default {
   searchGray: SearchGray,
   like: Like,
   checked: Checked,
-  circle: Circle
+  circle: Circle,
+  mobileMenuIcon: MobileMenuIcon
 };

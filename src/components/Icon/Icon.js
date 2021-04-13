@@ -10,7 +10,7 @@ import { Button } from 'components';
 const StyledIconBlock = styled(motion.div)`
   display: flex;
   align-items: center;
-  margin-bottom: ${calcRem(10)};
+  //margin-bottom: ${calcRem(10)};
   /* position: relative; */
 
   svg {
@@ -40,7 +40,11 @@ const Icon = ({
       <Link to={to}>{React.createElement(svg[type], { ...restProps })}</Link>
     );
   else if (button)
-    Comp = <Button>{React.createElement(svg[type], { ...restProps })}</Button>;
+    Comp = (
+      <Button mode="button">
+        {React.createElement(svg[type], { ...restProps })}
+      </Button>
+    );
   else Comp = React.createElement(svg[type], { ...restProps });
 
   return (

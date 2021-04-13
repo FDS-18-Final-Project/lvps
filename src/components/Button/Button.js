@@ -56,17 +56,19 @@ const styleHoverIcon = {
 };
 
 const disabledStyle = {
-    cursor: 'not-allowed',
-    opacity: '0.5',
-}
+  cursor: 'not-allowed',
+  opacity: '0.5'
+};
 
 // 버튼 스타일링 (모바일 디자인 필요)
-const changeStringToArray = value => (value.split(' '))
+const changeStringToArray = value => value.split(' ');
 
 const compDesign = css`
   display: flex;
   box-sizing: border-box;
-  width: ${({ width, fullwidth }) => !fullwidth ? calcRem(width) : '100%'};
+
+  width: ${({ width, fullwidth }) => (!fullwidth ? calcRem(width) : '100%')};
+
   height: ${({ height }) => calcRem(height)};
   margin: ${({ margin }) => calcInterval(changeStringToArray(margin))};
   padding: ${({ padding }) => calcInterval(changeStringToArray(padding))};
@@ -78,14 +80,15 @@ const compDesign = css`
   justify-content: center;
   cursor: pointer;
 
-  ${({ styledmode }) => modeStyle[styledmode]};
-  ${({disabled}) => disabled && {...disabledStyle}};
+  ${({ styledmode }) => modeStyle[styledmode]}
+  ${({ disabled }) => disabled && { ...disabledStyle }}
 
   &:focus {
     outline: none;
   }
 
   &:hover {
+
     ${({ disabled, styledmode }) => !disabled && hoverEffect[styledmode]};
     
     path {
@@ -94,8 +97,8 @@ const compDesign = css`
   }
 
   & div {
-    width:  ${calcRem(20)};
-    height:  ${calcRem(20)};
+    width: ${calcRem(20)};
+    height: ${calcRem(20)};
     margin: ${calcRem(0)};
     margin-left: ${calcRem(20)};
 
@@ -107,7 +110,9 @@ const compDesign = css`
     path {
       ${props => styleIcon[props.styledmode]};
     }
-  }`;
+  }
+`;
+
 
 const StyledButton = styled.button`
   ${compDesign}
@@ -125,10 +130,11 @@ const modeComponent = {
 // 버튼 컴포넌트
 const Button = ({ mode, to, disabled, children, ...restProps }) => {
   const Comp = modeComponent[mode];
+
   const selectedProp = mode === 'button' ? {'disabled': disabled} : {'to': to};
-  console.log({...restProps});
-  console.log(mode, to, disabled, children);
+
   return <Comp {...restProps} {...selectedProp}>{children}</Comp>;
+
 };
 
 Button.propTypes = {
@@ -159,7 +165,7 @@ Button.defaultProps = {
   children: 'Button',
   width: 200,
   height: 50,
-  fontSize: 15, 
+  fontSize: 15,
   padding: '11.5 20',
   margin: '0',
   fontWeight: 700

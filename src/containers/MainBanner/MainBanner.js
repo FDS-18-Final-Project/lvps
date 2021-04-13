@@ -67,7 +67,9 @@ const MainBanner = ({ bgImg }) => {
         size="18"
         colors={{ main: '', sub: colors.lightGray }}
       />
+
       <Button mode="link" to='/get-a-quote'>Get a Free Quote <Icon type='rightArrow' color='red' /></Button>
+
     </StyledMainBannerBlock>
   );
 };
