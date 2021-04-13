@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { calcRem, calcInterval, colors } from 'theme/theme';
 import Navbar from 'components/Navbar/Navbar';
 import Logo from 'components/Logo/Logo';
 import Icon from 'components/Icon/Icon';
 import SearchForm from 'components/SearchForm/SearchForm';
 import { AnimatePresence } from 'framer-motion';
 import Layout from 'pages/Layout/Layout';
-import { calcRem, calcInterval, colors } from 'theme/theme';
 
 const variants = {
   visible: { y: 0, transition: { duration: 0.4 } },
@@ -65,12 +65,20 @@ const Header = () => {
           }}
         />
         <Icon
+          link
+          to="/"
           type="instagram"
           color={colors.white}
           width={calcRem(30)}
           style={{ margin: calcInterval([0, 50]) }}
         />
-        <Icon type="facebook" color={colors.white} width={calcRem(30)} />
+        <Icon
+          type="facebook"
+          link
+          to="/"
+          color={colors.white}
+          width={calcRem(30)}
+        />
       </Layout.FlexContainer>
     </Layout>
   );

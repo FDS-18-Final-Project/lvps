@@ -1,9 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import { object, func } from 'prop-types';
+import styled from 'styled-components';
 import { calcInterval, fontSizes, colors, calcRem } from 'theme/theme';
-import { Button } from '..';
-
+import { Button, Icon } from 'components';
 
 const StyledButton = styled(Button)`
   display: block;
@@ -50,7 +49,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const ItemWrapper = styled.li`
+const AccordionItemContainer = styled.li`
   max-width: ${calcRem(465)};
 `;
 
@@ -73,7 +72,7 @@ const variants = {
 
 const AccordionItem = ({ item, onClick }) => {
   return (
-    <ItemWrapper>
+    <AccordionItemContainer>
       <StyledButton
         mode="LinkA"
         onClick={() => onClick(item.id)}
@@ -88,6 +87,7 @@ const AccordionItem = ({ item, onClick }) => {
             <span key={i}>{des}</span>
           ))}
         </p>
+
         {item.active && (
           <Icon
             title="rigthArrow Link"
@@ -98,7 +98,7 @@ const AccordionItem = ({ item, onClick }) => {
           />
         )}
       </StyledButton>
-    </ItemWrapper>
+    </AccordionItemContainer>
   );
 };
 
@@ -121,5 +121,5 @@ AccordionItem.defaultProps = {
   }
 };
 
-ItemWrapper.displayName = 'AccordionItemWrapper';
+AccordionItemContainer.displayName = 'AccordionItemContainer';
 export default React.memo(AccordionItem);

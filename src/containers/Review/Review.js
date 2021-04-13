@@ -41,15 +41,15 @@ const reviews = [
   }
 ];
 
-const ReviewWrapper = styled.section`
+const StyledReviewBlock = styled.section`
   background: url('assets/dummy_background.png') no-repeat;
   background-size: cover;
   background-position: center;
-  padding: ${calcInterval([140, 200])};
+  padding: ${calcInterval([75, 100, 0])};
   height: ${calcRem(1080)};
 `;
 
-const ReviewTitleWrapper = styled(Layout.FlexContainer)`
+const StyledReviewTitleBlock = styled(Layout.FlexContainer)`
   margin-bottom: ${calcRem(100)};
 
   div + div {
@@ -58,15 +58,15 @@ const ReviewTitleWrapper = styled(Layout.FlexContainer)`
 `;
 
 const Review = ({ children }) => {
-  return <ReviewWrapper>{children}</ReviewWrapper>;
+  return <StyledReviewBlock>{children}</StyledReviewBlock>;
 };
 
 Review.Title = () => {
   return (
-    <ReviewTitleWrapper justify="flex-start">
+    <StyledReviewTitleBlock justify="flex-start">
       <Paragraph
         headingNum={2}
-        size={24}
+        size="24"
         type="title"
         title="Customer Reviews"
         colors={{ main: colors.white, sub: colors.redMain }}
@@ -75,7 +75,7 @@ Review.Title = () => {
       </Paragraph>
       {/* TODO: 아이콘 이상하게뜸 */}
       <Icon type="like" />
-    </ReviewTitleWrapper>
+    </StyledReviewTitleBlock>
   );
 };
 
@@ -83,8 +83,8 @@ Review.Contents = () => {
   return <Carousel contents={reviews} />;
 };
 
-ReviewWrapper.displayName = 'ReviewWrapper';
-ReviewTitleWrapper.displayName = 'ReviewTitleWrapper';
+StyledReviewBlock.displayName = 'StyledReviewBlock';
+StyledReviewTitleBlock.displayName = 'StyledReviewTitleBlock';
 Review.Title.displayName = 'Review-Title';
 Review.Contents.displayName = 'Review-Contents';
 
