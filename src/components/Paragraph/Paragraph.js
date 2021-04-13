@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { fontSizes, calcRem, colors } from 'theme/theme';
 import { Icon } from 'components';
 
-const StyledParagraphBlock = styled.div`
+const StyledParagraphContainer = styled.div`
   color: ${({ colors }) => colors.sub};
   line-height: 1.4;
 
@@ -30,6 +30,9 @@ const StyledParagraphBlock = styled.div`
   } */
   li {
     font-size: ${({ size }) => calcRem(size)};
+    a {
+      user-select: none;
+    }
     a:hover {
       text-decoration: ${({ link }) => (link ? 'underline' : '')};
     }
@@ -49,7 +52,6 @@ const StyledParagraphBlock = styled.div`
 
 const Paragraph = ({
   title,
-
   type,
   headingNum,
   items,
@@ -66,7 +68,7 @@ const Paragraph = ({
   let Comp = `h${headingNum}`;
 
   return (
-    <StyledParagraphBlock
+    <StyledParagraphContainer
       headingNum={headingNum}
       colors={colors}
       size={size}
@@ -86,7 +88,6 @@ const Paragraph = ({
                       <Icon
                         type={icon}
                         color={iconColor}
-                        stroke={stroke}
                         width="20"
                         height="20"
                       >
@@ -117,7 +118,7 @@ const Paragraph = ({
         </ul>
       )}
       <p>{children}</p>
-    </StyledParagraphBlock>
+    </StyledParagraphContainer>
   );
 };
 
@@ -146,6 +147,6 @@ Paragraph.defaultProps = {
   link: false
 };
 
-StyledParagraphBlock.displayName = 'StyledParagraphBlock';
+StyledParagraphContainer.displayName = 'StyledParagraphContainer';
 
 export default Paragraph;

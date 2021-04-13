@@ -3,16 +3,19 @@ import { colors, calcInterval } from 'theme/theme';
 import { LinkIcon, Paragraph } from 'components';
 import Layout from 'pages/Layout/Layout';
 
-const StyledGetAQuoteBannerBlock = styled(Layout.FlexContainer)`
+const StyledGetAQuoteBannerContainer = styled(Layout.FlexContainer)`
   background-color: ${colors.red_05};
   padding: ${calcInterval([75, 100])};
 `;
 
 const GetAQuoteBanner = ({ children }) => {
   return (
-    <StyledGetAQuoteBannerBlock tag="section" justify="space-between">
+    <StyledGetAQuoteBannerContainer
+      tag="section"
+      justifyContent="space-between"
+    >
       {children}
-    </StyledGetAQuoteBannerBlock>
+    </StyledGetAQuoteBannerContainer>
   );
 };
 
@@ -34,7 +37,7 @@ GetAQuoteBanner.Link = () => {
   return <LinkIcon mode="secondary">Get a Free Quote</LinkIcon>;
 };
 
-StyledGetAQuoteBannerBlock.displayName = 'StyledGetAQuoteBannerBlock';
+StyledGetAQuoteBannerContainer.displayName = 'StyledGetAQuoteBannerContainer';
 GetAQuoteBanner.Title.displayName = 'GetAQuoteBanner-Title';
 GetAQuoteBanner.Link.displayName = 'GetAQuoteBanner-Link';
 

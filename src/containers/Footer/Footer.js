@@ -3,7 +3,7 @@ import { colors, calcInterval } from 'theme/theme';
 import { Logo, Paragraph } from 'components';
 import Layout from 'pages/Layout/Layout';
 
-const StyledFooterBlock = styled(Layout.FlexContainer)`
+const StyledFooterContainer = styled(Layout.FlexContainer)`
   background-color: ${colors.black};
   padding: ${calcInterval([95, 100])};
 
@@ -21,9 +21,9 @@ const StyledFooterContent = styled.div`
 
 const Footer = ({ children }) => {
   return (
-    <StyledFooterBlock tag="footer" justify="space-around">
+    <StyledFooterContainer tag="footer" justifyContent="space-around">
       {children}
-    </StyledFooterBlock>
+    </StyledFooterContainer>
   );
 };
 

@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import svg from 'assets';
 import { Button } from 'components';
 
-const StyledIconBlock = styled(motion.div)`
+const StyledIconContainer = styled(motion.div)`
   display: flex;
   align-items: center;
   margin-bottom: ${calcRem(10)};
@@ -39,15 +39,15 @@ const Icon = ({
     Comp = (
       <Link to={to}>{React.createElement(svg[type], { ...restProps })}</Link>
     );
-  if (button)
+  else if (button)
     Comp = <Button>{React.createElement(svg[type], { ...restProps })}</Button>;
   else Comp = React.createElement(svg[type], { ...restProps });
 
   return (
-    <StyledIconBlock color={color} stroke={stroke} {...motionProps}>
+    <StyledIconContainer color={color} stroke={stroke} {...motionProps}>
       {Comp}
       {children}
-    </StyledIconBlock>
+    </StyledIconContainer>
   );
 };
 
@@ -69,6 +69,6 @@ Icon.defaultProps = {
   link: false
 };
 
-StyledIconBlock.displayName = 'StyledIconBlock';
+StyledIconContainer.displayName = 'StyledIconContainer';
 
 export default Icon;

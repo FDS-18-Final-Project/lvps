@@ -5,8 +5,7 @@ import styled from 'styled-components';
 import { calcRem, fontSizes, calcInterval } from 'theme/theme';
 import { motion } from 'framer-motion';
 
-
-const NavbarWrapper = styled(motion.ul)`
+const NavbarContainer = styled(motion.ul)`
   width: 100%;
   display: flex;
   flex-direction: ${({ direction }) => direction};
