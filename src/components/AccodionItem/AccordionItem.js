@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import { object, func } from 'prop-types';
+import styled from 'styled-components';
 import { calcInterval, fontSizes, colors, calcRem } from 'theme/theme';
 import { Button, Icon } from 'components';
 

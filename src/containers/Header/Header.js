@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { calcRem, calcInterval, colors } from 'theme/theme';
 import Navbar from 'components/Navbar/Navbar';
 import Logo from 'components/Logo/Logo';
 import Icon from 'components/Icon/Icon';
 import SearchForm from 'components/SearchForm/SearchForm';
 import { AnimatePresence } from 'framer-motion';
 import Layout from 'pages/Layout/Layout';
-import { calcRem, calcInterval, colors } from 'theme/theme';
 
 const variants = {
   visible: { y: 0, transition: { duration: 0.4 } },

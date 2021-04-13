@@ -1,11 +1,9 @@
-import Icon from 'components/Icon/Icon';
-import Layout from 'pages/Layout/Layout';
-import { node, oneOf, number } from 'prop-types';
-import { oneOfType } from 'prop-types';
-import { string } from 'prop-types';
 import React from 'react';
+import { node, oneOf, number, oneOfType, string } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, fontSizes } from 'theme/theme';
+import Icon from 'components/Icon/Icon';
+import Layout from 'pages/Layout/Layout';
 
 const InputContainer = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
-import { oneOf } from 'prop-types';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, fontSizes, calcInterval } from 'theme/theme';
 import { motion } from 'framer-motion';

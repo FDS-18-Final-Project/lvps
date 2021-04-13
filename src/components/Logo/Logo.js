@@ -1,6 +1,6 @@
-import { oneOf, number } from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { oneOf, number } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem } from 'theme/theme';
 import { ReactComponent as Image } from '../../assets/Logo.svg';

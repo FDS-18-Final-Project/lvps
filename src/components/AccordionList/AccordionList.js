@@ -1,9 +1,8 @@
-import AccordionItem from 'components/AccodionItem/AccordionItem';
-import { func } from 'prop-types';
-import { array } from 'prop-types';
 import React from 'react';
+import { func, array } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem } from 'theme/theme';
+import AccordionItem from 'components/AccodionItem/AccordionItem';
 
 const AccordionContainer = styled.ul`
   li + li {

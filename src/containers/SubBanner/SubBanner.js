@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import { node, string } from 'prop-types';
+import styled from 'styled-components';
+import { calcRem } from 'theme/theme';
 import { Paragraph, LinkIcon } from 'components/';
 import Layout from 'pages/Layout/Layout';
-import { calcRem } from 'theme/theme';
 
 const SubBannerContainer = styled.div`
   max-width: 1200px;

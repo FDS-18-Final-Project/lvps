@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { string } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import { AccordionList } from 'components/';
-import { string } from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ServicesContainer = styled.div`

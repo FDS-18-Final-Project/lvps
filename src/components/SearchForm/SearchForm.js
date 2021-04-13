@@ -1,11 +1,11 @@
-import Icon from 'components/Icon/Icon';
-import Input from 'components/Input/Input';
 import React from 'react';
+import { func } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, calcInterval, fontSizes } from 'theme/theme';
+import Icon from 'components/Icon/Icon';
+import Input from 'components/Input/Input';
 import { A11yHidden } from '..';
 import { motion } from 'framer-motion';
-import { func } from 'prop-types';
 
 const StyledFieldset = styled.fieldset`
   display: flex;

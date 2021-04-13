@@ -1,10 +1,9 @@
-import { LinkIcon, Paragraph } from 'components/';
-import Layout from 'pages/Layout/Layout';
-import { oneOf } from 'prop-types';
-import { string } from 'prop-types';
 import React from 'react';
+import { oneOf, string } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
+import { LinkIcon, Paragraph } from 'components/';
+import Layout from 'pages/Layout/Layout';
 
 const ServiceInfoContainer = styled.div`
   max-width: 1200px;
