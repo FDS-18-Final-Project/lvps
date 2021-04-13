@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { LinkIcon, Paragraph } from 'components';
+import { Button, Paragraph } from 'components';
 import { colors, calcInterval } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 
@@ -31,7 +31,7 @@ GetAQuoteBanner.Title = () => {
 };
 
 GetAQuoteBanner.Link = () => {
-  return <LinkIcon mode="secondary">Get a Free Quote</LinkIcon>;
+  return <Button mode="secondary">Get a Free Quote</Button>;
 };
 
 StyledGetAQuoteBannerBlock.displayName = 'StyledGetAQuoteBannerBlock';
