@@ -66,9 +66,7 @@ const changeStringToArray = value => value.split(' ');
 const compDesign = css`
   display: flex;
   box-sizing: border-box;
-
   width: ${({ width, fullwidth }) => (!fullwidth ? calcRem(width) : '100%')};
-
   height: ${({ height }) => calcRem(height)};
   margin: ${({ margin }) => calcInterval(changeStringToArray(margin))};
   padding: ${({ padding }) => calcInterval(changeStringToArray(padding))};
@@ -130,9 +128,7 @@ const modeComponent = {
 // 버튼 컴포넌트
 const Button = ({ mode, to, disabled, children, ...restProps }) => {
   const Comp = modeComponent[mode];
-
   const selectedProp = mode === 'button' ? {'disabled': disabled} : {'to': to};
-
   return <Comp {...restProps} {...selectedProp}>{children}</Comp>;
 
 };

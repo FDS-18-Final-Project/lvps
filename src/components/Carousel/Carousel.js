@@ -4,13 +4,13 @@ import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
 import { Icon, CarouselItem, Indicator } from 'components/';
 
-const StyledCarouselBlock = styled.div`
+const StyledCarouselContainer = styled.div`
   overflow: hidden;
   width: 100%;
   margin: 0 auto;
   position: relative;
   min-height: ${calcRem(525)};
-  margin-bottom: ${calcRem(50)};
+  /* margin-bottom: ${calcRem(40)}; */
 `;
 
 const StyledSlider = styled.ul`
@@ -22,7 +22,7 @@ const StyledSlider = styled.ul`
 const StyledCarouselButton = styled(Icon)`
   position: absolute;
   top: 30%;
-  ${({ direction }) => (direction === 'left' ? 'left: 5%;' : 'right: 5%;')}
+  ${({ direction }) => (direction === 'left' ? 'left: 0;' : 'right: 0;')}
   cursor: pointer;
 `;
 
@@ -55,7 +55,7 @@ const Carousel = ({ contents }) => {
 
   return (
     <>
-      <StyledCarouselBlock>
+      <StyledCarouselContainer>
         <StyledSlider>
           {contents.map((content, idx) => {
             const next = currentSlide === TOTAL_SLIDERS ? 0 : currentSlide + 1;
@@ -87,7 +87,7 @@ const Carousel = ({ contents }) => {
           direction="right"
           onClick={nextSlide}
         />
-      </StyledCarouselBlock>
+      </StyledCarouselContainer>
       <Indicator
         contents={contents}
         current={currentSlide}
@@ -106,7 +106,7 @@ Carousel.defaultProps = {
   contents: []
 };
 
-StyledCarouselBlock.displayName = 'StyledCarouselBlock';
+StyledCarouselContainer.displayName = 'StyledCarouselContainer';
 StyledSlider.displayName = 'StyledSlider';
 StyledCarouselButton.displayName = 'StyledCarouselButton';
 

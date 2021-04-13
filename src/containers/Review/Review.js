@@ -41,16 +41,21 @@ const reviews = [
   }
 ];
 
-const StyledReviewBlock = styled.section`
+const StyledReviewContainer = styled.div`
   background: url('assets/dummy_background.png') no-repeat;
   background-size: cover;
   background-position: center;
   padding: ${calcInterval([75, 100, 0])};
-  height: ${calcRem(1080)};
+  height: ${calcRem(760)};
 `;
 
-const StyledReviewTitleBlock = styled(Layout.FlexContainer)`
-  margin-bottom: ${calcRem(100)};
+const FullContainer = styled.section`
+  width: ${calcRem(1200)};
+  margin: 0 auto;
+`;
+
+const StyledReviewTitleContainer = styled(Layout.FlexContainer)`
+  margin-bottom: ${calcRem(70)};
 
   div + div {
     margin-left: ${calcRem(25)};
@@ -58,12 +63,16 @@ const StyledReviewTitleBlock = styled(Layout.FlexContainer)`
 `;
 
 const Review = ({ children }) => {
-  return <StyledReviewBlock>{children}</StyledReviewBlock>;
+  return (
+    <StyledReviewContainer>
+      <FullContainer>{children}</FullContainer>
+    </StyledReviewContainer>
+  );
 };
 
 Review.Title = () => {
   return (
-    <StyledReviewTitleBlock justify="flex-start">
+    <StyledReviewTitleContainer justifyContent="flex-start">
       <Paragraph
         headingNum={2}
         size="24"
@@ -75,7 +84,7 @@ Review.Title = () => {
       </Paragraph>
       {/* TODO: 아이콘 이상하게뜸 */}
       <Icon type="like" />
-    </StyledReviewTitleBlock>
+    </StyledReviewTitleContainer>
   );
 };
 
@@ -83,8 +92,8 @@ Review.Contents = () => {
   return <Carousel contents={reviews} />;
 };
 
-StyledReviewBlock.displayName = 'StyledReviewBlock';
-StyledReviewTitleBlock.displayName = 'StyledReviewTitleBlock';
+StyledReviewContainer.displayName = 'StyledReviewContainer';
+StyledReviewTitleContainer.displayName = 'StyledReviewTitleContainer';
 Review.Title.displayName = 'Review-Title';
 Review.Contents.displayName = 'Review-Contents';
 
