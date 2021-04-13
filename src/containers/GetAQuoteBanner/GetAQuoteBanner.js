@@ -32,11 +32,9 @@ GetAQuoteBanner.Title = () => {
 };
 
 GetAQuoteBanner.Link = () => {
-  return (
-    <Button mode="link" to="/">
-      Get a Free Quote
-    </Button>
-  );
+
+  return <Button mode="link" to='/get-a-quote'>Get a Free Quote</Button>;
+
 };
 
 StyledGetAQuoteBannerBlock.displayName = 'StyledGetAQuoteBannerBlock';
