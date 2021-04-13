@@ -39,7 +39,7 @@ const Icon = ({
     Comp = (
       <Link to={to}>{React.createElement(svg[type], { ...restProps })}</Link>
     );
-  if (button)
+  else if (button)
     Comp = <Button>{React.createElement(svg[type], { ...restProps })}</Button>;
   else Comp = React.createElement(svg[type], { ...restProps });
 
