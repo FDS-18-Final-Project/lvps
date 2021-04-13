@@ -6,9 +6,6 @@ import { calcRem, fontSizes, calcInterval } from 'theme/theme';
 import { motion } from 'framer-motion';
 
 const NavbarWrapper = styled(motion.ul)`
-  padding: 0;
-  margin: 0;
-  list-style: none;
   width: 100%;
   display: flex;
   flex-direction: ${props => props.direction};
@@ -20,7 +17,6 @@ const NavbarWrapper = styled(motion.ul)`
     display: inline-block;
     padding: ${calcRem(32)} 0;
     transition: 0.4s;
-    text-decoration: none;
     color: inherit;
     white-space: nowrap;
 

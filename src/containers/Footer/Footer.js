@@ -1,47 +1,51 @@
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { Logo, Paragraph } from 'components';
-import { colors, calcRem, calcInterval } from 'theme/theme';
+import { colors, calcInterval } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 
-const FooterWrapper = styled(Layout.FlexContainer)`
+const StyledFooterBlock = styled(Layout.FlexContainer)`
   background-color: ${colors.black};
-  padding: ${calcInterval([186, 230, 188, 200])};
+  padding: ${calcInterval([95, 100])};
+
+  a:hover {
+    text-decoration: underline;
+  }
 `;
 
-const FooterContent = styled.div`
+const StyledFooterContent = styled.div`
   display: grid;
-  grid-template-rows: repeat(2, ${calcRem(190)});
-  grid-template-columns: repeat(2, ${calcRem(460)});
-  gap: ${calcInterval([112, 60])};
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: ${calcInterval([85, 200])};
 `;
 
 const Footer = ({ children }) => {
   return (
-    <FooterWrapper tag="footer" justify="space-around">
+    <StyledFooterBlock tag="footer" justify="space-around">
       {children}
-    </FooterWrapper>
+    </StyledFooterBlock>
   );
 };
 
 Footer.Logo = () => {
-  return <Logo maxWidth={790} />;
+  return <Logo tag="h2" />;
 };
 
 Footer.Content = () => {
   const { white, lightGray } = colors;
   return (
-    <FooterContent>
+    <StyledFooterContent>
       <Paragraph
         title="ABOUT"
         type="normal"
         headingNumber={3}
         colors={{ main: white, sub: white }}
-        size="20"
+        size="12"
       >
-        We are Luxury Vehicle Protection <br />
-        Services, providing vehicle protection, <br />
-        repair, and detailing services based in <br />
-        North York, Toronto, Ontario.
+        We are Luxury Vehicle Protection Services, <br />
+        providing vehicle protection, repair, and <br />
+        detailing services based in North York, <br />
+        Toronto, Ontario.
       </Paragraph>
 
       <Paragraph
@@ -55,10 +59,12 @@ Footer.Content = () => {
           'Ceramic Pro',
           'Paint Protection Film',
           'Window Tinting',
-          'Detailing & Paint Correction'
+          'Detailing & Paint Correction',
+          'Wheel & Tire'
         ]}
-        icon="facebook"
-        size="20"
+        icon="map"
+        iconColor={colors.white}
+        size="12"
       />
 
       <Paragraph
@@ -67,25 +73,26 @@ Footer.Content = () => {
         headingNumber={3}
         items={['Monday – Friday: 8 am – 6 pm', 'Saturday: 8 am – 3 pm']}
         colors={{ main: white, sub: white }}
-        size="20"
+        size="12"
       />
 
       <Paragraph
         type="list"
         colors={{ main: white, sub: lightGray }}
         items={[
-          'map 9 Vanley Cres, North York, ON M3J 2B7',
+          '9 Vanley Cres, North York, ON M3J 2B7',
           '(647) 703 5857',
           'info@lvps.ca'
         ]}
         icon="map"
-        size="20"
+        iconColor={colors.white}
+        size="12"
       />
-    </FooterContent>
+    </StyledFooterContent>
   );
 };
 
-FooterContent.displayName = 'Footer';
+StyledFooterContent.displayName = 'StyledFooterContent';
 Footer.Logo.displayName = 'Footer-Logo';
 Footer.Content.displayName = 'Footer-Content';
 

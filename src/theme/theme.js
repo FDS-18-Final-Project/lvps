@@ -22,11 +22,14 @@ export const colors = {
 };
 
 export const fontSizes = {
-  small: calcRem(20),
-  base: calcRem(24),
-  lg: calcRem(36),
-  titleBase: calcRem(64),
-  titleLarge: calcRem(70)
+  small: calcRem(14),
+  base: calcRem(16),
+  lg: calcRem(18),
+  xl: calcRem(20),
+  xxl: calcRem(22),
+  xxxl: calcRem(24),
+  titleBase: calcRem(38),
+  titleLarge: calcRem(50)
 };
 
 const paddings = {

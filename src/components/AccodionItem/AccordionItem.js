@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { object, func } from 'prop-types';
 import { calcInterval, fontSizes, colors, calcRem } from 'theme/theme';
-import { Button } from '..';
-
+import { Button, Icon } from 'components';
 
 const StyledButton = styled(Button)`
   display: block;

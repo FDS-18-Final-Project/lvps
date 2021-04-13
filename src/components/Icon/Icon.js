@@ -1,17 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { string, object, bool } from 'prop-types';
 import svg from 'assets';
 import { calcRem } from 'theme/theme';
-import Layout from 'pages/Layout/Layout';
-import { Link } from 'react-router-dom';
+import { Button } from 'components';
 
-const IconWrapper = styled(Layout.FlexContainer)`
+const StyledIconBlock = styled(motion.div)`
+  display: flex;
+  align-items: center;
   margin-bottom: ${calcRem(10)};
-  position: relative;
+  /* position: relative; */
 
   svg {
-    margin-right: ${calcRem(5)};
+    margin-right: ${calcRem(15)};
   }
 
   path {
@@ -24,38 +27,44 @@ const Icon = ({
   color,
   children,
   motionProps,
+  button,
   link,
   to,
   ...restProps
 }) => {
-  return (
-    <IconWrapper
-      color={color}
-      align="center"
-      justify="flex-start"
-      {...motionProps}
-    >
-      {link ? (
-        <Link to={to}>{React.createElement(svg[type], { ...restProps })}</Link>
-      ) : (
-        React.createElement(svg[type], { ...restProps })
-      )}
+  let Comp = null;
+  if (link)
+    Comp = (
+      <Link to={to}>{React.createElement(svg[type], { ...restProps })}</Link>
+    );
+  if (button)
+    Comp = <Button>{React.createElement(svg[type], { ...restProps })}</Button>;
+  else Comp = React.createElement(svg[type], { ...restProps });
 
+  return (
+    <StyledIconBlock color={color} {...motionProps}>
+      {Comp}
       {children}
-    </IconWrapper>
+    </StyledIconBlock>
   );
 };
 
 Icon.propTypes = {
-  type: PropTypes.string.isRequired,
-  color: PropTypes.string
+  type: string.isRequired,
+  color: string,
+  motionProps: object,
+  button: bool,
+  link: bool,
+  to: string
 };
 
 Icon.defaultProps = {
   type: 'rightArrow',
-  color: 'red'
+  color: 'red',
+  button: false,
+  link: false
 };
 
-IconWrapper.displayName = 'IconWrapper';
+StyledIconBlock.displayName = 'StyledIconBlock';
 
 export default Icon;

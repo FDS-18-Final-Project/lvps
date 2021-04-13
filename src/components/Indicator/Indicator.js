@@ -3,7 +3,7 @@ import { array, number, func } from 'prop-types';
 import { calcRem } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 
-const ItemButton = styled.button`
+const StyledIndicatorItem = styled.button`
   width: ${calcRem(15)};
   height: ${calcRem(15)};
   border-radius: 50%;
@@ -22,12 +22,12 @@ const Indicator = ({ contents, current, onChange, ...restProps }) => {
 
   return (
     <Layout.FlexContainer tag="ul" align="flex-start" {...restProps}>
-      {contents.map((review, idx) => (
-        <li key={review.id} onClick={() => handleClick(idx)}>
-          <ItemButton
+      {contents.map((content, idx) => (
+        <li key={content.id} onClick={() => handleClick(idx)}>
+          <StyledIndicatorItem
             aria-label={`indicator-${idx}`}
             selected={current === idx}
-          ></ItemButton>
+          ></StyledIndicatorItem>
         </li>
       ))}
     </Layout.FlexContainer>
@@ -45,6 +45,6 @@ Indicator.defaultProps = {
   current: 0
 };
 
-ItemButton.displayName = 'ItemButton';
+StyledIndicatorItem.displayName = 'StyledIndicatorItem';
 
 export default Indicator;
