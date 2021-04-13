@@ -30,7 +30,7 @@ GetAQuoteBanner.Title = () => {
       title="Get a free quote"
       headingNum={2}
       colors={{ main: colors.white, sub: colors.lightGray }}
-      size="15"
+      size={15}
     >
       If you want to check our works, press the button.
     </Paragraph>

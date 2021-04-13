@@ -94,6 +94,7 @@ const Header = () => {
           ) : (
             <>
               <Icon
+                button
                 type="searchWhite"
                 color={colors.white}
                 width={calcRem(25)}

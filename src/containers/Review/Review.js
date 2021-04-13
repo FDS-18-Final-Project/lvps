@@ -75,7 +75,7 @@ Review.Title = () => {
     <StyledReviewTitleContainer justifyContent="flex-start">
       <Paragraph
         headingNum={2}
-        size="24"
+        size={24}
         type="title"
         title="Customer Reviews"
         colors={{ main: colors.white, sub: colors.redMain }}
