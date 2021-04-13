@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { array, number, func } from 'prop-types';
+import styled from 'styled-components';
 import { calcRem } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 

@@ -3,7 +3,7 @@ import GlobalStyle from 'styles/GlobalStyle';
 import Footer from './Footer';
 
 export default {
-  title: 'MMAuto/Container/Footer',
+  title: 'LVPS/Container/Footer',
   component: Footer,
   parameters: {
     docs: {

@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { string, object, bool } from 'prop-types';
-import svg from 'assets';
+import styled from 'styled-components';
 import { calcRem } from 'theme/theme';
+import { motion } from 'framer-motion';
+import svg from 'assets';
 import { Button } from 'components';
 
 const StyledIconBlock = styled(motion.div)`
@@ -19,12 +19,14 @@ const StyledIconBlock = styled(motion.div)`
 
   path {
     fill: ${({ color }) => color};
+    stroke: ${({ stroke }) => stroke};
   }
 `;
 
 const Icon = ({
   type,
   color,
+  stroke,
   children,
   motionProps,
   button,
@@ -42,7 +44,7 @@ const Icon = ({
   else Comp = React.createElement(svg[type], { ...restProps });
 
   return (
-    <StyledIconBlock color={color} {...motionProps}>
+    <StyledIconBlock color={color} stroke={stroke} {...motionProps}>
       {Comp}
       {children}
     </StyledIconBlock>
@@ -52,6 +54,7 @@ const Icon = ({
 Icon.propTypes = {
   type: string.isRequired,
   color: string,
+  stroke: string,
   motionProps: object,
   button: bool,
   link: bool,
@@ -60,7 +63,8 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   type: 'rightArrow',
-  color: 'red',
+  color: '',
+  stroke: '',
   button: false,
   link: false
 };

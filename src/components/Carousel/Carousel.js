@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import styled from 'styled-components';
 import { array } from 'prop-types';
+import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
 import { Icon, CarouselItem, Indicator } from 'components/';
 

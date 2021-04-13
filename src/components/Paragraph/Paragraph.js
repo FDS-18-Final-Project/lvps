@@ -1,8 +1,8 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { string, number, array, object, bool } from 'prop-types';
-import { Icon } from 'components';
+import styled from 'styled-components';
 import { fontSizes, calcRem, colors } from 'theme/theme';
+import { Icon } from 'components';
 
 const StyledParagraphBlock = styled.div`
   color: ${({ colors }) => colors.sub};
@@ -30,6 +30,9 @@ const StyledParagraphBlock = styled.div`
   } */
   li {
     font-size: ${({ size }) => calcRem(size)};
+    a:hover {
+      text-decoration: ${({ link }) => (link ? 'underline' : '')};
+    }
   }
   li > span {
     margin-left: ${calcRem(5)};
@@ -46,11 +49,13 @@ const StyledParagraphBlock = styled.div`
 
 const Paragraph = ({
   title,
+
   type,
   headingNum,
   items,
   icon,
   iconColor,
+  stroke,
   children,
   colors,
   size,
@@ -65,9 +70,11 @@ const Paragraph = ({
       headingNum={headingNum}
       colors={colors}
       size={size}
+      link={link}
       {...restProps}
     >
       <Comp>{title}</Comp>
+
       {type === 'list' && (
         <ul>
           {items.map((item, idx) => {
@@ -79,6 +86,7 @@ const Paragraph = ({
                       <Icon
                         type={icon}
                         color={iconColor}
+                        stroke={stroke}
                         width="20"
                         height="20"
                       >
@@ -92,7 +100,13 @@ const Paragraph = ({
             return (
               <li key={`${item}-${idx}`}>
                 {icon && (
-                  <Icon type={icon} color={iconColor} width="20" height="20">
+                  <Icon
+                    type={icon}
+                    color={iconColor}
+                    stroke={stroke}
+                    width="20"
+                    height="20"
+                  >
                     <span>{item}</span>
                   </Icon>
                 )}
@@ -109,6 +123,7 @@ const Paragraph = ({
 
 Paragraph.propTypes = {
   title: string,
+  subTitle: string,
   type: string,
   headingNum: number,
   items: array,
@@ -122,6 +137,7 @@ Paragraph.propTypes = {
 
 Paragraph.defaultProps = {
   title: '',
+  subTitle: '',
   type: 'normal',
   headingNum: 3,
   items: [],
