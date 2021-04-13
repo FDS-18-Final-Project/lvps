@@ -3,7 +3,6 @@ import { string, bool, number, array, oneOf, oneOfType } from 'prop-types';
 import styled, { css } from 'styled-components';
 import { colors, calcRem, calcInterval } from 'theme/theme';
 import { motion } from 'framer-motion';
-import { fullWidthStyle } from 'styles/Mixin';
 
 const modeStyle = {
   primary: {
@@ -67,7 +66,7 @@ const changeStringToArray = value => (value.split(' '))
 const compDesign = css`
   display: flex;
   box-sizing: border-box;
-  width: ${({ width }) => calcRem(width)};
+  width: ${({ width, fullwidth }) => !fullwidth ? calcRem(width) : '100%'};
   height: ${({ height }) => calcRem(height)}
   margin: ${({ margin }) => calcInterval(changeStringToArray(margin))};
   padding: ${({ padding }) => calcInterval(changeStringToArray(padding))};
@@ -79,8 +78,7 @@ const compDesign = css`
   justify-content: center;
   cursor: pointer;
 
-  ${({ styledMode }) => modeStyle[styledMode]}
-  ${fullWidthStyle}
+  ${({ styledmode }) => modeStyle[styledmode]}
   ${({disabled}) => disabled && {...disabledStyle}}
 
   &:focus {
@@ -88,10 +86,10 @@ const compDesign = css`
   }
 
   &:hover {
-    ${({ disabled, styledMode }) => !disabled && hoverEffect[styledMode]}
+    ${({ disabled, styledmode }) => !disabled && hoverEffect[styledmode]}
     
     path {
-      ${props => styleHoverIcon[props.styledMode]}
+      ${props => styleHoverIcon[props.styledmode]}
     }
   }
 
@@ -108,7 +106,7 @@ const compDesign = css`
     }
     path {
       ${props => {
-        return styleIcon[props.styledMode];
+        return styleIcon[props.styledmode];
       }}
     }
   }
@@ -131,22 +129,23 @@ const modeComponent = {
 // 버튼 컴포넌트
 const Button = ({ mode, to, disabled, children, ...restProps }) => {
   const Comp = modeComponent[mode];
-  const selectedProp = mode === 'button' ? {'disabled':disabled} : {'to':to};
+  const selectedProp = mode === 'button' ? {'disabled': disabled} : {'to': to};
+  console.log({...restProps});
   return <Comp {...restProps} {...selectedProp}>{children}</Comp>;
 };
 
 Button.propTypes = {
   mode: oneOf(['button', 'link']).isRequired,
-  styledMode: string,
+  styledmode: string,
   type: string,
   disabled: bool,
-  fullWidth: bool,
+  fullwidth: bool,
   role: string,
   to: string,
   children: oneOfType([array, string]),
   width: number,
   height: number,
-  fontSize: string,
+  fontSize: number,
   margin: string,
   padding: string,
   fontWeight: number
@@ -154,10 +153,10 @@ Button.propTypes = {
 
 Button.defaultProps = {
   mode: 'button',
-  styledMode: 'primary',
+  styledmode: 'primary',
   type: 'button',
   disabled: false,
-  fullWidth: false,
+  fullwidth: false,
   role: 'button',
   to: '/',
   children: 'Button',
