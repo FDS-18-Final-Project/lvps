@@ -71,9 +71,9 @@ const LinkIcon = ({
   return (
     <LinkIconContainer fullWidth={fullWidth} styledMode={styledMode}>
       <Button
-        mode={mode}
+        mode="LinkA"
         styledMode={styledMode}
-        role={role}
+        role="button"
         href={href}
         fullWidth={fullWidth}
         {...restProps}
