@@ -86,6 +86,7 @@ const compDesign = css`
   }
 
   &:hover {
+
     ${({ disabled, styledmode }) => !disabled && hoverEffect[styledmode]};
     
     path {
@@ -129,6 +130,7 @@ const Button = ({ mode, to, disabled, children, ...restProps }) => {
   const Comp = modeComponent[mode];
   const selectedProp = mode === 'button' ? {'disabled': disabled} : {'to': to};
   return <Comp {...restProps} {...selectedProp}>{children}</Comp>;
+
 };
 
 Button.propTypes = {
@@ -160,7 +162,7 @@ Button.defaultProps = {
   width: 200,
   height: 50,
   fontSize: 15,
-  padding: '0',
+  padding: '11.5 20',
   margin: '0',
   fontWeight: 700
 };

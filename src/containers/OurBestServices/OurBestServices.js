@@ -6,19 +6,11 @@ import Layout from 'pages/Layout/Layout';
 import { AccordionList } from 'components/';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const ServicesContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: ${calcInterval([144, 0])};
+const FullContainer = styled.div`
   position: relative;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
+
   background-color: rgba(45, 45, 45, 0.8);
 
-  div + div {
-    margin-left: ${calcRem(45)};
-  }
   &::before {
     content: '';
     display: block;
@@ -32,6 +24,19 @@ const ServicesContainer = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+  }
+`;
+
+const ServicesContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: ${calcInterval([144, 0])};
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+  div + div {
+    margin-left: ${calcRem(45)};
   }
 
   h2 {
@@ -128,28 +133,30 @@ const OurBestServices = ({ title, imagePath }) => {
   };
 
   return (
-    <ServicesContainer imagePath={imagePath}>
-      <h2>{title}</h2>
-      <AnimatePresence initial={false}>
-        <Layout.FlexContainer flex={2}>
-          <motion.img
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1
-            }}
-            key={setActiveImage()}
-            src={setActiveImage()}
-            alt="service"
+    <FullContainer imagePath={imagePath}>
+      <ServicesContainer>
+        <h2>{title}</h2>
+        <AnimatePresence initial={false}>
+          <Layout.FlexContainer flex={2}>
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1
+              }}
+              key={setActiveImage()}
+              src={setActiveImage()}
+              alt="service"
+            />
+          </Layout.FlexContainer>
+        </AnimatePresence>
+        <Layout.FlexContainer flex={1} justifyContent="flex-start">
+          <AccordionList
+            accordion={accordionItemList}
+            handleClick={handleClick}
           />
         </Layout.FlexContainer>
-      </AnimatePresence>
-      <Layout.FlexContainer flex={1} justifyContent="flex-start">
-        <AccordionList
-          accordion={accordionItemList}
-          handleClick={handleClick}
-        />
-      </Layout.FlexContainer>
-    </ServicesContainer>
+      </ServicesContainer>
+    </FullContainer>
   );
 };
 

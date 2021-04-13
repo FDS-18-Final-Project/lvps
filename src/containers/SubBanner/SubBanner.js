@@ -1,11 +1,12 @@
 import React from 'react';
 import { node, string } from 'prop-types';
 import styled from 'styled-components';
-import { calcRem } from 'theme/theme';
+import { calcRem, colors } from 'theme/theme';
 import { Paragraph, Button } from 'components/';
 import Layout from 'pages/Layout/Layout';
 
 const SubBannerContainer = styled.div`
+  background: ${colors.white};
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -32,7 +33,9 @@ const SubBanner = ({ title, linkText, imagePath, children }) => {
         <Paragraph id="paragraph" title={title} size={24} headingNum={2}>
           {children}
         </Paragraph>
+
         <Button mode="link" to='/get-a-quote'>{linkText}</Button>
+
       </LayoutContainer>
       <LayoutContainer flex={1}>
         <img src={imagePath} alt="dummyImage" />

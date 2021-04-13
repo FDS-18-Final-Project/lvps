@@ -10,7 +10,6 @@ import { Button } from 'components';
 const StyledIconContainer = styled(motion.div)`
   display: flex;
   align-items: center;
-  /* position: relative; */
 
   svg {
     margin-right: ${calcRem(15)};
