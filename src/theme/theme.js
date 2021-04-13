@@ -54,7 +54,7 @@ const interval = {
   xxl: calcRem(200)
 };
 
-export const deviceSizes = {
+const deviceSizes = {
   mobileS: '320px',
   mobileM: '375px',
   mobileL: '450px',
@@ -63,7 +63,7 @@ export const deviceSizes = {
   desktop: '1920px'
 };
 
-export const device = {
+const device = {
   mobileS: `only screen and (max-width: ${deviceSizes.mobileS})`,
   mobileM: `only screen and (max-width: ${deviceSizes.mobileM})`,
   mobileL: `only screen and (max-width: ${deviceSizes.mobileL})`,
@@ -75,6 +75,9 @@ export const device = {
 const theme = {
   colors,
   fontSizes,
+  paddings,
+  margins,
+  interval,
   deviceSizes,
   device,
   calcRem,

@@ -2,7 +2,7 @@
 import SearchForm from './SearchForm';
 
 export default {
-  title: 'MMAuto/Component/SearchForm',
+  title: 'LVPS/Component/SearchForm',
   component: SearchForm,
   parameters: {
     docs: {

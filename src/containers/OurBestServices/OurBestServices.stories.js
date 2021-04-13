@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from '../../styles/GlobalStyle';
 
 export default {
-  title: 'MMAuto/Container/OurBestServices',
+  title: 'LVPS/Container/OurBestServices',
   component: OurBestServices,
   parameters: {
     docs: {

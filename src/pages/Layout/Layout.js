@@ -4,6 +4,8 @@ import { colors } from 'theme/theme';
 import { motion } from 'framer-motion';
 
 const LayoutWrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   background: ${colors.black};
@@ -13,10 +15,10 @@ const LayoutWrapper = styled.div`
 
 const LayoutFlexContainer = styled(motion.div)`
   display: flex;
-  flex: ${props => props.flex};
-  flex-direction: ${props => props.direction};
-  justify-content: ${props => props.justify};
-  align-items: ${props => props.align};
+  flex: ${({ flex }) => flex};
+  flex-direction: ${({ direction }) => direction};
+  justify-content: ${({ justifyContent }) => justifyContent};
+  align-items: ${({ alignItems }) => alignItems};
 `;
 const Layout = ({ children }) => {
   return <LayoutWrapper>{children}</LayoutWrapper>;
@@ -31,8 +33,8 @@ Layout.FlexContainer = ({ tag = 'div', children, ...restProps }) => {
 };
 
 Layout.FlexContainer.defaultProps = {
-  justify: 'center',
-  align: 'center',
+  justifyContent: 'center',
+  alignItems: 'center',
   direction: 'row'
 };
 

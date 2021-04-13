@@ -6,7 +6,9 @@ import { AccordionList } from 'components/';
 import { string } from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const ServicesWrapper = styled.div`
+const ServicesContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
   padding: ${calcInterval([144, 0])};
   position: relative;
   display: flex;
@@ -14,6 +16,9 @@ const ServicesWrapper = styled.div`
   align-items: center;
   background-color: rgba(45, 45, 45, 0.8);
 
+  div + div {
+    margin-left: ${calcRem(45)};
+  }
   &::before {
     content: '';
     display: block;
@@ -23,7 +28,7 @@ const ServicesWrapper = styled.div`
     right: 0;
     bottom: 0;
     z-index: -1;
-    background-image: url(${props => props.imagePath});
+    background-image: url(${({ imagePath }) => imagePath});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -40,7 +45,6 @@ const ServicesWrapper = styled.div`
   img {
     width: 100%;
     height: ${calcRem(645)};
-    margin-right: ${calcRem(45)};
     transition: 0.4s;
   }
 `;
@@ -124,7 +128,7 @@ const OurBestServices = ({ title, imagePath }) => {
   };
 
   return (
-    <ServicesWrapper imagePath={imagePath}>
+    <ServicesContainer imagePath={imagePath}>
       <h2>{title}</h2>
       <AnimatePresence initial={false}>
         <Layout.FlexContainer flex={2}>
@@ -139,13 +143,13 @@ const OurBestServices = ({ title, imagePath }) => {
           />
         </Layout.FlexContainer>
       </AnimatePresence>
-      <Layout.FlexContainer flex={1} justify="flex-start">
+      <Layout.FlexContainer flex={1} justifyContent="flex-start">
         <AccordionList
           accordion={accordionItemList}
           handleClick={handleClick}
         />
       </Layout.FlexContainer>
-    </ServicesWrapper>
+    </ServicesContainer>
   );
 };
 
@@ -159,5 +163,5 @@ OurBestServices.defaultProps = {
   imagePath: 'assets/dummy_ourbestservice.png'
 };
 
-ServicesWrapper.displayName = 'ServicesWrapper';
+ServicesContainer.displayName = 'ServicesWrapper';
 export default OurBestServices;

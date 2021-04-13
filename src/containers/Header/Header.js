@@ -65,12 +65,20 @@ const Header = () => {
           }}
         />
         <Icon
+          link
+          to="/"
           type="instagram"
           color={colors.white}
           width={calcRem(30)}
           style={{ margin: calcInterval([0, 50]) }}
         />
-        <Icon type="facebook" color={colors.white} width={calcRem(30)} />
+        <Icon
+          type="facebook"
+          link
+          to="/"
+          color={colors.white}
+          width={calcRem(30)}
+        />
       </Layout.FlexContainer>
     </Layout>
   );
