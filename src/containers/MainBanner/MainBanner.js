@@ -1,8 +1,8 @@
 import { string } from 'prop-types';
 import styled, { css } from 'styled-components';
 import { colors, fontSizes, calcRem, calcInterval } from 'theme/theme';
-import { Divider, Paragraph, Icon } from 'components';
-import Button from '../../components/Button/Button';
+import { Button, Divider, Paragraph, Icon } from 'components';
+
 
 const MainBannerBg = css`
   background-image: url(${props => props.bgImg});
