@@ -77,19 +77,18 @@ const compDesign = css`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
-  ${({ styledmode }) => modeStyle[styledmode]}
-  ${({ disabled }) => disabled && { ...disabledStyle }}
+  ${({ styledmode }) => modeStyle[styledmode]};
+  ${({ disabled }) => disabled && { ...disabledStyle }};
 
   &:focus {
     outline: none;
   }
 
   &:hover {
-    ${({ disabled, styledmode }) => !disabled && hoverEffect[styledmode]}
+    ${({ disabled, styledmode }) => !disabled && hoverEffect[styledmode]};
 
     path {
-      ${props => styleHoverIcon[props.styledmode]}
+      ${props => styleHoverIcon[props.styledmode]};
     }
   }
 
@@ -105,9 +104,7 @@ const compDesign = css`
       margin: 0;
     }
     path {
-      ${props => {
-        return styleIcon[props.styledmode];
-      }}
+      ${props => styleIcon[props.styledmode]};
     }
   }
 `;
@@ -130,6 +127,7 @@ const Button = ({ mode, to, disabled, children, ...restProps }) => {
   const Comp = modeComponent[mode];
   const selectedProp = mode === 'button' ? { disabled: disabled } : { to: to };
   console.log({ ...restProps });
+  console.log(mode, to, disabled, children);
   return (
     <Comp {...restProps} {...selectedProp}>
       {children}
