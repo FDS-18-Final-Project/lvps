@@ -9,6 +9,7 @@ import { ReactComponent as Close } from './svg/close.svg';
 import { ReactComponent as SearchWhite } from './svg/search-white.svg';
 import { ReactComponent as SearchGray } from './svg/search-gray.svg';
 import { ReactComponent as Like } from './svg/like.svg';
+import { ReactComponent as Checked } from './svg/checked.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -23,4 +24,5 @@ export default {
   searchWhite: SearchWhite,
   searchGray: SearchGray,
   like: Like,
+  checked: Checked
 };
