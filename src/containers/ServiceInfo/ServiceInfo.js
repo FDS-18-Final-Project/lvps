@@ -70,7 +70,9 @@ const ServiceInfo = ({
           flex="1"
         >
           <p>{children}</p>
-          <Button mode="primary">{linkText}</Button>
+          <Button mode="link" to="/">
+            {linkText}
+          </Button>
         </Layout.FlexContainer>
         {mode === 'right' && (
           <Layout.FlexContainer flex={1}>

@@ -7,9 +7,10 @@ import Layout from 'pages/Layout/Layout';
 
 const InputContainer = styled.div`
   display: flex;
+  width: 100%;
 
   input {
-    width: ${({ width }) => calcRem(width)};
+    width: ${({ width }) => (width ? calcRem(width) : '100%')};
     height: ${({ height }) => calcRem(height)};
     font-size: ${fontSizes.base};
   }
@@ -39,9 +40,7 @@ Input.defaultProps = {
   id: 'searchInput',
   type: 'text',
   label: <Icon type="searchWhite" color={colors.white} width={calcRem(30)} />,
-  children: 'Service Search',
-  width: 559,
-  height: 50
+  children: 'Service Search'
 };
 
 InputContainer.displayName = 'InputContainer';

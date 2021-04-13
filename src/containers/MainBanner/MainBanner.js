@@ -46,8 +46,8 @@ const MainBanner = ({ bgImg }) => {
   return (
     <StyledMainBannerBlock bgImg={bgImg}>
       <StyledHeading>
-        <span class="ourName">LVPS</span>
-        <span class="subTitle">For Your Car</span>
+        <span className="ourName">LVPS</span>
+        <span className="subTitle">For Your Car</span>
       </StyledHeading>
       <Divider width="150px" />
       <StyledParagraph
@@ -63,7 +63,7 @@ const MainBanner = ({ bgImg }) => {
         size="18"
         colors={{ main: '', sub: colors.lightGray }}
       />
-      <Button mode="secondary">Get a Free Quote</Button>
+      <Button mode="link">Get a Free Quote</Button>
     </StyledMainBannerBlock>
   );
 };
