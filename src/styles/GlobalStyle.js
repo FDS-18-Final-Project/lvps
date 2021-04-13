@@ -4,7 +4,7 @@ import reset from 'styled-reset';
 const GlobalStyle = createGlobalStyle`
   ${reset}
   * {
-    font-family: 'Helvetica Neue LT Pro', sans-serif;    
+    font-family: 'Helvetica Neue LT Pro', Monserrat, sans-serif;    
   }
   a {
     text-decoration: none;

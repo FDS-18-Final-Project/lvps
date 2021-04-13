@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { colors, fontSizes, calcRem, calcInterval } from 'theme/theme';
 import { Button, Divider, Icon, Paragraph } from 'components';
 
+
 const MainBannerBg = css`
   background-image: url(${props => props.bgImg});
   background-repeat: no-repeat;
@@ -23,12 +24,15 @@ const FullContainer = styled.div`
 const StyledHeading = styled.h2`
   color: ${colors.white};
   line-height: ${calcRem(75)};
+
   span {
     display: block;
   }
   .ourName {
     font-weight: 800;
     font-size: ${fontSizes.titleLarge};
+    font-family: 'Helvetica Neue LT Pro';
+    font-weight: 500;
   }
   .subTitle {
     font-weight: 400;
