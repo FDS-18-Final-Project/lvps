@@ -5,10 +5,8 @@ import styled from 'styled-components';
 import { calcRem, fontSizes, calcInterval } from 'theme/theme';
 import { motion } from 'framer-motion';
 
-const NavbarContainer = styled(motion.ul)`
-  padding: 0;
-  margin: 0;
-  list-style: none;
+
+const NavbarWrapper = styled(motion.ul)`
   width: 100%;
   display: flex;
   flex-direction: ${({ direction }) => direction};
@@ -20,7 +18,6 @@ const NavbarContainer = styled(motion.ul)`
     display: inline-block;
     padding: ${calcRem(32)} 0;
     transition: 0.4s;
-    text-decoration: none;
     color: inherit;
     white-space: nowrap;
 
