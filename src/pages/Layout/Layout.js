@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from 'theme/theme';
 import { motion } from 'framer-motion';
 
 const LayoutWrapper = styled.div`
@@ -8,9 +7,6 @@ const LayoutWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  background: ${colors.black};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  color: ${colors.white};
 `;
 
 const LayoutFlexContainer = styled(motion.div)`

@@ -33,13 +33,13 @@ const SearchForm = ({ onClick, ...restProps }) => {
       <StyledFieldset>
         <A11yHidden as="legend">검색 폼</A11yHidden>
         <Input
-          width={559}
-          height={50}
+          width={400}
+          height={30}
           label={
             <Icon
               type="searchWhite"
               color={colors.lightGray}
-              width={calcRem(30)}
+              width={calcRem(25)}
             />
           }
         >
@@ -48,7 +48,7 @@ const SearchForm = ({ onClick, ...restProps }) => {
         <Icon
           type="close"
           color={colors.lightGray}
-          width={calcRem(30)}
+          width={calcRem(25)}
           onClick={onClick}
         />
       </StyledFieldset>
