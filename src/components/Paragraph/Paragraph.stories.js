@@ -1,11 +1,9 @@
-import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'styles/GlobalStyle';
-import theme from 'theme/theme';
 import Paragraph from './Paragraph';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  title: 'MMAuto/Component/Paragraph',
+  title: 'LVPS/Component/Paragraph',
   Component: Paragraph,
   parameters: {
     docs: {
@@ -43,9 +41,7 @@ export default {
 const Template = args => (
   <>
     <GlobalStyle />
-    <ThemeProvider theme={theme}>
-      <Paragraph {...args} />
-    </ThemeProvider>
+    <Paragraph {...args} />
   </>
 );
 

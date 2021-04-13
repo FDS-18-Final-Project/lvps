@@ -1,21 +1,14 @@
-import styled, { css } from 'styled-components';
-<<<<<<< Updated upstream
-import { string, bool, oneOfType, node } from 'prop-types';
-=======
-import { string, bool, number } from 'prop-types';
->>>>>>> Stashed changes
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import theme from 'theme/theme';
-import { fullWidthStyle } from 'styles/Mixin';
-
-const { colors, fontSizes, calcRem } = theme;
+import styled, { css } from 'styled-components';
+import { string, bool, oneOf, oneOfType, array, number } from 'prop-types';
+import { colors, calcRem, calcInterval } from 'theme/theme';
+import { motion } from 'framer-motion';
 
 const modeStyle = {
   primary: {
     color: colors.white,
     'background-color': colors.redMain,
-    border: 'none'
+    border: `4px solid ${colors.redMain}`
   },
   secondary: {
     color: colors.black,
@@ -24,8 +17,7 @@ const modeStyle = {
   },
   hoverBoxTheme: {
     color: colors.white,
-    'background-color': colors.black,
-    border: `1px solid transparent`
+    'background-color': colors.black
   }
 };
 
@@ -41,29 +33,44 @@ const hoverEffect = {
   },
   hoverBoxTheme: {
     color: colors.redMain,
-    'background-color': colors.black,
-    border: `1px solid transparent`
+    'background-color': colors.black
   }
 };
 
-const disabledStyle = css`
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      cursor: not-allowed;
-      opacity: 0.5;
-    `}
-`;
+const styleIcon = {
+  secondary: {
+    fill: `${colors.redMain}`
+  },
+  primary: {
+    fill: `${colors.white}`
+  }
+};
+
+const styleHoverIcon = {
+  secondary: {
+    fill: `${colors.white}`
+  },
+  primary: {
+    fill: `${colors.redMain}`
+  }
+};
+
+const disabledStyle = {
+  cursor: 'not-allowed',
+  opacity: '0.5'
+};
 
 // 버튼 스타일링 (모바일 디자인 필요)
+const changeStringToArray = value => value.split(' ');
+
 const compDesign = css`
   display: flex;
   box-sizing: border-box;
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  margin: ${({ margin }) => margin};
-  padding: 0 0.8em;
-  font-size: ${fontSizes.lg};
+  width: ${({ width, fullwidth }) => (!fullwidth ? calcRem(width) : '100%')};
+  height: ${({ height }) => calcRem(height)};
+  margin: ${({ margin }) => calcInterval(changeStringToArray(margin))};
+  padding: ${({ padding }) => calcInterval(changeStringToArray(padding))};
+  font-size: ${({ fontSize }) => calcRem(fontSize)};
   font-weight: ${({ fontWeight }) => fontWeight};
   font-family: inherit;
   text-decoration: none;
@@ -71,19 +78,41 @@ const compDesign = css`
   justify-content: center;
   cursor: pointer;
 
-  ${({ styledMode }) => modeStyle[styledMode]}
-  ${fullWidthStyle}
-  ${disabledStyle}
+  ${({ styledmode }) => modeStyle[styledmode]}
+  ${({ disabled }) => disabled && { ...disabledStyle }}
+
   &:focus {
     outline: none;
   }
 
   &:hover {
-    ${({ disabled, styledMode }) => !disabled && hoverEffect[styledMode]}
+    ${({ disabled, styledmode }) => !disabled && hoverEffect[styledmode]}
+
+    path {
+      ${props => styleHoverIcon[props.styledmode]}
+    }
+  }
+
+  & div {
+    width: ${calcRem(20)};
+    height: ${calcRem(20)};
+    margin: ${calcRem(0)};
+    margin-left: ${calcRem(20)};
+
+    svg {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+    path {
+      ${props => {
+        return styleIcon[props.styledmode];
+      }}
+    }
   }
 `;
 
-const StyledButton = styled(motion.button)`
+const StyledButton = styled.button`
   ${compDesign}
 `;
 
@@ -91,62 +120,55 @@ const StyledLinkA = styled(motion(Link))`
   ${compDesign}
 `;
 
-// button 컴포넌트
-const ButtonComp = ({ type, children, disabled, ...restProps }) => {
-  return (
-    <StyledButton type={type} disabled={disabled} {...restProps}>
-      {children}
-    </StyledButton>
-  );
-};
-
-// link 컴포넌트
-const LinkA = ({ role, href, children, ...restProps }) => {
-  return (
-    <StyledLinkA role={role} to={href} {...restProps}>
-      {children}
-    </StyledLinkA>
-  );
+const modeComponent = {
+  button: StyledButton,
+  link: StyledLinkA
 };
 
 // 버튼 컴포넌트
-const Button = ({ mode, ...restProps }) => {
-  const Comp = mode === 'button' ? ButtonComp : LinkA;
-  return <Comp mode={mode} {...restProps} />;
+const Button = ({ mode, to, disabled, children, ...restProps }) => {
+  const Comp = modeComponent[mode];
+  const selectedProp = mode === 'button' ? { disabled: disabled } : { to: to };
+  console.log({ ...restProps });
+  return (
+    <Comp {...restProps} {...selectedProp}>
+      {children}
+    </Comp>
+  );
 };
 
 Button.propTypes = {
-  mode: string.isRequired,
-  styledMode: string,
+  mode: oneOf(['button', 'link']).isRequired,
+  styledmode: string,
   type: string,
   disabled: bool,
-  fullWidth: bool,
+  fullwidth: bool,
   role: string,
-  href: string,
-<<<<<<< Updated upstream
-  children: oneOfType([string, node])
-=======
-  children: string,
-  width: string,
-  height: string,
+  to: string,
+  children: oneOfType([array, string]),
+  width: number,
+  height: number,
+  fontSize: number,
   margin: string,
-  'font-weight': number
->>>>>>> Stashed changes
+  padding: string,
+  fontWeight: number
 };
 
 Button.defaultProps = {
   mode: 'button',
-  styledMode: 'primary',
+  styledmode: 'primary',
   type: 'button',
   disabled: false,
-  fullWidth: false,
+  fullwidth: false,
   role: 'button',
-  href: '/',
+  to: '/',
   children: 'Button',
-  width: '465px',
-  height: '96px',
-  marign: calcRem(0),
-  'font-weight': 700
+  width: 200,
+  height: 50,
+  fontSize: 15,
+  padding: '11.5 20',
+  margin: '0',
+  fontWeight: 700
 };
 
 Button.displayName = 'Button';

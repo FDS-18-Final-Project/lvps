@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { LinkIcon, Paragraph } from 'components';
+
 import { colors, calcInterval } from 'theme/theme';
+import { Button, Paragraph } from 'components';
 import Layout from 'pages/Layout/Layout';
 
 const StyledGetAQuoteBannerBlock = styled(Layout.FlexContainer)`
   background-color: ${colors.red_05};
-  padding: ${calcInterval([108, 200])};
+  padding: ${calcInterval([75, 100])};
 `;
 
 const GetAQuoteBanner = ({ children }) => {
@@ -31,7 +32,7 @@ GetAQuoteBanner.Title = () => {
 };
 
 GetAQuoteBanner.Link = () => {
-  return <LinkIcon mode="secondary">Get a Free Quote</LinkIcon>;
+  return <Button mode="secondary">Get a Free Quote</Button>;
 };
 
 StyledGetAQuoteBannerBlock.displayName = 'StyledGetAQuoteBannerBlock';

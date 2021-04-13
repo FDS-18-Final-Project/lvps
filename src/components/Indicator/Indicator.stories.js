@@ -1,9 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
-import GlobalStyle from '../../styles/GlobalStyle';
+import GlobalStyle from 'styles/GlobalStyle';
 import Indicator from './Indicator';
 
 export default {
-  title: 'MMAuto/Component/Indicator',
+  title: 'LVPS/Component/Indicator',
   component: Indicator,
   parameters: {
     docs: {

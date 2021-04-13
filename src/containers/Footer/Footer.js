@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Logo, Paragraph } from 'components';
 import { colors, calcInterval } from 'theme/theme';
+import { Logo, Paragraph } from 'components';
 import Layout from 'pages/Layout/Layout';
 
 const StyledFooterBlock = styled(Layout.FlexContainer)`
@@ -85,7 +85,6 @@ Footer.Content = () => {
           'info@lvps.ca'
         ]}
         icon="map"
-        iconColor={colors.white}
         size="12"
       />
     </StyledFooterContent>
