@@ -1,25 +1,24 @@
-import { LinkIcon, Paragraph } from 'components/';
-import Layout from 'pages/Layout/Layout';
-import { oneOf } from 'prop-types';
-import { string } from 'prop-types';
 import React from 'react';
+import { oneOf, string } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
+import { LinkIcon, Paragraph } from 'components/';
+import Layout from 'pages/Layout/Layout';
 
-const ServiceInfoWrapper = styled.div`
+const ServiceInfoContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
   padding: ${calcInterval([0, 200, 135])};
 
   .ServiceInfoContentBox {
     height: ${calcRem(490)};
     margin-top: ${calcRem(32)};
-    padding: ${props =>
-      props.mode === 'left'
-        ? `0 0 0 ${calcRem(144)}`
-        : `0 ${calcRem(144)} 0 0`};
+    padding: ${({ mode }) =>
+      mode === 'left' ? `0 0 0 ${calcRem(144)}` : `0 ${calcRem(144)} 0 0`};
 
     div {
-      align-self: ${props =>
-        props.mode === 'left' ? 'flex-end' : 'flex-start'};
+      align-self: ${({ mode }) =>
+        mode === 'left' ? 'flex-end' : 'flex-start'};
     }
   }
 
@@ -49,7 +48,7 @@ const ServiceInfo = ({
   children
 }) => {
   return (
-    <ServiceInfoWrapper mode={mode}>
+    <ServiceInfoContainer mode={mode}>
       <Paragraph
         title={title}
         size={24}
@@ -67,7 +66,7 @@ const ServiceInfo = ({
         <Layout.FlexContainer
           className="ServiceInfoContentBox"
           direction="column"
-          justify="space-between"
+          justifyContent="space-between"
           flex="1"
         >
           <p>{children}</p>
@@ -79,7 +78,7 @@ const ServiceInfo = ({
           </Layout.FlexContainer>
         )}
       </Layout.FlexContainer>
-    </ServiceInfoWrapper>
+    </ServiceInfoContainer>
   );
 };
 
@@ -99,5 +98,5 @@ ServiceInfo.defaultProps = {
   mode: 'right'
 };
 
-ServiceInfoWrapper.displayName = 'ServiceInfoWrapper';
+ServiceInfoContainer.displayName = 'ServiceInfoWrapper';
 export default ServiceInfo;

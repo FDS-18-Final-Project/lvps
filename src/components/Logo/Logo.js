@@ -1,16 +1,16 @@
-import { oneOf, number } from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { oneOf, number } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem } from 'theme/theme';
 import { ReactComponent as Image } from '../../assets/Logo.svg';
 
-const Heading = styled.h1`
+const StyledHeading = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
-  max-width: ${props => calcRem(props.maxWidth)};
+  max-width: ${({ maxWidth }) => calcRem(maxWidth)};
 
   a {
     display: block;
@@ -28,11 +28,11 @@ const Heading = styled.h1`
 // 사용 할 tag 전달
 const Logo = ({ tag, ...restProps }) => {
   return (
-    <Heading as={tag} {...restProps}>
+    <StyledHeading as={tag} {...restProps}>
       <Link to="/">
         <Image title="Logo" />
       </Link>
-    </Heading>
+    </StyledHeading>
   );
 };
 
@@ -43,11 +43,10 @@ Logo.propTypes = {
 
 Logo.defaultProps = {
   tag: 'h1',
-  maxWidth: 200,
-  height: 'auto'
+  maxWidth: 200
 };
 
-Heading.displayName = 'Logo Heading';
+StyledHeading.displayName = 'StyledHeading';
 Image.displayName = 'Logo Image';
 
 export default Logo;

@@ -1,30 +1,28 @@
-import Icon from 'components/Icon/Icon';
-import Layout from 'pages/Layout/Layout';
-import { node, oneOf, number } from 'prop-types';
-import { oneOfType } from 'prop-types';
-import { string } from 'prop-types';
 import React from 'react';
+import { node, oneOf, number, oneOfType, string } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, fontSizes } from 'theme/theme';
+import Icon from 'components/Icon/Icon';
+import Layout from 'pages/Layout/Layout';
 
-const InputWrapper = styled.div`
+const InputContainer = styled.div`
   display: flex;
 
   input {
-    width: ${props => props.width}px;
-    height: ${props => props.height}px;
+    width: ${({ width }) => calcRem(width)};
+    height: ${({ height }) => calcRem(height)};
     font-size: ${fontSizes.base};
   }
 `;
 
 const Input = ({ id, type, label, children, ...restProps }) => {
   return (
-    <InputWrapper {...restProps}>
+    <InputContainer {...restProps}>
       <Layout.FlexContainer as="label" htmlFor={id}>
         {label}
       </Layout.FlexContainer>
       <input id={id} type={type} placeholder={children} />
-    </InputWrapper>
+    </InputContainer>
   );
 };
 
@@ -42,9 +40,9 @@ Input.defaultProps = {
   type: 'text',
   label: <Icon type="searchWhite" color={colors.white} width={calcRem(30)} />,
   children: 'Service Search',
-  width: calcRem(559),
-  height: calcRem(50)
+  width: 559,
+  height: 50
 };
 
-InputWrapper.displayName = 'InputWrapper';
+InputContainer.displayName = 'InputContainer';
 export default Input;

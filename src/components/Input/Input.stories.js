@@ -2,7 +2,7 @@
 import Input from './Input';
 
 export default {
-  title: 'MMAuto/Component/Input',
+  title: 'LVPS/Component/Input',
   component: Input,
   parameters: {
     docs: {
