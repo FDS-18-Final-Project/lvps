@@ -2,7 +2,7 @@ import React from 'react';
 import { node, string } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem } from 'theme/theme';
-import { Paragraph, LinkIcon } from 'components/';
+import { Paragraph, Button } from 'components/';
 import Layout from 'pages/Layout/Layout';
 
 const SubBannerContainer = styled.div`
@@ -32,7 +32,7 @@ const SubBanner = ({ title, linkText, imagePath, children }) => {
         <Paragraph id="paragraph" title={title} size={24} headingNum={2}>
           {children}
         </Paragraph>
-        <LinkIcon mode="secondary">{linkText}</LinkIcon>
+        <Button mode="secondary">{linkText}</Button>
       </LayoutContainer>
       <LayoutContainer flex={1}>
         <img src={imagePath} alt="dummyImage" />
