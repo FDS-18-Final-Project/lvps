@@ -1,10 +1,10 @@
-import { Button } from 'components';
+import { Button, Icon } from 'components';
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from '../../styles/GlobalStyle';
 
 //스토리 구성 객체
 export default {
-  title: ' MMAuto/Component/Button',
+  title: ' LVPS/Component/Button',
   components: Button,
   parameters: {
     docs: {
@@ -26,7 +26,7 @@ export default {
         options: ['button', 'LinkA']
       }
     },
-    styledMode: {
+    styledmode: {
       control: {
         type: 'select',
         options: ['primary', 'secondary']
@@ -34,10 +34,16 @@ export default {
     },
     type: { type: 'text' },
     disabled: { control: 'boolean' },
-    fullWidth: { control: 'boolean' },
+    fullwidth: { control: 'boolean' },
     role: { type: 'text' },
     href: { type: 'text' },
-    children: { type: 'text' }
+    children: { type: 'text' },
+    width: { control: { type: 'range', min: 50, max: 800, step: 10 }},
+    height: { control: { type: 'range', min: 50, max: 800, step: 10 }},
+    fontSize: { type: 'number' }, 
+    padding: { type: 'text' },
+    margin: { type: 'text' },
+    fontWeight: { type: 'number' }
   }
 };
 
@@ -53,10 +59,10 @@ export const PrimaryNormalButton = Template.bind({});
 
 PrimaryNormalButton.args = {
   mode: 'button',
-  styledMode: 'primary',
+  styledmode: 'primary',
   type: 'button',
   disabled: false,
-  fullWidth: false,
+  fullwidth: false,
   children: 'Get a Free Quote'
 };
 
@@ -64,10 +70,10 @@ export const SecondaryNormalButton = Template.bind({});
 
 SecondaryNormalButton.args = {
   mode: 'button',
-  styledMode: 'secondary',
+  styledmode: 'secondary',
   type: 'button',
   disabled: false,
-  fullWidth: false,
+  fullwidth: false,
   children: 'Get a Free Quote'
 };
 
@@ -75,9 +81,30 @@ export const SecondaryNormalButtonDisabled = Template.bind({});
 
 SecondaryNormalButtonDisabled.args = {
   mode: 'button',
-  styledMode: 'secondary',
+  styledmode: 'secondary',
   type: 'button',
   disabled: true,
-  fullWidth: false,
+  fullwidth: false,
   children: 'Get a Free Quote'
 };
+
+export const PrimaryNormalLink = Template.bind({});
+
+PrimaryNormalLink.args = {
+  mode: 'link',
+  styledmode: 'primary',
+  fullwidth: false,
+  to:'/get-a-quote',
+  children: ['Get a Free Quote', <Icon type='rightArrow' color='white' />],
+};
+
+export const SecondaryNormalLink = Template.bind({});
+
+SecondaryNormalLink.args = {
+  mode: 'link',
+  styledmode: 'secondary',
+  fullwidth: false,
+  to:'/get-a-quote',
+  children: ['Get a Free Quote', <Icon type='rightArrow' color='red' />],
+};
+

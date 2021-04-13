@@ -2,7 +2,7 @@ import React from 'react';
 import { oneOf, string } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
-import { LinkIcon, Paragraph } from 'components/';
+import { Button, Paragraph } from 'components/';
 import Layout from 'pages/Layout/Layout';
 
 const ServiceInfoContainer = styled.div`
@@ -70,7 +70,7 @@ const ServiceInfo = ({
           flex="1"
         >
           <p>{children}</p>
-          <LinkIcon mode="primary">{linkText}</LinkIcon>
+          <Button mode="primary">{linkText}</Button>
         </Layout.FlexContainer>
         {mode === 'right' && (
           <Layout.FlexContainer flex={1}>
