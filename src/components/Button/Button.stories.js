@@ -23,7 +23,7 @@ export default {
     mode: {
       control: {
         type: 'select',
-        options: ['button', 'LinkA']
+        options: ['button', 'link']
       }
     },
     styledmode: {
@@ -36,7 +36,6 @@ export default {
     disabled: { control: 'boolean' },
     fullwidth: { control: 'boolean' },
     role: { type: 'text' },
-    href: { type: 'text' },
     children: { type: 'text' },
     width: { control: { type: 'range', min: 50, max: 800, step: 10 }},
     height: { control: { type: 'range', min: 50, max: 800, step: 10 }},
