@@ -1,26 +1,23 @@
-import { oneOf } from 'prop-types';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, fontSizes, calcInterval } from 'theme/theme';
 import { motion } from 'framer-motion';
 
+
 const NavbarWrapper = styled(motion.ul)`
-  padding: 0;
-  margin: 0;
-  list-style: none;
   width: 100%;
   display: flex;
-  flex-direction: ${props => props.direction};
-  justify-content: ${props => props.justify};
-  align-items: ${props => props.align};
+  flex-direction: ${({ direction }) => direction};
+  justify-content: ${({ justifyContent }) => justifyContent};
+  align-items: ${({ alignItems }) => alignItems};
   font-size: ${fontSizes.base};
 
   a {
     display: inline-block;
     padding: ${calcRem(32)} 0;
     transition: 0.4s;
-    text-decoration: none;
     color: inherit;
     white-space: nowrap;
 
@@ -40,7 +37,7 @@ const NavbarWrapper = styled(motion.ul)`
 
 const Navbar = ({ ...restProps }) => {
   return (
-    <NavbarWrapper {...restProps}>
+    <NavbarContainer {...restProps}>
       <li>
         <NavLink to="/home">HOME</NavLink>
       </li>
@@ -56,20 +53,20 @@ const Navbar = ({ ...restProps }) => {
       <li>
         <NavLink to="/contact-us">CONTACT US</NavLink>
       </li>
-    </NavbarWrapper>
+    </NavbarContainer>
   );
 };
 
 Navbar.propTypes = {
   direction: oneOf(['row', 'column']),
-  justify: oneOf([
+  justifyContent: oneOf([
     'center',
     'space-between',
     'space-around',
     'flex-start',
     'flex-end'
   ]),
-  align: oneOf([
+  alignItems: oneOf([
     'center',
     'space-between',
     'space-around',
@@ -80,10 +77,10 @@ Navbar.propTypes = {
 
 Navbar.defaultProps = {
   direction: 'row',
-  justify: 'space-between',
-  align: 'center'
+  justifyContent: 'space-between',
+  alignItems: 'center'
 };
 
-NavbarWrapper.displayName = 'NavbarWrapper';
+NavbarContainer.displayName = 'NavbarContainer';
 
 export default Navbar;

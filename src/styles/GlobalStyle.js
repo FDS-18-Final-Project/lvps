@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   html {
-    @media only screen and (max-width: 1500px) {
+    /* @media only screen and (max-width: 1500px) {
     font-size: 13px;
   }
   @media only screen and (max-width: 1200px) {
@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
   }
   @media only screen and (max-width: 900px) {
     font-size: 9px;
-  }
+  } */
   }
 `;
 

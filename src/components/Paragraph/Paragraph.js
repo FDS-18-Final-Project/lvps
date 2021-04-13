@@ -1,10 +1,10 @@
-import Icon from 'components/Icon/Icon';
 import styled from 'styled-components';
-import { string, number, array, object } from 'prop-types';
-import { fontSizes, calcRem } from 'theme/theme';
 import { Link } from 'react-router-dom';
+import { string, number, array, object, bool } from 'prop-types';
+import { Icon } from 'components';
+import { fontSizes, calcRem, colors } from 'theme/theme';
 
-const ParagraphWrapper = styled.div`
+const StyledParagraphBlock = styled.div`
   color: ${({ colors }) => colors.sub};
   line-height: 1.4;
 
@@ -29,13 +29,13 @@ const ParagraphWrapper = styled.div`
     align-items: center;
   } */
   li {
-    font-size: ${({ size }) => `${size}px`};
+    font-size: ${({ size }) => calcRem(size)};
   }
-  span {
+  li > span {
     margin-left: ${calcRem(5)};
   }
-  p {
-    font-size: ${({ size }) => `${size}px`};
+  li > p {
+    font-size: ${({ size }) => calcRem(size)};
   }
   li,
   p,
@@ -50,6 +50,7 @@ const Paragraph = ({
   headingNum,
   items,
   icon,
+  iconColor,
   children,
   colors,
   size,
@@ -60,7 +61,7 @@ const Paragraph = ({
   let Comp = `h${headingNum}`;
 
   return (
-    <ParagraphWrapper
+    <StyledParagraphBlock
       headingNum={headingNum}
       colors={colors}
       size={size}
@@ -69,25 +70,29 @@ const Paragraph = ({
       <Comp>{title}</Comp>
       {type === 'list' && (
         <ul>
-          {items.map(item => {
-            if (link) {
+          {items.map((item, idx) => {
+            if (link)
               return (
-                <Link to={to}>
-                  <li key={item}>
+                <li key={`${item}-${idx}`}>
+                  <Link to={to}>
                     {icon && (
-                      <Icon type={icon} width="20" height="20">
+                      <Icon
+                        type={icon}
+                        color={iconColor}
+                        width="20"
+                        height="20"
+                      >
                         <span>{item}</span>
                       </Icon>
                     )}
                     {icon ? null : item}
-                  </li>
-                </Link>
+                  </Link>
+                </li>
               );
-            }
             return (
-              <li key={item}>
+              <li key={`${item}-${idx}`}>
                 {icon && (
-                  <Icon type={icon} width="20" height="20">
+                  <Icon type={icon} color={iconColor} width="20" height="20">
                     <span>{item}</span>
                   </Icon>
                 )}
@@ -98,7 +103,7 @@ const Paragraph = ({
         </ul>
       )}
       <p>{children}</p>
-    </ParagraphWrapper>
+    </StyledParagraphBlock>
   );
 };
 
@@ -108,7 +113,11 @@ Paragraph.propTypes = {
   headingNum: number,
   items: array,
   icon: string,
-  colors: object
+  iconColor: string,
+  colors: object,
+  size: string,
+  link: bool,
+  to: string
 };
 
 Paragraph.defaultProps = {
@@ -116,9 +125,11 @@ Paragraph.defaultProps = {
   type: 'normal',
   headingNum: 3,
   items: [],
-  colors: { main: '#2D2D2D', sub: '#2D2D2D' }
+  colors: { main: colors.black, sub: colors.black },
+  size: fontSizes.base,
+  link: false
 };
 
-ParagraphWrapper.displayName = 'ParagraphWrapper';
+StyledParagraphBlock.displayName = 'StyledParagraphBlock';
 
 export default Paragraph;

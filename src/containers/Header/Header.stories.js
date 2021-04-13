@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from 'theme/theme';
 
 export default {
-  title: 'MMAuto/Container/Header',
+  title: 'LVPS/Container/Header',
   component: Header,
   parameters: {
     docs: {

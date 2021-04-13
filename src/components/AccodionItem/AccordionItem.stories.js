@@ -6,20 +6,20 @@ import AccordionItem from 'components/AccodionItem/AccordionItem';
 import GlobalStyle from 'styles/GlobalStyle';
 
 export default {
-  title: 'MMAuto/Component/AccodionItem',
+  title: 'LVPS/Component/AccodionItem',
   component: AccordionItem,
   parameters: {
     docs: {
       description: {
         component:
-          '객체를 받아 랜더링하는 Accodion list의 Accodion item 컴포넌트입니다.',
-      },
+          '객체를 받아 랜더링하는 Accodion list의 Accodion item 컴포넌트입니다.'
+      }
     },
     design: {
       type: 'figma',
       url:
-        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=233%3A2320',
-    },
+        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=233%3A2320'
+    }
   },
   argTypes: {
     item: {
@@ -33,14 +33,14 @@ export default {
               'Quality Protection',
               'ServicesQuality Protection',
               'ServicesQuality Protection',
-              'Services',
+              'Services'
             ],
-            active: true,
-          },
-        ],
-      },
-    },
-  },
+            active: true
+          }
+        ]
+      }
+    }
+  }
 };
 
 //template 만들기
@@ -65,10 +65,10 @@ Accondion.args = {
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: false,
-  },
+    active: false
+  }
 };
 
 export const AccondionActive = Template.bind({});
@@ -81,8 +81,8 @@ AccondionActive.args = {
       'Quality Protection',
       'ServicesQuality Protection',
       'ServicesQuality Protection',
-      'Services',
+      'Services'
     ],
-    active: true,
-  },
+    active: true
+  }
 };

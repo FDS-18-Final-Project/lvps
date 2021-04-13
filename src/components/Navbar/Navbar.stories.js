@@ -5,22 +5,22 @@ import { ThemeProvider } from 'styled-components';
 import theme from 'theme/theme';
 
 export default {
-  title: 'MMAuto/Component/Navbar',
+  title: 'LVPS/Component/Navbar',
   component: Navbar,
   parameters: {
     docs: {
       description: {
         component:
-          '각 링크로 이동할 수 있는 Navigation 입니다. flex style을 받을 수 있습니다.',
-      },
-    },
+          '각 링크로 이동할 수 있는 Navigation 입니다. flex style을 받을 수 있습니다.'
+      }
+    }
   },
   argTypes: {
     direction: {
       control: {
         type: 'radio',
-        options: ['row', 'column'],
-      },
+        options: ['row', 'column']
+      }
     },
     justify: {
       control: {
@@ -30,9 +30,9 @@ export default {
           'space-between',
           'space-around',
           'flex-start',
-          'flex-end',
-        ],
-      },
+          'flex-end'
+        ]
+      }
     },
     align: {
       control: {
@@ -42,11 +42,11 @@ export default {
           'space-between',
           'space-around',
           'flex-start',
-          'flex-end',
-        ],
-      },
-    },
-  },
+          'flex-end'
+        ]
+      }
+    }
+  }
 };
 
 //template 만들기
@@ -64,7 +64,7 @@ export const NavbarRow = Template.bind({});
 NavbarRow.args = {
   direction: 'row',
   justify: 'space-between',
-  align: 'center',
+  align: 'center'
 };
 
 export const NavbarColumn = Template.bind({});
@@ -72,5 +72,5 @@ export const NavbarColumn = Template.bind({});
 NavbarColumn.args = {
   direction: 'column',
   justify: 'center',
-  align: 'space-between',
+  align: 'space-between'
 };

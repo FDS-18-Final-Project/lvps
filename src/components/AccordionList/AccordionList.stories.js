@@ -7,7 +7,7 @@ import AccordionList from './AccordionList';
 import theme from 'theme/theme';
 
 export default {
-  title: 'MMAuto/Component/AccordionList',
+  title: 'LVPS/Component/AccordionList',
   component: AccordionList,
   parameters: {
     docs: {
