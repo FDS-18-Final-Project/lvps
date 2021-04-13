@@ -1,10 +1,10 @@
-import { Button } from 'components';
+import { Button, Icon } from 'components';
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from '../../styles/GlobalStyle';
 
 //스토리 구성 객체
 export default {
-  title: ' MMAuto/Component/Button',
+  title: ' LVPS/Component/Button',
   components: Button,
   parameters: {
     docs: {
@@ -37,7 +37,13 @@ export default {
     fullWidth: { control: 'boolean' },
     role: { type: 'text' },
     href: { type: 'text' },
-    children: { type: 'text' }
+    children: { type: 'text' },
+    width: { type: 'number' },
+    height: { type: 'number' },
+    fontSize: { type: 'number' }, 
+    padding: { type: 'text' },
+    margin: { type: 'text' },
+    fontWeight: { type: 'number' }
   }
 };
 
@@ -81,3 +87,24 @@ SecondaryNormalButtonDisabled.args = {
   fullWidth: false,
   children: 'Get a Free Quote'
 };
+
+export const PrimaryNormalLink = Template.bind({});
+
+PrimaryNormalLink.args = {
+  mode: 'link',
+  styledMode: 'primary',
+  fullWidth: false,
+  to:'/get-a-quote',
+  children: ['Get a Free Quote', <Icon type='rightArrow' color='white' />],
+};
+
+export const SecondaryNormalLink = Template.bind({});
+
+SecondaryNormalLink.args = {
+  mode: 'link',
+  styledMode: 'secondary',
+  fullWidth: false,
+  to:'/get-a-quote',
+  children: ['Get a Free Quote', <Icon type='rightArrow' color='red' />],
+};
+
