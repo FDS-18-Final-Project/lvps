@@ -14,3 +14,4 @@ export { default as Logo } from './Logo/Logo';
 export { default as Navbar } from './Navbar/Navbar';
 export { default as Input } from './Input/Input';
 export { default as SearchForm } from './SearchForm/SearchForm';
+export { default as CardInfo } from './CardInfo/CardInfo';

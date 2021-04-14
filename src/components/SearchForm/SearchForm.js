@@ -1,5 +1,5 @@
 import React from 'react';
-import { func } from 'prop-types';
+import { func, bool } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, calcInterval, fontSizes } from 'theme/theme';
 import Icon from 'components/Icon/Icon';
@@ -61,6 +61,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
 };
 
 SearchForm.propTypes = {
+  mobile: bool,
   onClick: func
 };
 

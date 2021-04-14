@@ -165,5 +165,6 @@ const Template = args => (
 export const AccondionList = Template.bind({});
 
 AccondionList.args = {
-  accordion: accordionState
+  accordion: accordionState,
+  handleClick: () => {}
 };
