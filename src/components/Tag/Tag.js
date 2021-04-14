@@ -5,11 +5,14 @@ import { string } from 'prop-types';
 
 const TagBlock = styled.div`
   display: inline-block;
+  position: absolute;
   width: ${calcRem(115)};
+
   div {
     position: relative;
     margin: 0;
   }
+
   svg {
     margin: 0;
   }
@@ -26,13 +29,10 @@ const TagText = styled.span`
 `;
 
 const Tag = ({ type, children, ...restProps }) => {
-  console.log(type);
   return (
-    <TagBlock>
-      <Icon type={type} {...restProps}>
-        <TagText type={type} {...restProps}>
-          {children}
-        </TagText>
+    <TagBlock {...restProps}>
+      <Icon type={type}>
+        <TagText type={type}>{children}</TagText>
       </Icon>
     </TagBlock>
   );
