@@ -3,11 +3,11 @@ import { object, func } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, fontSizes, colors, calcRem } from 'theme/theme';
 import { Button, Icon } from 'components';
+import useViewSize from 'hooks/useViewSize';
 
 const StyledButton = styled(Button)`
   display: block;
   width: 100%;
-  height: ${calcRem(50)};
   padding: ${calcInterval([0, 40, 35])};
   font-weight: 400;
   overflow: hidden;
@@ -34,7 +34,6 @@ const StyledButton = styled(Button)`
   p {
     border-top: ${`1px solid ${colors.lightGray}`};
     margin-top: ${calcRem(15)};
-    //margin-left: ${calcRem(-20)};
     padding-top: ${calcRem(10)};
     font-size: ${fontSizes.lg};
     color: ${colors.lightGray};
@@ -57,7 +56,7 @@ const AccordionItemContainer = styled.li`
   max-width: ${calcRem(310)};
 `;
 
-const variants = {
+const variants = mobile => ({
   visible: {
     color: colors.white,
     backgroundColor: colors.redMain,
@@ -68,23 +67,24 @@ const variants = {
   hidden: {
     color: colors.black,
     backgroundColor: colors.white,
-    height: calcRem(46),
+    height: mobile ? calcRem(37) : calcRem(46),
     opacity: 1,
     transition: { duration: 0.5, type: 'tween' }
   }
-};
+});
 
 const AccordionItem = ({ item, onClick }) => {
+  const { mobile } = useViewSize();
+
   return (
     <AccordionItemContainer>
       <StyledButton
-        padding="0 0"
+        fullwidth={mobile}
         mode="link"
         onClick={() => onClick(item.id)}
         to={item.active ? '/home' : '/'}
-        variants={variants}
+        variants={variants(mobile)}
         animate={item.active ? 'visible' : 'hidden'}
-        exit="hidden"
       >
         <h3>{item.title}</h3>
         <p>{item.description}</p>
