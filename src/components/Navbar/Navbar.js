@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { oneOf } from 'prop-types';
 import styled from 'styled-components';
-import { calcRem, fontSizes, calcInterval } from 'theme/theme';
+import { calcRem, fontSizes } from 'theme/theme';
 import { motion } from 'framer-motion';
 
 const NavbarContainer = styled(motion.ul)`
@@ -23,10 +23,6 @@ const NavbarContainer = styled(motion.ul)`
     &:hover {
       color: rgba(235, 21, 39, 0.8);
     }
-  }
-
-  li {
-    margin: ${calcInterval([0, 20])};
   }
 
   .active {
@@ -80,6 +76,6 @@ Navbar.defaultProps = {
   alignItems: 'center'
 };
 
-NavbarContainer.displayName = 'NavbarContainer';
+Navbar.displayName = 'NavbarContainer';
 
 export default Navbar;

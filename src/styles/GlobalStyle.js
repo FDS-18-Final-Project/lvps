@@ -18,18 +18,7 @@ const GlobalStyle = createGlobalStyle`
   ul, ol, li {
     list-style: none;
   }
-  
-  html {
-    /* @media only screen and (max-width: 1500px) {
-    font-size: 13px;
-  }
-  @media only screen and (max-width: 1200px) {
-    font-size: 11px;
-  }
-  @media only screen and (max-width: 900px) {
-    font-size: 9px;
-  } */
-  }
+
 `;
 
 export default GlobalStyle;

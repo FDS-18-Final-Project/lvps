@@ -3,11 +3,7 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import App from './app/App';
 // style
-import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'styles/GlobalStyle';
-
-// theme
-import theme from 'theme/theme';
 
 //redux
 import { Provider } from 'react-redux';
@@ -30,9 +26,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={ReduxStore}>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <App></App>
-      </ThemeProvider>
+      <App></App>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

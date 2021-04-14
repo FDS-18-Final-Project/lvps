@@ -53,7 +53,7 @@ const MainBanner = ({ bgImg }) => {
           <span className="ourName">LVPS</span>
           <span className="subTitle">For Your Car</span>
         </StyledHeading>
-        <Divider width="150px" />
+        <Divider width={150} />
         <StyledParagraph
           type="list"
           link
