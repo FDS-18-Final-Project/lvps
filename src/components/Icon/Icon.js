@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { calcRem } from 'theme/theme';
 import { motion } from 'framer-motion';
 import svg from 'assets';
-import { Button } from 'components';
 
 const StyledIconContainer = styled(motion.div)`
   display: flex;
@@ -19,6 +18,14 @@ const StyledIconContainer = styled(motion.div)`
     fill: ${({ color }) => color};
     stroke: ${({ stroke }) => stroke};
   }
+`;
+
+const StyledIconButton = styled.button`
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
 `;
 
 const Icon = ({
@@ -39,9 +46,9 @@ const Icon = ({
     );
   else if (button)
     Comp = (
-      <Button mode="button">
+      <StyledIconButton>
         {React.createElement(svg[type], { ...restProps })}
-      </Button>
+      </StyledIconButton>
     );
   else Comp = React.createElement(svg[type], { ...restProps });
 

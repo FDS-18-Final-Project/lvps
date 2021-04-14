@@ -50,7 +50,7 @@ Footer.Content = () => {
         type="normal"
         headingNum={3}
         colors={{ main: white, sub: white }}
-        size="12"
+        size={12}
       >
         We are Luxury Vehicle Protection Services, providing vehicle protection,
         repair, and detailing services based in North York, Toronto, Ontario.
@@ -72,7 +72,7 @@ Footer.Content = () => {
         ]}
         icon="map"
         iconColor={colors.white}
-        size="12"
+        size={12}
       />
 
       <Paragraph
@@ -81,7 +81,7 @@ Footer.Content = () => {
         headingNum={3}
         items={['Monday – Friday: 8 am – 6 pm', 'Saturday: 8 am – 3 pm']}
         colors={{ main: white, sub: white }}
-        size="12"
+        size={12}
       />
 
       <Paragraph
@@ -93,7 +93,7 @@ Footer.Content = () => {
           'info@lvps.ca'
         ]}
         icon="map"
-        size="12"
+        size={12}
       />
     </StyledFooterContent>
   );

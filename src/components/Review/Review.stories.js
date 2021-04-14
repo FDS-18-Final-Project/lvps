@@ -1,7 +1,31 @@
-import styled from 'styled-components';
-import { colors, calcRem, calcInterval } from 'theme/theme';
-import { Paragraph, Carousel, Icon } from 'components/';
-import Layout from 'pages/Layout/Layout';
+/* eslint-disable import/no-anonymous-default-export */
+import { colors } from 'theme/theme';
+import GlobalStyle from 'styles/GlobalStyle';
+import Review from './Review';
+
+export default {
+  title: 'LVPS/Component/Review',
+  component: Review,
+  parameters: {
+    docs: {
+      description: {
+        component: 'content, color를 받아 Review 컴포넌트를 만들어줍니다.'
+      }
+    }
+  },
+  argTypes: {
+    content: {
+      control: {
+        type: 'string'
+      }
+    },
+    color: {
+      control: {
+        type: 'string'
+      }
+    }
+  }
+};
 
 const reviews = [
   {
@@ -41,61 +65,20 @@ const reviews = [
   }
 ];
 
-const StyledReviewContainer = styled.section`
-  background: url('assets/dummy_background.png') no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: ${calcInterval([75, 100, 0])};
-  height: ${calcRem(760)};
-`;
+//template 만들기
+const Template = args => (
+  <>
+    <GlobalStyle />
+    <Review {...args} />
+  </>
+);
 
-const FullContainer = styled.div`
-  width: ${calcRem(1200)};
-  margin: 0 auto;
-  position: relative;
-`;
+//스토리 구성 객체 기본 내보내기
+export const ReviewBlock = Template.bind({});
 
-const StyledReviewTitleContainer = styled(Layout.FlexContainer)`
-  margin-bottom: ${calcRem(70)};
-
-  div + div {
-    margin-left: ${calcRem(25)};
-  }
-`;
-
-const Review = ({ children }) => {
-  return (
-    <StyledReviewContainer>
-      <FullContainer>{children}</FullContainer>
-    </StyledReviewContainer>
-  );
+ReviewBlock.args = {
+  content: reviews[0],
+  colors: { main: colors.black, sub: colors.black }
 };
 
-Review.Title = () => {
-  return (
-    <StyledReviewTitleContainer justifyContent="flex-start">
-      <Paragraph
-        headingNum={2}
-        size={24}
-        type="title"
-        title="Customer Reviews"
-        colors={{ main: colors.white, sub: colors.redMain }}
-      >
-        Our customers value &amp; trust us with their vehicles.
-      </Paragraph>
-      {/* TODO: 아이콘 이상하게뜸 */}
-      <Icon type="like" />
-    </StyledReviewTitleContainer>
-  );
-};
-
-Review.Contents = () => {
-  return <Carousel type="paragraph" contents={reviews} />;
-};
-
-StyledReviewContainer.displayName = 'StyledReviewContainer';
-StyledReviewTitleContainer.displayName = 'StyledReviewTitleContainer';
-Review.Title.displayName = 'Review-Title';
-Review.Contents.displayName = 'Review-Contents';
-
-export default Review;
+ReviewBlock.storyName = '캐러셀 리뷰 아이템';
