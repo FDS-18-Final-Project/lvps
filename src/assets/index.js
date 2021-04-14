@@ -17,6 +17,7 @@ import { ReactComponent as TagBronze } from './svg/tagBronze.svg';
 import { ReactComponent as TagPlatinum } from './svg/tagPlatinum.svg';
 import { ReactComponent as TagWhite } from './svg/tagWhite.svg';
 import { ReactComponent as TagRed } from './svg/tagRed.svg';
+import { ReactComponent as MobileMenuIcon } from './svg/mobileMenuIcon.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -38,5 +39,6 @@ export default {
   tagBronze: TagBronze,
   tagPlatinum: TagPlatinum,
   tagWhite: TagWhite,
-  tagRed: TagRed
+  tagRed: TagRed,
+  mobileMenuIcon: MobileMenuIcon
 };

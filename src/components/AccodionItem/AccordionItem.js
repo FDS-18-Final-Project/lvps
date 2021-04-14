@@ -3,57 +3,60 @@ import { object, func } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, fontSizes, colors, calcRem } from 'theme/theme';
 import { Button, Icon } from 'components';
+import useViewSize from 'hooks/useViewSize';
 
 const StyledButton = styled(Button)`
   display: block;
   width: 100%;
-  height: ${calcRem(72)};
-  padding: ${calcInterval([0, 50, 50])};
+  padding: ${calcInterval([0, 40, 35])};
   font-weight: 400;
   overflow: hidden;
   position: relative;
+  border: none;
 
   &:hover {
     border: 0;
-    padding: ${calcInterval([0, 50, 50])};
+    padding: ${calcInterval([0, 40, 35])};
+
+    path {
+      fill: #fff;
+    }
   }
 
   h3 {
     font-size: ${fontSizes.lg};
-    padding: ${calcInterval([20, 0])};
+    padding: ${calcInterval([15, 0, 0])};
     text-align: center;
-    border-bottom: ${`1px solid ${colors.lightGray}`};
     font-weight: bold;
     white-space: nowrap;
   }
 
   p {
-    display: flex;
-    flex-direction: column;
-    margin-top: ${calcRem(25)};
-    margin-left: ${calcRem(-15)};
-    font-size: ${fontSizes.base};
+    border-top: ${`1px solid ${colors.lightGray}`};
+    margin-top: ${calcRem(15)};
+    padding-top: ${calcRem(10)};
+    font-size: ${fontSizes.lg};
     color: ${colors.lightGray};
-    line-height: ${calcRem(36)};
+    line-height: ${calcRem(30)};
+  }
 
-    span {
-      padding: ${calcRem(5)};
-    }
+  a {
+    padding: 0;
   }
 
   div {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: ${calcRem(-25)};
     transform: translate3d(-50px, -50%, 0);
   }
 `;
 
 const AccordionItemContainer = styled.li`
-  max-width: ${calcRem(465)};
+  max-width: ${calcRem(310)};
 `;
 
-const variants = {
+const variants = mobile => ({
   visible: {
     color: colors.white,
     backgroundColor: colors.redMain,
@@ -64,29 +67,27 @@ const variants = {
   hidden: {
     color: colors.black,
     backgroundColor: colors.white,
-    height: calcRem(72),
+    height: mobile ? calcRem(37) : calcRem(46),
     opacity: 1,
     transition: { duration: 0.5, type: 'tween' }
   }
-};
+});
 
 const AccordionItem = ({ item, onClick }) => {
+  const { mobile } = useViewSize();
+
   return (
     <AccordionItemContainer>
       <StyledButton
+        fullwidth={mobile}
         mode="link"
         onClick={() => onClick(item.id)}
         to={item.active ? '/home' : '/'}
-        variants={variants}
+        variants={variants(mobile)}
         animate={item.active ? 'visible' : 'hidden'}
-        exit="hidden"
       >
         <h3>{item.title}</h3>
-        <p>
-          {item.description.map((des, i) => (
-            <span key={i}>{des}</span>
-          ))}
-        </p>
+        <p>{item.description}</p>
 
         {item.active && (
           <Icon

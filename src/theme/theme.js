@@ -1,6 +1,6 @@
 export const calcRem = size => `${size / 16}rem`;
 
-export const calcInterval = intervalLists => 
+export const calcInterval = intervalLists =>
   intervalLists.reduce((interval, intervalItem, idx) => {
     interval += calcRem(intervalItem);
     if (intervalLists.length - 1 !== idx) interval += ' ';
@@ -32,30 +32,30 @@ export const fontSizes = {
   titleLarge: calcRem(50)
 };
 
-const paddings = {
-  small: calcRem(5),
-  base: calcRem(10),
-  lg: calcRem(12),
-  xl: calcRem(14),
-  xxl: calcRem(16),
-  xxxl: calcRem(18)
-};
+// const paddings = {
+//   small: calcRem(5),
+//   base: calcRem(10),
+//   lg: calcRem(12),
+//   xl: calcRem(14),
+//   xxl: calcRem(16),
+//   xxxl: calcRem(18)
+// };
 
-const margins = {
-  small: calcRem(5),
-  base: calcRem(10),
-  lg: calcRem(12),
-  xl: calcRem(14),
-  xxl: calcRem(16),
-  xxxl: calcRem(18)
-};
+// const margins = {
+//   small: calcRem(5),
+//   base: calcRem(10),
+//   lg: calcRem(12),
+//   xl: calcRem(14),
+//   xxl: calcRem(16),
+//   xxxl: calcRem(18)
+// };
 
-const interval = {
-  base: calcRem(50),
-  lg: calcRem(100),
-  xl: calcRem(150),
-  xxl: calcRem(200)
-};
+// const interval = {
+//   base: calcRem(50),
+//   lg: calcRem(100),
+//   xl: calcRem(150),
+//   xxl: calcRem(200)
+// };
 
 const deviceSizes = {
   mobileS: '320px',
@@ -78,9 +78,6 @@ const device = {
 const theme = {
   colors,
   fontSizes,
-  paddings,
-  margins,
-  interval,
   deviceSizes,
   device,
   calcRem,

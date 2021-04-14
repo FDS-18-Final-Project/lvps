@@ -3,7 +3,7 @@ import { object, bool, number } from 'prop-types';
 import { colors, fontSizes, calcRem } from 'theme/theme';
 import { motion } from 'framer-motion';
 
-const StyledCarouselItemBlock = styled(motion.li)`
+const StyledCarouselItemContainer = styled(motion.li)`
   opacity: 0;
   position: absolute;
   width: 100%;
@@ -27,12 +27,12 @@ const StyledCarouselItemBlock = styled(motion.li)`
 `;
 
 const StyledCarouselItemContent = styled.p`
-  width: 65%;
+  width: 100%;
   margin: auto;
   color: ${({ colors }) => colors.main};
   line-height: ${calcRem(54)};
   margin-bottom: ${calcRem(50)};
-  height: ${calcRem(350)};
+  height: ${calcRem(300)};
 `;
 
 const StyledCarouselItemInfo = styled.span`
@@ -56,7 +56,7 @@ const CarouselItem = ({
   ...restProps
 }) => {
   return (
-    <StyledCarouselItemBlock
+    <StyledCarouselItemContainer
       active={active}
       prev={prev}
       next={next}
@@ -72,7 +72,7 @@ const CarouselItem = ({
       <StyledCarouselItemInfo aria-label="model name" colors={colors}>
         {content.model}
       </StyledCarouselItemInfo>
-    </StyledCarouselItemBlock>
+    </StyledCarouselItemContainer>
   );
 };
 
@@ -94,7 +94,7 @@ CarouselItem.defaultProps = {
   currentIdx: 0
 };
 
-StyledCarouselItemBlock.displayName = 'StyledCarouselItemBlock';
+StyledCarouselItemContainer.displayName = 'StyledCarouselItemContainer';
 StyledCarouselItemContent.displayName = 'StyledCarouselItemContent';
 StyledCarouselItemInfo.displayName = 'StyledCarouselItemInfo';
 

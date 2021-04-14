@@ -26,7 +26,7 @@ const NavbarContainer = styled(motion.ul)`
   }
 
   li {
-    margin: ${calcInterval([0, 20])};
+    //margin: ${calcInterval([0, 20])};
   }
 
   .active {

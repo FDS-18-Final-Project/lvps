@@ -11,7 +11,6 @@ const StyledFieldset = styled.fieldset`
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
-
   label {
     align-items: flex-end;
   }
@@ -25,31 +24,36 @@ const StyledFieldset = styled.fieldset`
     color: ${colors.white};
     font-size: ${fontSizes.small};
   }
+
+  @media only screen and (max-width: 870px) {
+    align-items: center;
+  }
 `;
 
-const SearchForm = ({ onClick, ...restProps }) => {
+const SearchForm = ({ onClick, mobile, ...restProps }) => {
   return (
-    <motion.form {...restProps}>
+    <motion.form style={{ width: '100%' }} {...restProps}>
       <StyledFieldset>
         <A11yHidden as="legend">검색 폼</A11yHidden>
         <Input
-          width={400}
           height={30}
           label={
-            <Icon
-              type="searchWhite"
-              color={colors.lightGray}
-              width={calcRem(25)}
-            />
+            mobile ? null : (
+              <Icon
+                type="searchWhite"
+                color={colors.lightGray}
+                width={calcRem(25)}
+              />
+            )
           }
         >
           Service Search
         </Input>
         <Icon
-          type="close"
+          type={mobile ? 'searchWhite' : 'close'}
           color={colors.lightGray}
           width={calcRem(25)}
-          onClick={onClick}
+          onClick={mobile ? null : onClick}
         />
       </StyledFieldset>
     </motion.form>
