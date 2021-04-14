@@ -5,7 +5,7 @@ import { calcInterval, calcRem, colors } from 'theme/theme';
 import { Paragraph, Button } from 'components/';
 import Layout from 'pages/Layout/Layout';
 
-const SubBannerContainer = styled.div`
+const SubBannerContainer = styled.section`
   background: ${colors.white};
   width: 100%;
   margin: 0 auto;
