@@ -11,7 +11,9 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
   body {
-    font-family: 'Helvetica Neue LT Pro', Monserrat, sans-serif;
+    font-family: 'Helvetica Neue LT Pro, sans-serif';
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   ul, ol, li {
     list-style: none;

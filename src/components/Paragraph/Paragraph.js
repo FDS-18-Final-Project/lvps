@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { fontSizes, calcRem, colors } from 'theme/theme';
 import { Icon } from 'components';
 
-const StyledParagraphBlock = styled.div`
+const StyledParagraphContainer = styled.div`
   color: ${({ colors }) => colors.sub};
   line-height: 1.4;
 
@@ -17,29 +17,33 @@ const StyledParagraphBlock = styled.div`
   h1 {
     font-size: ${fontSizes.titleLarge};
   }
+
   h2 {
     font-size: ${fontSizes.titleBase};
   }
+
   h3 {
     font-size: ${fontSizes.small};
   }
 
-  /* .icon-wrapper {
-    display: flex;
-    align-items: center;
-  } */
   li {
     font-size: ${({ size }) => calcRem(size)};
+    margin-bottom: ${({ type }) => type === 'list' && calcRem(7)};
+    a {
+      user-select: none;
+    }
     a:hover {
       text-decoration: ${({ link }) => (link ? 'underline' : '')};
     }
   }
+
   li > span {
     margin-left: ${calcRem(5)};
   }
   li > p {
     font-size: ${({ size }) => calcRem(size)};
   }
+
   li,
   p,
   span {
@@ -49,7 +53,6 @@ const StyledParagraphBlock = styled.div`
 
 const Paragraph = ({
   title,
-
   type,
   headingNum,
   items,
@@ -66,11 +69,12 @@ const Paragraph = ({
   let Comp = `h${headingNum}`;
 
   return (
-    <StyledParagraphBlock
+    <StyledParagraphContainer
       headingNum={headingNum}
       colors={colors}
       size={size}
       link={link}
+      type={type}
       {...restProps}
     >
       <Comp>{title}</Comp>
@@ -86,13 +90,13 @@ const Paragraph = ({
                       <Icon
                         type={icon}
                         color={iconColor}
-                        stroke={stroke}
                         width="20"
                         height="20"
                       >
                         <span>{item}</span>
                       </Icon>
-                    )}
+                    )}{' '}
+                    685t666
                     {icon ? null : item}
                   </Link>
                 </li>
@@ -117,7 +121,7 @@ const Paragraph = ({
         </ul>
       )}
       <p>{children}</p>
-    </StyledParagraphBlock>
+    </StyledParagraphContainer>
   );
 };
 
@@ -139,13 +143,12 @@ Paragraph.defaultProps = {
   title: '',
   subTitle: '',
   type: 'normal',
-  headingNum: 3,
   items: [],
   colors: { main: colors.black, sub: colors.black },
   size: fontSizes.base,
   link: false
 };
 
-StyledParagraphBlock.displayName = 'StyledParagraphBlock';
+StyledParagraphContainer.displayName = 'StyledParagraphContainer';
 
 export default Paragraph;

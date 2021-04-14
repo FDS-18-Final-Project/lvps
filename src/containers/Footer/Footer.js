@@ -1,12 +1,16 @@
 import styled from 'styled-components';
-import { colors, calcInterval } from 'theme/theme';
+import { colors, calcInterval, calcRem } from 'theme/theme';
 import { Logo, Paragraph } from 'components';
 import Layout from 'pages/Layout/Layout';
 
-const StyledFooterBlock = styled(Layout.FlexContainer)`
+const StyledFooterContainer = styled.div`
   background-color: ${colors.black};
   padding: ${calcInterval([95, 100])};
+`;
 
+const FullContainer = styled(Layout.FlexContainer)`
+  width: 1200px;
+  margin: 0 auto;
   a:hover {
     text-decoration: underline;
   }
@@ -16,14 +20,20 @@ const StyledFooterContent = styled.div`
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
-  gap: ${calcInterval([85, 200])};
+  gap: ${calcInterval([36, 90])};
+`;
+
+const StyledParagraph = styled(Paragraph)`
+  width: ${calcRem(240)};
 `;
 
 const Footer = ({ children }) => {
   return (
-    <StyledFooterBlock tag="footer" justify="space-around">
-      {children}
-    </StyledFooterBlock>
+    <StyledFooterContainer>
+      <FullContainer tag="footer" justifyContent="space-around">
+        {children}
+      </FullContainer>
+    </StyledFooterContainer>
   );
 };
 
@@ -35,25 +45,23 @@ Footer.Content = () => {
   const { white, lightGray } = colors;
   return (
     <StyledFooterContent>
-      <Paragraph
+      <StyledParagraph
         title="ABOUT"
         type="normal"
-        headingNumber={3}
+        headingNum={3}
         colors={{ main: white, sub: white }}
         size="12"
       >
-        We are Luxury Vehicle Protection Services, <br />
-        providing vehicle protection, repair, and <br />
-        detailing services based in North York, <br />
-        Toronto, Ontario.
-      </Paragraph>
+        We are Luxury Vehicle Protection Services, providing vehicle protection,
+        repair, and detailing services based in North York, Toronto, Ontario.
+      </StyledParagraph>
 
       <Paragraph
         title="SERVICES"
         type="list"
         link
         to="/"
-        headingNumber={3}
+        headingNum={3}
         colors={{ main: white, sub: white }}
         items={[
           'Ceramic Pro',
@@ -70,7 +78,7 @@ Footer.Content = () => {
       <Paragraph
         title="Working Hour"
         type="list"
-        headingNumber={3}
+        headingNum={3}
         items={['Monday – Friday: 8 am – 6 pm', 'Saturday: 8 am – 3 pm']}
         colors={{ main: white, sub: white }}
         size="12"
@@ -92,7 +100,9 @@ Footer.Content = () => {
 };
 
 StyledFooterContent.displayName = 'StyledFooterContent';
+FullContainer.displayName = 'FullContainer';
 Footer.Logo.displayName = 'Footer-Logo';
 Footer.Content.displayName = 'Footer-Content';
+StyledParagraph.displayName = 'StyledParagraph';
 
 export default Footer;
