@@ -86,9 +86,8 @@ const compDesign = css`
   }
 
   &:hover {
-
     ${({ disabled, styledmode }) => !disabled && hoverEffect[styledmode]};
-    
+
     path {
       ${props => styleHoverIcon[props.styledmode]};
     }
@@ -111,7 +110,6 @@ const compDesign = css`
   }
 `;
 
-
 const StyledButton = styled.button`
   ${compDesign}
 `;
@@ -128,9 +126,12 @@ const modeComponent = {
 // 버튼 컴포넌트
 const Button = ({ mode, to, disabled, children, ...restProps }) => {
   const Comp = modeComponent[mode];
-  const selectedProp = mode === 'button' ? {'disabled': disabled} : {'to': to};
-  return <Comp {...restProps} {...selectedProp}>{children}</Comp>;
-
+  const selectedProp = mode === 'button' ? { disabled: disabled } : { to: to };
+  return (
+    <Comp {...restProps} {...selectedProp}>
+      {children}
+    </Comp>
+  );
 };
 
 Button.propTypes = {

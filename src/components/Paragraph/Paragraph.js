@@ -17,9 +17,11 @@ const StyledParagraphContainer = styled.div`
   h1 {
     font-size: ${fontSizes.titleLarge};
   }
+
   h2 {
     font-size: ${fontSizes.titleBase};
   }
+
   h3 {
     font-size: ${fontSizes.small};
   }
@@ -34,12 +36,14 @@ const StyledParagraphContainer = styled.div`
       text-decoration: ${({ link }) => (link ? 'underline' : '')};
     }
   }
+
   li > span {
     margin-left: ${calcRem(5)};
   }
   li > p {
     font-size: ${({ size }) => calcRem(size)};
   }
+
   li,
   p,
   span {
@@ -91,7 +95,8 @@ const Paragraph = ({
                       >
                         <span>{item}</span>
                       </Icon>
-                    )}
+                    )}{' '}
+                    685t666
                     {icon ? null : item}
                   </Link>
                 </li>
