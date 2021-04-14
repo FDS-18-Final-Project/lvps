@@ -1,10 +1,12 @@
-import Icon from 'components/Icon/Icon';
 import React from 'react';
+import { array, string } from 'prop-types';
 import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
+import Icon from 'components/Icon/Icon';
 
 const CardInfoContainer = styled.ul`
   display: inline-block;
+
   li {
     display: flex;
     align-items: center;
@@ -33,10 +35,10 @@ const cardInfolist = [
   'Headlights polish'
 ];
 
-const CardInfo = ({ iconColor, fgColor }) => {
+const CardInfo = ({ iconColor, fgColor, infoList }) => {
   return (
     <CardInfoContainer fgColor={fgColor}>
-      {cardInfolist.map((info, i) => (
+      {infoList.map((info, i) => (
         <li key={i}>
           <Icon type="checked" color={colors[iconColor]} width={calcRem(17)} />
           {info}
@@ -44,6 +46,18 @@ const CardInfo = ({ iconColor, fgColor }) => {
       ))}
     </CardInfoContainer>
   );
+};
+
+CardInfo.propTypes = {
+  iconColor: string,
+  fgColor: string,
+  infoList: array
+};
+
+CardInfo.defaultProps = {
+  iconColor: 'redMain',
+  fgColor: 'black',
+  infoList: cardInfolist
 };
 
 export default CardInfo;

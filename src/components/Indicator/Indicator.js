@@ -13,6 +13,7 @@ const StyledIndicatorItem = styled.button`
   border: none;
   outline: none;
   background-color: ${({ selected }) => (selected ? 'red' : 'gray')};
+  margin-top: ${calcRem(70)};
 `;
 
 const Indicator = ({ contents, current, onChange, ...restProps }) => {
@@ -23,7 +24,7 @@ const Indicator = ({ contents, current, onChange, ...restProps }) => {
   return (
     <Layout.FlexContainer tag="ul" align="flex-start" {...restProps}>
       {contents.map((content, idx) => (
-        <li key={content.id} onClick={() => handleClick(idx)}>
+        <li key={content.id} onClick={() => handleClick(idx + 1)}>
           <StyledIndicatorItem
             aria-label={`indicator-${idx}`}
             selected={current === idx}

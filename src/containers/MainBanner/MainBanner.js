@@ -4,15 +4,12 @@ import { colors, fontSizes, calcRem, calcInterval } from 'theme/theme';
 import { Button, Divider, Icon, Paragraph } from 'components';
 
 const MainBannerBg = css`
-  background-image: url(${props => props.bgImg});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
+  background: url(${props => props.bgImg}) center center / cover no-repeat;
 `;
 
-const StyledMainBannerContainer = styled.div`
+const StyledMainBannerContainer = styled.section`
   ${MainBannerBg}
-  padding: ${calcInterval([130, 100])};
+  padding: ${calcInterval([130, 100])}
 `;
 
 const FullContainer = styled.div`
@@ -67,11 +64,11 @@ const MainBanner = ({ bgImg }) => {
             'Window Tinting',
             'Wheel & Tire'
           ]}
-          size="18"
+          size={18}
           colors={{ main: '', sub: colors.lightGray }}
           to="/"
         />
-        <Button mode="link" to="/" width={270} fontSize={18} padding="20">
+        <Button mode="link" to="/" width={270} fontSize={18} padding="10">
           Get a Free Quote
           <Icon type="rightArrow" color={colors.white} />
         </Button>

@@ -7,3 +7,4 @@ export { default as CardExplanation } from './CardExplanation/CardExplanation';
 export { default as ServiceInfo } from './ServiceInfo/ServiceInfo';
 export { default as MainBanner } from './MainBanner/MainBanner';
 export { default as OurBestServices } from './OurBestServices/OurBestServices';
+export { default as OurWorks } from './OurWorks/OurWorks';
