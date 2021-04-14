@@ -1,6 +1,6 @@
 import { Divider } from 'components';
 import { ThemeProvider } from 'styled-components';
-import theme, { calcRem, colors } from 'theme/theme';
+import theme, { colors } from 'theme/theme';
 import GlobalStyle from 'styles/GlobalStyle';
 
 //스토리 구성 객체
@@ -20,8 +20,8 @@ export default {
     }
   },
   argTypes: {
-    width: { control: 'text' },
-    height: { control: 'text' },
+    width: { control: 'number' },
+    height: { control: 'number' },
     margin: { control: 'text' },
     bgColor: { control: 'text' }
   }
@@ -38,8 +38,8 @@ const Template = (...args) => (
 export const NormalDivider = Template.bind({});
 
 NormalDivider.args = {
-  width: calcRem(110),
-  height: calcRem(4),
+  width: 110,
+  height: 4,
   margin: '45 0',
   bgColor: colors.lightGray
 };

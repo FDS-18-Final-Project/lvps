@@ -1,12 +1,12 @@
-import { string } from 'prop-types';
+import { number, string } from 'prop-types';
 import styled from 'styled-components';
 import { colors, calcRem, calcInterval } from 'theme/theme';
 
 const changeStringToArray = value => value.split(' ');
 
 const StyledDivider = styled.div`
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
+  width: ${({ width }) => calcRem(width)};
+  height: ${({ height }) => calcRem(height)};
   margin: ${({ margin }) => calcInterval(changeStringToArray(margin))};
   background-color: ${({ color }) => color};
 `;
@@ -24,15 +24,15 @@ const Divider = ({ width, height, margin, bgColor, ...restProps }) => {
 };
 
 Divider.propTypes = {
-  width: string,
-  height: string,
+  width: number,
+  height: number,
   margin: string,
   bgColor: string
 };
 
 Divider.defaultProps = {
-  width: calcRem(110),
-  height: calcRem(4),
+  width: 110,
+  height: 4,
   margin: '45 0',
   bgColor: colors.lightGray
 };
