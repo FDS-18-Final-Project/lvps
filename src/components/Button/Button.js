@@ -78,8 +78,8 @@ const compDesign = css`
   justify-content: center;
   cursor: pointer;
 
-  ${({ styledmode }) => modeStyle[styledmode]}
-  ${({ disabled }) => disabled && { ...disabledStyle }}
+  ${({ styledmode }) => modeStyle[styledmode]};
+  ${({ disabled }) => disabled && { ...disabledStyle }};
 
   &:focus {
     outline: none;

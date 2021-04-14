@@ -37,10 +37,12 @@ export default {
     fullwidth: { control: 'boolean' },
     role: { type: 'text' },
     children: { type: 'text' },
+    fontSize: { type: 'number' },    
     width: { control: { type: 'range', min: 0, max: 800, step: 10 } },
     height: { control: { type: 'range', min: 0, max: 800, step: 10 } },
-    fontSize: { type: 'number' },
-    fontWeight: { type: 'number' }
+    fontWeight: { type: 'number' },
+    padding: { type: 'text' },
+    margin: { type: 'text' },  
   }
 };
 

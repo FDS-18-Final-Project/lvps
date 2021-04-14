@@ -2,7 +2,7 @@ import { Card } from 'components';
 import { withDesign } from 'storybook-addon-designs';
 
 export default {
-  title: 'MMAuto/Component/Card',
+  title: 'LVPS/Component/Card',
   component: Card,
   decorators: [withDesign],
   parameters: {
@@ -48,7 +48,8 @@ ProcessCard.args = {
 export const QualityCard = Template.bind({});
 
 QualityCard.args = {
-  children: 'Multiple services at a great value Multiple services at a great value',
+  children:
+    'Multiple services at a great value Multiple services at a great value',
   iconType: 'checkedCar',
   type: 'quality'
 };
