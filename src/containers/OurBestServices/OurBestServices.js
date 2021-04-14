@@ -30,7 +30,7 @@ const FullContainer = styled.div`
 const ServicesContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: ${calcInterval([144, 0])};
+  padding: ${calcInterval([75, 0])};
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -43,13 +43,13 @@ const ServicesContainer = styled.div`
     font-size: ${fontSizes.titleBase};
     color: ${colors.white};
     width: 100%;
-    padding-left: ${calcRem(200)};
-    margin-bottom: ${calcRem(60)};
+    padding-left: ${calcRem(100)};
+    margin-bottom: ${calcRem(50)};
   }
 
   img {
     width: 100%;
-    height: ${calcRem(645)};
+    height: ${calcRem(419)};
     transition: 0.4s;
   }
 `;
@@ -70,12 +70,9 @@ const accordionState = [
   {
     id: 2,
     title: 'Paint Protection Film',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
+    description: `It can be described as an additional clear coat,
+    with 3 times the hardness and self cleaning properties.
+    `,
     imagePath: 'assets/dummyCar.png',
     active: false
   },

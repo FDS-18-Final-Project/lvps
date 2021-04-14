@@ -7,50 +7,54 @@ import { Button, Icon } from 'components';
 const StyledButton = styled(Button)`
   display: block;
   width: 100%;
-  height: ${calcRem(72)};
-  padding: ${calcInterval([0, 50, 50])};
+  height: ${calcRem(50)};
+  padding: ${calcInterval([0, 40, 35])};
   font-weight: 400;
   overflow: hidden;
   position: relative;
+  border: none;
 
   &:hover {
     border: 0;
-    padding: ${calcInterval([0, 50, 50])};
+    padding: ${calcInterval([0, 40, 35])};
+
+    path {
+      fill: #fff;
+    }
   }
 
   h3 {
     font-size: ${fontSizes.lg};
-    padding: ${calcInterval([20, 0])};
+    padding: ${calcInterval([15, 0, 0])};
     text-align: center;
-    border-bottom: ${`1px solid ${colors.lightGray}`};
     font-weight: bold;
     white-space: nowrap;
   }
 
   p {
-    display: flex;
-    flex-direction: column;
-    margin-top: ${calcRem(25)};
-    margin-left: ${calcRem(-15)};
-    font-size: ${fontSizes.base};
+    border-top: ${`1px solid ${colors.lightGray}`};
+    margin-top: ${calcRem(15)};
+    //margin-left: ${calcRem(-20)};
+    padding-top: ${calcRem(10)};
+    font-size: ${fontSizes.lg};
     color: ${colors.lightGray};
-    line-height: ${calcRem(36)};
+    line-height: ${calcRem(30)};
+  }
 
-    span {
-      padding: ${calcRem(5)};
-    }
+  a {
+    padding: 0;
   }
 
   div {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: ${calcRem(-25)};
     transform: translate3d(-50px, -50%, 0);
   }
 `;
 
 const AccordionItemContainer = styled.li`
-  max-width: ${calcRem(465)};
+  max-width: ${calcRem(310)};
 `;
 
 const variants = {
@@ -64,7 +68,7 @@ const variants = {
   hidden: {
     color: colors.black,
     backgroundColor: colors.white,
-    height: calcRem(72),
+    height: calcRem(46),
     opacity: 1,
     transition: { duration: 0.5, type: 'tween' }
   }
@@ -74,6 +78,7 @@ const AccordionItem = ({ item, onClick }) => {
   return (
     <AccordionItemContainer>
       <StyledButton
+        padding="0 0"
         mode="link"
         onClick={() => onClick(item.id)}
         to={item.active ? '/home' : '/'}
@@ -82,11 +87,7 @@ const AccordionItem = ({ item, onClick }) => {
         exit="hidden"
       >
         <h3>{item.title}</h3>
-        <p>
-          {item.description.map((des, i) => (
-            <span key={i}>{des}</span>
-          ))}
-        </p>
+        <p>{item.description}</p>
 
         {item.active && (
           <Icon
