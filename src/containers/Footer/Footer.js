@@ -1,58 +1,58 @@
-import Logo from 'components/Logo/Logo';
-import Paragraph from 'components/Paragraph/Paragraph';
-import styled, { ThemeProvider } from 'styled-components';
-import theme from 'theme/theme';
+import styled from 'styled-components';
+import { colors, calcInterval } from 'theme/theme';
+import { Logo, Paragraph } from 'components';
+import Layout from 'pages/Layout/Layout';
 
-const { colors, calcRem, calcInterval } = theme;
-
-const FooterWrapper = styled.footer`
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-around;
+const StyledFooterBlock = styled(Layout.FlexContainer)`
   background-color: ${colors.black};
-  padding: ${calcInterval([186, 230, 188, 200])};
+  padding: ${calcInterval([95, 100])};
+
+  a:hover {
+    text-decoration: underline;
+  }
 `;
 
-const FooterContent = styled.div`
+const StyledFooterContent = styled.div`
   display: grid;
-  grid-template-rows: repeat(2, ${calcRem(190)});
-  grid-template-columns: repeat(2, ${calcRem(460)});
-  gap: ${calcInterval([112, 60])};
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: ${calcInterval([85, 200])};
 `;
 
 const Footer = ({ children }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <FooterWrapper>{children}</FooterWrapper>
-    </ThemeProvider>
+    <StyledFooterBlock tag="footer" justify="space-around">
+      {children}
+    </StyledFooterBlock>
   );
 };
 
 Footer.Logo = () => {
-  return <Logo maxWidth={790} />;
+  return <Logo tag="h2" />;
 };
 
 Footer.Content = () => {
-  const { white, lightGray } = theme.colors;
+  const { white, lightGray } = colors;
   return (
-    <FooterContent>
+    <StyledFooterContent>
       <Paragraph
         title="ABOUT"
         type="normal"
         headingNumber={3}
         colors={{ main: white, sub: white }}
-        size="20"
+        size="12"
       >
-        We are Luxury Vehicle Protection <br />
-        Services, providing vehicle protection, <br />
-        repair, and detailing services based in <br />
-        North York, Toronto, Ontario.
+        We are Luxury Vehicle Protection Services, <br />
+        providing vehicle protection, repair, and <br />
+        detailing services based in North York, <br />
+        Toronto, Ontario.
       </Paragraph>
 
       <Paragraph
         title="SERVICES"
         type="list"
+        link
+        to="/"
         headingNumber={3}
         colors={{ main: white, sub: white }}
         items={[
@@ -60,9 +60,11 @@ Footer.Content = () => {
           'Paint Protection Film',
           'Window Tinting',
           'Detailing & Paint Correction',
+          'Wheel & Tire'
         ]}
-        icon="facebook"
-        size="20"
+        icon="map"
+        iconColor={colors.white}
+        size="12"
       />
 
       <Paragraph
@@ -71,25 +73,25 @@ Footer.Content = () => {
         headingNumber={3}
         items={['Monday – Friday: 8 am – 6 pm', 'Saturday: 8 am – 3 pm']}
         colors={{ main: white, sub: white }}
-        size="20"
+        size="12"
       />
 
       <Paragraph
         type="list"
         colors={{ main: white, sub: lightGray }}
         items={[
-          'map 9 Vanley Cres, North York, ON M3J 2B7',
+          '9 Vanley Cres, North York, ON M3J 2B7',
           '(647) 703 5857',
-          'info@lvps.ca',
+          'info@lvps.ca'
         ]}
         icon="map"
-        size="20"
+        size="12"
       />
-    </FooterContent>
+    </StyledFooterContent>
   );
 };
 
-FooterContent.displayName = 'Footer';
+StyledFooterContent.displayName = 'StyledFooterContent';
 Footer.Logo.displayName = 'Footer-Logo';
 Footer.Content.displayName = 'Footer-Content';
 

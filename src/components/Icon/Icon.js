@@ -1,47 +1,74 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { string, object, bool } from 'prop-types';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import svg from 'assets';
-import theme from 'theme/theme';
+import { calcRem } from 'theme/theme';
 import { motion } from 'framer-motion';
+import svg from 'assets';
+import { Button } from 'components';
 
-const { margins } = theme;
-
-const IconWrapper = styled(motion.div)`
+const StyledIconBlock = styled(motion.div)`
   display: flex;
-  flex-flow: row nowrap;
   align-items: center;
-  margin-bottom: ${margins.base};
-  position: relative;
+  margin-bottom: ${calcRem(10)};
+  /* position: relative; */
 
   svg {
-    margin-right: ${margins.small};
+    margin-right: ${calcRem(15)};
   }
 
   path {
     fill: ${({ color }) => color};
+    stroke: ${({ stroke }) => stroke};
   }
 `;
 
-const Icon = ({ type, color, children, motionProps, ...restProps }) => {
+const Icon = ({
+  type,
+  color,
+  stroke,
+  children,
+  motionProps,
+  button,
+  link,
+  to,
+  ...restProps
+}) => {
+  let Comp = null;
+  if (link)
+    Comp = (
+      <Link to={to}>{React.createElement(svg[type], { ...restProps })}</Link>
+    );
+  else if (button)
+    Comp = <Button>{React.createElement(svg[type], { ...restProps })}</Button>;
+  else Comp = React.createElement(svg[type], { ...restProps });
+
   return (
-    <IconWrapper color={color} {...motionProps}>
-      {React.createElement(svg[type], { ...restProps })}
+    <StyledIconBlock color={color} stroke={stroke} {...motionProps}>
+      {Comp}
       {children}
-    </IconWrapper>
+    </StyledIconBlock>
   );
 };
 
 Icon.propTypes = {
-  type: PropTypes.string.isRequired,
-  color: PropTypes.string
+  type: string.isRequired,
+  color: string,
+  stroke: string,
+  motionProps: object,
+  button: bool,
+  link: bool,
+  to: string
 };
 
 Icon.defaultProps = {
   type: 'rightArrow',
-  color: 'red'
+  color: '',
+  stroke: '',
+  button: false,
+  link: false
 };
 
-IconWrapper.displayName = 'IconWrapper';
+StyledIconBlock.displayName = 'StyledIconBlock';
 
 export default Icon;

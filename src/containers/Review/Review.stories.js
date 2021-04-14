@@ -2,7 +2,7 @@ import GlobalStyle from '../../styles/GlobalStyle';
 import Review from './Review';
 
 export default {
-  title: 'MMAuto/Container/Review',
+  title: 'LVPS/Container/Review',
   component: Review,
   parameters: {
     docs: {

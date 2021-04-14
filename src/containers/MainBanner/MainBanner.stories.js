@@ -1,8 +1,10 @@
+import { BrowserRouter } from 'react-router-dom';
+import GlobalStyle from 'styles/GlobalStyle';
 import MainBanner from './MainBanner';
 
 //스토리 구성 객체
 export default {
-  title: ' MMAuto/Container/MainBanner',
+  title: ' LVPS/Container/MainBanner',
   components: MainBanner,
   parameters: {
     docs: {
@@ -17,19 +19,21 @@ export default {
     }
   },
   argTypes: {
-    bgImg: { type: 'text' },
-    title: { type: 'text' },
-    desc: { type: 'text' }
+    bgImg: { type: 'text' }
   }
 };
 
-const Template = args => <MainBanner {...args}></MainBanner>;
+const Template = args => (
+  <BrowserRouter>
+    <GlobalStyle />
+    <MainBanner {...args}></MainBanner>
+  </BrowserRouter>
+);
 
-//스토리 구성 객체 기본 내보내기
-export const BannerAboutUs = Template.bind({});
+export const MainBannerBlock = Template.bind({});
 
-BannerAboutUs.args = {
-  bgImg: '/',
-  title: 'About Us',
-  desc: 'MM Auto Care For Your Car'
+MainBannerBlock.args = {
+  bgImg: 'assets/dummy_background_02.png'
 };
+
+MainBannerBlock.storyName = '메인 배너';

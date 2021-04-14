@@ -1,20 +1,21 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import theme from 'theme/theme';
-
+import { object, bool, number } from 'prop-types';
+import { colors, fontSizes, calcRem } from 'theme/theme';
 import { motion } from 'framer-motion';
-const { colors, fontSizes, interval, calcRem } = theme;
 
-const CarouselItemWrapper = styled(motion.li)`
-  width: 90%;
+const StyledCarouselItemBlock = styled(motion.li)`
   opacity: 0;
-  font-size: ${fontSizes.lg};
-  margin: 0 auto;
-  padding: 0 5%;
-  text-align: center;
   position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  line-height: ${calcRem(36)};
+  font-size: ${fontSizes.xxxl};
+  padding: 0 20%;
+  box-sizing: border-box;
+  text-align: center;
 
   transition: transform 0.5s, opacity 0.5s;
+  transform: ${({ currentIdx }) => `translateX(${currentIdx * 100}%)`};
   transform: ${({ prev }) => (prev ? 'translateX(-100%)' : '')};
   transform: ${({ next }) => (next ? 'translateX(100%)' : '')};
 
@@ -25,18 +26,18 @@ const CarouselItemWrapper = styled(motion.li)`
   `}
 `;
 
-const CarouselItemContent = styled.p`
-  width: 85%;
+const StyledCarouselItemContent = styled.p`
+  width: 65%;
   margin: auto;
   color: ${({ colors }) => colors.main};
   line-height: ${calcRem(54)};
-  margin-bottom: ${interval.base};
+  margin-bottom: ${calcRem(50)};
   height: ${calcRem(350)};
 `;
 
-const CarouselItemInfo = styled.span`
-  margin-bottom: ${calcRem(15)};
+const StyledCarouselItemInfo = styled.span`
   display: block;
+  margin-bottom: ${calcRem(15)};
   line-height: ${calcRem(54)};
   color: ${({ colors }) => colors.sub};
 
@@ -51,29 +52,37 @@ const CarouselItem = ({
   active,
   prev,
   next,
+  currentIdx,
   ...restProps
 }) => {
   return (
-    <CarouselItemWrapper active={active} prev={prev} next={next} {...restProps}>
-      <CarouselItemContent colors={colors}>
+    <StyledCarouselItemBlock
+      active={active}
+      prev={prev}
+      next={next}
+      currentIdx={currentIdx}
+      {...restProps}
+    >
+      <StyledCarouselItemContent colors={colors}>
         {content.review}
-      </CarouselItemContent>
-      <CarouselItemInfo aria-label="writer" colors={colors}>
+      </StyledCarouselItemContent>
+      <StyledCarouselItemInfo aria-label="writer" colors={colors}>
         {content.name}
-      </CarouselItemInfo>
-      <CarouselItemInfo aria-label="model name" colors={colors}>
+      </StyledCarouselItemInfo>
+      <StyledCarouselItemInfo aria-label="model name" colors={colors}>
         {content.model}
-      </CarouselItemInfo>
-    </CarouselItemWrapper>
+      </StyledCarouselItemInfo>
+    </StyledCarouselItemBlock>
   );
 };
 
 CarouselItem.propTypes = {
-  content: PropTypes.object.isRequired,
-  colors: PropTypes.object,
-  active: PropTypes.bool,
-  prev: PropTypes.bool,
-  next: PropTypes.bool,
+  content: object.isRequired,
+  colors: object,
+  active: bool,
+  prev: bool,
+  next: bool,
+  currentIdx: number
 };
 
 CarouselItem.defaultProps = {
@@ -82,10 +91,11 @@ CarouselItem.defaultProps = {
   active: true,
   prev: false,
   next: false,
+  currentIdx: 0
 };
 
-CarouselItemWrapper.displayName = 'CarouselItemWrapper';
-CarouselItemContent.displayName = 'CarouselItemContent';
-CarouselItemInfo.displayName = 'CarouselItemInfo';
+StyledCarouselItemBlock.displayName = 'StyledCarouselItemBlock';
+StyledCarouselItemContent.displayName = 'StyledCarouselItemContent';
+StyledCarouselItemInfo.displayName = 'StyledCarouselItemInfo';
 
 export default CarouselItem;

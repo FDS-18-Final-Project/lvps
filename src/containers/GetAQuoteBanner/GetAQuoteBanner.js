@@ -1,30 +1,30 @@
-import { LinkIcon, Paragraph } from 'components';
 import styled from 'styled-components';
-import theme from 'theme/theme';
 
-const { colors, calcInterval } = theme;
+import { colors, calcInterval } from 'theme/theme';
+import { Button, Paragraph } from 'components';
+import Layout from 'pages/Layout/Layout';
 
-const GetAQuoteBannerBlock = styled.section`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
+const StyledGetAQuoteBannerBlock = styled(Layout.FlexContainer)`
   background-color: ${colors.red_05};
-  padding: ${calcInterval([108, 200])};
+  padding: ${calcInterval([75, 100])};
 `;
 
 const GetAQuoteBanner = ({ children }) => {
-  return <GetAQuoteBannerBlock>{children}</GetAQuoteBannerBlock>;
+  return (
+    <StyledGetAQuoteBannerBlock tag="section" justify="space-between">
+      {children}
+    </StyledGetAQuoteBannerBlock>
+  );
 };
 
 GetAQuoteBanner.Title = () => {
   return (
     <Paragraph
-      type='title'
-      title='Get a free quote'
+      type="title"
+      title="Get a free quote"
       headingNum={2}
-      colors={{ main: theme.colors.white, sub: theme.colors.lightGray }}
-      size='24'
+      colors={{ main: colors.white, sub: colors.lightGray }}
+      size="15"
     >
       If you want to check our works, press the button.
     </Paragraph>
@@ -32,10 +32,10 @@ GetAQuoteBanner.Title = () => {
 };
 
 GetAQuoteBanner.Link = () => {
-  return <LinkIcon mode='secondary'>Get a Free Quote</LinkIcon>;
+  return <Button mode="link" to='/get-a-quote'>Get a Free Quote</Button>;
 };
 
-GetAQuoteBannerBlock.displayName = 'GetAQuoteBannerBlock';
+StyledGetAQuoteBannerBlock.displayName = 'StyledGetAQuoteBannerBlock';
 GetAQuoteBanner.Title.displayName = 'GetAQuoteBanner-Title';
 GetAQuoteBanner.Link.displayName = 'GetAQuoteBanner-Link';
 

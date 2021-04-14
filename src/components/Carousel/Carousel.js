@@ -1,12 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { array } from 'prop-types';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import theme from 'theme/theme';
+import { colors, calcRem } from 'theme/theme';
 import { Icon, CarouselItem, Indicator } from 'components/';
 
-const { colors, calcRem } = theme;
-
-const CarouselContainer = styled.div`
+const StyledCarouselBlock = styled.div`
   overflow: hidden;
   width: 100%;
   margin: 0 auto;
@@ -15,16 +13,16 @@ const CarouselContainer = styled.div`
   margin-bottom: ${calcRem(50)};
 `;
 
-const Slider = styled.ul`
+const StyledSlider = styled.ul`
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
 `;
 
-const CarouselButton = styled(Icon)`
+const StyledCarouselButton = styled(Icon)`
   position: absolute;
-  top: 35%;
-  ${({ direction }) => (direction === 'left' ? 'left: 0;' : 'right: 0;')}
+  top: 30%;
+  ${({ direction }) => (direction === 'left' ? 'left: 5%;' : 'right: 5%;')}
   cursor: pointer;
 `;
 
@@ -32,7 +30,6 @@ const Carousel = ({ contents }) => {
   const TOTAL_SLIDERS = contents.length - 1;
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slideRef = useRef(null);
   const isMoving = useRef(false);
 
   useEffect(() => {
@@ -58,37 +55,39 @@ const Carousel = ({ contents }) => {
 
   return (
     <>
-      <CarouselContainer>
-        <Slider ref={slideRef}>
-          {contents.map((review, idx) => {
+      <StyledCarouselBlock>
+        <StyledSlider>
+          {contents.map((content, idx) => {
             const next = currentSlide === TOTAL_SLIDERS ? 0 : currentSlide + 1;
             const prev = !currentSlide ? TOTAL_SLIDERS : currentSlide - 1;
+            const currentIdx = idx - currentSlide;
 
             return (
               <CarouselItem
-                key={review.id}
+                key={content.id}
+                currentIdx={currentIdx}
                 active={idx === currentSlide}
                 prev={idx === prev}
                 next={idx === next}
-                content={review}
+                content={content}
                 colors={{ main: colors.lightGray, sub: colors.white }}
               />
             );
           })}
-        </Slider>
-        <CarouselButton
+        </StyledSlider>
+        <StyledCarouselButton
           type="leftArrow"
           color={colors.lightGray}
           direction="left"
           onClick={prevSlide}
         />
-        <CarouselButton
+        <StyledCarouselButton
           type="rightArrow"
           color={colors.lightGray}
           direction="right"
           onClick={nextSlide}
         />
-      </CarouselContainer>
+      </StyledCarouselBlock>
       <Indicator
         contents={contents}
         current={currentSlide}
@@ -100,15 +99,15 @@ const Carousel = ({ contents }) => {
 };
 
 Carousel.propTypes = {
-  contents: PropTypes.array.isRequired,
+  contents: array.isRequired
 };
 
 Carousel.defaultProps = {
-  contents: [],
+  contents: []
 };
 
-CarouselContainer.displayName = 'CarouselContainer';
-Slider.displayName = 'Slider';
-CarouselButton.displayName = 'CarouselButton';
+StyledCarouselBlock.displayName = 'StyledCarouselBlock';
+StyledSlider.displayName = 'StyledSlider';
+StyledCarouselButton.displayName = 'StyledCarouselButton';
 
 export default Carousel;

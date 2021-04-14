@@ -1,5 +1,4 @@
 export { default as A11yHidden } from './A11yHidden/A11yHidden.styled';
-export { default as LinkIcon } from './LinkIcon/LinkIcon';
 export { default as Button } from './Button/Button';
 export { default as Icon } from './Icon/Icon';
 export { default as Paragraph } from './Paragraph/Paragraph';
@@ -15,3 +14,4 @@ export { default as Logo } from './Logo/Logo';
 export { default as Navbar } from './Navbar/Navbar';
 export { default as Input } from './Input/Input';
 export { default as SearchForm } from './SearchForm/SearchForm';
+export { default as Tag } from './Tag/Tag';

@@ -1,17 +1,16 @@
-import Icon from 'components/Icon/Icon';
+import { Link } from 'react-router-dom';
+import { string, number, array, object, bool } from 'prop-types';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import theme from 'theme/theme';
+import { fontSizes, calcRem, colors } from 'theme/theme';
+import { Icon } from 'components';
 
-const { margins, fontSizes } = theme;
-
-const ParagraphWrapper = styled.div`
+const StyledParagraphBlock = styled.div`
   color: ${({ colors }) => colors.sub};
   line-height: 1.4;
 
   h${({ headingNum }) => headingNum} {
     font-weight: bold;
-    margin-bottom: ${margins.base};
+    margin-bottom: ${calcRem(10)};
     color: ${({ colors }) => colors.main};
   }
 
@@ -25,18 +24,21 @@ const ParagraphWrapper = styled.div`
     font-size: ${fontSizes.small};
   }
 
-  .icon-wrapper {
+  /* .icon-wrapper {
     display: flex;
     align-items: center;
-  }
+  } */
   li {
-    font-size: ${({ size }) => `${size}px`};
+    font-size: ${({ size }) => calcRem(size)};
+    a:hover {
+      text-decoration: ${({ link }) => (link ? 'underline' : '')};
+    }
   }
-  span {
-    margin-left: ${margins.small};
+  li > span {
+    margin-left: ${calcRem(5)};
   }
-  p {
-    font-size: ${({ size }) => `${size}px`};
+  li > p {
+    font-size: ${({ size }) => calcRem(size)};
   }
   li,
   p,
@@ -47,61 +49,103 @@ const ParagraphWrapper = styled.div`
 
 const Paragraph = ({
   title,
+
   type,
   headingNum,
   items,
   icon,
+  iconColor,
+  stroke,
   children,
   colors,
   size,
+  link,
+  to,
   ...restProps
 }) => {
   let Comp = `h${headingNum}`;
 
   return (
-    <ParagraphWrapper
+    <StyledParagraphBlock
       headingNum={headingNum}
       colors={colors}
       size={size}
+      link={link}
       {...restProps}
     >
       <Comp>{title}</Comp>
+
       {type === 'list' && (
         <ul>
-          {items.map(item => (
-            <li key={item}>
-              {icon && (
-                <Icon type={icon} width="20" height="20">
-                  <span>{item}</span>
-                </Icon>
-              )}
-              {icon ? null : item}
-            </li>
-          ))}
+          {items.map((item, idx) => {
+            if (link)
+              return (
+                <li key={`${item}-${idx}`}>
+                  <Link to={to}>
+                    {icon && (
+                      <Icon
+                        type={icon}
+                        color={iconColor}
+                        stroke={stroke}
+                        width="20"
+                        height="20"
+                      >
+                        <span>{item}</span>
+                      </Icon>
+                    )}
+                    {icon ? null : item}
+                  </Link>
+                </li>
+              );
+            return (
+              <li key={`${item}-${idx}`}>
+                {icon && (
+                  <Icon
+                    type={icon}
+                    color={iconColor}
+                    stroke={stroke}
+                    width="20"
+                    height="20"
+                  >
+                    <span>{item}</span>
+                  </Icon>
+                )}
+                {icon ? null : item}
+              </li>
+            );
+          })}
         </ul>
       )}
       <p>{children}</p>
-    </ParagraphWrapper>
+    </StyledParagraphBlock>
   );
 };
 
 Paragraph.propTypes = {
-  title: PropTypes.string,
-  type: PropTypes.string,
-  headingNum: PropTypes.number,
-  items: PropTypes.array,
-  icon: PropTypes.string,
-  colors: PropTypes.object,
+  title: string,
+  subTitle: string,
+  type: string,
+  headingNum: number,
+  items: array,
+  icon: string,
+  iconColor: string,
+  colors: object,
+  size: string,
+  link: bool,
+  to: string
 };
 
 Paragraph.defaultProps = {
   title: '',
+  subTitle: '',
   type: 'normal',
   headingNum: 3,
   items: [],
-  colors: { main: '#2D2D2D', sub: '#2D2D2D' },
+  colors: { main: colors.black, sub: colors.black },
+  size: fontSizes.base,
+  link: false
 };
 
-ParagraphWrapper.displayName = 'ParagraphWrapper';
+StyledParagraphBlock.displayName = 'StyledParagraphBlock';
 
 export default Paragraph;

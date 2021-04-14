@@ -5,7 +5,7 @@ import GlobalStyle from 'styles/GlobalStyle';
 
 //스토리 구성 객체
 export default {
-  title: ' MMAuto/Component/Divider',
+  title: ' LVPS/Component/Divider',
   components: Divider,
   parameters: {
     docs: {
