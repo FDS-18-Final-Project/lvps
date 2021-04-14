@@ -4,14 +4,14 @@ import reset from 'styled-reset';
 const GlobalStyle = createGlobalStyle`
   ${reset}
   * {
-    font-family: 'Helvetica Neue LT Pro', Monserrat, sans-serif;    
+    font-family: Inter, Monserrat, sans-serif;    
   }
   a {
     text-decoration: none;
     color: inherit;
   }
   body {
-    font-family: 'Helvetica Neue LT Pro, sans-serif';
+    font-family: Inter, Monserrat, sans-serif;
     overflow-x: hidden;
     overflow-y: auto;
   }
