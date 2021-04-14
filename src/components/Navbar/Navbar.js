@@ -76,6 +76,6 @@ Navbar.defaultProps = {
   alignItems: 'center'
 };
 
-NavbarContainer.displayName = 'NavbarContainer';
+Navbar.displayName = 'NavbarContainer';
 
 export default Navbar;
