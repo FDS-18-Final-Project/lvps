@@ -16,6 +16,7 @@ const LayoutFlexContainer = styled(motion.div)`
   justify-content: ${({ justifyContent }) => justifyContent};
   align-items: ${({ alignItems }) => alignItems};
 `;
+
 const Layout = ({ children }) => {
   return <LayoutWrapper>{children}</LayoutWrapper>;
 };

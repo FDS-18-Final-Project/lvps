@@ -13,17 +13,28 @@ const HeaderContainer = styled.header`
   background: ${colors.black};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: ${colors.white};
-  svg {
-    margin-right: 0;
+
+  nav {
+    flex: 2;
   }
 
-  @media only screen and (max-width: 870px) {
-    padding: 15px 25px;
+  button + button {
+    margin-left: ${calcRem(15)};
+  }
 
-    .iconContainer {
-      flex: 0;
-      margin-left: 20px;
-    }
+  @media only screen and (max-width: 768px) {
+    padding: ${calcInterval([15, 25])};
+  }
+`;
+
+const IconContainer = styled(Layout.FlexContainer)`
+  flex: 1;
+
+  div + div {
+    margin-left: ${calcRem(35)};
+  }
+  @media only screen and (max-width: 768px) {
+    flex: 0;
   }
 `;
 
@@ -61,7 +72,7 @@ const Header = () => {
         <Layout.FlexContainer flex={1}>
           <Logo maxWidth={185} />
         </Layout.FlexContainer>
-        <Layout.FlexContainer tag="nav" flex={2}>
+        <Layout.FlexContainer tag="nav">
           <AnimatePresence initial={false}>
             {isShow ? (
               <SearchForm
@@ -82,14 +93,12 @@ const Header = () => {
             )}
           </AnimatePresence>
         </Layout.FlexContainer>
-        <Layout.FlexContainer className="iconContainer" flex={1}>
+        <IconContainer>
           {mobile ? (
             <Icon
               type="mobileMenuIcon"
-              to="/home"
               color={colors.white}
               width={calcRem(25)}
-              link
             />
           ) : (
             <>
@@ -108,7 +117,6 @@ const Header = () => {
                 type="instagram"
                 color={colors.white}
                 width={calcRem(25)}
-                style={{ margin: calcInterval([0, 50]) }}
                 link
               />
               <Icon
@@ -120,7 +128,7 @@ const Header = () => {
               />
             </>
           )}
-        </Layout.FlexContainer>
+        </IconContainer>
       </Layout>
     </HeaderContainer>
   );
