@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 //스토리 구성 객체
 export default {
-  title: ' MMAuto/Component/HoverBox',
+  title: 'LVPS/Component/HoverBox',
   components: HoverBox,
   parameters: {
     docs: {
@@ -31,7 +31,7 @@ export default {
     styledMode: {
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'hoverBoxTheme']
+        options: ['hoverBoxTheme']
       }
     },
     children: { type: 'text' }

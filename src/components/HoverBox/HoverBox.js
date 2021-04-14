@@ -1,4 +1,3 @@
-import { LinkIcon } from 'components';
 import { string, array } from 'prop-types';
 import styled from 'styled-components';
 import theme from 'theme/theme';
@@ -12,7 +11,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const StyledItem = styled(LinkIcon)`
+const StyledItem = styled.div`
   width: 440px;
   height: 64px;
   padding: 0 0.7em 0 1.5em;
@@ -36,8 +35,13 @@ const HoverBox = ({ HoverBoxItems }) => {
   console.log(HoverBoxItems);
   return (
     <StyledWrapper>
-      {HoverBoxItems.map((value, idx, ...restProps) => (
-        <StyledItem key={idx} children={value} {...restProps} />
+      {HoverBoxItems.map((value, idx, styledMode, ...restProps) => (
+        <StyledItem
+          key={idx}
+          children={value}
+          styledMode={styledMode}
+          {...restProps}
+        />
       ))}
     </StyledWrapper>
   );
