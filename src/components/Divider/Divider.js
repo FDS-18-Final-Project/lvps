@@ -1,30 +1,23 @@
-import styled from 'styled-components';
-import { colors, calcRem } from 'theme/theme';
 import { string } from 'prop-types';
+import styled from 'styled-components';
+import { colors, calcRem, calcInterval } from 'theme/theme';
+
+const changeStringToArray = value => value.split(' ');
 
 const StyledDivider = styled.div`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-  margin-top: ${({ marginTop }) => marginTop};
-  margin-bottom: ${({ marginBottom }) => marginBottom};
+  margin: ${({ margin }) => calcInterval(changeStringToArray(margin))};
   background-color: ${({ color }) => color};
 `;
 
-const Divider = ({
-  width,
-  height,
-  bgColor,
-  marginTop,
-  marginBottom,
-  ...restProps
-}) => {
+const Divider = ({ width, height, margin, bgColor, ...restProps }) => {
   return (
     <StyledDivider
       width={width}
       height={height}
+      margin={margin}
       color={bgColor}
-      marginTop={marginTop}
-      marginBottom={marginBottom}
       {...restProps}
     />
   );
@@ -33,17 +26,15 @@ const Divider = ({
 Divider.propTypes = {
   width: string,
   height: string,
-  color: string,
-  marginTop: string,
-  marginBottom: string
+  margin: string,
+  bgColor: string
 };
 
 Divider.defaultProps = {
-  width: '110px',
-  height: '4px',
-  bgColor: colors.lightGray,
-  marginTop: calcRem(45),
-  marginBottom: calcRem(45)
+  width: calcRem(110),
+  height: calcRem(4),
+  margin: '45 0',
+  bgColor: colors.lightGray
 };
 
 Divider.displayName = 'Divider';
