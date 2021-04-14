@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import { colors, fontSizes, calcRem, calcInterval } from 'theme/theme';
 import { Button, Divider, Icon, Paragraph } from 'components';
 
-
 const MainBannerBg = css`
   background-image: url(${props => props.bgImg});
   background-repeat: no-repeat;
@@ -57,7 +56,7 @@ const MainBanner = ({ bgImg }) => {
           <span className="ourName">LVPS</span>
           <span className="subTitle">For Your Car</span>
         </StyledHeading>
-        <Divider width="150px" />
+        <Divider width={150} />
         <StyledParagraph
           type="list"
           link

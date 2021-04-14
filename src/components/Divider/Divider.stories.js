@@ -1,6 +1,6 @@
 import { Divider } from 'components';
 import { ThemeProvider } from 'styled-components';
-import theme from 'theme/theme';
+import theme, { colors } from 'theme/theme';
 import GlobalStyle from 'styles/GlobalStyle';
 
 //스토리 구성 객체
@@ -16,15 +16,14 @@ export default {
     design: {
       type: 'figma',
       url:
-        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=3%3A8'
+        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=830%3A224'
     }
   },
   argTypes: {
-    width: { type: 'text' },
-    height: { type: 'text' },
-    bgColor: { type: 'text' },
-    marginTop: { type: 'text' },
-    marginBottom: { type: 'text' }
+    width: { control: 'number' },
+    height: { control: 'number' },
+    margin: { control: 'text' },
+    bgColor: { control: 'text' }
   }
 };
 
@@ -39,9 +38,8 @@ const Template = (...args) => (
 export const NormalDivider = Template.bind({});
 
 NormalDivider.args = {
-  width: '110px',
-  height: '4px',
-  bgColor: 'lightGray',
-  marginTop: '45px',
-  marginBottom: '45px'
+  width: 110,
+  height: 4,
+  margin: '45 0',
+  bgColor: colors.lightGray
 };
