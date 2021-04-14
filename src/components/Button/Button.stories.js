@@ -37,8 +37,8 @@ export default {
     fullwidth: { control: 'boolean' },
     role: { type: 'text' },
     children: { type: 'text' },
-    width: { control: { type: 'range', min: 50, max: 800, step: 10 } },
-    height: { control: { type: 'range', min: 50, max: 800, step: 10 } },
+    width: { control: { type: 'range', min: 0, max: 800, step: 10 } },
+    height: { control: { type: 'range', min: 0, max: 800, step: 10 } },
     fontSize: { type: 'number' },
     fontWeight: { type: 'number' }
   }
