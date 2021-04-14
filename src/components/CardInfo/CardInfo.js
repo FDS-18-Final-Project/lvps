@@ -1,11 +1,12 @@
-import Icon from 'components/Icon/Icon';
-import { array, string } from 'prop-types';
 import React from 'react';
+import { array, string } from 'prop-types';
 import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
+import Icon from 'components/Icon/Icon';
 
 const CardInfoContainer = styled.ul`
   display: inline-block;
+
   li {
     display: flex;
     align-items: center;

@@ -1,10 +1,8 @@
-import CardInfo from 'components/CardInfo/CardInfo';
-import Divider from 'components/Divider/Divider';
 import React from 'react';
+import { array, number, string } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
-import { array, number, string } from 'prop-types';
-import Tag from 'components/Tag/Tag';
+import { CardInfo, Divider, Tag } from 'components';
 
 const PriceTableContainer = styled.div`
   max-width: ${({ maxWidth }) => calcRem(maxWidth)};
