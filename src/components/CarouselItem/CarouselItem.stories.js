@@ -1,18 +1,18 @@
 /* eslint-disable import/no-anonymous-default-export */
-import GlobalStyle from '../../styles/GlobalStyle';
+import GlobalStyle from 'styles/GlobalStyle';
 import CarouselItem from './CarouselItem';
 import theme from 'theme/theme';
 
 const { colors } = theme;
 
 export default {
-  title: 'MMAuto/Component/CarouselItem',
+  title: 'LVPS/Component/CarouselItem',
   component: CarouselItem,
   parameters: {
     docs: {
       description: {
         component:
-          'content, colors, active, prev, next를 받아 CarouselItem 컴포넌트를 만들어줍니다.'
+          'content, colors, active, type를 받아 CarouselItem 컴포넌트를 만들어줍니다.'
       }
     }
   },
@@ -69,16 +69,6 @@ export default {
       control: {
         type: 'boolean'
       }
-    },
-    prev: {
-      control: {
-        type: 'boolean'
-      }
-    },
-    next: {
-      control: {
-        type: 'boolean'
-      }
     }
   }
 };
@@ -121,6 +111,29 @@ const reviews = [
   }
 ];
 
+const carouselImgs = [
+  {
+    id: 1,
+    path: 'assets/dummy_background.png'
+  },
+  {
+    id: 2,
+    path: 'assets/dummy_background_02.png'
+  },
+  {
+    id: 3,
+    path: 'assets/dummyImage.png'
+  },
+  {
+    id: 4,
+    path: 'assets/dummy_ourbestservice.png'
+  },
+  {
+    id: 5,
+    path: 'assets/dummy_car1.png'
+  }
+];
+
 //template 만들기
 const Template = args => (
   <>
@@ -131,14 +144,23 @@ const Template = args => (
 
 //스토리 구성 객체 기본 내보내기
 
-export const CarouselItemBlock = Template.bind({});
+export const CarouselItemReview = Template.bind({});
 
-CarouselItemBlock.args = {
+CarouselItemReview.args = {
+  type: 'paragraph',
   content: reviews[0],
   colors: { main: colors.black, sub: colors.white },
-  active: true,
-  prev: false,
-  next: false
+  active: true
 };
 
-CarouselItemBlock.storyName = '캐러셀 아이템';
+CarouselItemReview.storyName = '캐러셀 리뷰 아이템';
+
+export const CarouselItemImg = Template.bind({});
+
+CarouselItemImg.args = {
+  type: 'img',
+  content: carouselImgs[0],
+  active: true
+};
+
+CarouselItemImg.storyName = '캐러셀 이미지 아이템';

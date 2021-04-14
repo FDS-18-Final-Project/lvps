@@ -1,6 +1,13 @@
 import React from 'react';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
-import { GetAQuoteBanner, MainBanner, Review } from 'containers';
+import {
+  GetAQuoteBanner,
+  MainBanner,
+  OurBestServices,
+  OurWorks,
+  Review,
+  SubBanner
+} from 'containers';
 
 const Home = () => {
   return (
@@ -15,6 +22,12 @@ const Home = () => {
         <Review.Title />
         <Review.Contents />
       </Review>
+      <OurWorks>
+        <OurWorks.Title />
+        <OurWorks.Contents />
+      </OurWorks>
+      <SubBanner />
+      <OurBestServices />
     </>
   );
 };

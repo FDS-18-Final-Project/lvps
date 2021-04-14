@@ -1,113 +1,114 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { array } from 'prop-types';
+import { useState, useEffect } from 'react';
+import { array, string } from 'prop-types';
 import styled from 'styled-components';
-import { colors, calcRem } from 'theme/theme';
+import { useSwipeable } from 'react-swipeable';
+import { calcRem, colors } from 'theme/theme';
 import { Icon, CarouselItem, Indicator } from 'components/';
 
 const StyledCarouselContainer = styled.div`
-  overflow: hidden;
-  width: 100%;
+  width: ${calcRem(770)};
+  overflow: ${({ type }) => type === 'paragraph' && 'hidden'};
   margin: 0 auto;
-  position: relative;
-  min-height: ${calcRem(525)};
-  /* margin-bottom: ${calcRem(40)}; */
 `;
 
-const StyledSlider = styled.ul`
-  width: 100%;
+const Slides = styled.ul`
+  user-select: none;
   display: flex;
-  flex-flow: row nowrap;
+  transform: ${({ currentSlide }) => `translateX(${currentSlide * -100}%)`};
+  transition: all 0.5s;
 `;
 
 const StyledCarouselButton = styled(Icon)`
   position: absolute;
-  top: 30%;
-  ${({ direction }) => (direction === 'left' ? 'left: 0;' : 'right: 0;')}
-  cursor: pointer;
+  top: 50%;
+  ${({ direction }) => (direction === 'left' ? 'left: 0' : 'right: 0')}
 `;
 
-const Carousel = ({ contents }) => {
-  const TOTAL_SLIDERS = contents.length - 1;
+const Carousel = ({ type, contents }) => {
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const [isMoving, setIsMoving] = useState(false);
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const isMoving = useRef(false);
+  const TOTAL_LENGTH = contents.length;
 
-  useEffect(() => {
-    isMoving.current = true;
-    setTimeout(() => {
-      isMoving.current = false;
-    }, 500);
-  }, [currentSlide]);
-
-  const nextSlide = () => {
-    if (!isMoving.current) {
-      if (currentSlide === TOTAL_SLIDERS) setCurrentSlide(0);
+  const moveNext = () => {
+    if (!isMoving) {
+      if (currentSlide === TOTAL_LENGTH) return setCurrentSlide(1);
       else setCurrentSlide(currentSlide + 1);
     }
   };
 
-  const prevSlide = () => {
-    if (!isMoving.current) {
-      if (!currentSlide) setCurrentSlide(TOTAL_SLIDERS);
+  const movePrev = () => {
+    if (!isMoving) {
+      if (currentSlide === 1) return setCurrentSlide(TOTAL_LENGTH);
       else setCurrentSlide(currentSlide - 1);
     }
   };
 
+  const handlers = useSwipeable({
+    onSwipedLeft: moveNext,
+    onSwipedRight: movePrev,
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true
+  });
+
+  useEffect(() => {
+    setIsMoving(true);
+    setTimeout(() => {
+      setIsMoving(false);
+    }, 500);
+  }, [currentSlide]);
+
   return (
     <>
-      <StyledCarouselContainer>
-        <StyledSlider>
-          {contents.map((content, idx) => {
-            const next = currentSlide === TOTAL_SLIDERS ? 0 : currentSlide + 1;
-            const prev = !currentSlide ? TOTAL_SLIDERS : currentSlide - 1;
-            const currentIdx = idx - currentSlide;
-
-            return (
+      <StyledCarouselContainer type={type} {...handlers}>
+        <Slides currentSlide={currentSlide} length={TOTAL_LENGTH}>
+          {[contents[TOTAL_LENGTH - 1], ...contents, contents[0]].map(
+            (content, idx) => (
               <CarouselItem
-                key={content.id}
-                currentIdx={currentIdx}
-                active={idx === currentSlide}
-                prev={idx === prev}
-                next={idx === next}
-                content={content}
+                key={idx}
+                type={type}
                 colors={{ main: colors.lightGray, sub: colors.white }}
+                content={content}
+                active={currentSlide === idx}
               />
-            );
-          })}
-        </StyledSlider>
-        <StyledCarouselButton
-          type="leftArrow"
-          color={colors.lightGray}
-          direction="left"
-          onClick={prevSlide}
-        />
-        <StyledCarouselButton
-          type="rightArrow"
-          color={colors.lightGray}
-          direction="right"
-          onClick={nextSlide}
-        />
+            )
+          )}
+        </Slides>
       </StyledCarouselContainer>
+
+      <StyledCarouselButton
+        type="rightArrow"
+        direction="right"
+        color={colors.lightGray}
+        onClick={moveNext}
+      />
+      <StyledCarouselButton
+        type="leftArrow"
+        direction="left"
+        color={colors.lightGray}
+        onClick={movePrev}
+      />
       <Indicator
         contents={contents}
-        current={currentSlide}
         onChange={setCurrentSlide}
-        className="indicator"
+        current={currentSlide - 1}
       />
     </>
   );
 };
 
 Carousel.propTypes = {
-  contents: array.isRequired
+  type: string.isRequired,
+  content: array.isRequired
 };
 
 Carousel.defaultProps = {
-  contents: []
+  type: 'img',
+  content: []
 };
 
 StyledCarouselContainer.displayName = 'StyledCarouselContainer';
-StyledSlider.displayName = 'StyledSlider';
+Slides.displayName = 'Slides';
 StyledCarouselButton.displayName = 'StyledCarouselButton';
 
 export default Carousel;

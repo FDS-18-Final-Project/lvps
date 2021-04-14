@@ -7,6 +7,8 @@ export { default as Divider } from './Divider/Divider';
 export { default as HoverBox } from './HoverBox/HoverBox';
 export { default as Carousel } from './Carousel/Carousel';
 export { default as CarouselItem } from './CarouselItem/CarouselItem';
+export { default as Review } from './Review/Review';
+export { default as CarouselImgItem } from './CarouselImgItem/CarouselImgItem';
 export { default as Indicator } from './Indicator/Indicator';
 export { default as AccordionItem } from './AccodionItem/AccordionItem';
 export { default as AccordionList } from './AccordionList/AccordionList';
