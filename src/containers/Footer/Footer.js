@@ -1,96 +1,108 @@
-import Logo from 'components/Logo/Logo';
-import Paragraph from 'components/Paragraph/Paragraph';
-import styled, { ThemeProvider } from 'styled-components';
-import theme from 'theme/theme';
+import styled from 'styled-components';
+import { colors, calcInterval, calcRem } from 'theme/theme';
+import { Logo, Paragraph } from 'components';
+import Layout from 'pages/Layout/Layout';
 
-const { colors, calcRem, calcInterval } = theme;
-
-const FooterWrapper = styled.footer`
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-around;
+const StyledFooterContainer = styled.div`
   background-color: ${colors.black};
-  padding: ${calcInterval([186, 230, 188, 200])};
+  padding: ${calcInterval([95, 100])};
 `;
 
-const FooterContent = styled.div`
+const FullContainer = styled(Layout.FlexContainer)`
+  width: 1200px;
+  margin: 0 auto;
+  a:hover {
+    text-decoration: underline;
+  }
+`;
+
+const StyledFooterContent = styled.div`
   display: grid;
-  grid-template-rows: repeat(2, ${calcRem(190)});
-  grid-template-columns: repeat(2, ${calcRem(460)});
-  gap: ${calcInterval([112, 60])};
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: ${calcInterval([36, 90])};
+`;
+
+const StyledParagraph = styled(Paragraph)`
+  width: ${calcRem(240)};
 `;
 
 const Footer = ({ children }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <FooterWrapper>{children}</FooterWrapper>
-    </ThemeProvider>
+    <StyledFooterContainer>
+      <FullContainer tag="footer" justifyContent="space-around">
+        {children}
+      </FullContainer>
+    </StyledFooterContainer>
   );
 };
 
 Footer.Logo = () => {
-  return <Logo maxWidth={790} />;
+  return <Logo tag="h2" />;
 };
 
 Footer.Content = () => {
-  const { white, lightGray } = theme.colors;
+  const { white, lightGray } = colors;
   return (
-    <FooterContent>
-      <Paragraph
+    <StyledFooterContent>
+      <StyledParagraph
         title="ABOUT"
         type="normal"
-        headingNumber={3}
+        headingNum={3}
         colors={{ main: white, sub: white }}
-        size="20"
+        size="12"
       >
-        We are Luxury Vehicle Protection <br />
-        Services, providing vehicle protection, <br />
-        repair, and detailing services based in <br />
-        North York, Toronto, Ontario.
-      </Paragraph>
+        We are Luxury Vehicle Protection Services, providing vehicle protection,
+        repair, and detailing services based in North York, Toronto, Ontario.
+      </StyledParagraph>
 
       <Paragraph
         title="SERVICES"
         type="list"
-        headingNumber={3}
+        link
+        to="/"
+        headingNum={3}
         colors={{ main: white, sub: white }}
         items={[
           'Ceramic Pro',
           'Paint Protection Film',
           'Window Tinting',
           'Detailing & Paint Correction',
+          'Wheel & Tire'
         ]}
-        icon="facebook"
-        size="20"
+        icon="map"
+        iconColor={colors.white}
+        size="12"
       />
 
       <Paragraph
         title="Working Hour"
         type="list"
-        headingNumber={3}
+        headingNum={3}
         items={['Monday – Friday: 8 am – 6 pm', 'Saturday: 8 am – 3 pm']}
         colors={{ main: white, sub: white }}
-        size="20"
+        size="12"
       />
 
       <Paragraph
         type="list"
         colors={{ main: white, sub: lightGray }}
         items={[
-          'map 9 Vanley Cres, North York, ON M3J 2B7',
+          '9 Vanley Cres, North York, ON M3J 2B7',
           '(647) 703 5857',
-          'info@lvps.ca',
+          'info@lvps.ca'
         ]}
         icon="map"
-        size="20"
+        size="12"
       />
-    </FooterContent>
+    </StyledFooterContent>
   );
 };
 
-FooterContent.displayName = 'Footer';
+StyledFooterContent.displayName = 'StyledFooterContent';
+FullContainer.displayName = 'FullContainer';
 Footer.Logo.displayName = 'Footer-Logo';
 Footer.Content.displayName = 'Footer-Content';
+StyledParagraph.displayName = 'StyledParagraph';
 
 export default Footer;

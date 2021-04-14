@@ -1,99 +1,30 @@
-import AccordionItem from 'components/AccodionItem/AccordionItem';
-import { array } from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
+import { func, array } from 'prop-types';
 import styled from 'styled-components';
-import theme from 'theme/theme';
+import { calcRem } from 'theme/theme';
+import AccordionItem from 'components/AccodionItem/AccordionItem';
 
-const AccordionWrapper = styled.ul`
-  padding: ${theme.paddings.base};
+const AccordionContainer = styled.ul`
+  li + li {
+    margin-top: ${calcRem(5)};
+  }
 `;
 
-const accordionState = [
-  {
-    id: 1,
-    title: 'Ceramic Coating',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    active: true
-  },
-  {
-    id: 2,
-    title: 'Paint Protection Film',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    active: false
-  },
-  {
-    id: 3,
-    title: 'Window Tinting',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    active: false
-  },
-  {
-    id: 4,
-    title: 'Detail Correction',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    active: false
-  },
-  {
-    id: 5,
-    title: 'Ceramic Coating',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    active: false
-  }
-];
-
-const AccordionList = ({ accordion }) => {
-  const [accordionItemList, setAccordionItemList] = useState(accordion);
-
-  const handleClick = id => {
-    setAccordionItemList(
-      accordionItemList.map(item =>
-        item.id === id ? { ...item, active: true } : { ...item, active: false }
-      )
-    );
-  };
-
+const AccordionList = ({ accordion, handleClick }) => {
   return (
-    <AccordionWrapper>
-      {accordionItemList.map(item => (
+    <AccordionContainer>
+      {accordion.map(item => (
         <AccordionItem key={item.id} item={item} onClick={handleClick} />
       ))}
-    </AccordionWrapper>
+    </AccordionContainer>
   );
 };
 
 AccordionList.propTypes = {
-  accordion: array
+  accordion: array,
+  handleClick: func
 };
 
-AccordionList.defaultProps = {
-  accordion: accordionState
-};
-
-AccordionWrapper.displayName = 'AccordionWrapper';
+AccordionContainer.displayName = 'AccordionContainer';
 
 export default AccordionList;

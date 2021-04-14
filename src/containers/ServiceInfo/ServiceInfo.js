@@ -1,42 +1,41 @@
-import { LinkIcon, Paragraph } from 'components/';
-import Layout from 'pages/Layout/Layout';
-import { oneOf } from 'prop-types';
-import { string } from 'prop-types';
 import React from 'react';
+import { oneOf, string } from 'prop-types';
 import styled from 'styled-components';
-import theme from 'theme/theme';
+import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
+import { Button, Paragraph } from 'components/';
+import Layout from 'pages/Layout/Layout';
 
-const ServiceInfoWrapper = styled.div`
-  padding: ${theme.calcInterval([0, 200, 135])};
+const ServiceInfoContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: ${calcInterval([0, 200, 135])};
 
   .ServiceInfoContentBox {
-    height: 490px;
-    margin-top: 32px;
-    padding: ${props =>
-      props.mode === 'left'
-        ? `0 0 0 ${theme.calcRem(144)}`
-        : `0 ${theme.calcRem(144)} 0 0`};
+    height: ${calcRem(490)};
+    margin-top: ${calcRem(32)};
+    padding: ${({ mode }) =>
+      mode === 'left' ? `0 0 0 ${calcRem(144)}` : `0 ${calcRem(144)} 0 0`};
 
     div {
-      align-self: ${props =>
-        props.mode === 'left' ? 'flex-end' : 'flex-start'};
+      align-self: ${({ mode }) =>
+        mode === 'left' ? 'flex-end' : 'flex-start'};
     }
   }
 
   h2 {
-    padding-top: ${theme.calcRem(135)};
-    border-top: 1px solid ${theme.colors.lightGray};
+    padding-top: ${calcRem(135)};
+    border-top: 1px solid ${colors.lightGray};
   }
 
   p {
     margin: 0;
-    font-size: ${theme.fontSizes.base};
-    line-height: ${theme.calcRem(36)};
+    font-size: ${fontSizes.base};
+    line-height: ${calcRem(36)};
   }
   img {
     width: 100%;
-    margin-top: 32px;
-    height: 490px;
+    margin-top: ${calcRem(32)};
+    height: ${calcRem(490)};
   }
 `;
 
@@ -49,12 +48,12 @@ const ServiceInfo = ({
   children
 }) => {
   return (
-    <ServiceInfoWrapper mode={mode}>
+    <ServiceInfoContainer mode={mode}>
       <Paragraph
         title={title}
         size={24}
         headingNum={2}
-        colors={{ main: theme.colors.black, sub: theme.colors.redMain }}
+        colors={{ main: colors.black, sub: colors.redMain }}
       >
         {subTitle}
       </Paragraph>
@@ -67,11 +66,12 @@ const ServiceInfo = ({
         <Layout.FlexContainer
           className="ServiceInfoContentBox"
           direction="column"
-          justify="space-between"
+          justifyContent="space-between"
           flex="1"
         >
           <p>{children}</p>
-          <LinkIcon mode="primary">{linkText}</LinkIcon>
+
+          <Button mode="link" to='/get-a-quote'>{linkText}</Button>
         </Layout.FlexContainer>
         {mode === 'right' && (
           <Layout.FlexContainer flex={1}>
@@ -79,7 +79,7 @@ const ServiceInfo = ({
           </Layout.FlexContainer>
         )}
       </Layout.FlexContainer>
-    </ServiceInfoWrapper>
+    </ServiceInfoContainer>
   );
 };
 
@@ -99,5 +99,5 @@ ServiceInfo.defaultProps = {
   mode: 'right'
 };
 
-ServiceInfoWrapper.displayName = 'ServiceInfoWrapper';
+ServiceInfoContainer.displayName = 'ServiceInfoWrapper';
 export default ServiceInfo;

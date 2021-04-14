@@ -1,30 +1,36 @@
-import { LinkIcon, Paragraph } from 'components';
 import styled from 'styled-components';
-import theme from 'theme/theme';
+import { colors, calcInterval, calcRem } from 'theme/theme';
+import { Button, Icon, Paragraph } from 'components';
+import Layout from 'pages/Layout/Layout';
 
-const { colors, calcInterval } = theme;
-
-const GetAQuoteBannerBlock = styled.section`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
+const StyledGetAQuoteBannerContainer = styled.div`
+  padding: ${calcInterval([75, 100])};
   background-color: ${colors.red_05};
-  padding: ${calcInterval([108, 200])};
+`;
+
+const FullContainer = styled(Layout.FlexContainer)`
+  width: ${calcRem(1200)};
+  margin: 0 auto;
 `;
 
 const GetAQuoteBanner = ({ children }) => {
-  return <GetAQuoteBannerBlock>{children}</GetAQuoteBannerBlock>;
+  return (
+    <StyledGetAQuoteBannerContainer>
+      <FullContainer tag="section" justifyContent="space-between">
+        {children}
+      </FullContainer>
+    </StyledGetAQuoteBannerContainer>
+  );
 };
 
 GetAQuoteBanner.Title = () => {
   return (
     <Paragraph
-      type='title'
-      title='Get a free quote'
+      type="title"
+      title="Get a free quote"
       headingNum={2}
-      colors={{ main: theme.colors.white, sub: theme.colors.lightGray }}
-      size='24'
+      colors={{ main: colors.white, sub: colors.lightGray }}
+      size="15"
     >
       If you want to check our works, press the button.
     </Paragraph>
@@ -32,10 +38,16 @@ GetAQuoteBanner.Title = () => {
 };
 
 GetAQuoteBanner.Link = () => {
-  return <LinkIcon mode='secondary'>Get a Free Quote</LinkIcon>;
+  return (
+    <Button mode="link" to="/" width={270} fontSize={18} padding="20">
+      Get a Free Quote
+      <Icon type="rightArrow" color={colors.white} />
+    </Button>
+  );
 };
 
-GetAQuoteBannerBlock.displayName = 'GetAQuoteBannerBlock';
+StyledGetAQuoteBannerContainer.displayName = 'StyledGetAQuoteBannerContainer';
+FullContainer.displayName = 'FullContainer';
 GetAQuoteBanner.Title.displayName = 'GetAQuoteBanner-Title';
 GetAQuoteBanner.Link.displayName = 'GetAQuoteBanner-Link';
 

@@ -1,10 +1,9 @@
+import GlobalStyle from 'styles/GlobalStyle';
 import { Icon } from 'components';
-import { ThemeProvider } from 'styled-components';
-import theme from 'theme/theme';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  title: 'MMAuto/Component/Icon',
+  title: 'LVPS/Component/Icon',
   Component: Icon,
   parameters: {
     docs: {
@@ -33,9 +32,10 @@ export default {
 };
 
 const Template = args => (
-  <ThemeProvider theme={theme}>
+  <>
+    <GlobalStyle />
     <Icon {...args} />
-  </ThemeProvider>
+  </>
 );
 
 export const Facebook = Template.bind({});

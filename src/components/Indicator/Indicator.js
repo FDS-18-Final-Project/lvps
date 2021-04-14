@@ -1,16 +1,9 @@
+import { array, number, func } from 'prop-types';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import theme from 'theme/theme';
+import { calcRem } from 'theme/theme';
+import Layout from 'pages/Layout/Layout';
 
-const { calcRem } = theme;
-
-const IndicatorWrapper = styled.ul`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-`;
-
-const ItemButton = styled.button`
+const StyledIndicatorItem = styled.button`
   width: ${calcRem(15)};
   height: ${calcRem(15)};
   border-radius: 50%;
@@ -28,23 +21,23 @@ const Indicator = ({ contents, current, onChange, ...restProps }) => {
   };
 
   return (
-    <IndicatorWrapper {...restProps}>
-      {contents.map((review, idx) => (
-        <li key={review.id} onClick={() => handleClick(idx)}>
-          <ItemButton
+    <Layout.FlexContainer tag="ul" align="flex-start" {...restProps}>
+      {contents.map((content, idx) => (
+        <li key={content.id} onClick={() => handleClick(idx)}>
+          <StyledIndicatorItem
             aria-label={`indicator-${idx}`}
             selected={current === idx}
-          ></ItemButton>
+          ></StyledIndicatorItem>
         </li>
       ))}
-    </IndicatorWrapper>
+    </Layout.FlexContainer>
   );
 };
 
 Indicator.propTypes = {
-  contents: PropTypes.array.isRequired,
-  current: PropTypes.number,
-  onChange: PropTypes.func
+  contents: array.isRequired,
+  current: number,
+  onChange: func
 };
 
 Indicator.defaultProps = {
@@ -52,7 +45,6 @@ Indicator.defaultProps = {
   current: 0
 };
 
-IndicatorWrapper.displayName = 'IndicatorWrapper';
-ItemButton.displayName = 'ItemButton';
+StyledIndicatorItem.displayName = 'StyledIndicatorItem';
 
 export default Indicator;

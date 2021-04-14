@@ -1,39 +1,46 @@
-import { Paragraph } from 'components/';
 import React from 'react';
-import LinkIcon from '../../components/LinkIcon/LinkIcon';
-import styled from 'styled-components';
 import { node, string } from 'prop-types';
+import styled from 'styled-components';
+import { calcRem, colors } from 'theme/theme';
+import { Paragraph, Button } from 'components/';
 import Layout from 'pages/Layout/Layout';
 
-const Wrapper = styled.div`
+const SubBannerContainer = styled.div`
+  background: ${colors.white};
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
+
   img {
     width: 100%;
   }
+
   p {
-    margin-bottom: 75px;
+    margin-bottom: ${calcRem(75)};
   }
 `;
 
-const LayoutWrapper = styled(Layout.FlexContainer)`
+const LayoutContainer = styled(Layout.FlexContainer)`
   #paragraph {
-    width: 465px;
+    max-width: ${calcRem(465)};
   }
 `;
 
 const SubBanner = ({ title, linkText, imagePath, children }) => {
   return (
-    <Wrapper>
-      <LayoutWrapper direction="column" flex={1}>
+    <SubBannerContainer>
+      <LayoutContainer direction="column" flex={1}>
         <Paragraph id="paragraph" title={title} size={24} headingNum={2}>
           {children}
         </Paragraph>
-        <LinkIcon mode="secondary">{linkText}</LinkIcon>
-      </LayoutWrapper>
-      <LayoutWrapper flex={1}>
+
+        <Button mode="link" to='/get-a-quote'>{linkText}</Button>
+
+      </LayoutContainer>
+      <LayoutContainer flex={1}>
         <img src={imagePath} alt="dummyImage" />
-      </LayoutWrapper>
-    </Wrapper>
+      </LayoutContainer>
+    </SubBannerContainer>
   );
 };
 
@@ -51,7 +58,7 @@ SubBanner.defaultProps = {
   children: 'Quality Protection Services'
 };
 
-Wrapper.displayName = 'SubBannerWrapper';
-LayoutWrapper.displayName = 'SubBannerContentWrapper';
+SubBannerContainer.displayName = 'SubBannerWrapper';
+LayoutContainer.displayName = 'SubBannerContentWrapper';
 
 export default SubBanner;
