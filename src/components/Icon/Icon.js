@@ -27,12 +27,14 @@ const Icon = ({
   stroke,
   children,
   motionProps,
+  stylesForContainer,
   button,
   link,
   to,
   ...restProps
 }) => {
   let Comp = null;
+
   if (link)
     Comp = (
       <Link to={to}>{React.createElement(svg[type], { ...restProps })}</Link>
@@ -46,7 +48,12 @@ const Icon = ({
   else Comp = React.createElement(svg[type], { ...restProps });
 
   return (
-    <StyledIconContainer color={color} stroke={stroke} {...motionProps}>
+    <StyledIconContainer
+      color={color}
+      stroke={stroke}
+      {...motionProps}
+      {...stylesForContainer}
+    >
       {Comp}
       {children}
     </StyledIconContainer>

@@ -1,62 +1,93 @@
 import React from 'react';
+import { string } from 'prop-types';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import { calcInterval, calcRem, colors } from 'theme/theme';
 import { Icon } from 'components';
 
 const typeStyle = {
-  quality: {
-    'clip-path': 'initial',
-    background: '#c9c9c9',
-    width: '365px'
+  arrow: {
+    'clip-path': 'polygon(80% 0, 100% 50%, 80% 100%, 0 99%, 0 0)',
+    width: calcRem(265)
   },
-  process: {
-    background: '#ffc9c9',
-    'clip-path': 'polygon(80% 0, 100% 50%, 80% 100%, 0 99%, 0 0)'
+  square: {
+    'clip-path': 'initial',
+    width: calcRem(237)
   }
 };
 
 const StyledCard = styled.div`
-  width: 410px;
-  height: 410px;
+  width: ${({ width }) => calcRem(width)};
+  height: ${({ height }) => calcRem(height)};
+  background: ${({ background }) => background};
+  box-sizing: border-box;
   position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding: ${calcInterval([50, 35])};
 
   span {
+    width: ${calcRem(167)};
+    font-family: 'Helvetica Neue LT Pro';
     font-weight: 500;
-    font-size: 24px;
-    line-height: 36px;
-    margin-top: 48px;
-    padding: 0 65px 20px 65px;
+    text-align: center;
+    color: ${({ color }) => color};
+    font-size: ${calcRem(18)};
+    line-height: ${calcRem(27)};
+    margin: ${calcRem(40)} auto 0;
   }
 
-  ${props => typeStyle[props.type]}
+  ${({ type }) => typeStyle[type]}
 `;
+const StyledIconContainer = styled.div`
+  margin: ${({ cardType }) =>
+    cardType === 'square' ? '0 auto' : `0 0 0 ${calcRem(27)}`};
+`;
+const stylesFromCard = {
+  style: {
+    'border-radius': '50%',
+    border: `${calcRem(4)} solid ${colors.white}`,
+    width: calcRem(120),
+    height: calcRem(120)
+  }
+};
 
 const StyledIcon = styled(Icon)`
-  margin-left: 130px;
+  width: ${calcRem(66)};
+  height: ${calcRem(60)};
+  padding: ${calcRem(20)};
+  margin: 0 auto !important;
 `;
 
-const Card = ({ type, children, iconType }) => {
+const Card = ({ type, children, iconType, ...restProps }) => {
   return (
-    <StyledCard type={type} iconType={iconType}>
-      <StyledIcon type={iconType} />
+    <StyledCard type={type} iconType={iconType} {...restProps}>
+      <StyledIconContainer cardType={type}>
+        <StyledIcon type={iconType} stylesForContainer={stylesFromCard} />
+      </StyledIconContainer>
       <span>{children}</span>
     </StyledCard>
   );
 };
 
 Card.propTypes = {
-  type: PropTypes.string.isRequired,
-  iconType: PropTypes.string.isRequired,
-  children: PropTypes.string
+  type: string.isRequired,
+  iconType: string.isRequired,
+  children: string,
+  width: string,
+  height: string,
+  color: string,
+  background: string
 };
 
 Card.defaultProps = {
-  type: 'process',
+  type: 'square',
   iconType: 'checkedCar',
-  children: 'card'
+  children: 'card',
+  width: '237',
+  height: '340',
+  color: colors.white,
+  background: colors.redMain
 };
 
 Card.displayName = 'StyledCard';
