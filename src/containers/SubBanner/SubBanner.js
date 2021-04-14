@@ -34,8 +34,9 @@ const SubBanner = ({ title, linkText, imagePath, children }) => {
           {children}
         </Paragraph>
 
-        <Button mode="link" to='/get-a-quote'>{linkText}</Button>
-
+        <Button mode="link" to="/get-a-quote">
+          {linkText}
+        </Button>
       </LayoutContainer>
       <LayoutContainer flex={1}>
         <img src={imagePath} alt="dummyImage" />

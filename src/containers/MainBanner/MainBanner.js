@@ -4,18 +4,23 @@ import { colors, fontSizes, calcRem, calcInterval } from 'theme/theme';
 import { Button, Divider, Icon, Paragraph } from 'components';
 
 const MainBannerBg = css`
-  background-image: url(${props => props.bgImg});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
+  width: 100%;
+  height: auto;
+  /* width: 100%;
+  height: 100vh; */
+  /* padding-top: 20%; */
+  /* height: 100vw; */
+  background: url(${props => props.bgImg}) center center / cover no-repeat;
+  background-attachment: fixed;
 `;
 
 const StyledMainBannerContainer = styled.section`
   ${MainBannerBg}
-  padding: ${calcInterval([130, 100])};
+  height: 674px;
 `;
 
 const FullContainer = styled.div`
+  padding: ${calcInterval([11, 111])};
   width: ${calcRem(1200)};
   margin: 0 auto;
 `;
