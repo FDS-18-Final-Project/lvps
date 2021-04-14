@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
+import { string, bool, number, array, oneOf, oneOfType } from 'prop-types';
 import styled, { css } from 'styled-components';
-import { string, bool, oneOf, oneOfType, array, number } from 'prop-types';
 import { colors, calcRem, calcInterval } from 'theme/theme';
 import { motion } from 'framer-motion';
 
@@ -77,6 +77,7 @@ const compDesign = css`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
   ${({ styledmode }) => modeStyle[styledmode]};
   ${({ disabled }) => disabled && { ...disabledStyle }};
 
@@ -126,8 +127,6 @@ const modeComponent = {
 const Button = ({ mode, to, disabled, children, ...restProps }) => {
   const Comp = modeComponent[mode];
   const selectedProp = mode === 'button' ? { disabled: disabled } : { to: to };
-  console.log({ ...restProps });
-  console.log(mode, to, disabled, children);
   return (
     <Comp {...restProps} {...selectedProp}>
       {children}
