@@ -39,6 +39,6 @@ export default {
   tagBronze: TagBronze,
   tagPlatinum: TagPlatinum,
   tagWhite: TagWhite,
-  tagRed: TagRed
+  tagRed: TagRed,
   mobileMenuIcon: MobileMenuIcon
 };
