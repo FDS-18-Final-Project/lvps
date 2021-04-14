@@ -1,4 +1,5 @@
 import Icon from 'components/Icon/Icon';
+import { array, string } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
@@ -33,10 +34,10 @@ const cardInfolist = [
   'Headlights polish'
 ];
 
-const CardInfo = ({ iconColor, fgColor }) => {
+const CardInfo = ({ iconColor, fgColor, infoList }) => {
   return (
     <CardInfoContainer fgColor={fgColor}>
-      {cardInfolist.map((info, i) => (
+      {infoList.map((info, i) => (
         <li key={i}>
           <Icon type="checked" color={colors[iconColor]} width={calcRem(17)} />
           {info}
@@ -44,6 +45,18 @@ const CardInfo = ({ iconColor, fgColor }) => {
       ))}
     </CardInfoContainer>
   );
+};
+
+CardInfo.propTypes = {
+  iconColor: string,
+  fgColor: string,
+  infoList: array
+};
+
+CardInfo.defaultProps = {
+  iconColor: 'redMain',
+  fgColor: 'black',
+  infoList: cardInfolist
 };
 
 export default CardInfo;

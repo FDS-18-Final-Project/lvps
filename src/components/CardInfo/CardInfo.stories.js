@@ -60,6 +60,23 @@ export default {
   }
 };
 
+const cardInfolist = [
+  'Complete exterior hand wash',
+  'Complete interior vaccum',
+  'Leather cleaning and conditioning',
+  'Cleaning windows and mirrors',
+  'Salt removal',
+  'Cleaning door jams',
+  'Wheel cleaning and tire dressing',
+  'Removing bugs, tar, tree sap',
+  'Claybar & iron paint decontamination',
+  'Polish to add gloss to paint',
+  'Compound and polish to remove scratches',
+  'Paint sealant',
+  'Engine cleaning and dressing',
+  'Headlights polish'
+];
+
 const Template = args => (
   <>
     <GlobalStyle />
@@ -70,11 +87,13 @@ const Template = args => (
 export const DefaultInfo = Template.bind({});
 DefaultInfo.args = {
   iconColor: 'redMain',
-  fgColor: 'black'
+  fgColor: 'black',
+  infoList: cardInfolist
 };
 
 export const GrayInfo = Template.bind({});
 GrayInfo.args = {
   iconColor: 'lightGray',
-  fgColor: 'lightGray'
+  fgColor: 'lightGray',
+  infoList: cardInfolist
 };
