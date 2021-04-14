@@ -5,7 +5,7 @@ const useViewSize = () => {
 
   useEffect(() => {
     window.addEventListener('resize', e => {
-      e.target.innerWidth > 870
+      e.target.innerWidth > 768
         ? setView({ desktop: true, mobile: false })
         : setView({ desktop: false, mobile: true });
     });
