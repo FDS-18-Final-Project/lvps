@@ -1,62 +1,57 @@
-import { string, array } from 'prop-types';
+import { array } from 'prop-types';
 import styled from 'styled-components';
-import theme from 'theme/theme';
-
-const { colors, fontSizes } = theme;
+import { calcRem } from 'theme/theme';
+import HoverItem from 'components/HoverItem/HoverItem';
 
 // HoverBox 컴포넌트 스타일링
-const StyledWrapper = styled.div`
-  div + div {
-    margin-top: 1px;
+const StyledContainer = styled.ul`
+  li + li {
+    margin-top: ${calcRem(1)};
   }
 `;
 
-const StyledItem = styled.div`
-  width: 440px;
-  height: 64px;
-  padding: 0 0.7em 0 1.5em;
-  justify-content: space-between;
-  font-size: ${fontSizes.base};
-  font-weight: 500;
-`;
-
-// // HoverBox 개별 컴포넌트
-// const HoverBoxItem = ({ styledMode, to, children, ...restProps }) => {
-//   return (
-//     <styledItem styledMode={styledMode}>
-//       <LinkIcon to={to} {...restProps}>
-//         {children}
-//       </LinkIcon>
-//     </styledItem>
-//   );
-// };
-
-const HoverBox = ({ HoverBoxItems }) => {
-  console.log(HoverBoxItems);
+const HoverBox = ({ HoverItems }) => {
   return (
-    <StyledWrapper>
-      {HoverBoxItems.map((value, idx, styledMode, ...restProps) => (
-        <StyledItem
-          key={idx}
-          children={value}
-          styledMode={styledMode}
-          {...restProps}
-        />
+    <StyledContainer>
+      {HoverItems.map(item => (
+        <HoverItem key={item.id} value={item.value} to={item.to} />
       ))}
-    </StyledWrapper>
+    </StyledContainer>
   );
 };
 
 HoverBox.propTypes = {
-  HoverBoxItems: array.isRequired,
-  styledMode: string,
-  children: string
+  HoverItems: array.isRequired
 };
 
 HoverBox.defaultProps = {
-  HoverBoxItems: [],
-  styledMode: 'hoverBoxTheme',
-  children: 'HoverBox Item'
+  HoverItems: [
+    {
+      id: 1,
+      value: 'Ceramic Pro',
+      to: '/'
+    },
+    {
+      id: 2,
+      value: 'Paint Protection Film',
+      to: '/'
+    },
+    {
+      id: 3,
+      value: 'Window Tinting',
+      to: '/'
+    },
+    {
+      id: 4,
+      value: 'Professional Detailing & Paint Correction',
+      to: '/'
+    },
+    {
+      id: 5,
+      value: 'Wheels & Tires',
+      to: '/'
+    }
+  ]
 };
 
 HoverBox.displayName = 'HoverBox';

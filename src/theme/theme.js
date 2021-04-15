@@ -22,13 +22,13 @@ export const colors = {
 };
 
 export const fontSizes = {
-  small: calcRem(14),
+  small: calcRem(15),
   base: calcRem(16),
   lg: calcRem(18),
-  xl: calcRem(20),
-  xxl: calcRem(22),
-  xxxl: calcRem(24),
-  titleBase: calcRem(38),
+  xl: calcRem(24),
+  xxl: calcRem(28),
+  xxxl: calcRem(30),
+  titleBase: calcRem(45),
   titleLarge: calcRem(50)
 };
 

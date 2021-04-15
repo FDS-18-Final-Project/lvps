@@ -19,3 +19,4 @@ export { default as SearchForm } from './SearchForm/SearchForm';
 export { default as PriceTable } from './PriceTable/PriceTable';
 export { default as CardInfo } from './CardInfo/CardInfo';
 export { default as Tag } from './Tag/Tag';
+export { default as IconParagraph } from './IconParagraph/IconParagraph';

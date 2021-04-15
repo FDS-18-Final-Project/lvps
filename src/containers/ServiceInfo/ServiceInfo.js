@@ -1,52 +1,98 @@
 import React from 'react';
 import { oneOf, string } from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
-import { Button, Paragraph } from 'components/';
-import Layout from 'pages/Layout/Layout';
+import { Button, Icon, Paragraph } from 'components/';
 
 const FullContainer = styled.section`
   border-top: 1px solid ${colors.lightGray};
 `;
 
 const ServiceInfoContainer = styled.div`
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template: repeat(1, 0.2fr 0.3fr 0.25fr) / repeat(2, 1fr);
+  align-items: flex-start;
   justify-content: center;
-  align-items: space-between;
   max-width: 1200px;
   margin: 0 auto;
   padding: ${calcInterval([80, 200, 75])};
 
-  div:first-child {
+  .gridTitle {
+    grid-area: 1 / 1 / 2 / 3;
+    margin-bottom: ${calcRem(40)};
+  }
+  .gridImage {
     width: 100%;
-  }
-
-  h2 + p {
-    margin-bottom: ${calcRem(30)};
-  }
-  .ServiceInfoContentBox {
     height: 100%;
-    padding: ${({ mode }) =>
-      mode === 'left' ? `0 0 0 ${calcRem(80)}` : `0 ${calcRem(80)} 0 0`};
+    grid-area: 2 / 2 / 4 / 3;
 
-    a {
-      align-self: ${({ mode }) =>
-        mode === 'left' ? 'flex-end' : 'flex-start'};
+    img {
+      width: 100%;
+      height: 100%;
     }
   }
-
-  h2 {
+  .gridParagraph {
+    font-size: ${fontSizes.lg};
+    line-height: ${calcRem(27)};
+    padding-right: ${calcRem(80)};
   }
 
-  p {
-    margin: 0;
-    font-size: ${fontSizes.base};
-    line-height: ${calcRem(36)};
+  .gridBtn {
+    max-width: ${calcRem(294)};
+    margin-top: ${calcRem(70)};
+
+    align-self: flex-end;
   }
-  img {
-    width: 100%;
-    max-height: ${calcRem(310)};
+
+  ${({ mode }) =>
+    mode === 'right' &&
+    css`
+      .gridImage {
+        grid-area: 2 / 1 / 4 / 2;
+      }
+
+      .gridParagraph {
+        padding-right: 0;
+        padding-left: ${calcRem(80)};
+      }
+      .gridBtn {
+        justify-self: flex-end;
+      }
+    `}
+
+  @media only screen and (max-width: 768px) {
+    padding: ${calcInterval([38, 27, 58])};
+    grid-template: repeat(1, 0.2fr 0.2fr 0.25fr 0.2fr) / repeat(1, 1fr);
+    align-items: center;
+    justify-content: center;
+    .gridTitle {
+      grid-area: 1 / 1 / 2 / 1;
+      text-align: center;
+      margin-bottom: 0;
+      h2 {
+        font-size: ${fontSizes.xxxl};
+        font-weight: bold;
+      }
+
+      p {
+        font-size: ${calcRem(10)};
+        margin-bottom: ${calcRem(18)};
+      }
+    }
+    .gridImage {
+      grid-area: 2 / 1/ 3 / 1;
+    }
+    .gridParagraph {
+      padding: 0;
+      font-size: ${fontSizes.small};
+      line-height: ${calcRem(21)};
+      margin-top: ${calcRem(33)};
+    }
+    .gridBtn {
+      width: 83%;
+      justify-self: center;
+      margin-top: ${calcRem(33)};
+    }
   }
 `;
 
@@ -62,6 +108,7 @@ const ServiceInfo = ({
     <FullContainer>
       <ServiceInfoContainer mode={mode}>
         <Paragraph
+          className="gridTitle"
           title={title}
           size={24}
           headingNum={2}
@@ -69,30 +116,20 @@ const ServiceInfo = ({
         >
           {subTitle}
         </Paragraph>
-        <Layout.FlexContainer>
-          {mode === 'left' && (
-            <Layout.FlexContainer flex="1">
-              <img src={imagePath} alt="dummyimage" />
-            </Layout.FlexContainer>
-          )}
-          <Layout.FlexContainer
-            className="ServiceInfoContentBox"
-            direction="column"
-            justifyContent="space-between"
-            flex="1"
-          >
-            <p>{children}</p>
 
-            <Button mode="link" to="/get-a-quote">
-              {linkText}
-            </Button>
-          </Layout.FlexContainer>
-          {mode === 'right' && (
-            <Layout.FlexContainer flex={1}>
-              <img src={imagePath} alt="dummyimage" />
-            </Layout.FlexContainer>
-          )}
-        </Layout.FlexContainer>
+        <div className="gridImage">
+          <img src={imagePath} alt="dummyimage" />
+        </div>
+
+        <div className="gridParagraph" as="p">
+          {children}
+        </div>
+        <div className="gridBtn">
+          <Button mode="link" to="/get-a-quote" fullwidth>
+            {linkText}
+            <Icon type="rightArrow" color={colors.white} />
+          </Button>
+        </div>
       </ServiceInfoContainer>
     </FullContainer>
   );
@@ -110,7 +147,7 @@ ServiceInfo.defaultProps = {
   title: 'Ceramic Pro',
   subTitle: 'Meet Our Skilled Crew.',
   imagePath: 'assets/dummyCar.png',
-  linkText: 'Read More',
+  linkText: 'See more about this service',
   mode: 'right'
 };
 
