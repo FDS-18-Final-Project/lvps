@@ -40,6 +40,15 @@ const IconParagraph = ({
   contentWidth,
   paragraphWidth
 }) => {
+  console.log(
+    direction,
+    content,
+    iconType,
+    iconColor,
+    textAlign,
+    contentWidth,
+    paragraphWidth
+  );
   return (
     <StyledIconExplanList
       direction={direction}
@@ -74,7 +83,7 @@ IconParagraph.propTypes = {
 IconParagraph.defaultProps = {
   direction: 'column',
   content: [{ id: 1, title: '타이틀을 입력해주세요!' }],
-  iconType: string,
+  iconType: 'facebook',
   iconColor: colors.red_05,
   textAlign: { title: 'center', content: 'left' },
   contentWidth: '100%',

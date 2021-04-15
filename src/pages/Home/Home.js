@@ -30,11 +30,6 @@ const Home = () => {
       </OurWorks>
       <SubBanner />
       <OurBestServices />
-      {/* <IconExplanCard>
-        <IconExplanCard.Title />
-        <IconExplanCard.Contents />
-      </IconExplanCard> */}
-      <GoogleMap />
     </>
   );
 };
