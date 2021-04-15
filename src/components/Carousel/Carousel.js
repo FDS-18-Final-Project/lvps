@@ -32,14 +32,16 @@ const Carousel = ({ type, contents }) => {
 
   const moveNext = () => {
     if (!isMoving) {
-      if (currentSlide === TOTAL_LENGTH) return setCurrentSlide(1);
+      // if (currentSlide === TOTAL_LENGTH) return setCurrentSlide(1);
+      if (currentSlide === TOTAL_LENGTH) return;
       else setCurrentSlide(currentSlide + 1);
     }
   };
 
   const movePrev = () => {
     if (!isMoving) {
-      if (currentSlide === 1) return setCurrentSlide(TOTAL_LENGTH);
+      // if (currentSlide === 1) return setCurrentSlide(TOTAL_LENGTH);
+      if (currentSlide === 1) return;
       else setCurrentSlide(currentSlide - 1);
     }
   };

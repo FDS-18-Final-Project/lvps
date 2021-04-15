@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import GlobalStyle from 'styles/GlobalStyle';
-import { colors } from 'theme/theme';
+import { colors, calcRem } from 'theme/theme';
 import IconParagraph from './IconParagraph';
 
 export default {
@@ -68,7 +68,11 @@ export const IconParagraphColumn = Template.bind({});
 IconParagraphColumn.args = {
   direction: 'column',
   content: explanCeramic[0],
-  iconColor: colors.red_05
+  iconType: 'likeCircle',
+  iconColor: colors.red_05,
+  textAlign: { title: 'center', content: 'left' },
+  contentWidth: '100%',
+  paragraphWidth: calcRem(304)
 };
 
 IconParagraphColumn.storyName = '아이콘 설명 세로';
@@ -78,7 +82,11 @@ export const IconParagraphRow = Template.bind({});
 IconParagraphRow.args = {
   direction: 'row',
   content: explanCeramic[0],
-  iconColor: colors.red_05
+  iconType: 'facebook',
+  iconColor: colors.red_05,
+  textAlign: { title: 'left', content: 'left' },
+  contentWidth: '100%',
+  paragraphWidth: calcRem(304)
 };
 
 IconParagraphRow.storyName = '아이콘 설명 가로';
