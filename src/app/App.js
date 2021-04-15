@@ -1,14 +1,17 @@
 import React from 'react';
 import Routes from '../routes';
 import { BrowserRouter } from 'react-router-dom';
-import Footer from 'containers/Footer/Footer';
-import Header from 'containers/Header/Header';
+import { Header, Footer, SubBanner, OurBestServices } from 'containers';
+import PriceTable from '../components/PriceTable/PriceTable';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
       <Routes />
+      <SubBanner />
+      <PriceTable />
+      <OurBestServices />
       <Footer>
         <Footer.Logo />
         <Footer.Content />

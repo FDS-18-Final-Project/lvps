@@ -45,18 +45,19 @@ const StyledReviewContainer = styled.section`
   background: url('assets/dummy_background.png') no-repeat;
   background-size: cover;
   background-position: center;
-  padding: ${calcInterval([75, 100, 0])};
-  height: ${calcRem(760)};
+  padding: ${calcInterval([75, 100])};
 `;
 
 const FullContainer = styled.div`
   width: ${calcRem(1200)};
   margin: 0 auto;
   position: relative;
+  /* box-sizing: border-box;
+  padding: ${calcInterval([0, 100])}; */
 `;
 
 const StyledReviewTitleContainer = styled(Layout.FlexContainer)`
-  margin-bottom: ${calcRem(70)};
+  margin-bottom: ${calcRem(100)};
 
   div + div {
     margin-left: ${calcRem(25)};

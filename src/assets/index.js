@@ -11,7 +11,15 @@ import { ReactComponent as SearchGray } from './svg/search-gray.svg';
 import { ReactComponent as Like } from './svg/like.svg';
 import { ReactComponent as Checked } from './svg/checked.svg';
 import { ReactComponent as Circle } from './svg/circle.svg';
+import { ReactComponent as TagGold } from './svg/tagGold.svg';
+import { ReactComponent as TagSilver } from './svg/tagSilver.svg';
+import { ReactComponent as TagBronze } from './svg/tagBronze.svg';
+import { ReactComponent as TagPlatinum } from './svg/tagPlatinum.svg';
+import { ReactComponent as TagWhite } from './svg/tagWhite.svg';
+import { ReactComponent as TagRed } from './svg/tagRed.svg';
 import { ReactComponent as MobileMenuIcon } from './svg/mobileMenuIcon.svg';
+import { ReactComponent as GoodWork } from './svg/goodWork.svg';
+import { ReactComponent as LikeCircle } from './svg/likeCircle.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -28,5 +36,13 @@ export default {
   like: Like,
   checked: Checked,
   circle: Circle,
-  mobileMenuIcon: MobileMenuIcon
+  tagGold: TagGold,
+  tagSilver: TagSilver,
+  tagBronze: TagBronze,
+  tagPlatinum: TagPlatinum,
+  tagWhite: TagWhite,
+  tagRed: TagRed,
+  mobileMenuIcon: MobileMenuIcon,
+  goodWork: GoodWork,
+  likeCircle: LikeCircle
 };

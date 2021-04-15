@@ -37,9 +37,9 @@ export default {
     fullwidth: { control: 'boolean' },
     role: { type: 'text' },
     children: { type: 'text' },
-    width: { control: { type: 'range', min: 50, max: 800, step: 10 }},
-    height: { control: { type: 'range', min: 50, max: 800, step: 10 }},
-    fontSize: { type: 'number' }, 
+    width: { control: { type: 'range', min: 0, max: 800, step: 10 } },
+    height: { control: { type: 'range', min: 0, max: 800, step: 10 } },
+    fontSize: { type: 'number' },
     padding: { type: 'text' },
     margin: { type: 'text' },
     fontWeight: { type: 'number' }
@@ -84,6 +84,7 @@ SecondaryNormalButtonDisabled.args = {
   type: 'button',
   disabled: true,
   fullwidth: false,
+  padding: '0 0',
   children: 'Get a Free Quote'
 };
 
@@ -93,8 +94,8 @@ PrimaryNormalLink.args = {
   mode: 'link',
   styledmode: 'primary',
   fullwidth: false,
-  to:'/get-a-quote',
-  children: ['Get a Free Quote', <Icon type='rightArrow' color='white' />],
+  to: '/get-a-quote',
+  children: ['Get a Free Quote', <Icon type="rightArrow" color="white" />]
 };
 
 export const SecondaryNormalLink = Template.bind({});
@@ -103,7 +104,6 @@ SecondaryNormalLink.args = {
   mode: 'link',
   styledmode: 'secondary',
   fullwidth: false,
-  to:'/get-a-quote',
-  children: ['Get a Free Quote', <Icon type='rightArrow' color='red' />],
+  to: '/get-a-quote',
+  children: ['Get a Free Quote', <Icon type="rightArrow" color="red" />]
 };
-
