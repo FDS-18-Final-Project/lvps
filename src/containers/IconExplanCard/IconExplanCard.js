@@ -1,4 +1,4 @@
-import { Icon, Paragraph } from 'components/';
+import { IconParagraph } from 'components/';
 import Layout from 'pages/Layout/Layout';
 import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
@@ -45,27 +45,6 @@ const StyledIconExplanListContainer = styled(Layout.FlexContainer)`
   justify-content: space-between;
 `;
 
-const StyledIconExplanList = styled(Layout.FlexContainer)`
-  width: ${calcRem(304)};
-  text-align: center;
-`;
-
-const StyledIcon = styled(Icon)`
-  margin-bottom: ${calcRem(40)};
-  path:first-child {
-    stroke: ${colors.red_05};
-  }
-  path:last-child {
-    fill: ${colors.red_05};
-  }
-`;
-
-const StyledParagraph = styled(Paragraph)`
-  h3 {
-    margin-bottom: ${calcRem(20)};
-  }
-`;
-
 const IconExplanCard = ({ children }) => {
   return (
     <StyledIconExplanCardContainer>
@@ -82,12 +61,7 @@ IconExplanCard.Contents = () => {
   return (
     <StyledIconExplanListContainer>
       {explanCeramic.map(content => (
-        <StyledIconExplanList tag="article" direction="column">
-          <StyledIcon type="likeCircle" />
-          <StyledParagraph title={content.title} headingNum={3} size={18}>
-            {content.content}
-          </StyledParagraph>
-        </StyledIconExplanList>
+        <IconParagraph content={content} />
       ))}
     </StyledIconExplanListContainer>
   );
