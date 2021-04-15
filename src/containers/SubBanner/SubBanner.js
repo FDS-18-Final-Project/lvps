@@ -11,6 +11,7 @@ const SubBannerContainer = styled.section`
   margin: 0 auto;
   display: grid;
   grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+
   .gridParagraph {
     padding-top: ${calcRem(70)};
     margin-bottom: ${calcRem(10)};
