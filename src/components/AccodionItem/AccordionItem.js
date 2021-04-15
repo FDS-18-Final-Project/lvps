@@ -19,7 +19,7 @@ const StyledButton = styled(Button)`
     padding: ${calcInterval([0, 40, 35])};
 
     path {
-      fill: #fff;
+      fill: ${colors.white};
     }
   }
 

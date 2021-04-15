@@ -3,6 +3,7 @@ import { string } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors } from 'theme/theme';
 import { Icon } from 'components';
+import { motion } from 'framer-motion';
 
 const typeStyle = {
   arrow: {
@@ -15,7 +16,7 @@ const typeStyle = {
   }
 };
 
-const StyledCard = styled.div`
+const StyledCard = styled(motion('div'))`
   width: ${({ width }) => calcRem(width)};
   height: ${({ height }) => calcRem(height)};
   background: ${({ background }) => background};

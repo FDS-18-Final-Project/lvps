@@ -1,101 +1,46 @@
-import styled from 'styled-components';
-import { object, bool, number } from 'prop-types';
+import styled, { css } from 'styled-components';
+import { object, bool, string } from 'prop-types';
 import { colors, fontSizes, calcRem } from 'theme/theme';
-import { motion } from 'framer-motion';
+import { CarouselImgItem, Review } from 'components/';
 
-const StyledCarouselItemContainer = styled(motion.li)`
-  opacity: 0;
-  position: absolute;
-  width: 100%;
+const styledParagraph = css`
   margin: 0 auto;
   line-height: ${calcRem(36)};
   font-size: ${fontSizes.xxxl};
-  padding: 0 20%;
   box-sizing: border-box;
   text-align: center;
-
-  transition: transform 0.5s, opacity 0.5s;
-  transform: ${({ currentIdx }) => `translateX(${currentIdx * 100}%)`};
-  transform: ${({ prev }) => (prev ? 'translateX(-100%)' : '')};
-  transform: ${({ next }) => (next ? 'translateX(100%)' : '')};
-
-  ${({ active }) =>
-    active &&
-    `
-    opacity: 1;
-  `}
 `;
 
-const StyledCarouselItemContent = styled.p`
-  width: 100%;
-  margin: auto;
-  color: ${({ colors }) => colors.main};
-  line-height: ${calcRem(54)};
-  margin-bottom: ${calcRem(50)};
-  height: ${calcRem(300)};
+const StyledCarouselItemContainer = styled.li`
+  ${({ type }) => type === 'paragraph' && styledParagraph};
+  flex: 0 0 100%;
+  opacity: ${({ active }) => (active ? '1' : '0.2')};
+  transition: all 0.5s;
 `;
 
-const StyledCarouselItemInfo = styled.span`
-  display: block;
-  margin-bottom: ${calcRem(15)};
-  line-height: ${calcRem(54)};
-  color: ${({ colors }) => colors.sub};
-
-  span + span {
-    margin-bottom: ${calcRem(15)};
-  }
-`;
-
-const CarouselItem = ({
-  content,
-  colors,
-  active,
-  prev,
-  next,
-  currentIdx,
-  ...restProps
-}) => {
+const CarouselItem = ({ content, colors, active, type, ...restProps }) => {
   return (
-    <StyledCarouselItemContainer
-      active={active}
-      prev={prev}
-      next={next}
-      currentIdx={currentIdx}
-      {...restProps}
-    >
-      <StyledCarouselItemContent colors={colors}>
-        {content.review}
-      </StyledCarouselItemContent>
-      <StyledCarouselItemInfo aria-label="writer" colors={colors}>
-        {content.name}
-      </StyledCarouselItemInfo>
-      <StyledCarouselItemInfo aria-label="model name" colors={colors}>
-        {content.model}
-      </StyledCarouselItemInfo>
+    <StyledCarouselItemContainer type={type} active={active} {...restProps}>
+      {type === 'paragraph' && <Review content={content} colors={colors} />}
+      {type === 'img' && <CarouselImgItem content={content} />}
     </StyledCarouselItemContainer>
   );
 };
 
 CarouselItem.propTypes = {
   content: object.isRequired,
+  type: string.isRequired,
   colors: object,
-  active: bool,
-  prev: bool,
-  next: bool,
-  currentIdx: number
+  active: bool
 };
 
 CarouselItem.defaultProps = {
   content: [],
+  type: 'paragraph',
   colors: { main: colors.black, sub: colors.black },
-  active: true,
-  prev: false,
-  next: false,
-  currentIdx: 0
+  active: true
 };
 
 StyledCarouselItemContainer.displayName = 'StyledCarouselItemContainer';
-StyledCarouselItemContent.displayName = 'StyledCarouselItemContent';
-StyledCarouselItemInfo.displayName = 'StyledCarouselItemInfo';
 
 export default CarouselItem;

@@ -16,16 +16,16 @@ const pointStyle = {
 };
 
 const TooltipStyleContainer = styled.div`
-  width: ${props => calcRem(props.width)};
-  height: ${props => calcRem(props.height)};
-  background: ${props => props.background};
-  color: ${props => props.color};
+  width: ${({ width }) => calcRem(width)};
+  height: ${({ height }) => calcRem(height)};
+  background: ${({ background }) => background};
+  color: ${({ color }) => color};
   font-size: ${fontSizes.base};
   position: absolute;
-  top: ${props => props.top};
-  bottom: ${props => props.bottom};
-  left: ${props => props.left};
-  right: ${props => props.right};
+  top: ${({ top }) => top};
+  bottom: ${({ bottom }) => bottom};
+  left: ${({ left }) => left};
+  right: ${({ right }) => right};
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -33,7 +33,7 @@ const TooltipStyleContainer = styled.div`
 
   span {
     margin: 0;
-    font-size: ${props => calcRem(props.fontSize)};
+    font-size: ${({ fontSize }) => calcRem(fontSize)};
     font-family: 'Helvetica Neue LT Pro';
     font-weight: 500;
   }
@@ -43,7 +43,7 @@ const TooltipStyleContainer = styled.div`
     background: transparent;
     position: absolute;
 
-    ${props => pointStyle[props.direction]}
+    ${({ direction }) => pointStyle[direction]}
   }
 `;
 

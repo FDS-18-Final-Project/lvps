@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { calcRem, calcInterval, colors } from 'theme/theme';
 import styled from 'styled-components';
-import Navbar from 'components/Navbar/Navbar';
-import Logo from 'components/Logo/Logo';
-import Icon from 'components/Icon/Icon';
-import SearchForm from 'components/SearchForm/SearchForm';
+import { calcRem, calcInterval, colors } from 'theme/theme';
+import { Navbar, Logo, Icon, SearchForm } from 'components';
+
 import { AnimatePresence } from 'framer-motion';
 import Layout from 'pages/Layout/Layout';
 import useViewSize from 'hooks/useViewSize';
@@ -22,6 +20,9 @@ const HeaderContainer = styled.header`
     margin-left: ${calcRem(15)};
   }
 
+  @media only screen and (max-width: 1200px) {
+    padding: ${calcInterval([0, 50])};
+  }
   @media only screen and (max-width: 768px) {
     padding: ${calcInterval([15, 25])};
   }
@@ -29,7 +30,7 @@ const HeaderContainer = styled.header`
 
 const IconContainer = styled(Layout.FlexContainer)`
   flex: 1;
-
+  justify-content: flex-end;
   div + div {
     margin-left: ${calcRem(35)};
   }
@@ -69,7 +70,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Layout>
-        <Layout.FlexContainer flex={1}>
+        <Layout.FlexContainer flex={1} justifyContent="flex-start">
           <Logo maxWidth={185} />
         </Layout.FlexContainer>
         <Layout.FlexContainer tag="nav">
@@ -103,6 +104,7 @@ const Header = () => {
           ) : (
             <>
               <Icon
+                button
                 type="searchWhite"
                 color={colors.white}
                 width={calcRem(25)}

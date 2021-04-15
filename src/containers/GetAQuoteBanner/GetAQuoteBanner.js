@@ -3,22 +3,22 @@ import { colors, calcInterval, calcRem } from 'theme/theme';
 import { Button, Icon, Paragraph } from 'components';
 import Layout from 'pages/Layout/Layout';
 
-const StyledGetAQuoteBannerContainer = styled.div`
+const StyledGetAQuoteBannerContainer = styled.section`
   padding: ${calcInterval([75, 100])};
   background-color: ${colors.red_05};
 `;
 
 const FullContainer = styled(Layout.FlexContainer)`
   width: ${calcRem(1200)};
+  /* box-sizing: border-box;
+  padding: ${calcInterval([0, 100])}; */
   margin: 0 auto;
 `;
 
 const GetAQuoteBanner = ({ children }) => {
   return (
     <StyledGetAQuoteBannerContainer>
-      <FullContainer tag="section" justifyContent="space-between">
-        {children}
-      </FullContainer>
+      <FullContainer justifyContent="space-between">{children}</FullContainer>
     </StyledGetAQuoteBannerContainer>
   );
 };
@@ -30,7 +30,7 @@ GetAQuoteBanner.Title = () => {
       title="Get a free quote"
       headingNum={2}
       colors={{ main: colors.white, sub: colors.lightGray }}
-      size="15"
+      size={15}
     >
       If you want to check our works, press the button.
     </Paragraph>
@@ -39,7 +39,7 @@ GetAQuoteBanner.Title = () => {
 
 GetAQuoteBanner.Link = () => {
   return (
-    <Button mode="link" to="/" width={270} fontSize={18} padding="20">
+    <Button mode="link" to="/" width={270} fontSize={18} padding="10">
       Get a Free Quote
       <Icon type="rightArrow" color={colors.white} />
     </Button>

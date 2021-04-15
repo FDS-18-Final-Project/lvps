@@ -24,7 +24,7 @@ const FullContainer = styled.section`
     background-size: cover;
     background-position: center;
   }
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 768px) {
     padding: ${calcInterval([0, 20])};
   }
 `;

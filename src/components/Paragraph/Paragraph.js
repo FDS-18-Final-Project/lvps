@@ -1,19 +1,21 @@
 import { Link } from 'react-router-dom';
 import { string, number, array, object, bool } from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { fontSizes, calcRem, colors } from 'theme/theme';
 import { Icon } from 'components';
 
-const StyledParagraphContainer = styled.div`
-  color: ${({ colors }) => colors.sub};
-  line-height: 1.4;
-
+const styledHeading = css`
   h${({ headingNum }) => headingNum} {
     font-weight: bold;
     margin-bottom: ${calcRem(10)};
     color: ${({ colors }) => colors.main};
   }
+`;
 
+const StyledParagraphContainer = styled.div`
+  color: ${({ colors }) => colors.sub};
+  line-height: 1.4;
+  ${({ headingNum }) => headingNum && styledHeading}
   h1 {
     font-size: ${fontSizes.titleLarge};
   }
@@ -23,9 +25,8 @@ const StyledParagraphContainer = styled.div`
   }
 
   h3 {
-    font-size: ${fontSizes.small};
+    font-size: ${fontSizes.xl};
   }
-
   li {
     font-size: ${({ size }) => calcRem(size)};
     margin-bottom: ${({ type }) => type === 'list' && calcRem(7)};
@@ -37,8 +38,9 @@ const StyledParagraphContainer = styled.div`
     }
   }
 
-  li > span {
-    margin-left: ${calcRem(5)};
+  .list-content {
+    display: inline-block;
+    margin-left: ${calcRem(10)};
   }
   li > p {
     font-size: ${({ size }) => calcRem(size)};
@@ -77,7 +79,7 @@ const Paragraph = ({
       type={type}
       {...restProps}
     >
-      <Comp>{title}</Comp>
+      {headingNum && <Comp>{title}</Comp>}
 
       {type === 'list' && (
         <ul>
@@ -93,10 +95,9 @@ const Paragraph = ({
                         width="20"
                         height="20"
                       >
-                        <span>{item}</span>
+                        <span className="list-content">{item}</span>
                       </Icon>
                     )}{' '}
-                    685t666
                     {icon ? null : item}
                   </Link>
                 </li>
@@ -111,7 +112,7 @@ const Paragraph = ({
                     width="20"
                     height="20"
                   >
-                    <span>{item}</span>
+                    <span className="list-content">{item}</span>
                   </Icon>
                 )}
                 {icon ? null : item}
@@ -127,21 +128,19 @@ const Paragraph = ({
 
 Paragraph.propTypes = {
   title: string,
-  subTitle: string,
   type: string,
   headingNum: number,
   items: array,
   icon: string,
   iconColor: string,
   colors: object,
-  size: string,
+  size: number,
   link: bool,
   to: string
 };
 
 Paragraph.defaultProps = {
   title: '',
-  subTitle: '',
   type: 'normal',
   items: [],
   colors: { main: colors.black, sub: colors.black },

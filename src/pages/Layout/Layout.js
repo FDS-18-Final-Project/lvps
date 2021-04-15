@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const LayoutWrapper = styled.div`
+const LayoutContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -18,7 +18,7 @@ const LayoutFlexContainer = styled(motion.div)`
 `;
 
 const Layout = ({ children }) => {
-  return <LayoutWrapper>{children}</LayoutWrapper>;
+  return <LayoutContainer>{children}</LayoutContainer>;
 };
 
 Layout.FlexContainer = ({ tag = 'div', children, ...restProps }) => {
@@ -35,8 +35,8 @@ Layout.FlexContainer.defaultProps = {
   direction: 'row'
 };
 
-Layout.FlexContainer.displayName = 'LayoutFlexWrapper';
-LayoutWrapper.displayName = 'HeaderWrapper';
+LayoutContainer.displayName = 'LayoutContainer';
+Layout.FlexContainer.displayName = 'LayoutFlexContainer';
 LayoutFlexContainer.displayName = 'LayoutFlexContainer';
 
 export default Layout;
