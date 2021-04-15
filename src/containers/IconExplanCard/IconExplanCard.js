@@ -61,7 +61,7 @@ IconExplanCard.Contents = () => {
   return (
     <StyledIconExplanListContainer>
       {explanCeramic.map(content => (
-        <IconParagraph content={content} />
+        <IconParagraph key={content.id} content={content} />
       ))}
     </StyledIconExplanListContainer>
   );

@@ -7,7 +7,8 @@ import {
   OurBestServices,
   OurWorks,
   Review,
-  SubBanner
+  SubBanner,
+  GoogleMap
 } from 'containers';
 
 const Home = () => {
@@ -29,10 +30,11 @@ const Home = () => {
       </OurWorks>
       <SubBanner />
       <OurBestServices />
-      <IconExplanCard>
+      {/* <IconExplanCard>
         <IconExplanCard.Title />
         <IconExplanCard.Contents />
-      </IconExplanCard>
+      </IconExplanCard> */}
+      <GoogleMap />
     </>
   );
 };
