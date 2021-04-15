@@ -25,7 +25,7 @@ const StyledParagraphContainer = styled.div`
   }
 
   h3 {
-    font-size: ${fontSizes.small};
+    font-size: ${fontSizes.xl};
   }
   li {
     font-size: ${({ size }) => calcRem(size)};
@@ -97,7 +97,6 @@ const Paragraph = ({
                         <span>{item}</span>
                       </Icon>
                     )}{' '}
-                    685t666
                     {icon ? null : item}
                   </Link>
                 </li>

@@ -9,7 +9,6 @@ import {
   ServiceInfo
 } from 'containers';
 
-
 const App = () => {
   return (
     <BrowserRouter>

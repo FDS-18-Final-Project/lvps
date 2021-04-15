@@ -19,6 +19,7 @@ import { ReactComponent as TagWhite } from './svg/tagWhite.svg';
 import { ReactComponent as TagRed } from './svg/tagRed.svg';
 import { ReactComponent as MobileMenuIcon } from './svg/mobileMenuIcon.svg';
 import { ReactComponent as GoodWork } from './svg/goodWork.svg';
+import { ReactComponent as LikeCircle } from './svg/likeCircle.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -42,5 +43,6 @@ export default {
   tagWhite: TagWhite,
   tagRed: TagRed,
   mobileMenuIcon: MobileMenuIcon,
-  goodWork: GoodWork
+  goodWork: GoodWork,
+  likeCircle: LikeCircle
 };

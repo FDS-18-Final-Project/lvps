@@ -2,6 +2,7 @@ import React from 'react';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import {
   GetAQuoteBanner,
+  IconExplanCard,
   MainBanner,
   OurBestServices,
   OurWorks,
@@ -28,6 +29,10 @@ const Home = () => {
       </OurWorks>
       <SubBanner />
       <OurBestServices />
+      <IconExplanCard>
+        <IconExplanCard.Title />
+        <IconExplanCard.Contents />
+      </IconExplanCard>
     </>
   );
 };

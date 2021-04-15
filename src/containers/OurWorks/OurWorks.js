@@ -33,6 +33,8 @@ const StyledOurWorksContainer = styled.section`
 
 const FullContainer = styled(Layout.FlexContainer)`
   width: ${calcRem(1200)};
+  /* box-sizing: border-box;
+  padding: ${calcInterval([0, 100])}; */
   margin: 0 auto;
   position: relative;
   overflow: hidden;
