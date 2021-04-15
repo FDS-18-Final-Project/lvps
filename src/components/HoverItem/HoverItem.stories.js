@@ -2,28 +2,26 @@
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from 'theme/theme';
-import GlobalStyle from '../../styles/GlobalStyle';
-import HoverItem from 'components/HoverItem/HoverItem';
-import HoverBox from './HoverBox';
+import GlobalStyle from 'styles/GlobalStyle';
+import HoverItem from './HoverItem';
 
 export default {
-  title: 'LVPS/Component/HoverBox',
-  component: HoverBox,
+  title: 'LVPS/Component/HoverItem',
+  component: HoverItem,
   parameters: {
     docs: {
       description: {
-        component:
-          '배열을 받아 HoverItem 컴포넌트로 이루어진 리스르를 만들어주는 AccordionList 컴포넌트입니다.'
+        component: '객체를 받아 랜더링하는 HoverBox의 item 컴포넌트입니다.'
       }
     },
     design: {
       type: 'figma',
       url:
-        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=949%3A174'
+        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=949%3A141'
     }
   },
   argTypes: {
-    hoverBox: {
+    item: {
       control: {
         type: 'string',
         options: [
@@ -63,46 +61,16 @@ const Template = args => (
   <BrowserRouter>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <HoverBox {...args}>
-        {args.hoverBox.map(item => (
-          <HoverItem key={item.id} value={item.value} to={item.to} />
-        ))}
-      </HoverBox>
+      <HoverItem {...args}></HoverItem>
     </ThemeProvider>
   </BrowserRouter>
 );
 
 //스토리 구성 객체 기본 내보내기
+export const HoverNormal = Template.bind({});
 
-export const HoverBoxNormal = Template.bind({});
-
-HoverBoxNormal.args = {
-  type: 'string',
-  hoverBox: [
-    {
-      id: 1,
-      value: 'Ceramic Pro',
-      to: '/'
-    },
-    {
-      id: 2,
-      value: 'Paint Protection Film',
-      to: '/'
-    },
-    {
-      id: 3,
-      value: 'Window Tinting',
-      to: '/'
-    },
-    {
-      id: 4,
-      value: 'Professional Detailing & Paint Correction',
-      to: '/'
-    },
-    {
-      id: 5,
-      value: 'Wheels & Tires',
-      to: '/'
-    }
-  ]
+HoverNormal.args = {
+  id: 1,
+  value: 'Ceramic Pro',
+  to: '/'
 };
