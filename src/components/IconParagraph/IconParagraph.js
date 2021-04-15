@@ -5,12 +5,13 @@ import { Icon, Paragraph } from 'components';
 import Layout from 'pages/Layout/Layout';
 
 const StyledIconExplanList = styled(Layout.FlexContainer)`
-  text-align: ${({ sort }) => (sort === 'row' ? 'left' : 'center')};
+  text-align: ${({ direction }) => (direction === 'row' ? 'left' : 'center')};
 `;
 
 const StyledIcon = styled(Icon)`
   margin-bottom: ${calcRem(40)};
-  margin-right: ${({ sort }) => (sort === 'row' ? calcRem(40) : '0')};
+  margin-right: ${({ direction }) => (direction === 'row' ? calcRem(40) : '0')};
+
   path:first-child {
     stroke: ${({ iconColor }) => iconColor};
   }
@@ -26,15 +27,14 @@ const StyledParagraph = styled(Paragraph)`
   }
 `;
 
-const IconParagraph = ({ sort, content, iconColor }) => {
+const IconParagraph = ({ direction, content, iconColor }) => {
   return (
-    <StyledIconExplanList
-      tag="article"
-      direction={sort}
-      key={content.id}
-      sort={sort}
-    >
-      <StyledIcon type="likeCircle" iconColor={iconColor} sort={sort} />
+    <StyledIconExplanList tag="article" direction={direction} key={content.id}>
+      <StyledIcon
+        type="likeCircle"
+        iconColor={iconColor}
+        direction={direction}
+      />
       <StyledParagraph title={content.title} headingNum={3} size={18}>
         {content.content}
       </StyledParagraph>
@@ -43,13 +43,13 @@ const IconParagraph = ({ sort, content, iconColor }) => {
 };
 
 IconParagraph.propTypes = {
-  sort: string,
+  direction: string,
   content: array,
   iconColor: string
 };
 
 IconParagraph.defaultProps = {
-  sort: 'column',
+  direction: 'column',
   content: [
     { id: 1, title: '타이틀을 입력해주세요!' },
     { id: 2, title: '타이틀을 입력해주세요!' },

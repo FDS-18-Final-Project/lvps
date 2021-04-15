@@ -25,7 +25,7 @@ export default {
         type: 'string'
       }
     },
-    sort: {
+    direction: {
       control: {
         type: 'string'
       }
@@ -66,7 +66,7 @@ const Template = args => (
 export const IconParagraphColumn = Template.bind({});
 
 IconParagraphColumn.args = {
-  sort: 'column',
+  direction: 'column',
   content: explanCeramic[0],
   iconColor: colors.red_05
 };
@@ -76,7 +76,7 @@ IconParagraphColumn.storyName = '아이콘 설명 세로';
 export const IconParagraphRow = Template.bind({});
 
 IconParagraphRow.args = {
-  sort: 'row',
+  direction: 'row',
   content: explanCeramic[0],
   iconColor: colors.red_05
 };
