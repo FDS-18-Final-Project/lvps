@@ -11,7 +11,7 @@ const NavbarContainer = styled(motion.ul)`
   flex-direction: ${({ direction }) => direction};
   justify-content: ${({ justifyContent }) => justifyContent};
   align-items: ${({ alignItems }) => alignItems};
-  font-size: ${fontSizes.base};
+  font-size: ${fontSizes.lg};
 
   a {
     display: inline-block;
