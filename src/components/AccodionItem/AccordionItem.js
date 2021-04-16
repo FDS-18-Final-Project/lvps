@@ -1,5 +1,5 @@
 import React from 'react';
-import { object, func } from 'prop-types';
+import { object, func, number } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, fontSizes, colors, calcRem } from 'theme/theme';
 import { Button, Icon } from 'components';
@@ -53,7 +53,7 @@ const StyledButton = styled(Button)`
 `;
 
 const AccordionItemContainer = styled.li`
-  max-width: ${calcRem(310)};
+  max-width: ${({ maxWidth }) => calcRem(maxWidth)};
 `;
 
 const variants = mobile => ({
@@ -73,11 +73,11 @@ const variants = mobile => ({
   }
 });
 
-const AccordionItem = ({ item, onClick }) => {
+const AccordionItem = ({ item, onClick, maxWidth }) => {
   const { mobile } = useViewSize();
 
   return (
-    <AccordionItemContainer>
+    <AccordionItemContainer maxWidth={maxWidth}>
       <StyledButton
         fullwidth={mobile}
         mode="link"
@@ -105,7 +105,8 @@ const AccordionItem = ({ item, onClick }) => {
 
 AccordionItem.propTypes = {
   item: object.isRequired,
-  onClick: func
+  onClick: func,
+  maxWidth: number
 };
 
 AccordionItem.defaultProps = {
@@ -119,7 +120,8 @@ AccordionItem.defaultProps = {
       'Services'
     ],
     active: true
-  }
+  },
+  maxWidth: 310
 };
 
 AccordionItemContainer.displayName = 'AccordionItemContainer';

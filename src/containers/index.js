@@ -12,3 +12,6 @@ export { default as IconExplanCard } from './IconExplanCard/IconExplanCard';
 export { default as ErrorMessage } from './ErrorMessage/ErrorMessage';
 // export { default as GoogleMap } from './GoogleMap/GoogleMap';
 export { default as ServiceMainBanner } from './ServiceMainBanner/ServiceMainBanner';
+export { default as GetAQuteCheckbox } from './GetAQuoteCheckbox/GetAQuoteCheckbox';
+export { default as StaffIntroduction } from './StaffIntroduction/StaffIntroduction';
+export { default as FAQ } from './FAQ/FAQ';

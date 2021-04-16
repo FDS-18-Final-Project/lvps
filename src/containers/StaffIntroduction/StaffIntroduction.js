@@ -134,4 +134,6 @@ const StaffIntroduction = () => {
   );
 };
 
+FullContainer.displayName = 'FullContainer';
+StaffIntroductionContainer.displayName = 'StaffIntroductionContainer';
 export default StaffIntroduction;
