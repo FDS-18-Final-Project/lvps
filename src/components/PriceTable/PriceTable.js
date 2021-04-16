@@ -69,11 +69,15 @@ const PriceTableContainer = styled.div`
 const IconContainer = styled(Layout.FlexContainer)`
   width: 100%;
   padding: 0 10px;
-  article {
+
+  .IconPargraph {
+    margin: 0 5px;
+
     div {
       width: 100%;
       margin: 0;
       display: inline-block;
+      text-align: center;
     }
     h3 {
       margin-top: 10px;
@@ -120,7 +124,14 @@ const PriceTable = ({
       <Divider width={55} height={1} margin="33 0" />
       <IconContainer>
         {icon &&
-          content.map(cont => <IconParagraph key={cont.id} content={cont} />)}
+          content.map(cont => (
+            <IconParagraph
+              className="IconPargraph"
+              key={cont.id}
+              content={cont}
+              iconType="likeCircle"
+            />
+          ))}
       </IconContainer>
       {type === 'list' ? (
         <CardInfo infoList={infoList} fgColor={fgColor} iconColor={iconColor} />

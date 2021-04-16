@@ -57,12 +57,12 @@ const SubBannerContainer = styled.section`
 
 const LayoutContainer = styled(Layout.FlexContainer)``;
 
-const SubBanner = ({ title, linkText, imagePath, children }) => {
+const SubBanner = ({ title, description, imagePath, children }) => {
   return (
     <SubBannerContainer>
       <LayoutContainer className="gridParagraph">
         <Paragraph className="paragraph" title={title} size={24} headingNum={2}>
-          {children}
+          {description}
         </Paragraph>
       </LayoutContainer>
       <LayoutContainer className="gridBtn">
@@ -72,7 +72,7 @@ const SubBanner = ({ title, linkText, imagePath, children }) => {
           styledmode="secondary"
           height={55}
         >
-          {linkText}
+          {children}
         </Button>
       </LayoutContainer>
       <LayoutContainer className="gridImg">
@@ -84,16 +84,16 @@ const SubBanner = ({ title, linkText, imagePath, children }) => {
 
 SubBanner.propTypes = {
   title: string.isRequired,
-  linkText: string.isRequired,
   imagePath: string.isRequired,
+  description: string,
   children: node
 };
 
 SubBanner.defaultProps = {
   title: 'About us',
-  linkText: 'More About us',
+  description: 'More About us',
   imagePath: 'assets/dummyImage.png',
-  children: 'Quality Protection Services'
+  children: 'More About us'
 };
 
 SubBannerContainer.displayName = 'SubBannerWrapper';
