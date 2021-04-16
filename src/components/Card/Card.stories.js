@@ -34,66 +34,23 @@ export default {
   }
 };
 
+const fakeData = [
+  {
+    id: 1,
+    content: [{ id: 1, content: 'test' }],
+    iconType: 'likeCircle',
+    background: colors.red_01,
+    fontColor: colors.white
+  }
+];
 //template 만들기
 const Template = args => <Card {...args}></Card>;
-
-//스토리 구성 객체 기본 내보내기
-export const ArrowCard = Template.bind({});
-
-ArrowCard.args = {
-  children: 'Multiple services at a great value',
-  iconType: 'goodWork',
-  type: 'arrow',
-  background: colors.redMain,
-  color: colors.white
-};
-
-export const PinkType1ArrowCard = Template.bind({});
-
-PinkType1ArrowCard.args = {
-  children: 'Booking Appointment',
-  iconType: 'goodWork',
-  type: 'arrow',
-  background: colors.red_01,
-  color: colors.white
-};
-
-export const PinkType2ArrowCard = Template.bind({});
-
-PinkType2ArrowCard.args = {
-  children: 'Inspection of the car',
-  iconType: 'goodWork',
-  type: 'arrow',
-  background: colors.red_02,
-  color: colors.white
-};
-
-export const PinkType3ArrowCard = Template.bind({});
-
-PinkType3ArrowCard.args = {
-  children: 'Valuation of services',
-  iconType: 'goodWork',
-  type: 'arrow',
-  background: colors.red_03,
-  color: colors.white
-};
-
-export const PinkType4ArrowCard = Template.bind({});
-
-PinkType4ArrowCard.args = {
-  children: 'Completion',
-  iconType: 'goodWork',
-  type: 'arrow',
-  background: colors.redMain,
-  color: colors.white
-};
 
 export const SqaureCard = Template.bind({});
 
 SqaureCard.args = {
-  children:
-    'Multiple services at a great value Multiple services at a great value',
-  iconType: 'goodWork',
+  content: fakeData[0].content[0],
+  iconType: 'likeCircle',
   type: 'square',
   background: colors.redMain,
   color: colors.white

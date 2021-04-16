@@ -25,7 +25,7 @@ const StyledParagraphContainer = styled.div`
   }
 
   h3 {
-    font-size: ${fontSizes.small};
+    font-size: ${fontSizes.xl};
   }
   li {
     font-size: ${({ size }) => calcRem(size)};
@@ -38,8 +38,9 @@ const StyledParagraphContainer = styled.div`
     }
   }
 
-  li > span {
-    margin-left: ${calcRem(5)};
+  .list-content {
+    display: inline-block;
+    margin-left: ${calcRem(10)};
   }
   li > p {
     font-size: ${({ size }) => calcRem(size)};
@@ -94,10 +95,9 @@ const Paragraph = ({
                         width="20"
                         height="20"
                       >
-                        <span>{item}</span>
+                        <span className="list-content">{item}</span>
                       </Icon>
                     )}{' '}
-                    685t666
                     {icon ? null : item}
                   </Link>
                 </li>
@@ -112,7 +112,7 @@ const Paragraph = ({
                     width="20"
                     height="20"
                   >
-                    <span>{item}</span>
+                    <span className="list-content">{item}</span>
                   </Icon>
                 )}
                 {icon ? null : item}

@@ -11,6 +11,10 @@ const CardInfoContainer = styled.ul`
     display: flex;
     align-items: center;
     color: ${({ fgColor }) => colors[fgColor]};
+
+    div {
+      margin-right: ${calcRem(5)};
+    }
   }
 
   li + li {

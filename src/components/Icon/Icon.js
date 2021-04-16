@@ -11,7 +11,6 @@ const StyledIconContainer = styled(motion.div)`
   align-items: center;
 
   svg {
-    margin-right: ${calcRem(15)};
   }
 
   path {

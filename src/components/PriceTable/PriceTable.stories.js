@@ -18,6 +18,12 @@ export default {
     }
   },
   argTypes: {
+    type: {
+      control: {
+        type: 'select',
+        options: ['list', 'title']
+      }
+    },
     tagType: {
       description: 'Tag의 타입 지정',
       control: {
@@ -32,7 +38,11 @@ export default {
         ]
       }
     },
-
+    icon: {
+      control: {
+        type: 'boolean'
+      }
+    },
     maxWidth: {
       control: { type: 'range', min: 200, max: 500, step: 10 }
     }
@@ -46,10 +56,36 @@ const Template = args => (
   </>
 );
 
-export const DefaultPriceTable = Template.bind({});
-DefaultPriceTable.args = {
+export const ListPriceTable = Template.bind({});
+
+ListPriceTable.args = {
+  type: 'list',
   maxWidth: 322,
   tagType: 'tagGold',
   tagText: 'Gold',
-  price: 4500
+  price: 4500,
+  hover: true
+};
+
+export const TitlePriceTable = Template.bind({});
+
+TitlePriceTable.args = {
+  type: 'title',
+  maxWidth: 322,
+  tagType: 'tagSilver',
+  tagText: 'Gold',
+  price: 4500,
+  hover: false
+};
+
+export const IconPriceTable = Template.bind({});
+
+IconPriceTable.args = {
+  type: 'title',
+  icon: true,
+  maxWidth: 322,
+  tagType: 'tagSilver',
+  tagText: 'Gold',
+  price: 4500,
+  hover: false
 };

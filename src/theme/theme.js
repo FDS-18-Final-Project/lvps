@@ -22,40 +22,15 @@ export const colors = {
 };
 
 export const fontSizes = {
-  small: calcRem(14),
+  small: calcRem(15),
   base: calcRem(16),
   lg: calcRem(18),
-  xl: calcRem(20),
-  xxl: calcRem(22),
-  xxxl: calcRem(24),
-  titleBase: calcRem(38),
+  xl: calcRem(24),
+  xxl: calcRem(28),
+  xxxl: calcRem(30),
+  titleBase: calcRem(45),
   titleLarge: calcRem(50)
 };
-
-// const paddings = {
-//   small: calcRem(5),
-//   base: calcRem(10),
-//   lg: calcRem(12),
-//   xl: calcRem(14),
-//   xxl: calcRem(16),
-//   xxxl: calcRem(18)
-// };
-
-// const margins = {
-//   small: calcRem(5),
-//   base: calcRem(10),
-//   lg: calcRem(12),
-//   xl: calcRem(14),
-//   xxl: calcRem(16),
-//   xxxl: calcRem(18)
-// };
-
-// const interval = {
-//   base: calcRem(50),
-//   lg: calcRem(100),
-//   xl: calcRem(150),
-//   xxl: calcRem(200)
-// };
 
 const deviceSizes = {
   mobileS: '320px',
