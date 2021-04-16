@@ -124,11 +124,11 @@ const modeComponent = {
 };
 
 // 버튼 컴포넌트
-const Button = ({ mode, to, disabled, children, ...restProps }) => {
+const Button = ({ mode, to, disabled, fullwidth, children, ...restProps }) => {
   const Comp = modeComponent[mode];
   const selectedProp = mode === 'button' ? { disabled: disabled } : { to: to };
   return (
-    <Comp {...restProps} {...selectedProp}>
+    <Comp fullwidth={fullwidth ? 1 : 0} {...restProps} {...selectedProp}>
       {children}
     </Comp>
   );

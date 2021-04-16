@@ -40,15 +40,6 @@ const IconParagraph = ({
   contentWidth,
   paragraphWidth
 }) => {
-  console.log(
-    direction,
-    content,
-    iconType,
-    iconColor,
-    textAlign,
-    contentWidth,
-    paragraphWidth
-  );
   return (
     <StyledIconExplanList
       direction={direction}
