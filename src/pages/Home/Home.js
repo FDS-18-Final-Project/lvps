@@ -6,7 +6,6 @@ import {
   MainBanner,
   OurBestServices,
   OurWorks,
-  Review,
   SubBanner
   // GoogleMap
 } from 'containers';
@@ -36,7 +35,6 @@ const Home = () => {
         <GetAQuoteBanner.Title />
         <GetAQuoteBanner.Link />
       </GetAQuoteBanner>
-
       <OurWorks>
         <OurWorks.Title />
         <OurWorks.Contents />
