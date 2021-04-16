@@ -2,14 +2,14 @@ import React from 'react';
 import Routes from '../routes';
 import { BrowserRouter } from 'react-router-dom';
 import { Header, Footer } from 'containers';
-import GetAquoteCheckbox from '../containers/GetAQuoteCheckbox/GetAquoteCheckbox';
+import GetAQuoteCheckbox from '../containers/GetAQuoteCheckbox/GetAQuoteCheckbox';
 import StaffIntroduction from 'containers/StaffIntroduction/StaffIntroduction';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <GetAquoteCheckbox />
+      <GetAQuoteCheckbox />
       <StaffIntroduction />
       <Routes />
       <Footer>
