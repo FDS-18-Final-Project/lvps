@@ -24,8 +24,13 @@ const FullContainer = styled.section`
     background-size: cover;
     background-position: center;
   }
+
   @media only screen and (max-width: 768px) {
     padding: ${calcInterval([0, 20])};
+  }
+
+  @media only screen and (max-width: 1200px) {
+    padding: ${calcInterval([0, 50])};
   }
 `;
 
@@ -41,7 +46,7 @@ const ServicesContainer = styled.div`
     font-size: ${fontSizes.titleBase};
     color: ${colors.white};
     width: 100%;
-    padding-left: ${calcRem(100)};
+    padding-left: ${calcRem(0.1)};
     margin-bottom: ${calcRem(50)};
   }
 

@@ -1,16 +1,16 @@
 /* eslint-disable import/no-anonymous-default-export */
-import Header from './Header';
+import CheckBox from './CheckBox';
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from '../../styles/GlobalStyle';
 
 export default {
-  title: 'LVPS/Container/Header',
-  component: Header,
+  title: 'LVPS/Component/CheckBox',
+  component: CheckBox,
   parameters: {
     docs: {
       description: {
         component:
-          'Logo, Icon, Navbar 컴포넌트가 모여있는 HeaderContainer입니다.'
+          'Get a Quote 용 CheckBox 입니다. imagePath와 label을 전달할 수 있습니다.'
       }
     },
     design: {
@@ -25,9 +25,14 @@ export default {
 const Template = args => (
   <BrowserRouter>
     <GlobalStyle />
-    <Header {...args} />
+    <CheckBox {...args} />
   </BrowserRouter>
 );
 
 //스토리 구성 객체 기본 내보내기
-export const HeaderContainer = Template.bind({});
+export const GetAQuoteCheckBox = Template.bind({});
+
+GetAQuoteCheckBox.args = {
+  imagePath: 'assets/dummy_background.png',
+  label: 'Ceramic Pro'
+};

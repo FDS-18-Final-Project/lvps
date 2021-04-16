@@ -46,6 +46,9 @@ const Navbar = ({ ...restProps }) => {
         <NavLink to="/get-a-queue">GET A QUOUE</NavLink>
       </li>
       <li>
+        <NavLink to="/FAQ">FAQ</NavLink>
+      </li>
+      <li>
         <NavLink to="/contact-us">CONTACT US</NavLink>
       </li>
     </NavbarContainer>
