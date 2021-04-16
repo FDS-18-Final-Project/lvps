@@ -4,9 +4,10 @@ import styled from 'styled-components';
 import { useSwipeable } from 'react-swipeable';
 import { calcRem, colors } from 'theme/theme';
 import { Icon, CarouselItem, Indicator } from 'components/';
+import useViewSize from 'hooks/useViewSize';
 
 const StyledCarouselContainer = styled.div`
-  width: ${calcRem(770)};
+  max-width: ${calcRem(750)};
   overflow: ${({ type }) => type === 'paragraph' && 'hidden'};
   margin: 0 auto;
 `;
@@ -21,12 +22,13 @@ const Slides = styled.ul`
 const StyledCarouselButton = styled(Icon)`
   position: absolute;
   top: 50%;
-  ${({ direction }) => (direction === 'left' ? 'left: 0' : 'right: 0')}
+  ${({ direction }) => (direction === 'left' ? 'left: 0' : 'right: 0')};
 `;
 
-const Carousel = ({ type, contents }) => {
+const Carousel = ({ type, contents, ...restProps }) => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [isMoving, setIsMoving] = useState(false);
+  const { desktop, mobile } = useViewSize();
 
   const TOTAL_LENGTH = contents.length;
 
@@ -79,16 +81,22 @@ const Carousel = ({ type, contents }) => {
       </StyledCarouselContainer>
 
       <StyledCarouselButton
+        button
         type="rightArrow"
         direction="right"
         color={colors.lightGray}
         onClick={moveNext}
+        width={desktop ? '45' : '20'}
+        className="iconButton"
       />
       <StyledCarouselButton
+        button
         type="leftArrow"
         direction="left"
         color={colors.lightGray}
         onClick={movePrev}
+        width={desktop ? '45' : '20'}
+        className="iconButton"
       />
       <Indicator
         contents={contents}

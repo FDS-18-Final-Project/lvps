@@ -1,20 +1,41 @@
 import { string } from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { colors, fontSizes, calcRem, calcInterval } from 'theme/theme';
 import { Button, Divider, Icon, Paragraph } from 'components';
 
-const MainBannerBg = css`
-  background: url(${props => props.bgImg}) center center / cover no-repeat;
-`;
-
 const StyledMainBannerContainer = styled.section`
-  ${MainBannerBg}
-  padding: ${calcInterval([130, 100])}
+  background: url(${props => props.bgImg}) center center / cover no-repeat;
+  padding: ${calcInterval([130, 100])};
+
+  @media only screen and (max-width: 1200px) {
+    padding: ${calcInterval([100, 50])};
+  }
+
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+    margin: 0 auto;
+    h2 {
+      font-weight: 800;
+    }
+    li {
+    }
+  }
 `;
 
 const FullContainer = styled.div`
-  width: ${calcRem(1200)};
+  max-width: ${calcRem(1200)};
   margin: 0 auto;
+
+  @media only screen and (max-width: 768px) {
+    .divider {
+      width: 80px;
+      margin: 30px auto;
+    }
+
+    a {
+      margin: 0 auto;
+    }
+  }
 `;
 
 const StyledHeading = styled.h2`
@@ -33,6 +54,12 @@ const StyledHeading = styled.h2`
   .subTitle {
     font-weight: 400;
     font-size: ${calcRem(42)};
+  }
+
+  @media only screen and (max-width: 768px) {
+    .subTitle {
+      display: none;
+    }
   }
 `;
 
@@ -53,7 +80,7 @@ const MainBanner = ({ bgImg }) => {
           <span className="ourName">LVPS</span>
           <span className="subTitle">For Your Car</span>
         </StyledHeading>
-        <Divider width={150} />
+        <Divider width={150} className="divider" />
         <StyledParagraph
           type="list"
           link

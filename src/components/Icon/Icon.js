@@ -9,9 +9,6 @@ const StyledIconContainer = styled(motion.div)`
   display: flex;
   align-items: center;
 
-  svg {
-  }
-
   path {
     fill: ${({ color }) => color};
     stroke: ${({ stroke }) => stroke};
