@@ -8,6 +8,8 @@ const CheckBoxContainer = styled.label`
   border: 1px solid lightgray;
   position: relative;
   border: 4px solid #c9c9c9;
+  background-color: white;
+
 
   &::before {
     position: absolute;
