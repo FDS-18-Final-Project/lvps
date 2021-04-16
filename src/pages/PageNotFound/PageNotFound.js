@@ -7,12 +7,10 @@ import { Button, Icon } from 'components';
 const StyledPage = styled.section`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: auto;
   background-image: url('assets/dummy_background.png');
   justify-content: center;
   align-items: center;
-  padding: ${calcRem(185)} 0};
+  padding: ${calcRem(185)} 0;
 `;
 
 const StyledButton = styled(Button)`
@@ -30,5 +28,7 @@ const PageNotFound = () => {
     </StyledPage>
   );
 };
+
+PageNotFound.displayName = 'PageNotFound';
 
 export default PageNotFound;

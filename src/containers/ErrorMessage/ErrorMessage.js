@@ -37,10 +37,6 @@ const ErrorMessage = () => {
   );
 };
 
-ErrorMessage.propTypes = {};
-
-ErrorMessage.defaultProps = {};
-
 ErrorMessage.displayName = 'ErrorMessage';
 
 export default ErrorMessage;
