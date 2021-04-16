@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors, calcRem, calcInterval } from 'theme/theme';
+import { colors, calcRem, calcInterval, fontSizes } from 'theme/theme';
 import { Paragraph, Carousel, Icon } from 'components/';
 import Layout from 'pages/Layout/Layout';
 
@@ -46,18 +46,47 @@ const StyledReviewContainer = styled.section`
   background-size: cover;
   background-position: center;
   padding: ${calcInterval([75, 100])};
+
+  @media only screen and (max-width: 1200px) {
+    padding: ${calcInterval([70, 50])};
+  }
 `;
 
 const FullContainer = styled.div`
-  width: ${calcRem(1200)};
+  max-width: ${calcRem(1200)};
   margin: 0 auto;
   position: relative;
-  /* box-sizing: border-box;
-  padding: ${calcInterval([0, 100])}; */
+
+  @media only screen and (max-width: 768px) {
+    .review {
+      margin: 0 auto;
+
+      font-size: ${fontSizes.base};
+      max-width: ${calcRem(300)};
+      padding: ${calcRem(40)};
+      box-sizing: border-box;
+      /* line-height: 1; */
+    }
+
+    h2 {
+      font-size: ${fontSizes.xxxl};
+      text-align: center;
+    }
+    .review-title {
+      width: 100%;
+    }
+    .review-title > p {
+      display: none;
+    }
+  }
 `;
 
 const StyledReviewTitleContainer = styled(Layout.FlexContainer)`
   margin-bottom: ${calcRem(100)};
+
+  @media only screen and (max-width: 768px) {
+    margin-bottom: ${calcRem(0)};
+  }
 
   div + div {
     margin-left: ${calcRem(25)};
@@ -81,11 +110,10 @@ Review.Title = () => {
         type="title"
         title="Customer Reviews"
         colors={{ main: colors.white, sub: colors.redMain }}
+        className="review-title"
       >
         Our customers value &amp; trust us with their vehicles.
       </Paragraph>
-      {/* TODO: 아이콘 이상하게뜸 */}
-      <Icon type="like" />
     </StyledReviewTitleContainer>
   );
 };

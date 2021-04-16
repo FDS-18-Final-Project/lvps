@@ -11,15 +11,20 @@ const StyledReviewContent = styled.p`
   width: 100%;
   margin: auto;
   color: ${({ colors }) => colors.main};
-  line-height: ${calcRem(54)};
+  line-height: ${calcRem(45)};
   margin-bottom: ${calcRem(50)};
-  height: ${calcRem(300)};
+  height: ${calcRem(450)};
+
+  @media only screen and (max-width: 768px) {
+    line-height: ${calcRem(25)};
+    height: ${calcRem(255)};
+  }
 `;
 
 const StyledReviewInfo = styled.span`
   display: block;
   margin-bottom: ${calcRem(15)};
-  line-height: ${calcRem(54)};
+  line-height: ${calcRem(45)};
   color: ${({ colors }) => colors.sub};
 
   span + span {
@@ -29,7 +34,7 @@ const StyledReviewInfo = styled.span`
 
 const Review = ({ content, colors }) => {
   return (
-    <StyledReviewContainer>
+    <StyledReviewContainer className="review">
       <StyledReviewContent colors={colors}>
         {content.review}
       </StyledReviewContent>

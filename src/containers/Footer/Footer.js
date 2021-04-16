@@ -6,13 +6,32 @@ import Layout from 'pages/Layout/Layout';
 const StyledFooterContainer = styled.div`
   background-color: ${colors.black};
   padding: ${calcInterval([95, 100])};
+
+  @media only screen and (max-width: 1200px) {
+    padding: ${calcRem(50)};
+  }
 `;
 
 const FullContainer = styled(Layout.FlexContainer)`
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   a:hover {
     text-decoration: underline;
+  }
+
+  @media only screen and (max-width: 768px) {
+    flex-flow: column;
+
+    h2 {
+      margin-bottom: ${calcRem(40)};
+    }
+    h3 {
+      font-size: 13px;
+    }
+    span,
+    p {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -20,11 +39,24 @@ const StyledFooterContent = styled.div`
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
-  gap: ${calcInterval([36, 90])};
+  gap: ${calcInterval([36, 144])};
+
+  @media only screen and (max-width: 1200px) {
+    gap: ${calcInterval([36, 80])};
+  }
+
+  @media only screen and (max-width: 768px) {
+    gap: ${calcInterval([36, 40])};
+  }
+
+  span,
+  p {
+    width: 100%;
+  }
 `;
 
 const StyledParagraph = styled(Paragraph)`
-  width: ${calcRem(240)};
+  /* width: ${calcRem(240)}; */
 `;
 
 const Footer = ({ children }) => {

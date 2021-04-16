@@ -2,7 +2,7 @@ import React from 'react';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import {
   GetAQuoteBanner,
-  IconExplanCard,
+  Review,
   MainBanner,
   OurBestServices,
   OurWorks,
