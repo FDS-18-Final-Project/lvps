@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import { colors } from 'theme/theme';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -17,6 +18,11 @@ const GlobalStyle = createGlobalStyle`
   }
   ul, ol, li {
     list-style: none;
+  }
+
+  section {
+    border-top: 1px solid ${colors.lightGray};
+    border-bottom: 1px solid ${colors.lightGray};
   }
 
 `;

@@ -1,8 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import Header from './Header';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import theme from 'theme/theme';
 import GlobalStyle from '../../styles/GlobalStyle';
 
 export default {
@@ -27,9 +25,7 @@ export default {
 const Template = args => (
   <BrowserRouter>
     <GlobalStyle />
-    <ThemeProvider theme={theme}>
-      <Header {...args} />
-    </ThemeProvider>
+    <Header {...args} />
   </BrowserRouter>
 );
 
