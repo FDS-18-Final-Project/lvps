@@ -43,6 +43,11 @@ export default {
         type: 'boolean'
       }
     },
+    modal: {
+      control: {
+        type: 'boolean'
+      }
+    },
     maxWidth: {
       control: { type: 'range', min: 200, max: 500, step: 10 }
     }
