@@ -45,21 +45,20 @@ const CardListContainer = styled.div`
   margin: ${calcInterval([30, 0, 40])};
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
-  /* padding: ${calcInterval([0, 50])}; */
 
   @media only screen and (max-width: 768px) {
     padding: ${calcInterval([0])};
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     row-gap: 25px;
     p {
       font-size: ${calcRem(16)};
     }
   }
   @media only screen and (max-width: 550px) {
-    grid-template-columns: repeat(1, 1fr); 
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
-const CardExplanation = ({ title, desc, CardList, children }) => {
+const CardExplanation = ({ title, desc, cardList, children }) => {
   return (
     <section>
       <FullContainer tag="CardExplanation" justifyContent="space-around">
@@ -67,11 +66,8 @@ const CardExplanation = ({ title, desc, CardList, children }) => {
           <Paragraph type="title" headingNum="2" title={title}>
             {desc}
           </Paragraph>
-          <CardListContainer
-            as={title === 'LVPS Process' && 'ol'}
-            title={title}
-          >
-            {CardList.map((card, idx) => {
+          <CardListContainer title={title}>
+            {cardList.map((card, idx) => {
               return (
                 <Card
                   key={card.id}
@@ -97,13 +93,13 @@ const CardExplanation = ({ title, desc, CardList, children }) => {
 CardExplanation.prototype = {
   title: string.isRequired,
   desc: string,
-  CardList: array.isRequired,
+  cardList: array.isRequired,
   children: string
 };
 CardExplanation.defaultProps = {
   title: '',
   desc: '',
-  CardList: [],
+  cardList: [],
   children: ''
 };
 export default CardExplanation;

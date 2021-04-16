@@ -37,7 +37,7 @@ const StyledCard = styled(motion('div'))`
 
   p {
     font-weight: 500;
-    text-align: center;
+    text-align: center !important;
     color: ${colors.white};
     font-size: ${calcRem(18)};
     line-height: ${calcRem(27)};

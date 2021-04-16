@@ -19,12 +19,13 @@ export default {
     }
   },
   argTypes: {
-    type: {
-      description: '카드 설명 컨테이너 타입',
-      control: {
-        type: 'select',
-        options: ['type1', 'type2', 'type3']
-      }
+    title: {
+      description: '카드 설명 컨테이너 타이틀',
+      type: 'string'
+    },
+    desc: {
+      description: '카드 설명 컨테이너 내용',
+      type: 'string'
     }
   }
 };
@@ -100,7 +101,7 @@ export const CardExplanationType1Container = Template.bind({});
 CardExplanationType1Container.args = {
   title: 'Our Quality Protection Services',
   desc: 'Why choose us?',
-  CardList: CardList
+  cardList: CardList
 };
 
 export const CardExplanationType2Container = Template.bind({});
@@ -108,7 +109,7 @@ export const CardExplanationType2Container = Template.bind({});
 CardExplanationType2Container.args = {
   title: 'Luxury Vehicle Protection Services',
   desc: 'Why choose us?',
-  CardList: CardList,
+  cardList: CardList,
   children:
     'LVPS operates in North York, Ontario. The major intersection is Dufferin St and Finch Ave W. Our goal is to provide our customers with the best quality services & products, and convenient automotive services experience possible. We use the most modern and up-to-date tools. Through our experience with working with many cars using different kind of products on the market, we chose our products that are the best in the industry for your car.'
 };
