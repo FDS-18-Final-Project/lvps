@@ -38,7 +38,8 @@ const IconParagraph = ({
   iconColor,
   textAlign,
   contentWidth,
-  paragraphWidth
+  paragraphWidth,
+  ...restProps
 }) => {
   return (
     <StyledIconExplanList
@@ -46,6 +47,7 @@ const IconParagraph = ({
       key={content.id}
       textAlign={textAlign}
       contentWidth={contentWidth}
+      {...restProps}
     >
       <StyledIcon type={iconType} iconColor={iconColor} direction={direction} />
       <StyledParagraph

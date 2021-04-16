@@ -1,8 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import SubBanner from './SubBanner';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import theme from 'theme/theme';
 
 export default {
   title: 'LVPS/Container/SubBanner',
@@ -11,7 +9,7 @@ export default {
     docs: {
       description: {
         component:
-          '이미지와 링크가 있는 SubBanner 컨테이너입니다. title과 LinkText, imagePath를 전달할 수 있고 children으로 description을 전달합니다'
+          '이미지와 링크가 있는 SubBanner 컨테이너입니다. title과 description, imagePath를 전달할 수 있고 children으로 linkText를 전달합니다'
       }
     },
     design: {
@@ -25,9 +23,7 @@ export default {
 //template 만들기
 const Template = args => (
   <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <SubBanner {...args} />
-    </ThemeProvider>
+    <SubBanner {...args} />
   </BrowserRouter>
 );
 
@@ -36,7 +32,7 @@ export const SubBannerBase = Template.bind({});
 
 SubBanner.args = {
   title: 'About us',
-  linkText: 'More About us',
+  description: 'More About us',
   imagePath: 'assets/dummyImage.png',
   children: 'Quality Protection Services'
 };

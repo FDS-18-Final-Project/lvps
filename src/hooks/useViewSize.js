@@ -1,7 +1,11 @@
 const { useState, useEffect } = require('react');
 
 const useViewSize = () => {
-  const [view, setView] = useState({ desktop: true, mobile: false });
+  const [view, setView] = useState(() => {
+    return window.innerWidth > 768
+      ? { desktop: true, mobile: false }
+      : { desktop: false, mobile: true };
+  });
 
   useEffect(() => {
     const updateViewSize = e => {
