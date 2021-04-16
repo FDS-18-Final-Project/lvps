@@ -6,11 +6,10 @@ import {
   MainBanner,
   OurBestServices,
   OurWorks,
-  Review,
   SubBanner
   // GoogleMap
 } from 'containers';
-import { Icon } from 'components/';
+import { Icon, Video } from 'components/';
 import { colors } from 'theme/theme';
 import { calcRem } from '../../theme/theme';
 
@@ -28,6 +27,7 @@ const Home = () => {
         Visit Instagram
         <Icon type="instagram" color={colors.white} width={calcRem(25)} />
       </SubBanner>
+      <Video videoId="dEHu-STjB-Q" />
       <Review>
         <Review.Title />
         <Review.Contents />
@@ -36,7 +36,6 @@ const Home = () => {
         <GetAQuoteBanner.Title />
         <GetAQuoteBanner.Link />
       </GetAQuoteBanner>
-
       <OurWorks>
         <OurWorks.Title />
         <OurWorks.Contents />
