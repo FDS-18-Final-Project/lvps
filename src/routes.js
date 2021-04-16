@@ -4,7 +4,7 @@ import { Home, PageNotFound } from './pages';
 
 const Routes = () => (
   <Switch>
-    <Route path="/">
+    <Route path="/" exact>
       <Home />
     </Route>
     <Route path="/PageNotFound" component={PageNotFound} />
