@@ -1,72 +1,82 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, array } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors } from 'theme/theme';
-import { Icon } from 'components';
+import { IconParagraph } from 'components';
 import { motion } from 'framer-motion';
 
 const typeStyle = {
   arrow: {
     'clip-path': 'polygon(80% 0, 100% 50%, 80% 100%, 0 99%, 0 0)',
-    width: calcRem(265)
+    width: '100%'
   },
   square: {
     'clip-path': 'initial',
-    width: calcRem(237)
+    width: '100%'
+  }
+};
+const typeMobileStyle = {
+  arrow: {
+    'flex-direction': 'row'
+  },
+  square: {
+    'flex-direction': 'row'
   }
 };
 
 const StyledCard = styled(motion('div'))`
-  width: ${({ width }) => calcRem(width)};
   height: ${({ height }) => calcRem(height)};
   background: ${({ background }) => background};
   box-sizing: border-box;
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-basis: 25%;
   flex-direction: column;
+  align-items: center;
   padding: ${calcInterval([50, 35])};
 
-  span {
-    width: ${calcRem(167)};
-    font-family: 'Helvetica Neue LT Pro';
+  p {
     font-weight: 500;
-    text-align: center;
-    color: ${({ color }) => color};
+    text-align: center !important;
+    color: ${colors.white};
     font-size: ${calcRem(18)};
     line-height: ${calcRem(27)};
     margin: ${calcRem(40)} auto 0;
   }
+  svg {
+    margin: 0;
+  }
+  & div div:nth-child(2) {
+    margin: 0;
+    width: 100%;
+  }
 
   ${({ type }) => typeStyle[type]}
-`;
-const StyledIconContainer = styled.div`
-  margin: ${({ cardType }) =>
-    cardType === 'square' ? '0 auto' : `0 0 0 ${calcRem(27)}`};
-`;
-const stylesFromCard = {
-  style: {
-    'border-radius': '50%',
-    border: `${calcRem(4)} solid ${colors.white}`,
-    width: calcRem(120),
-    height: calcRem(120)
+
+  @media only screen and (max-width: 1200px) {
+    padding: ${calcInterval([50, 20])};
   }
-};
 
-const StyledIcon = styled(Icon)`
-  width: ${calcRem(66)};
-  height: ${calcRem(60)};
-  padding: ${calcRem(20)};
-  margin: 0 auto !important;
+  @media only screen and (max-width: 768px) {
+    ${({ type }) => typeMobileStyle[type]}
+  }
 `;
 
-const Card = ({ type, children, iconType, ...restProps }) => {
+const Card = ({
+  type,
+  iconColor,
+  content,
+  iconType,
+  motionProps,
+  ...restProps
+}) => {
   return (
-    <StyledCard type={type} iconType={iconType} {...restProps}>
-      <StyledIconContainer cardType={type}>
-        <StyledIcon type={iconType} stylesForContainer={stylesFromCard} />
-      </StyledIconContainer>
-      <span>{children}</span>
+    <StyledCard type={type} iconType={iconType} {...motionProps} {...restProps}>
+      <IconParagraph
+        iconType={iconType}
+        iconColor={iconColor}
+        content={content}
+      />
     </StyledCard>
   );
 };
@@ -74,7 +84,8 @@ const Card = ({ type, children, iconType, ...restProps }) => {
 Card.propTypes = {
   type: string.isRequired,
   iconType: string.isRequired,
-  children: string,
+  iconColor: string,
+  content: array,
   width: string,
   height: string,
   color: string,
@@ -83,11 +94,10 @@ Card.propTypes = {
 
 Card.defaultProps = {
   type: 'square',
-  iconType: 'checkedCar',
-  children: 'card',
-  width: '237',
+  iconType: 'likeCircle',
+  iconColor: colors.white,
+  content: [],
   height: '340',
-  color: colors.white,
   background: colors.redMain
 };
 

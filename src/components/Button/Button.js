@@ -8,12 +8,12 @@ const modeStyle = {
   primary: {
     color: colors.white,
     'background-color': colors.redMain,
-    border: `4px solid ${colors.redMain}`
+    border: `2px solid ${colors.redMain}`
   },
   secondary: {
     color: colors.black,
     'background-color': colors.white,
-    border: `4px solid ${colors.redMain}`
+    border: `2px solid ${colors.redMain}`
   },
   hoverBoxTheme: {
     color: colors.white,
@@ -25,7 +25,7 @@ const hoverEffect = {
   primary: {
     color: colors.redMain,
     'background-color': colors.white,
-    border: `4px solid ${colors.redMain}`
+    border: `2px solid ${colors.redMain}`
   },
   secondary: {
     color: colors.white,
@@ -124,11 +124,11 @@ const modeComponent = {
 };
 
 // 버튼 컴포넌트
-const Button = ({ mode, to, disabled, children, ...restProps }) => {
+const Button = ({ mode, to, disabled, fullwidth, children, ...restProps }) => {
   const Comp = modeComponent[mode];
   const selectedProp = mode === 'button' ? { disabled: disabled } : { to: to };
   return (
-    <Comp {...restProps} {...selectedProp}>
+    <Comp fullwidth={fullwidth ? 1 : 0} {...restProps} {...selectedProp}>
       {children}
     </Comp>
   );

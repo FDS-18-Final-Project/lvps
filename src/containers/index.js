@@ -11,3 +11,4 @@ export { default as OurWorks } from './OurWorks/OurWorks';
 export { default as IconExplanCard } from './IconExplanCard/IconExplanCard';
 export { default as GoogleMap } from './GoogleMap/GoogleMap';
 export { default as ErrorMessage } from './ErrorMessage/ErrorMessage';
+export { default as ServiceMainBanner } from './ServiceMainBanner/ServiceMainBanner';

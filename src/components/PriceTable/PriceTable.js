@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { array, number, string, bool, oneOf } from 'prop-types';
 import styled, { css } from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
@@ -22,6 +22,20 @@ const PriceTableContainer = styled.div`
   box-shadow: 0 3px 5px rgba(94, 94, 94, 0.4);
   position: relative;
   transition: 0.3s;
+  margin-left: 300px;
+
+  ${({ modal }) =>
+    modal &&
+    css`
+      background-image: url(assets/${({ bgImage }) => `${bgImage}.svg`});
+      background-repeat: no-repeat;
+      background-position: bottom;
+      border: 3px solid
+        ${({ active }) => (active ? 'yellow' : colors.lightGray)};
+      box-shadow: ${({ active }) => active && 'none'};
+      background-size: cover;
+      padding: ${calcInterval([62, 30, 58])};
+    `}
 
   ${({ hover }) =>
     hover &&
@@ -69,11 +83,15 @@ const PriceTableContainer = styled.div`
 const IconContainer = styled(Layout.FlexContainer)`
   width: 100%;
   padding: 0 10px;
-  article {
+
+  .IconPargraph {
+    margin: 0 5px;
+
     div {
       width: 100%;
       margin: 0;
       display: inline-block;
+      text-align: center;
     }
     h3 {
       margin-top: 10px;
@@ -101,6 +119,7 @@ const content = [
 const PriceTable = ({
   type,
   icon,
+  modal,
   maxWidth,
   fgColor,
   iconColor,
@@ -110,17 +129,38 @@ const PriceTable = ({
   hover,
   price
 }) => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = () => setIsActive(!isActive);
+
   return (
-    <PriceTableContainer maxWidth={maxWidth} hover={hover} icon={icon}>
-      <Tag className="Tag" type={tagType}>
-        {tagText}
-      </Tag>
+    <PriceTableContainer
+      maxWidth={maxWidth}
+      hover={hover}
+      icon={icon}
+      modal={modal}
+      bgImage={tagText}
+      active={isActive}
+      onClick={handleClick}
+    >
+      {!modal && (
+        <Tag className="Tag" type={tagType}>
+          {tagText}
+        </Tag>
+      )}
       <div>{type === 'list' ? 'From' : 'Starting At'}</div>
       <strong>${price}</strong>
-      <Divider width={55} height={1} margin="33 0" />
+      <Divider width={55} height={1} margin={modal ? `132 0 33` : `33 0`} />
       <IconContainer>
         {icon &&
-          content.map(cont => <IconParagraph key={cont.id} content={cont} />)}
+          content.map(cont => (
+            <IconParagraph
+              className="IconPargraph"
+              key={cont.id}
+              content={cont}
+              iconType="likeCircle"
+            />
+          ))}
       </IconContainer>
       {type === 'list' ? (
         <CardInfo infoList={infoList} fgColor={fgColor} iconColor={iconColor} />
@@ -141,7 +181,8 @@ PriceTable.propTypes = {
   tagType: string,
   tagText: string,
   price: number,
-  hover: bool
+  hover: bool,
+  modal: bool
 };
 
 PriceTable.defaultProps = {
@@ -153,7 +194,8 @@ PriceTable.defaultProps = {
   tagText: 'Gold',
   price: 4500,
   hover: true,
-  icon: false
+  icon: false,
+  modal: false
 };
 
 export default PriceTable;

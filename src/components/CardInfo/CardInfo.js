@@ -42,8 +42,8 @@ const cardInfolist = [
 const CardInfo = ({ iconColor, fgColor, infoList }) => {
   return (
     <CardInfoContainer fgColor={fgColor}>
-      {infoList.map((info, i) => (
-        <li key={i}>
+      {infoList.map(info => (
+        <li key={info}>
           <Icon type="checked" color={colors[iconColor]} width={calcRem(17)} />
           {info}
         </li>

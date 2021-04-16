@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { string, object, bool } from 'prop-types';
 import styled from 'styled-components';
-import { calcRem } from 'theme/theme';
 import { motion } from 'framer-motion';
 import svg from 'assets';
 

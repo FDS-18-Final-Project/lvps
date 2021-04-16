@@ -1,10 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
 import AccordionItem from 'components/AccodionItem/AccordionItem';
 import GlobalStyle from '../../styles/GlobalStyle';
 import AccordionList from './AccordionList';
-import theme from 'theme/theme';
 
 export default {
   title: 'LVPS/Component/AccordionList',
@@ -19,7 +17,7 @@ export default {
     design: {
       type: 'figma',
       url:
-        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=233%3A2548'
+        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=1419%3A13887'
     }
   },
   argTypes: {
@@ -149,14 +147,12 @@ const accordionState = [
 //template 만들기
 const Template = args => (
   <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <AccordionList {...args}>
-        {args.accordion.map(item => (
-          <AccordionItem item={item} key={item.id} />
-        ))}
-      </AccordionList>
-    </ThemeProvider>
+    <GlobalStyle />
+    <AccordionList {...args}>
+      {args.accordion.map(item => (
+        <AccordionItem item={item} key={item.id} />
+      ))}
+    </AccordionList>
   </BrowserRouter>
 );
 
