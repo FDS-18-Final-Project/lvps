@@ -1,4 +1,4 @@
-import { array, string, object } from 'prop-types';
+import { string, object } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors } from 'theme/theme';
 import { Icon, Paragraph } from 'components';
@@ -6,6 +6,10 @@ import Layout from 'pages/Layout/Layout';
 
 const StyledIconExplanList = styled(Layout.FlexContainer)`
   width: ${({ contentWidth }) => contentWidth};
+
+  @media only screen and (max-width: 768px) {
+    margin-bottom: ${calcRem(50)};
+  }
 `;
 
 const StyledIcon = styled(Icon)`
@@ -63,7 +67,7 @@ const IconParagraph = ({
 
 IconParagraph.propTypes = {
   direction: string,
-  content: array,
+  content: object,
   iconType: string,
   iconColor: string,
   textAlign: object,
@@ -73,8 +77,8 @@ IconParagraph.propTypes = {
 
 IconParagraph.defaultProps = {
   direction: 'column',
-  content: [{ id: 1, title: '타이틀을 입력해주세요!' }],
-  iconType: string,
+  content: { id: 1, title: '타이틀을 입력해주세요!' },
+  iconType: 'facebook',
   iconColor: colors.red_05,
   textAlign: { title: 'center', content: 'left' },
   contentWidth: '100%',

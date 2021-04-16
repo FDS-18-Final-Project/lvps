@@ -13,7 +13,7 @@ const StyledIndicatorItem = styled.button`
   border: none;
   outline: none;
   background-color: ${({ selected }) => (selected ? 'red' : 'gray')};
-  margin-top: ${calcRem(70)};
+  margin-top: ${calcRem(30)};
 `;
 
 const Indicator = ({ contents, current, onChange, ...restProps }) => {

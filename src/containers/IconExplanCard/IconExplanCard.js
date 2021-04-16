@@ -1,7 +1,7 @@
 import { IconParagraph } from 'components/';
 import Layout from 'pages/Layout/Layout';
 import styled from 'styled-components';
-import { colors, calcRem } from 'theme/theme';
+import { colors, calcRem, calcInterval, fontSizes } from 'theme/theme';
 
 const explanCeramic = [
   {
@@ -26,11 +26,40 @@ const explanCeramic = [
 
 const StyledIconExplanCardContainer = styled.section`
   padding: ${calcRem(75)};
+
+  @media only screen and (max-width: 1200px) {
+    padding: ${calcRem(50)};
+  }
+
+  @media only screen and (max-width: 768px) {
+    padding: ${calcInterval([75, 15, 0])};
+  }
 `;
 
 const FullContainer = styled.div`
-  width: ${calcRem(1200)};
+  max-width: ${calcRem(1200)};
   margin: 0 auto;
+
+  h3 {
+    height: 65px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    h2 {
+      text-align: center;
+      font-size: ${fontSizes.xl};
+      margin-bottom: 35px;
+    }
+    h3 {
+      height: 30px;
+      font-size: ${fontSizes.small};
+      margin-bottom: 0;
+    }
+    p {
+      text-align: center;
+      font-size: ${fontSizes.small};
+    }
+  }
 `;
 
 const StyledHeading = styled.h2`
@@ -43,6 +72,15 @@ const StyledHeading = styled.h2`
 const StyledIconExplanListContainer = styled(Layout.FlexContainer)`
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+    flex-flow: column;
+    p {
+      width: ${calcRem(304)};
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
 `;
 
 const IconExplanCard = ({ children }) => {
@@ -61,7 +99,12 @@ IconExplanCard.Contents = () => {
   return (
     <StyledIconExplanListContainer>
       {explanCeramic.map(content => (
-        <IconParagraph key={content.id} content={content} />
+        <IconParagraph
+          key={content.id}
+          content={content}
+          iconType="likeCircle"
+          paragraphWidth="100%"
+        />
       ))}
     </StyledIconExplanListContainer>
   );

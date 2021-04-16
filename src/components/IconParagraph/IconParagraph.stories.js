@@ -15,7 +15,7 @@ export default {
     }
   },
   argTypes: {
-    contents: {
+    content: {
       control: {
         type: 'string'
       }
@@ -26,6 +26,27 @@ export default {
       }
     },
     direction: {
+      control: {
+        type: 'radio',
+        options: ['row', 'column']
+      }
+    },
+    iconType: {
+      control: {
+        type: 'string'
+      }
+    },
+    textAlign: {
+      control: {
+        type: 'object'
+      }
+    },
+    contentWidth: {
+      control: {
+        type: 'string'
+      }
+    },
+    paragraphWidth: {
       control: {
         type: 'string'
       }

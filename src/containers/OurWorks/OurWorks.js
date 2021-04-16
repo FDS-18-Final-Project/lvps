@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { calcInterval, calcRem, colors } from 'theme/theme';
+import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import { Button, Carousel, Icon, Paragraph } from 'components/';
+import useViewSize from 'hooks/useViewSize';
 
 const carouselImgs = [
   {
@@ -29,33 +30,60 @@ const carouselImgs = [
 const StyledOurWorksContainer = styled.section`
   padding: ${calcInterval([75, 100])};
   background-color: ${colors.black};
+
+  @media only screen and (max-width: 1200px) {
+    padding: ${calcRem(50)};
+  }
+
+  @media only screen and (max-width: 768px) {
+    padding: ${calcInterval([30, 15])};
+  }
 `;
 
 const FullContainer = styled(Layout.FlexContainer)`
-  width: ${calcRem(1200)};
+  max-width: ${calcRem(1200)};
   /* box-sizing: border-box;
   padding: ${calcInterval([0, 100])}; */
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+
+  
 `;
 
 const StyledOurWorksTitle = styled(Layout.FlexContainer)`
   width: 100%;
   margin-bottom: ${calcRem(70)};
+
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+    margin-bottom: ${calcRem(40)};
+    div {
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: ${fontSizes.xl};
+    }
+    p {
+      font-size: ${fontSizes.small};
+    }
+  }
 `;
 
-const OurWorks = ({ children }) => {
+const OurWorks = () => {
+  const { desktop, mobile } = useViewSize();
+
   return (
     <StyledOurWorksContainer>
       <FullContainer justifyContent="space-between" direction="column">
-        {children}
+        <OurWorks.Title desktop={desktop} />
+        <OurWorks.Contents />
       </FullContainer>
     </StyledOurWorksContainer>
   );
 };
 
-OurWorks.Title = () => {
+OurWorks.Title = ({ desktop }) => {
   return (
     <StyledOurWorksTitle justifyContent="space-between">
       <Paragraph
@@ -64,13 +92,16 @@ OurWorks.Title = () => {
         headingNum={2}
         colors={{ main: colors.white, sub: colors.lightGray }}
         size={15}
+        className="ourWorks-title"
       >
         Our works about Paint Protection Film
       </Paragraph>
-      <Button mode="link" to="/" width={270} fontSize={18} padding="10">
-        Visit Our Instagram
-        <Icon type="instagram" color={colors.white} />
-      </Button>
+      {desktop ? (
+        <Button mode="link" to="/" width={270} fontSize={18} padding="10">
+          Visit Our Instagram
+          <Icon type="instagram" color={colors.white} />
+        </Button>
+      ) : null}
     </StyledOurWorksTitle>
   );
 };
