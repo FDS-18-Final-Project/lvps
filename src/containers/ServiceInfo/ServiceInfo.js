@@ -151,5 +151,6 @@ ServiceInfo.defaultProps = {
   mode: 'right'
 };
 
+FullContainer.displayName = 'FullContainer';
 ServiceInfoContainer.displayName = 'ServiceInfoWrapper';
 export default ServiceInfo;

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { string } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import { AccordionList } from 'components/';
 import { motion, AnimatePresence } from 'framer-motion';
+import useAccordionState from '../../hooks/useAccordionState';
 
 const FullContainer = styled.section`
   position: relative;
@@ -174,15 +175,7 @@ const accordionState = [
 ];
 
 const OurBestServices = ({ title, imagePath }) => {
-  const [accordionItemList, setAccordionItemList] = useState(accordionState);
-
-  const handleClick = id => {
-    setAccordionItemList(
-      accordionItemList.map(item =>
-        item.id === id ? { ...item, active: true } : { ...item, active: false }
-      )
-    );
-  };
+  const [accordionItemList, handleClick] = useAccordionState(accordionState);
 
   const setActiveImage = () => {
     return accordionItemList.find(item => item.active).imagePath;
@@ -230,5 +223,6 @@ OurBestServices.defaultProps = {
   imagePath: 'assets/dummy_ourbestservice.png'
 };
 
+FullContainer.displayName = 'FullContainer';
 ServicesContainer.displayName = 'ServicesWrapper';
 export default OurBestServices;
