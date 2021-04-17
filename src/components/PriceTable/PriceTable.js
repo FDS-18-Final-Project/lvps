@@ -58,6 +58,15 @@ const PriceTableContainer = styled.div`
           color: ${colors.gray};
         }
 
+        .non-selected-icon {
+          path:first-child {
+            stroke: ${colors.gray};
+          }
+          path:last-child {
+            fill: ${colors.gray};
+          }
+        }
+
         svg {
           path:first-child {
             stroke: ${colors.white};
@@ -99,6 +108,7 @@ const IconContainer = styled(Layout.FlexContainer)`
       text-align: center;
     }
     h3 {
+      height: 45px;
       margin-top: 10px;
       margin-bottom: 33px;
       font-size: ${fontSizes.base};

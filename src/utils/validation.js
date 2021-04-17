@@ -1,19 +1,21 @@
 import * as Yup from 'yup';
 
-export const validationRules = {
-  fullname: Yup.string().required('Please input your name'),
+export const validationSchema = Yup.object({
+  name: Yup.string()
+    .min(2, 'Please input your name with longer than 2 characters')
+    .required('This field is required'),
+  phoneNumber: Yup.string()
+    .typeError('Please input numbers')
+    .matches(
+      /^\d{3}[-.]?\d{3}[-.]?\d{4}$/,
+      'Please follow the format(ex: 012-345-6789)'
+    )
+    .required('This field is required'),
   email: Yup.string()
-    .email('Email must be a valid email format')
-    .required('Please input your email')
-    .min(5, 'Please input more than 5 characters for your email'),
-  phoneNumber: Yup.number('Please input your phone number with only number')
-    .required('Please input your phone number')
-    .integer('Please input your phone number with only number')
-    .positive(),
-  makeAndModel: Yup.string().required('Please input your car make and model'),
-  year: Yup.number('Please input the year of your car')
-    .required('Please input the year of your car')
-    .integer('Please input the year of your car')
-    .positive(),
-  postalCode: Yup.string().required('Please input your postalcode')
-};
+    .email('Please input a valid email')
+    .required('This field is required'),
+  model: Yup.string().required('This field is required'),
+  year: Yup.number()
+    .typeError('Please input numbers')
+    .required('This field is required')
+});

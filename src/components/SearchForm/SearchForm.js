@@ -36,6 +36,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
       <StyledFieldset>
         <A11yHidden as="legend">검색 폼</A11yHidden>
         <Input
+          errorMessage={false}
           height={30}
           label={
             mobile ? null : (

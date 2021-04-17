@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
-import { Button, A11yHidden, Icon } from 'components';
+import { Button, A11yHidden, Icon, PriceTable } from 'components';
 import Portal from 'utils/portal';
 
 const modalType = {
@@ -11,7 +11,78 @@ const modalType = {
     products: [
       {
         id: 1,
-        title: 'Ceramic Pro Protection Packages'
+        title: 'Ceramic Pro Protection Packages',
+        contents: [
+          {
+            id: 1,
+            tagType: 'tagSilver',
+            tagText: 'Gold',
+            price: '400',
+            nonSelectedIdx: 7,
+            cardInfo: [
+              'Complete exterior hand wash',
+              'Complete interior vaccum',
+              'Leather cleaning and conditioning',
+              'Cleaning windows and mirrors',
+              'Salt removal',
+              'Cleaning door jams',
+              'Wheel cleaning and tire dressing',
+              'Removing bugs, tar, tree sap',
+              'Claybar & iron paint decontamination',
+              'Polish to add gloss to paint',
+              'Compound and polish to remove scratches',
+              'Paint sealant',
+              'Engine cleaning and dressing',
+              'Headlights polish'
+            ]
+          },
+          {
+            id: 2,
+            tagType: 'tagSilver',
+            tagText: 'Gold',
+            price: '400',
+            nonSelectedIdx: 7,
+            cardInfo: [
+              'Complete exterior hand wash',
+              'Complete interior vaccum',
+              'Leather cleaning and conditioning',
+              'Cleaning windows and mirrors',
+              'Salt removal',
+              'Cleaning door jams',
+              'Wheel cleaning and tire dressing',
+              'Removing bugs, tar, tree sap',
+              'Claybar & iron paint decontamination',
+              'Polish to add gloss to paint',
+              'Compound and polish to remove scratches',
+              'Paint sealant',
+              'Engine cleaning and dressing',
+              'Headlights polish'
+            ]
+          },
+          {
+            id: 3,
+            tagType: 'tagSilver',
+            tagText: 'Gold',
+            price: '400',
+            nonSelectedIdx: 7,
+            cardInfo: [
+              'Complete exterior hand wash',
+              'Complete interior vaccum',
+              'Leather cleaning and conditioning',
+              'Cleaning windows and mirrors',
+              'Salt removal',
+              'Cleaning door jams',
+              'Wheel cleaning and tire dressing',
+              'Removing bugs, tar, tree sap',
+              'Claybar & iron paint decontamination',
+              'Polish to add gloss to paint',
+              'Compound and polish to remove scratches',
+              'Paint sealant',
+              'Engine cleaning and dressing',
+              'Headlights polish'
+            ]
+          }
+        ]
       },
       {
         id: 2,
@@ -95,6 +166,7 @@ const StyledModalContainer = styled.section`
     }
   }
 `;
+
 const StyledModalBody = styled.div`
   width: 100%;
   padding-top: ${calcRem(180)};
@@ -114,7 +186,8 @@ const StyledModalProductContainer = styled.div`
     margin-bottom: ${calcRem(100)};
   }
 `;
-const ModalDialog = ({ type, open, closin }) => {
+
+const ModalDialog = ({ type }) => {
   const { label, title, products } = modalType[type];
 
   return (
@@ -125,16 +198,28 @@ const ModalDialog = ({ type, open, closin }) => {
         aria-modal="true"
         aria-label={label}
         aria-describedby={label}
-        tabindex="0"
+        tabIndex="0"
       >
         <header id={label}>
           <A11yHidden as="h3">{title}</A11yHidden>
         </header>
         {/* 카드 컨텐츠  */}
         <StyledModalBody>
-          {products.map(product => (
-            <StyledModalProductContainer>
+          {products.map((product, i) => (
+            <StyledModalProductContainer key={i}>
               <h4>{product.title}</h4>
+              {product.contents?.map((content, i) => {
+                console.log(content);
+                return (
+                  <PriceTable
+                    key={i}
+                    type="title"
+                    hover={false}
+                    content={content}
+                    modal
+                  />
+                );
+              })}
             </StyledModalProductContainer>
           ))}
         </StyledModalBody>
@@ -148,4 +233,4 @@ const ModalDialog = ({ type, open, closin }) => {
   );
 };
 
-export default ModalDialog;
+export default React.memo(ModalDialog);
