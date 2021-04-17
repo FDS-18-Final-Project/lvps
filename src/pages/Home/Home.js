@@ -6,7 +6,12 @@ import {
   MainBanner,
   OurBestServices,
   OurWorks,
-  SubBanner
+  SubBanner,
+  PriceCard,
+  IconKeyFeature,
+  IconExplanCard,
+  CeramicPrice,
+  WindowPrice
   // GoogleMap
 } from 'containers';
 import { Icon } from 'components/';
@@ -41,6 +46,17 @@ const Home = () => {
       </OurWorks>
       <SubBanner />
       <OurBestServices />
+      {/* <PriceCard />
+      <IconExplanCard>
+        <IconExplanCard.Title />
+        <IconExplanCard.Contents />
+      </IconExplanCard>
+      <IconKeyFeature>
+        <IconKeyFeature.Title />
+        <IconKeyFeature.Contents />
+      </IconKeyFeature>
+      <CeramicPrice /> */}
+      <WindowPrice />
     </>
   );
 };

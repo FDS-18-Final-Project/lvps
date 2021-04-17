@@ -8,7 +8,6 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <CheckBox />
       <Routes />
       <Footer>
         <Footer.Logo />

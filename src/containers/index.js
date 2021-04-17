@@ -12,3 +12,7 @@ export { default as IconExplanCard } from './IconExplanCard/IconExplanCard';
 export { default as ErrorMessage } from './ErrorMessage/ErrorMessage';
 // export { default as GoogleMap } from './GoogleMap/GoogleMap';
 export { default as ServiceMainBanner } from './ServiceMainBanner/ServiceMainBanner';
+export { default as PriceCard } from './PriceCard/PriceCard';
+export { default as IconKeyFeature } from './IconKeyFeature/IconKeyFeature';
+export { default as CeramicPrice } from './CeramicPrice/CeramicPrice';
+export { default as WindowPrice } from './WindowPrice/WindowPrice';

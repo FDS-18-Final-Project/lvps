@@ -4,14 +4,19 @@ import { colors } from 'theme/theme';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
+
   * {
     font-family: Inter, Monserrat, sans-serif;    
+  }
+  html {
+    font-size: 16px;
   }
   a {
     text-decoration: none;
     color: inherit;
   }
   body {
+
     font-family: Inter, Monserrat, sans-serif;
     overflow-x: hidden;
     overflow-y: auto;
