@@ -75,4 +75,6 @@ const GetAQuoteCheckbox = () => {
   );
 };
 
+FullContainer.displayName = 'FullContainer';
+GetAQuoteCheckboxContainer.displayName = 'GetAQuoteCheckboxContainer';
 export default GetAQuoteCheckbox;

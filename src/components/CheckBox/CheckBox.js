@@ -60,4 +60,6 @@ CheckBox.defaultProps = {
   label: 'CERAMIC COATING'
 };
 
+CheckBoxContainer.displayName = 'CheckBoxContainer';
+
 export default CheckBox;

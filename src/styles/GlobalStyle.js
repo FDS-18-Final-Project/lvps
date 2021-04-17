@@ -4,8 +4,12 @@ import { colors } from 'theme/theme';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
+
   * {
     font-family: Inter, Monserrat, sans-serif;    
+  }
+  html {
+    font-size: 16px;
   }
   a {
     text-decoration: none;
@@ -15,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: Inter, Monserrat, sans-serif;
     overflow-x: hidden;
     overflow-y: auto;
+    box-sizing: border-box;
   }
   ul, ol, li {
     list-style: none;
