@@ -19,3 +19,4 @@ export { default as WindowPrice } from './WindowPrice/WindowPrice';
 export { default as GetAQuteCheckbox } from './GetAQuoteCheckbox/GetAQuoteCheckbox';
 export { default as StaffIntroduction } from './StaffIntroduction/StaffIntroduction';
 export { default as FAQ } from './FAQ/FAQ';
+export { default as WindowTintingPrice } from './WindowTintingPrice/WindowTintingPrice';
