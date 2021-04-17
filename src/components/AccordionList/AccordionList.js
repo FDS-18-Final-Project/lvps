@@ -10,7 +10,7 @@ const AccordionContainer = styled.ul`
   }
 `;
 
-const AccordionList = ({ accordion, handleClick, maxWidth }) => {
+const AccordionList = ({ accordion, handleClick, maxWidth, variant }) => {
   return (
     <AccordionContainer>
       {accordion.map(item => (
@@ -19,6 +19,7 @@ const AccordionList = ({ accordion, handleClick, maxWidth }) => {
           item={item}
           onClick={handleClick}
           maxWidth={maxWidth}
+          variant={variant}
         />
       ))}
     </AccordionContainer>

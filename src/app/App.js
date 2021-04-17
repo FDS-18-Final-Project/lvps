@@ -12,9 +12,6 @@ const App = () => {
     <BrowserRouter>
       <Header />
 
-      <GetAQuoteCheckbox />
-      <StaffIntroduction />
-
       <Routes />
       <Footer>
         <Footer.Logo />

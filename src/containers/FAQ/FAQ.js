@@ -10,8 +10,10 @@ const FAQContainer = styled.div`
   max-width: ${calcRem(1200)};
   margin: 0 auto;
   display: grid;
-  grid-template: repeat(1, 0.5fr, 1fr) / repeat(2, 1fr);
+  grid-template: repeat(1, 0.5fr, 1fr) / repeat(1, 0.5fr, 1fr);
+
   padding: ${calcInterval([75, 0, 191])};
+  grid-gap: 0 10px;
 
   .gridTitle {
     grid-area: 1 / 1 / 2 / 3;
@@ -25,10 +27,10 @@ const FAQContainer = styled.div`
   .gridAccordion {
     grid-area: 2 / 2 / 3 / 3;
   }
+
   h2 {
     display: flex;
     align-items: center;
-
     div {
       margin-left: ${calcRem(10)};
     }
@@ -162,6 +164,23 @@ const accordionState = [
     active: false
   }
 ];
+
+const variants = mobile => ({
+  visible: {
+    color: colors.white,
+    backgroundColor: colors.black,
+    height: calcRem(200),
+    opacity: 0.8,
+    transition: { duration: 0.5, type: 'tween' }
+  },
+  hidden: {
+    color: colors.black,
+    backgroundColor: colors.lightGray,
+    height: calcRem(50),
+    opacity: 1,
+    transition: { duration: 0.5, type: 'tween' }
+  }
+});
 const FAQ = () => {
   const [accordionItemList, handleClick] = useAccordionState(accordionState);
 
@@ -185,8 +204,9 @@ const FAQ = () => {
         <div className="gridAccordion">
           <AccordionList
             accordion={accordionItemList}
-            maxWidth={620}
+            maxWidth={665}
             handleClick={handleClick}
+            variant={variants}
           />
         </div>
       </FAQContainer>

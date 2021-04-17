@@ -13,9 +13,9 @@ const StyledButton = styled(Button)`
   overflow: hidden;
   position: relative;
   border: none;
-
+  margin-bottom: 5px;
   &:hover {
-    border: 0;
+    border: none;
     padding: ${calcInterval([0, 40, 35])};
 
     path {
@@ -73,7 +73,7 @@ const variants = mobile => ({
   }
 });
 
-const AccordionItem = ({ item, onClick, maxWidth }) => {
+const AccordionItem = ({ item, onClick, maxWidth, variant = variants }) => {
   const { mobile } = useViewSize();
 
   return (
@@ -83,7 +83,7 @@ const AccordionItem = ({ item, onClick, maxWidth }) => {
         mode="link"
         onClick={() => onClick(item.id)}
         to={item.active ? '/home' : '/'}
-        variants={variants(mobile)}
+        variants={variant(mobile)}
         animate={item.active ? 'visible' : 'hidden'}
       >
         <h3>{item.title}</h3>
