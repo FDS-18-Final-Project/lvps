@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { object, bool, string } from 'prop-types';
 import { colors, fontSizes, calcRem } from 'theme/theme';
 import { CarouselImgItem, Review } from 'components/';
+import PriceTable from 'components/PriceTable/PriceTable';
 
 const styledParagraph = css`
   margin: 0 auto;
@@ -18,11 +19,23 @@ const StyledCarouselItemContainer = styled.li`
   transition: all 0.5s;
 `;
 
-const CarouselItem = ({ content, colors, active, type, ...restProps }) => {
+const CarouselItem = ({
+  content,
+  colors,
+  active,
+  type,
+  title,
+  icon,
+  iconContents,
+  ...restProps
+}) => {
   return (
     <StyledCarouselItemContainer type={type} active={active} {...restProps}>
       {type === 'paragraph' && <Review content={content} colors={colors} />}
       {type === 'img' && <CarouselImgItem content={content} />}
+      {type === 'card' && (
+        <PriceTable content={content} type={title} hover={false} icon={icon} />
+      )}
     </StyledCarouselItemContainer>
   );
 };

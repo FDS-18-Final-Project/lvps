@@ -22,7 +22,7 @@ const PriceTableContainer = styled.div`
   box-shadow: 0 3px 5px rgba(94, 94, 94, 0.4);
   position: relative;
   transition: 0.3s;
-  margin-left: 300px;
+  /* margin-left: 300px; */
 
   ${({ modal }) =>
     modal &&
@@ -110,11 +110,45 @@ const IconContainer = styled(Layout.FlexContainer)`
   }
 `;
 
-const content = [
-  { id: 1, title: 'Color Stable' },
-  { id: 2, title: 'Color Stable' },
-  { id: 3, title: 'Color Stable' }
-];
+// const content = [
+//   { id: 1, title: 'Color Stable' },
+//   { id: 2, title: 'Color Stable' },
+//   { id: 3, title: 'Color Stable' }
+// ];
+// const cardList = [
+//   [
+//     'Complete exterior hand wash',
+//     'Complete interior vaccum',
+//     'Leather cleaning and conditioning',
+//     'Cleaning windows and mirrors',
+//     'Salt removal',
+//     'Cleaning door jams',
+//     'Wheel cleaning and tire dressing',
+//     'Removing bugs, tar, tree sap',
+//     'Claybar & iron paint decontamination',
+//     'Polish to add gloss to paint',
+//     'Compound and polish to remove scratches',
+//     'Paint sealant',
+//     'Engine cleaning and dressing',
+//     'Headlights polish'
+//   ],
+//   [
+//     'Complete exterior hand wash',
+//     'Complete interior vaccum',
+//     'Leather cleaning and conditioning',
+//     'Cleaning windows and mirrors',
+//     'Salt removal',
+//     'Cleaning door jams',
+//     'Wheel cleaning and tire dressing',
+//     'Removing bugs, tar, tree sap',
+//     'Claybar & iron paint decontamination',
+//     'Polish to add gloss to paint',
+//     'Compound and polish to remove scratches',
+//     'Paint sealant',
+//     'Engine cleaning and dressing',
+//     'Headlights polish'
+//   ]
+// ];
 
 const PriceTable = ({
   type,
@@ -127,7 +161,9 @@ const PriceTable = ({
   tagType,
   tagText,
   hover,
-  price
+  price,
+  content,
+  ...restProps
 }) => {
   const [isActive, setIsActive] = useState(false);
 
@@ -142,6 +178,7 @@ const PriceTable = ({
       bgImage={tagText}
       active={isActive}
       onClick={handleClick}
+      {...restProps}
     >
       {!modal && (
         <Tag className="Tag" type={tagType}>
@@ -153,7 +190,7 @@ const PriceTable = ({
       <Divider width={55} height={1} margin={modal ? `132 0 33` : `33 0`} />
       <IconContainer>
         {icon &&
-          content.map(cont => (
+          content.iconContent.map(cont => (
             <IconParagraph
               className="IconPargraph"
               key={cont.id}
@@ -163,9 +200,13 @@ const PriceTable = ({
           ))}
       </IconContainer>
       {type === 'list' ? (
-        <CardInfo infoList={infoList} fgColor={fgColor} iconColor={iconColor} />
+        <CardInfo
+          infoList={content.cardInfo}
+          fgColor={fgColor}
+          iconColor={iconColor}
+        />
       ) : (
-        <CardInfoTitleDescription infoList={infoList} />
+        <CardInfoTitleDescription infoList={content.cardInfo} />
       )}
     </PriceTableContainer>
   );

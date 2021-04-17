@@ -11,7 +11,6 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-
       <Routes />
       <Footer>
         <Footer.Logo />
