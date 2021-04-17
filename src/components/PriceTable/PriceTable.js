@@ -110,45 +110,45 @@ const IconContainer = styled(Layout.FlexContainer)`
   }
 `;
 
-// const content = [
-//   { id: 1, title: 'Color Stable' },
-//   { id: 2, title: 'Color Stable' },
-//   { id: 3, title: 'Color Stable' }
-// ];
-// const cardList = [
-//   [
-//     'Complete exterior hand wash',
-//     'Complete interior vaccum',
-//     'Leather cleaning and conditioning',
-//     'Cleaning windows and mirrors',
-//     'Salt removal',
-//     'Cleaning door jams',
-//     'Wheel cleaning and tire dressing',
-//     'Removing bugs, tar, tree sap',
-//     'Claybar & iron paint decontamination',
-//     'Polish to add gloss to paint',
-//     'Compound and polish to remove scratches',
-//     'Paint sealant',
-//     'Engine cleaning and dressing',
-//     'Headlights polish'
-//   ],
-//   [
-//     'Complete exterior hand wash',
-//     'Complete interior vaccum',
-//     'Leather cleaning and conditioning',
-//     'Cleaning windows and mirrors',
-//     'Salt removal',
-//     'Cleaning door jams',
-//     'Wheel cleaning and tire dressing',
-//     'Removing bugs, tar, tree sap',
-//     'Claybar & iron paint decontamination',
-//     'Polish to add gloss to paint',
-//     'Compound and polish to remove scratches',
-//     'Paint sealant',
-//     'Engine cleaning and dressing',
-//     'Headlights polish'
-//   ]
-// ];
+const content = [
+  { id: 1, title: 'Color Stable' },
+  { id: 2, title: 'Color Stable' },
+  { id: 3, title: 'Color Stable' }
+];
+const cardList = [
+  [
+    'Complete exterior hand wash',
+    'Complete interior vaccum',
+    'Leather cleaning and conditioning',
+    'Cleaning windows and mirrors',
+    'Salt removal',
+    'Cleaning door jams',
+    'Wheel cleaning and tire dressing',
+    'Removing bugs, tar, tree sap',
+    'Claybar & iron paint decontamination',
+    'Polish to add gloss to paint',
+    'Compound and polish to remove scratches',
+    'Paint sealant',
+    'Engine cleaning and dressing',
+    'Headlights polish'
+  ],
+  [
+    'Complete exterior hand wash',
+    'Complete interior vaccum',
+    'Leather cleaning and conditioning',
+    'Cleaning windows and mirrors',
+    'Salt removal',
+    'Cleaning door jams',
+    'Wheel cleaning and tire dressing',
+    'Removing bugs, tar, tree sap',
+    'Claybar & iron paint decontamination',
+    'Polish to add gloss to paint',
+    'Compound and polish to remove scratches',
+    'Paint sealant',
+    'Engine cleaning and dressing',
+    'Headlights polish'
+  ]
+];
 
 const PriceTable = ({
   type,
