@@ -1,5 +1,5 @@
 import GlobalStyle from 'styles/GlobalStyle';
-import PriceCard from './PriceCard';
+import PriceCard from './PaintPrice';
 
 export default {
   title: 'LVPS/Container/PriceCard',

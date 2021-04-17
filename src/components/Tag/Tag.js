@@ -29,6 +29,7 @@ const TagText = styled.span`
 `;
 
 const Tag = ({ type, children, ...restProps }) => {
+  console.log(type);
   return (
     <TagBlock {...restProps}>
       <Icon type={type}>
@@ -44,7 +45,7 @@ Tag.propTypes = {
 };
 
 Tag.defaultProps = {
-  type: 'tagGold',
+  type: 'tagSilver',
   color: colors.white
 };
 
