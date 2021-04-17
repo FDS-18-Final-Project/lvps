@@ -47,6 +47,7 @@ const PriceTableContainer = styled.div`
   padding: ${calcInterval([0, 50])};
   .price-table {
     margin-right: ${calcRem(20)};
+    flex: 1;
   }
 
   .price-table:last-child {
@@ -67,7 +68,6 @@ const PriceTableContainer = styled.div`
 
 const PriceCardLayout = ({ title, type, icon, contents, ...restProps }) => {
   const { desktop } = useViewSize();
-
   return (
     <StyledPriceCardContainer {...restProps}>
       <StyledPriceCard>

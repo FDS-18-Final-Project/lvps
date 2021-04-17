@@ -4,13 +4,9 @@ const contents = [
   {
     id: 1,
     tagType: 'tagGold',
-    tagText: 'Gold',
+    tagText: 'Golds',
     price: '400',
-    iconContent: [
-      { id: 1, title: 'Color Stable' },
-      { id: 2, title: 'Color Stable' },
-      { id: 3, title: 'Color Stable' }
-    ],
+
     nonSelectedIdx: 7,
     cardInfo: [
       'Complete exterior hand wash',
@@ -34,11 +30,7 @@ const contents = [
     tagType: 'tagSilver',
     tagText: 'Sliver',
     price: '600',
-    iconContent: [
-      { id: 1, title: 'Colors Stables' },
-      { id: 2, title: 'Colors Stables' },
-      { id: 3, title: 'Colors Stables' }
-    ],
+
     nonSelectedIdx: 0,
     cardInfo: [
       'Complete exterior hand wash',
@@ -60,13 +52,9 @@ const contents = [
   {
     id: 3,
     tagType: 'tagRed',
-    tagText: 'Gold',
+    tagText: 'Golds',
     price: '400',
-    iconContent: [
-      { id: 1, title: 'Color Stable' },
-      { id: 2, title: 'Color Stable' },
-      { id: 3, title: 'Color Stable' }
-    ],
+
     nonSelectedIdx: 7,
     cardInfo: [
       'Complete exterior hand wash',
@@ -87,16 +75,15 @@ const contents = [
   }
 ];
 
-const WindowPrice = () => {
+const PaintPrice = () => {
   return (
     <PriceCardLayout
-      title="Ceramic Pro Automotive Packages"
+      title="Paint Protection Film Package Options"
       type="list"
-      icon
-      maxWidth={322}
+      icon={false}
       contents={contents}
     />
   );
 };
 
-export default WindowPrice;
+export default PaintPrice;

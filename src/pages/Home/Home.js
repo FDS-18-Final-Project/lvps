@@ -7,11 +7,11 @@ import {
   OurBestServices,
   OurWorks,
   SubBanner,
-  PriceCard,
   IconKeyFeature,
   IconExplanCard,
   CeramicPrice,
-  WindowPrice
+  WindowPrice,
+  PaintPrice
   // GoogleMap
 } from 'containers';
 import { Icon, Video } from 'components/';
@@ -47,17 +47,11 @@ const Home = () => {
       </OurWorks>
       <SubBanner />
       <OurBestServices />
-      {/* <PriceCard />
-      <IconExplanCard>
-        <IconExplanCard.Title />
-        <IconExplanCard.Contents />
-      </IconExplanCard>
-      <IconKeyFeature>
-        <IconKeyFeature.Title />
-        <IconKeyFeature.Contents />
-      </IconKeyFeature>
-      <CeramicPrice /> */}
+      <IconExplanCard />
+      <IconKeyFeature />
+      <CeramicPrice />
       <WindowPrice />
+      <PaintPrice />
     </>
   );
 };

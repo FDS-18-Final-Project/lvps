@@ -10,7 +10,6 @@ const CardInfoContainer = styled.ul`
   li {
     display: flex;
     align-items: center;
-    color: ${({ fgColor }) => colors[fgColor]};
 
     div {
       margin-right: ${calcRem(5)};
@@ -20,6 +19,11 @@ const CardInfoContainer = styled.ul`
   li + li {
     margin-top: ${calcRem(10)};
   }
+`;
+
+const StyledCardContent = styled.p`
+  color: ${({ nonSelected, fgColor }) =>
+    nonSelected ? colors.lightGray : colors[fgColor]};
 `;
 
 const cardInfolist = [
@@ -39,13 +43,23 @@ const cardInfolist = [
   'Headlights polish'
 ];
 
-const CardInfo = ({ iconColor, fgColor, infoList }) => {
+const CardInfo = ({ iconColor, fgColor, infoList, nonSelectedIdx }) => {
   return (
-    <CardInfoContainer fgColor={fgColor}>
-      {infoList.map(info => (
+    <CardInfoContainer>
+      {infoList.map((info, idx) => (
         <li key={info}>
-          <Icon type="checked" color={colors[iconColor]} width={calcRem(17)} />
-          {info}
+          <Icon
+            type="checked"
+            color={idx >= nonSelectedIdx ? colors.lightGray : colors[iconColor]}
+            width={calcRem(17)}
+          />
+          <StyledCardContent
+            nonSelected={idx >= nonSelectedIdx}
+            className={idx >= nonSelectedIdx ? 'non-selected' : ''}
+            fgColor={fgColor}
+          >
+            {info}
+          </StyledCardContent>
         </li>
       ))}
     </CardInfoContainer>
