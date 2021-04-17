@@ -9,9 +9,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
+      <Routes />
       <GetAQuoteCheckbox />
       <StaffIntroduction />
-      <Routes />
       <Footer>
         <Footer.Logo />
         <Footer.Content />
