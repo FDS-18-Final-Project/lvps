@@ -52,6 +52,7 @@ const CardInfo = ({ iconColor, fgColor, infoList, nonSelectedIdx }) => {
             type="checked"
             color={idx >= nonSelectedIdx ? colors.lightGray : colors[iconColor]}
             width={calcRem(17)}
+            className={idx >= nonSelectedIdx ? 'non-selected-icon' : ''}
           />
           <StyledCardContent
             nonSelected={idx >= nonSelectedIdx}

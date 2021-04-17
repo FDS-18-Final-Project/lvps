@@ -11,7 +11,8 @@ import {
   IconExplanCard,
   CeramicPrice,
   WindowPrice,
-  PaintPrice
+  PaintPrice,
+  WindowTintingPrice
   // GoogleMap
 } from 'containers';
 import { Icon, Video } from 'components/';
@@ -52,6 +53,7 @@ const Home = () => {
       <CeramicPrice />
       <WindowPrice />
       <PaintPrice />
+      <WindowTintingPrice />
     </>
   );
 };
