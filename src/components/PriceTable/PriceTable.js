@@ -239,4 +239,6 @@ PriceTable.defaultProps = {
   modal: false
 };
 
+PriceTableContainer.displayName = 'PriceTableContainer';
+IconContainer.displayName = 'IconContainer';
 export default PriceTable;

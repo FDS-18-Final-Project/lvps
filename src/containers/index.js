@@ -16,3 +16,6 @@ export { default as PriceCard } from './PriceCard/PriceCard';
 export { default as IconKeyFeature } from './IconKeyFeature/IconKeyFeature';
 export { default as CeramicPrice } from './CeramicPrice/CeramicPrice';
 export { default as WindowPrice } from './WindowPrice/WindowPrice';
+export { default as GetAQuteCheckbox } from './GetAQuoteCheckbox/GetAQuoteCheckbox';
+export { default as StaffIntroduction } from './StaffIntroduction/StaffIntroduction';
+export { default as FAQ } from './FAQ/FAQ';

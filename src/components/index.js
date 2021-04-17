@@ -22,3 +22,7 @@ export { default as IconParagraph } from './IconParagraph/IconParagraph';
 export { default as Tag } from './Tag/Tag';
 export { default as PriceTable } from './PriceTable/PriceTable';
 export { default as PriceCardLayout } from './PriceCardLayout/PriceCardLayout';
+export { default as CheckBox } from './CheckBox/CheckBox';
+export { default as Video } from './Video/Video';
+
+

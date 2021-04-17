@@ -63,4 +63,6 @@ ServiceMainBanner.defaultProps = {
   imagePath: 'assets/dummy_ceramicpro.png'
 };
 
+FullContainer.displayName = 'FullContainer';
+ServiceMainBannerContainer.displayName = 'ServiceMainBannerContainer';
 export default ServiceMainBanner;

@@ -28,6 +28,7 @@ const CardContainer = styled.div`
   span {
     line-height: 150%;
   }
+
   @media only screen and (max-width: 1200px) {
     padding: ${calcInterval([0, 50])};
   }
