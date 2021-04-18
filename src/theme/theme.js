@@ -16,6 +16,9 @@ export const colors = {
   Silver: '#A0ACB2',
   Bronze: '#A68648',
   Platinum: '#797686',
+
+  gray2: '#F4F4F4',
+
   lightGray: '#C9C9C9',
   green: '#00B056',
   redMain: '#EB1527',
