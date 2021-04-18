@@ -1,8 +1,9 @@
 import React from 'react';
 import { string } from 'prop-types';
 import styled from 'styled-components';
+import { A11yHidden } from 'components/';
 
-const StyledVideoContainer = styled.div`
+const StyledVideoContainer = styled.section`
   position: relative;
   overflow: hidden;
   height: 0;
@@ -21,6 +22,7 @@ const StyledVideoContainer = styled.div`
 const Video = ({ videoId, videoTitle }) => {
   return (
     <StyledVideoContainer>
+      <A11yHidden as="h2">Video Player section</A11yHidden>
       <iframe
         src={`https://www.youtube.com/embed/${videoId}`}
         title={videoTitle}
