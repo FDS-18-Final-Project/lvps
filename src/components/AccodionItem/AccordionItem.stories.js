@@ -2,6 +2,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import AccordionItem from 'components/AccodionItem/AccordionItem';
 import GlobalStyle from 'styles/GlobalStyle';
+import { colors } from '../../theme/theme';
 
 export default {
   title: 'LVPS/Component/AccodionItem',
