@@ -50,9 +50,7 @@ const Home = () => {
       <OurBestServices />
       <IconExplanCard />
       <IconKeyFeature />
-      <CeramicPrice />
-      <WindowPrice />
-      <PaintPrice />
+
       <WindowTintingPrice />
     </>
   );

@@ -11,8 +11,16 @@ export const colors = {
   black: '#2D2D2D',
   white: '#FFFFFF',
   gray: '#949494',
+  pink: '#E71A90',
+  Gold: '#BE9B2A',
+  Silver: '#A0ACB2',
+  Bronze: '#A68648',
+  Platinum: '#797686',
+
   gray2: '#F4F4F4',
+
   lightGray: '#C9C9C9',
+  green: '#00B056',
   redMain: '#EB1527',
   red_01: '#FFC9C9',
   red_02: '#FF9898',
