@@ -24,26 +24,7 @@ export default {
         options: ['list', 'title']
       }
     },
-    // tagType: {
-    //   description: 'Tag의 타입 지정',
-    //   control: {
-    //     type: 'select',
-    //     options: [
-    //       'tagGold',
-    //       'tagSilver',
-    //       'tagBronze',
-    //       'tagPlatinum',
-    //       'tagRed',
-    //       'tagWhite'
-    //     ]
-    //   }
-    // },
     icon: {
-      control: {
-        type: 'boolean'
-      }
-    },
-    modal: {
       control: {
         type: 'boolean'
       }
@@ -64,102 +45,28 @@ const Template = args => (
 export const ListPriceTable = Template.bind({});
 
 ListPriceTable.args = {
-  type: 'list',
-  maxWidth: 322,
-  content: {
-    id: 1,
-    tagType: 'tagSilver',
-    tagText: 'Gold',
-    price: '400',
-    cardInfo: [
-      'Complete exterior hand wash',
-      'Complete interior vaccum',
-      'Leather cleaning and conditioning',
-      'Cleaning windows and mirrors',
-      'Salt removal',
-      'Cleaning door jams',
-      'Wheel cleaning and tire dressing',
-      'Removing bugs, tar, tree sap',
-      'Claybar & iron paint decontamination',
-      'Polish to add gloss to paint',
-      'Compound and polish to remove scratches',
-      'Paint sealant',
-      'Engine cleaning and dressing',
-      'Headlights polish'
-    ]
-  },
-  hover: true
+  mode: 'list',
+  maxWidth: 322
 };
 
 export const TitlePriceTable = Template.bind({});
 
 TitlePriceTable.args = {
-  type: 'title',
-  maxWidth: 322,
-  content: {
-    id: 3,
-    tagType: 'tagBronze',
-    tagText: 'BRONZE',
-    price: '400',
-    cardInfo: [
-      {
-        id: 1,
-        title: '4 Layers Ceramic Pro 9H',
-        description: 'on all painted surfaces and trim'
-      },
-      {
-        id: 2,
-        title: '4 Layers Ceramic Pro 9H',
-        description: 'on all painted surfaces and trim'
-      },
-      {
-        id: 3,
-        title: '4 Layers Ceramic Pro 9H',
-        description: 'on all painted surfaces and trim'
-      },
-      {
-        id: 4,
-        title: '4 Layers Ceramic Pro 9H',
-        description: 'on all painted surfaces and trim'
-      }
-    ]
-  },
-  hover: false
+  mode: 'title',
+  maxWidth: 322
 };
+
+const contents = [
+  { id: 1, title: 'Nont-Metal /Fading' },
+  { id: 2, title: 'Color Stable' },
+  { id: 3, title: 'Dyed' }
+];
 
 export const IconPriceTable = Template.bind({});
 
 IconPriceTable.args = {
-  type: 'title',
+  mode: 'title',
   icon: true,
-  maxWidth: 322,
-  content: {
-    id: 1,
-    tagType: 'tagSilver',
-    tagText: 'Gold',
-    price: '400',
-    iconContent: [
-      { id: 1, title: 'Color Stable' },
-      { id: 2, title: 'Color Stable' },
-      { id: 3, title: 'Color Stable' }
-    ],
-    nonSelectedIdx: 7,
-    cardInfo: [
-      'Complete exterior hand wash',
-      'Complete interior vaccum',
-      'Leather cleaning and conditioning',
-      'Cleaning windows and mirrors',
-      'Salt removal',
-      'Cleaning door jams',
-      'Wheel cleaning and tire dressing',
-      'Removing bugs, tar, tree sap',
-      'Claybar & iron paint decontamination',
-      'Polish to add gloss to paint',
-      'Compound and polish to remove scratches',
-      'Paint sealant',
-      'Engine cleaning and dressing',
-      'Headlights polish'
-    ]
-  },
-  hover: false
+  iconContents: contents,
+  maxWidth: 322
 };
