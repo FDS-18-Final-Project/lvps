@@ -2,17 +2,18 @@ import React from 'react';
 import Routes from '../routes';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Header, Footer } from 'containers';
+import { Header, Footer, StaffIntroduction } from 'containers';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <Routes />
+      <StaffIntroduction />
+      {/* <Routes />
       <Footer>
         <Footer.Logo />
         <Footer.Content />
-      </Footer>
+      </Footer> */}
     </BrowserRouter>
   );
 };
