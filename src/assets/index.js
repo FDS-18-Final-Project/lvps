@@ -21,6 +21,8 @@ import { ReactComponent as MobileMenuIcon } from './svg/mobileMenuIcon.svg';
 import { ReactComponent as GoodWork } from './svg/goodWork.svg';
 import { ReactComponent as LikeCircle } from './svg/likeCircle.svg';
 import { ReactComponent as Message } from './svg/message.svg';
+import { ReactComponent as OpenQuote } from './svg/openQuote.svg';
+import { ReactComponent as CloseQuote } from './svg/closeQuote.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -37,14 +39,16 @@ export default {
   like: Like,
   checked: Checked,
   circle: Circle,
-  tagGold: TagGold,
   tagSilver: TagSilver,
   tagBronze: TagBronze,
   tagPlatinum: TagPlatinum,
   tagWhite: TagWhite,
   tagRed: TagRed,
+  tagGold: TagGold,
   mobileMenuIcon: MobileMenuIcon,
   goodWork: GoodWork,
   likeCircle: LikeCircle,
-  message: Message
+  message: Message,
+  openQuote: OpenQuote,
+  closeQuote: CloseQuote
 };
