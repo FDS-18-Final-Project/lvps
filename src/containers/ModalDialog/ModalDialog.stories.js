@@ -25,10 +25,32 @@ const Template = args => (
   </BrowserRouter>
 );
 
-export const ModalDialogBlock = Template.bind({});
+export const CeramicProModalDialog = Template.bind({});
 
-ModalDialogBlock.args = {
+CeramicProModalDialog.args = {
   type: 'ceramic'
 };
 
-ModalDialogBlock.storyName = 'ModalDialog Section';
+export const PPFModalDialog = Template.bind({});
+
+PPFModalDialog.args = {
+  type: 'ppf'
+};
+
+export const WindowModalDialog = Template.bind({});
+
+WindowModalDialog.args = {
+  type: 'window'
+};
+
+export const DetailModalDialog = Template.bind({});
+
+DetailModalDialog.args = {
+  type: 'detail'
+};
+
+export const WheelModalDialog = Template.bind({});
+
+WheelModalDialog.args = {
+  type: 'wheel'
+};
