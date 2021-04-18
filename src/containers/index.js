@@ -21,3 +21,4 @@ export { default as GetAQuteCheckbox } from './GetAQuoteCheckbox/GetAQuoteCheckb
 export { default as StaffIntroduction } from './StaffIntroduction/StaffIntroduction';
 export { default as FAQ } from './FAQ/FAQ';
 export { default as WindowTintingPrice } from './WindowTintingPrice/WindowTintingPrice';
+export { default as VideoPlayer } from './VideoPlayer/VideoPlayer';
