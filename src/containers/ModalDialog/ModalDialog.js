@@ -961,49 +961,49 @@ const ModalDialog = ({ type }) => {
   const { label, title, products } = modalType[type];
 
   return (
-    <Portal id="modal-root">
-      <StyledModalContainer>
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={label}
-          aria-describedby={label}
-          tabIndex="0"
-        >
-          <header id={label}>
-            <A11yHidden as="h3">{title}</A11yHidden>
-          </header>
-          {/* 카드 컨텐츠  */}
-          <StyledModalBodyContainer>
-            {products.map((product, i) => (
-              <div>
-                <h4>{product.title}</h4>
-                <StyledModalProductListContainer
-                  key={i}
-                  numOfProd={product.contents?.length}
-                >
-                  {product.contents?.map((content, i) => (
-                    <PriceTable
-                      key={i}
-                      type="title"
-                      hover={false}
-                      content={content}
-                      modal
-                    />
-                  ))}
-                </StyledModalProductListContainer>
-              </div>
-            ))}
-            <StyledButtonContainer>
-              <Button mode="button">Confirm</Button>
-            </StyledButtonContainer>
-            <Button mode="button" aria-label="Modal 닫기">
-              <Icon type="close" />
-            </Button>
-          </StyledModalBodyContainer>
-        </div>
-      </StyledModalContainer>
-    </Portal>
+    // <Portal id="modal-root">
+    <StyledModalContainer>
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={label}
+        aria-describedby={label}
+        tabIndex="0"
+      >
+        <header id={label}>
+          <A11yHidden as="h3">{title}</A11yHidden>
+        </header>
+        {/* 카드 컨텐츠  */}
+        <StyledModalBodyContainer>
+          {products.map((product, i) => (
+            <div>
+              <h4>{product.title}</h4>
+              <StyledModalProductListContainer
+                key={i}
+                numOfProd={product.contents?.length}
+              >
+                {product.contents?.map((content, i) => (
+                  <PriceTable
+                    key={i}
+                    type="title"
+                    hover={false}
+                    content={content}
+                    modal
+                  />
+                ))}
+              </StyledModalProductListContainer>
+            </div>
+          ))}
+          <StyledButtonContainer>
+            <Button mode="button">Confirm</Button>
+          </StyledButtonContainer>
+          <Button mode="button" aria-label="Modal 닫기">
+            <Icon type="close" />
+          </Button>
+        </StyledModalBodyContainer>
+      </div>
+    </StyledModalContainer>
+    // </Portal>
   );
 };
 
@@ -1013,5 +1013,11 @@ ModalDialog.prototype = {
 ModalDialog.defaultProp = {
   type: 'ceramic'
 };
+
+A11yHidden.displayName = 'Modal Title';
+StyledModalContainer.displayName = 'Modal Container';
+StyledModalBodyContainer.displayName = 'Modal Body Container';
+StyledModalProductListContainer.displayName = 'Modal Product List Container';
+StyledButtonContainer.displayName = 'Button Container';
 
 export default React.memo(ModalDialog);
