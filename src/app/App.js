@@ -14,12 +14,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <GetAQuoteFormSection />
+      {/* <GetAQuoteFormSection /> */}
       <Routes />
-      <Footer>
-        <Footer.Logo />
-        <Footer.Content />
-      </Footer>
+      <Footer />
     </BrowserRouter>
   );
 };
