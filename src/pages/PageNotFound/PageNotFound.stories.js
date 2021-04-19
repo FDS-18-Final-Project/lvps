@@ -1,15 +1,15 @@
 /* eslint-disable import/no-anonymous-default-export */
-import ErrorMessage from './ErrorMessage';
+import PageNotFound from './PageNotFound';
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from '../../styles/GlobalStyle';
 
 export default {
-  title: 'LVPS/Container/ErrorMessage',
-  component: ErrorMessage,
+  title: 'LVPS/Pages/PageNotFound',
+  component: PageNotFound,
   parameters: {
     docs: {
       description: {
-        component: '404 Not Found 페이지의 메세지 박스입니다.'
+        component: '잘못된 URL로 접근시 나타나는 404 Not Found 페이지입니다.'
       }
     },
     design: {
@@ -24,9 +24,9 @@ export default {
 const Template = args => (
   <BrowserRouter>
     <GlobalStyle />
-    <ErrorMessage {...args} />
+    <PageNotFound {...args} />
   </BrowserRouter>
 );
 
 //스토리 구성 객체 기본 내보내기
-export const ErrorMessageContainer = Template.bind({});
+export const PageNotFoundPage = Template.bind({});
