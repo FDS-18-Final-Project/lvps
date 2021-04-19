@@ -1,7 +1,18 @@
-import { Carousel, PriceTable } from 'components/';
 import useViewSize from 'hooks/useViewSize';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { calcInterval, calcRem, fontSizes } from 'theme/theme';
+
+const gridStyle = css`
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  gap: ${calcRem(20)} 0;
+`;
+
+const flexStyle = css`
+  display: flex;
+  justify-content: space-around;
+`;
 
 const StyledPriceCardContainer = styled.section`
   @media only screen and (max-width: 1200px) {
@@ -30,7 +41,7 @@ const StyledPriceCard = styled.div`
 
   @media only screen and (max-width: 375px) {
     li > div {
-      padding: 10px;
+      padding: ${({ mode }) => mode === 'desc' && '10px'};
     }
   }
 `;
@@ -42,15 +53,18 @@ const StyledPriceCardHeading = styled.h2`
 `;
 
 const PriceTableContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  padding: ${calcInterval([0, 50])};
-  .price-table {
-    margin-right: ${calcRem(20)};
+  ${({ display }) => (display === 'grid' ? gridStyle : flexStyle)}
+
+  & > div {
+    margin-right: ${({ marginRight }) => calcRem(marginRight)};
     flex: 1;
   }
 
-  .price-table:last-child {
+  & > div:nth-child(4) {
+    margin-right: ${({ display }) => display === 'grid' && 0};
+  }
+
+  & > div:last-child {
     margin-right: 0;
   }
 
@@ -66,30 +80,42 @@ const PriceTableContainer = styled.div`
   }
 `;
 
-const PriceCardLayout = ({ title, type, icon, contents, ...restProps }) => {
+const PriceCardLayout = ({
+  title,
+  type,
+  icon,
+  contents,
+  children,
+  cardList,
+  marginRight,
+  display,
+  mode,
+  ...restProps
+}) => {
   const { desktop } = useViewSize();
   return (
     <StyledPriceCardContainer {...restProps}>
-      <StyledPriceCard>
+      <StyledPriceCard mode={mode}>
         <StyledPriceCardHeading>{title}</StyledPriceCardHeading>
         {desktop ? (
-          <PriceTableContainer>
-            {contents.map(content => (
-              <PriceTable
-                type={type}
-                icon={icon}
-                maxWidth={322}
-                content={content}
-                className="price-table"
-              />
-            ))}
+          <PriceTableContainer
+            marginRight={marginRight}
+            display={display}
+            className="card-container"
+          >
+            {cardList}
           </PriceTableContainer>
         ) : (
-          <Carousel type="card" contents={contents} title={type} icon={icon} />
+          <>{children}</>
         )}
       </StyledPriceCard>
     </StyledPriceCardContainer>
   );
+};
+
+PriceCardLayout.defaultProps = {
+  display: 'flex',
+  mode: 'normal'
 };
 
 export default PriceCardLayout;

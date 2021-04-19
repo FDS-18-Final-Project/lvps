@@ -10,7 +10,9 @@ import {
   IconKeyFeature,
   IconExplanCard,
   WindowTintingPrice,
-  ServiceInfo
+  ServiceInfo,
+  PaintPrice,
+  WindowPrice
   // GoogleMap
 } from 'containers';
 import { Icon, Video } from 'components/';
@@ -18,6 +20,14 @@ import { colors } from 'theme/theme';
 import { calcRem } from '../../theme/theme';
 
 import TagPriceTable from 'components/PriceTable/TagPriceTable';
+import CeramicProProtectionPackage from 'containers/CeramicProProtectionPackage/CeramicProProtectionPackage';
+import CeramicProProtectionOptions from 'containers/CeramicProProtectionOptions/CeramicProProtectionOptions';
+import IGLProtectionProducts from 'containers/IGLProtectionProducts/IGLProtectionProducts';
+import PaintProtectionFilmPackage from 'containers/PaintProtectionFilmPackage/PaintProtectionFilmPackage';
+import PaintProtectionFilmOptions from 'containers/PaintProtectionFilmOptions/PaintProtectionFilmOptions';
+import WindowTintingCarbon from 'containers/WindowTintingCarbon/WindowTintingCarbon';
+import WindowTintingCeramic from 'containers/WindowTintingCeramic/WindowTintingCeramic';
+import DetailingPaintPackage from 'containers/DetailingPaintPackage/DetailingPaintPackage';
 
 const Home = () => {
   return (
@@ -57,12 +67,20 @@ const Home = () => {
       <OurBestServices />
       <IconExplanCard />
       <IconKeyFeature />
+      <CeramicProProtectionPackage />
+      <CeramicProProtectionOptions />
+      <IGLProtectionProducts />
+      <PaintProtectionFilmPackage />
+      <PaintProtectionFilmOptions />
+      <WindowTintingCarbon />
+      <WindowTintingCeramic />
+      <DetailingPaintPackage />
 
-      <PaintPrice />
-      <WindowPrice />
+      {/* <PaintPrice /> */}
+      {/* <WindowPrice /> */}
 
-      <WindowTintingPrice />
-      <TagPriceTable />
+      {/* <WindowTintingPrice /> */}
+      {/* <TagPriceTable /> */}
     </>
   );
 };

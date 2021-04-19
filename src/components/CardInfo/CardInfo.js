@@ -6,6 +6,7 @@ import Icon from 'components/Icon/Icon';
 
 const CardInfoContainer = styled.ul`
   display: inline-block;
+  min-height: ${({ minHeight }) => calcRem(minHeight)};
 
   li {
     display: flex;
@@ -43,9 +44,15 @@ const cardInfolist = [
   'Headlights polish'
 ];
 
-const CardInfo = ({ iconColor, fgColor, infoList, nonSelectedIdx }) => {
+const CardInfo = ({
+  iconColor,
+  fgColor,
+  infoList,
+  nonSelectedIdx,
+  minHeight
+}) => {
   return (
-    <CardInfoContainer>
+    <CardInfoContainer minHeight={minHeight}>
       {infoList.map((info, idx) => (
         <li key={info}>
           <Icon
@@ -76,7 +83,8 @@ CardInfo.propTypes = {
 CardInfo.defaultProps = {
   iconColor: 'redMain',
   fgColor: 'black',
-  infoList: cardInfolist
+  infoList: cardInfolist,
+  padding: [0]
 };
 
 export default CardInfo;

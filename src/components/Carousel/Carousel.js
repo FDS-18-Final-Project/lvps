@@ -25,14 +25,7 @@ const StyledCarouselButton = styled(Icon)`
   ${({ direction }) => (direction === 'left' ? 'left: 0' : 'right: 0')};
 `;
 
-const Carousel = ({
-  type,
-  contents,
-  title,
-  icon,
-  iconContents,
-  ...restProps
-}) => {
+const Carousel = ({ type, contents, ...restProps }) => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [isMoving, setIsMoving] = useState(false);
   const { desktop } = useViewSize();
@@ -80,10 +73,7 @@ const Carousel = ({
                 type={type}
                 colors={{ main: colors.lightGray, sub: colors.white }}
                 content={content}
-                iconContents={iconContents}
                 active={currentSlide === idx}
-                title={title}
-                icon={icon}
               />
             )
           )}
@@ -124,7 +114,7 @@ Carousel.propTypes = {
 
 Carousel.defaultProps = {
   type: 'img',
-  content: []
+  contents: []
 };
 
 StyledCarouselContainer.displayName = 'StyledCarouselContainer';

@@ -5,7 +5,7 @@ import { calcInterval, fontSizes, calcRem, colors } from 'theme/theme';
 import { string } from 'prop-types';
 
 const TitlePriceTableContainer = styled(PriceTable)`
-  padding: ${calcInterval([78, 50, 81])};
+  padding: ${({ padding }) => calcInterval(padding)};
 
   h2 {
     text-align: center;
@@ -20,6 +20,7 @@ const TitlePriceTableContainer = styled(PriceTable)`
   strong {
     color: ${({ priceColor }) => colors[priceColor]};
   }
+
   svg {
     path {
       fill: ${({ priceColor }) => colors[priceColor]};
@@ -27,9 +28,13 @@ const TitlePriceTableContainer = styled(PriceTable)`
   }
 `;
 
-const TitlePriceTable = ({ priceColor, heading, ...restProps }) => {
+const TitlePriceTable = ({ priceColor, heading, padding, ...restProps }) => {
   return (
-    <TitlePriceTableContainer priceColor={priceColor} {...restProps}>
+    <TitlePriceTableContainer
+      priceColor={priceColor}
+      padding={padding}
+      {...restProps}
+    >
       <h2>{heading}</h2>
     </TitlePriceTableContainer>
   );
@@ -42,7 +47,8 @@ TitlePriceTable.propTypes = {
 
 TitlePriceTable.defaultProps = {
   priceColor: 'green',
-  heading: 'IGL QUARTZ+'
+  heading: 'IGL QUARTZ+',
+  padding: [78, 50, 81]
 };
 
 export default TitlePriceTable;
