@@ -59,11 +59,12 @@ const StyledParagraph = styled(Paragraph)`
   /* width: ${calcRem(240)}; */
 `;
 
-const Footer = ({ children }) => {
+const Footer = () => {
   return (
     <StyledFooterContainer>
       <FullContainer tag="footer" justifyContent="space-around">
-        {children}
+        <Footer.Logo />
+        <Footer.Contents />
       </FullContainer>
     </StyledFooterContainer>
   );
@@ -73,7 +74,7 @@ Footer.Logo = () => {
   return <Logo tag="h2" />;
 };
 
-Footer.Content = () => {
+Footer.Contents = () => {
   const { white, lightGray } = colors;
   return (
     <StyledFooterContent>
@@ -134,7 +135,7 @@ Footer.Content = () => {
 StyledFooterContent.displayName = 'StyledFooterContent';
 FullContainer.displayName = 'FullContainer';
 Footer.Logo.displayName = 'Footer-Logo';
-Footer.Content.displayName = 'Footer-Content';
+Footer.Contents.displayName = 'Footer-Contents';
 StyledParagraph.displayName = 'StyledParagraph';
 
 export default Footer;
