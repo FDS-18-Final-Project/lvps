@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { calcRem, calcInterval, colors } from 'theme/theme';
+import { calcRem, calcInterval, colors, fontSizes } from 'theme/theme';
 import { Navbar, Logo, Icon, SearchForm } from 'components';
 
 import { AnimatePresence } from 'framer-motion';
@@ -12,8 +12,12 @@ const HeaderContainer = styled.header`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: ${colors.white};
 
+  .logo {
+    min-width: ${calcRem(100)};
+  }
   nav {
-    flex: 2;
+    flex: 3;
+    margin-right: ${calcRem(20)};
   }
 
   button + button {
@@ -22,20 +26,46 @@ const HeaderContainer = styled.header`
 
   @media only screen and (max-width: 1200px) {
     padding: ${calcInterval([0, 50])};
+    a {
+      font-size: ${fontSizes.small};
+      font-weight: 600;
+    }
   }
   @media only screen and (max-width: 768px) {
     padding: ${calcInterval([15, 25])};
+
+    input {
+      margin-right: ${calcRem(12)};
+    }
   }
 `;
 
 const IconContainer = styled(Layout.FlexContainer)`
-  flex: 1;
+  flex: 0.7;
   justify-content: flex-end;
-  div + div {
-    margin-left: ${calcRem(35)};
+  div {
+    margin-left: 20%;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    svg {
+      width: ${calcRem(18)};
+    }
   }
   @media only screen and (max-width: 768px) {
     flex: 0;
+
+    svg {
+      width: 25px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    flex: 0;
+
+    svg {
+      width: 18px;
+    }
   }
 `;
 
@@ -70,8 +100,8 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Layout>
-        <Layout.FlexContainer flex={1} justifyContent="flex-start">
-          <Logo maxWidth={185} />
+        <Layout.FlexContainer flex={0.95} justifyContent="flex-start">
+          <Logo className="logo" maxWidth={185} />
         </Layout.FlexContainer>
         <Layout.FlexContainer tag="nav">
           <AnimatePresence initial={false}>
@@ -97,9 +127,11 @@ const Header = () => {
         <IconContainer>
           {mobile ? (
             <Icon
+              button
               type="mobileMenuIcon"
               color={colors.white}
-              width={calcRem(25)}
+              width={calcRem(40)}
+              height={calcRem(30)}
             />
           ) : (
             <>

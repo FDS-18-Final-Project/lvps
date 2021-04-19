@@ -24,14 +24,17 @@ const FullContainer = styled.section`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    transition: 0.3s;
+  }
+  @media only screen and (max-width: 1200px) {
+    padding: ${calcInterval([0, 50])};
   }
 
   @media only screen and (max-width: 768px) {
     padding: ${calcInterval([0, 20])};
   }
-
-  @media only screen and (max-width: 1200px) {
-    padding: ${calcInterval([0, 50])};
+  @media only screen and (max-width: 375px) {
+    padding: ${calcInterval([0, 15])};
   }
 `;
 
@@ -89,12 +92,6 @@ const ServicesContainer = styled.div`
       li {
         max-width: 100%;
       }
-      a {
-        padding: ${calcInterval([0, 80, 10])};
-        &:hover {
-          padding: ${calcInterval([0, 80, 10])};
-        }
-      }
 
       h3 {
         font-size: ${fontSizes.base};
@@ -110,6 +107,12 @@ const ServicesContainer = styled.div`
     div + div {
       margin-left: 0;
       margin-top: ${calcRem(15)};
+    }
+  }
+
+  @media only screen and (max-width: 375px) {
+    .imageContainer {
+      display: none;
     }
   }
 `;
@@ -182,11 +185,11 @@ const OurBestServices = ({ title, imagePath }) => {
   };
 
   return (
-    <FullContainer imagePath={imagePath}>
+    <FullContainer imagePath={setActiveImage()}>
       <ServicesContainer>
         <h2>{title}</h2>
         <AnimatePresence initial={false}>
-          <Layout.FlexContainer flex={2}>
+          <Layout.FlexContainer className="imageContainer" flex={2}>
             <motion.img
               initial={{ opacity: 0 }}
               animate={{

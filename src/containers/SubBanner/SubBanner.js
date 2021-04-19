@@ -1,11 +1,17 @@
 import React from 'react';
 import { node, string } from 'prop-types';
 import styled from 'styled-components';
-import { calcInterval, calcRem, colors } from 'theme/theme';
+import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
 import { Paragraph, Button } from 'components/';
 import Layout from 'pages/Layout/Layout';
 
-const SubBannerContainer = styled.section`
+const FullContainer = styled.section`
+  @media only screen and (max-width: 375px) {
+    padding: ${calcInterval([0, 15])};
+  }
+`;
+
+const SubBannerContainer = styled.div`
   background: ${colors.white};
   width: 100%;
   margin: 0 auto;
@@ -32,11 +38,23 @@ const SubBannerContainer = styled.section`
   }
 
   @media only screen and (max-width: 768px) {
-    padding: 50px 0;
+    padding: ${calcInterval([50, 0])};
+
     grid-template: repeat(3, 0.3fr) / repeat(1, 1fr);
     .gridParagraph {
       padding: 0;
       text-align: center;
+
+      h2 {
+        font-size: ${fontSizes.xl};
+        line-height: ${calcRem(26)};
+      }
+
+      p {
+        font-size: ${calcRem(14)};
+        line-height: ${calcRem(21)};
+        color: ${colors.gray};
+      }
     }
 
     .gridImg {
@@ -44,9 +62,11 @@ const SubBannerContainer = styled.section`
     }
     .gridBtn {
       grid-row: 3 / 4;
-      padding: ${calcInterval([0, 50])};
+
       a {
         width: 100%;
+        font-size: ${fontSizes.lg};
+        line-height: ${calcRem(27)};
       }
     }
     .gridImg {
@@ -59,26 +79,33 @@ const LayoutContainer = styled(Layout.FlexContainer)``;
 
 const SubBanner = ({ title, description, imagePath, children }) => {
   return (
-    <SubBannerContainer>
-      <LayoutContainer className="gridParagraph">
-        <Paragraph className="paragraph" title={title} size={24} headingNum={2}>
-          {description}
-        </Paragraph>
-      </LayoutContainer>
-      <LayoutContainer className="gridBtn">
-        <Button
-          mode="link"
-          to="/get-a-quote"
-          styledmode="secondary"
-          height={55}
-        >
-          {children}
-        </Button>
-      </LayoutContainer>
-      <LayoutContainer className="gridImg">
-        <img src={imagePath} alt="dummyImage" />
-      </LayoutContainer>
-    </SubBannerContainer>
+    <FullContainer>
+      <SubBannerContainer>
+        <LayoutContainer className="gridParagraph">
+          <Paragraph
+            className="paragraph"
+            title={title}
+            size={24}
+            headingNum={2}
+          >
+            {description}
+          </Paragraph>
+        </LayoutContainer>
+        <LayoutContainer className="gridBtn">
+          <Button
+            mode="link"
+            to="/get-a-quote"
+            styledmode="secondary"
+            height={55}
+          >
+            {children}
+          </Button>
+        </LayoutContainer>
+        <LayoutContainer className="gridImg">
+          <img src={imagePath} alt="dummyImage" />
+        </LayoutContainer>
+      </SubBannerContainer>
+    </FullContainer>
   );
 };
 
