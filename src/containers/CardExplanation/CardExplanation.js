@@ -21,11 +21,14 @@ const CardContainer = styled.div`
     margin-top: ${calcRem(75)};
     font-size: ${calcRem(45)};
     margin-bottom: ${calcRem(15)};
+    font-family: Montserrat;
   }
+
   h2 + p {
     font-size: ${calcRem(18)};
     color: ${colors.redMain};
   }
+
   span {
     line-height: 150%;
   }
@@ -40,7 +43,7 @@ const CardContainer = styled.div`
     }
   }
   @media only screen and (max-width: 768px) {
-    padding: 0 1.1rem;
+    padding: 0 1.1rem ${calcRem(75)};
 
     h2 {
       font-size: ${calcRem(24)};

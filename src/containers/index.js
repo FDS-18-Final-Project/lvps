@@ -26,3 +26,4 @@ export { default as FAQ } from './FAQ/FAQ';
 export { default as WindowTintingPrice } from './WindowTintingPrice/WindowTintingPrice';
 export { default as Video } from './Video/Video';
 export { default as BrandList } from './BrandList/BrandList';
+export { default as SubMainBanner } from './SubMainBanner/SubMainBanner';
