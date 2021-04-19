@@ -12,14 +12,14 @@ const NavbarContainer = styled(motion.ul)`
   justify-content: ${({ justifyContent }) => justifyContent};
   align-items: ${({ alignItems }) => alignItems};
   font-size: ${fontSizes.lg};
+  font-weight: bold;
 
   a {
     display: inline-block;
-    padding: ${calcRem(32)} 0;
     transition: 0.4s;
     color: inherit;
     white-space: nowrap;
-
+    padding: ${calcRem(10)};
     &:hover {
       color: rgba(235, 21, 39, 0.8);
     }

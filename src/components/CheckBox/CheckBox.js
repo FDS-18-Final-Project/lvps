@@ -8,6 +8,8 @@ const CheckBoxContainer = styled.label`
   border: 1px solid lightgray;
   position: relative;
   border: 4px solid #c9c9c9;
+  background-color: white;
+
 
   &::before {
     position: absolute;
@@ -57,5 +59,7 @@ CheckBox.defaultProps = {
   imagePath: 'assets/dummyImage.png',
   label: 'CERAMIC COATING'
 };
+
+CheckBoxContainer.displayName = 'CheckBoxContainer';
 
 export default CheckBox;

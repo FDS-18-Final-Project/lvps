@@ -1,5 +1,5 @@
 import React from 'react';
-import { func, array } from 'prop-types';
+import { func, array, number } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem } from 'theme/theme';
 import AccordionItem from 'components/AccodionItem/AccordionItem';
@@ -10,11 +10,17 @@ const AccordionContainer = styled.ul`
   }
 `;
 
-const AccordionList = ({ accordion, handleClick }) => {
+const AccordionList = ({ accordion, handleClick, maxWidth, variant }) => {
   return (
     <AccordionContainer>
       {accordion.map(item => (
-        <AccordionItem key={item.id} item={item} onClick={handleClick} />
+        <AccordionItem
+          key={item.id}
+          item={item}
+          onClick={handleClick}
+          maxWidth={maxWidth}
+          variant={variant}
+        />
       ))}
     </AccordionContainer>
   );
@@ -22,7 +28,8 @@ const AccordionList = ({ accordion, handleClick }) => {
 
 AccordionList.propTypes = {
   accordion: array,
-  handleClick: func
+  handleClick: func,
+  maxWidth: number
 };
 
 AccordionContainer.displayName = 'AccordionContainer';

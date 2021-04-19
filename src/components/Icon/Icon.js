@@ -48,7 +48,6 @@ const Icon = ({
       </StyledIconButton>
     );
   else Comp = React.createElement(svg[type], { ...restProps });
-
   return (
     <StyledIconContainer
       color={color}

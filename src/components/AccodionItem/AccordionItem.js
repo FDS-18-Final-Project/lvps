@@ -1,5 +1,5 @@
 import React from 'react';
-import { object, func } from 'prop-types';
+import { object, func, number } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, fontSizes, colors, calcRem } from 'theme/theme';
 import { Button, Icon } from 'components';
@@ -13,9 +13,9 @@ const StyledButton = styled(Button)`
   overflow: hidden;
   position: relative;
   border: none;
-
+  margin-bottom: 5px;
   &:hover {
-    border: 0;
+    border: none;
     padding: ${calcInterval([0, 40, 35])};
 
     path {
@@ -53,7 +53,7 @@ const StyledButton = styled(Button)`
 `;
 
 const AccordionItemContainer = styled.li`
-  max-width: ${calcRem(310)};
+  max-width: ${({ maxWidth }) => calcRem(maxWidth)};
 `;
 
 const variants = mobile => ({
@@ -73,17 +73,17 @@ const variants = mobile => ({
   }
 });
 
-const AccordionItem = ({ item, onClick }) => {
+const AccordionItem = ({ item, onClick, maxWidth, variant = variants }) => {
   const { mobile } = useViewSize();
 
   return (
-    <AccordionItemContainer>
+    <AccordionItemContainer maxWidth={maxWidth}>
       <StyledButton
         fullwidth={mobile}
         mode="link"
         onClick={() => onClick(item.id)}
         to={item.active ? '/home' : '/'}
-        variants={variants(mobile)}
+        variants={variant(mobile)}
         animate={item.active ? 'visible' : 'hidden'}
       >
         <h3>{item.title}</h3>
@@ -105,7 +105,8 @@ const AccordionItem = ({ item, onClick }) => {
 
 AccordionItem.propTypes = {
   item: object.isRequired,
-  onClick: func
+  onClick: func,
+  maxWidth: number
 };
 
 AccordionItem.defaultProps = {
@@ -119,7 +120,8 @@ AccordionItem.defaultProps = {
       'Services'
     ],
     active: true
-  }
+  },
+  maxWidth: 310
 };
 
 AccordionItemContainer.displayName = 'AccordionItemContainer';
