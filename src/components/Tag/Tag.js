@@ -44,7 +44,7 @@ Tag.propTypes = {
 };
 
 Tag.defaultProps = {
-  type: 'tagGold',
+  // type: 'tagSilver',
   color: colors.white
 };
 

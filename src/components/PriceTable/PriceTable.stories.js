@@ -24,26 +24,7 @@ export default {
         options: ['list', 'title']
       }
     },
-    tagType: {
-      description: 'Tag의 타입 지정',
-      control: {
-        type: 'select',
-        options: [
-          'tagGold',
-          'tagSilver',
-          'tagBronze',
-          'tagPlatinum',
-          'tagRed',
-          'tagWhite'
-        ]
-      }
-    },
     icon: {
-      control: {
-        type: 'boolean'
-      }
-    },
-    modal: {
       control: {
         type: 'boolean'
       }
@@ -64,33 +45,28 @@ const Template = args => (
 export const ListPriceTable = Template.bind({});
 
 ListPriceTable.args = {
-  type: 'list',
-  maxWidth: 322,
-  tagType: 'tagGold',
-  tagText: 'Gold',
-  price: 4500,
-  hover: true
+  mode: 'list',
+  maxWidth: 322
 };
 
 export const TitlePriceTable = Template.bind({});
 
 TitlePriceTable.args = {
-  type: 'title',
-  maxWidth: 322,
-  tagType: 'tagSilver',
-  tagText: 'Gold',
-  price: 4500,
-  hover: false
+  mode: 'title',
+  maxWidth: 322
 };
+
+const contents = [
+  { id: 1, title: 'Nont-Metal /Fading' },
+  { id: 2, title: 'Color Stable' },
+  { id: 3, title: 'Dyed' }
+];
 
 export const IconPriceTable = Template.bind({});
 
 IconPriceTable.args = {
-  type: 'title',
+  mode: 'title',
   icon: true,
-  maxWidth: 322,
-  tagType: 'tagSilver',
-  tagText: 'Gold',
-  price: 4500,
-  hover: false
+  iconContents: contents,
+  maxWidth: 322
 };

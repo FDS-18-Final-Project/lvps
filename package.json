@@ -122,6 +122,7 @@
     "craco-alias": "^2.2.0",
     "file-loader": "^6.1.1",
     "image-webpack-loader": "^7.0.1",
+    "redux-logger": "^3.0.6",
     "storybook-addon-designs": "^5.4.5"
   }
 }

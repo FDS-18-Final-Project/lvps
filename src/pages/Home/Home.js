@@ -6,7 +6,13 @@ import {
   MainBanner,
   OurBestServices,
   OurWorks,
-  SubBanner
+  SubBanner,
+  IconKeyFeature,
+  IconExplanCard,
+  CeramicPrice,
+  WindowPrice,
+  PaintPrice,
+  WindowTintingPrice
   // GoogleMap
 } from 'containers';
 import { Icon, Video } from 'components/';
@@ -42,6 +48,10 @@ const Home = () => {
       </OurWorks>
       <SubBanner />
       <OurBestServices />
+      <IconExplanCard />
+      <IconKeyFeature />
+
+      <WindowTintingPrice />
     </>
   );
 };
