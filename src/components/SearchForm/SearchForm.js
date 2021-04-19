@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { func, bool } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, calcInterval, fontSizes } from 'theme/theme';
@@ -41,10 +41,12 @@ const StyledAutoCompleteContainer = styled.ul`
   min-width: 83%;
   font-weight: bold;
   box-sizing: border-box;
+  /* padding: ${calcRem(4)}; */
 
   li {
     padding: ${calcInterval([10, 20])};
     font-size: ${fontSizes.base};
+    /* border-radius: ${calcRem(10)}; */
   }
 
   @media only screen and (max-width: 1200px) {
@@ -112,10 +114,14 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
     [focusIdx, results]
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener('keyup', handleKeydown);
     return () => document.removeEventListener('keyup', handleKeydown);
   }, [focusIdx, handleKeydown, results, results.length]);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [inputRef]);
 
   return (
     <motion.form
@@ -149,7 +155,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
           {results.map((item, idx) => (
             <li
               style={
-                idx === focusIdx ? { backgroundColor: colors.lightGray } : null
+                idx === focusIdx ? { backgroundColor: colors.gray3 } : null
               }
             >
               <StyledLink to={item.link}>{item.keyWord}</StyledLink>

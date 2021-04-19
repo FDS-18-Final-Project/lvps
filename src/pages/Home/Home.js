@@ -19,6 +19,8 @@ import { Icon, Video } from 'components/';
 import { colors } from 'theme/theme';
 import { calcRem } from '../../theme/theme';
 
+import TagPriceTable from 'components/PriceTable/TagPriceTable';
+
 const Home = () => {
   return (
     <>
@@ -50,10 +52,12 @@ const Home = () => {
       <OurBestServices />
       <IconExplanCard />
       <IconKeyFeature />
-      <CeramicPrice />
-      <WindowPrice />
+
       <PaintPrice />
+      <WindowPrice />
+
       <WindowTintingPrice />
+      <TagPriceTable />
     </>
   );
 };

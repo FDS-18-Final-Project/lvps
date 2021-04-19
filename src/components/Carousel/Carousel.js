@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useSwipeable } from 'react-swipeable';
 import { array, string } from 'prop-types';
 import styled from 'styled-components';
-import { useSwipeable } from 'react-swipeable';
 import { calcRem, colors } from 'theme/theme';
 import { Icon, CarouselItem, Indicator } from 'components/';
 import useViewSize from 'hooks/useViewSize';
@@ -71,7 +71,7 @@ const Carousel = ({
 
   return (
     <>
-      <StyledCarouselContainer type={type} {...handlers}>
+      <StyledCarouselContainer type={type} {...handlers} {...restProps}>
         <Slides currentSlide={currentSlide} length={TOTAL_LENGTH}>
           {[contents[TOTAL_LENGTH - 1], ...contents, contents[0]].map(
             (content, idx) => (
