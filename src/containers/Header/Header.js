@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import { calcRem, calcInterval, colors, fontSizes } from 'theme/theme';
 import { Navbar, Logo, Icon, SearchForm } from 'components';

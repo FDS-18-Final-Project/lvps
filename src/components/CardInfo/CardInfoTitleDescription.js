@@ -1,9 +1,11 @@
 import React from 'react';
 import { array } from 'prop-types';
 import styled from 'styled-components';
-import { calcRem, colors } from 'theme/theme';
+import { calcInterval, calcRem, colors } from 'theme/theme';
 
 const CardInfoTitleDescriptionContainer = styled.ul`
+  min-height: ${({ minHeight }) => calcRem(minHeight)};
+
   li {
     text-align: center;
 
@@ -45,9 +47,9 @@ const infoList = [
   }
 ];
 
-const CardInfoTitleDescription = ({ infoList, ...restProps }) => {
+const CardInfoTitleDescription = ({ infoList, minHeight, ...restProps }) => {
   return (
-    <CardInfoTitleDescriptionContainer {...restProps}>
+    <CardInfoTitleDescriptionContainer minHeight={minHeight} {...restProps}>
       {infoList.map(info => (
         <li key={info.id}>
           <h3>{info.title}</h3>
@@ -63,7 +65,8 @@ CardInfoTitleDescription.propTypes = {
 };
 
 CardInfoTitleDescription.defaultProps = {
-  infoList: infoList
+  infoList: infoList,
+  padding: [0]
 };
 
 export default CardInfoTitleDescription;

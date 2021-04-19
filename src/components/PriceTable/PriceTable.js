@@ -17,7 +17,7 @@ const PriceTableContainer = styled.div`
   box-shadow: 0 3px 5px rgba(94, 94, 94, 0.4);
   position: relative;
   transition: 0.3s;
-  /* margin-left: 300px; */
+  background-color: ${colors.white};
 
   strong {
     color: ${colors.red_05};
@@ -73,6 +73,8 @@ const PriceTable = ({
   info,
   iconContents,
   descriptionContainer,
+  minHeight,
+  nonSelectedIdx,
   ...restProps
 }) => {
   const [isActive, setIsActive] = useState(false);
@@ -104,12 +106,13 @@ const PriceTable = ({
       {mode === 'list' ? (
         <CardInfo
           infoList={info}
-          //nonSelectedIdx={content.nonSelectedIdx}
+          minHeight={minHeight}
+          nonSelectedIdx={nonSelectedIdx}
           fgColor={fgColor}
           iconColor={iconColor}
         />
       ) : (
-        <CardInfoTitleDescription infoList={info} />
+        <CardInfoTitleDescription minHeight={minHeight} infoList={info} />
       )}
     </PriceTableContainer>
   );
@@ -118,6 +121,7 @@ const PriceTable = ({
 PriceTable.propTypes = {
   mode: oneOf(['list', 'title']),
   maxWidth: number,
+  minHeight: number,
   fgColor: string,
   iconColor: string,
   title: string,

@@ -4,9 +4,9 @@ import styled, { css } from 'styled-components';
 import PriceTable from './PriceTable';
 import { string } from 'prop-types';
 import { calcInterval, calcRem, colors } from '../../theme/theme';
+import useViewSize from 'hooks/useViewSize';
 
 const TagPriceTableContainer = styled(PriceTable)`
-  margin: 100px;
   padding: ${calcInterval([135, 30, 103])};
 
   ${({ hover }) =>
@@ -43,11 +43,21 @@ const TagPriceTableContainer = styled(PriceTable)`
     top: 4%;
     left: ${calcRem(-7)};
   }
+
+  strong {
+    color: ${({ priceColor }) => colors[priceColor]};
+  }
 `;
 
-const TagPriceTable = ({ type, typeText, ...restProps }) => {
+const TagPriceTable = ({ type, typeText, priceColor, ...restProps }) => {
+  const { mobile } = useViewSize();
+
   return (
-    <TagPriceTableContainer {...restProps}>
+    <TagPriceTableContainer
+      priceColor={priceColor}
+      hover={mobile ? false : true}
+      {...restProps}
+    >
       <Tag className="tag" type={type}>
         {typeText}
       </Tag>
@@ -62,7 +72,8 @@ TagPriceTable.propTypes = {
 
 TagPriceTable.defaultProps = {
   type: 'tagGold',
-  typeText: 'Gold'
+  typeText: 'Gold',
+  priceColor: colors.redMain
 };
 
 TagPriceTableContainer.displayName = 'TagPriceTableContainer';

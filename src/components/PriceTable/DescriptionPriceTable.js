@@ -8,6 +8,10 @@ import { string } from 'prop-types';
 const DescriptionPriceTableContainer = styled(PriceTable)`
   padding: ${calcInterval([130, 80, 114])};
 
+  @media only screen and (max-width: 375px) {
+    padding: ${({ padding }) => calcInterval(padding)};
+  }
+
   .tag {
     position: absolute;
     top: 4%;
@@ -38,6 +42,9 @@ const DescriptionPriceTableContainer = styled(PriceTable)`
   ul {
     width: 100%;
 
+    p {
+      margin-bottom: ${calcRem(10)};
+    }
     div {
       margin-right: ${calcRem(10)};
     }
@@ -56,6 +63,7 @@ const DescriptionPriceTable = ({
   subject,
   description,
   heading,
+  padding,
   ...restProps
 }) => {
   return (
@@ -63,6 +71,7 @@ const DescriptionPriceTable = ({
       descriptionContainer={
         <DescriptionContainer subject={subject} description={description} />
       }
+      padding={padding}
       {...restProps}
     >
       <Tag className="tag" type="tagRed">
@@ -84,7 +93,8 @@ DescriptionPriceTable.defaultProps = {
   description: `The Pinnacle Of High Performance Tint. Period.
   Offering 98% infrared heat rejection thanks to multi-layer nanoparticle technology, PRIME XR PLUS ™ combines a cool look with extreme performance. Let PRIME XR PLUS keep you comfortable and protected no matter the weather.
   `,
-  heading: 'PRIME XR PLUS ™'
+  heading: 'PRIME XR PLUS ™',
+  padding: [130, 80, 114]
 };
 
 DescriptionPriceTableContainer.displayName = 'DescriptionPriceTableContainer';
