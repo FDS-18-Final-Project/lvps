@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
-import { useSwipeable } from 'react-swipeable';
 import { array, string } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors } from 'theme/theme';
 import { Icon, CarouselItem, Indicator } from 'components/';
 import useViewSize from 'hooks/useViewSize';
+import useCarousel from 'hooks/useCarousel';
 
 const StyledCarouselContainer = styled.div`
   max-width: ${calcRem(750)};
@@ -26,41 +25,15 @@ const StyledCarouselButton = styled(Icon)`
 `;
 
 const Carousel = ({ type, contents, ...restProps }) => {
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const [isMoving, setIsMoving] = useState(false);
-  const { desktop } = useViewSize();
-
   const TOTAL_LENGTH = contents.length;
-
-  const moveNext = () => {
-    if (!isMoving) {
-      // if (currentSlide === TOTAL_LENGTH) return setCurrentSlide(1);
-      if (currentSlide === TOTAL_LENGTH) return;
-      else setCurrentSlide(currentSlide + 1);
-    }
-  };
-
-  const movePrev = () => {
-    if (!isMoving) {
-      // if (currentSlide === 1) return setCurrentSlide(TOTAL_LENGTH);
-      if (currentSlide === 1) return;
-      else setCurrentSlide(currentSlide - 1);
-    }
-  };
-
-  const handlers = useSwipeable({
-    onSwipedLeft: moveNext,
-    onSwipedRight: movePrev,
-    preventDefaultTouchmoveEvent: true,
-    trackMouse: true
-  });
-
-  useEffect(() => {
-    setIsMoving(true);
-    setTimeout(() => {
-      setIsMoving(false);
-    }, 500);
-  }, [currentSlide]);
+  const { desktop } = useViewSize();
+  const {
+    currentSlide,
+    setCurrentSlide,
+    moveNext,
+    movePrev,
+    handlers
+  } = useCarousel(contents, TOTAL_LENGTH);
 
   return (
     <>

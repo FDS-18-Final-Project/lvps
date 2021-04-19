@@ -9,25 +9,20 @@ import {
   SubBanner,
   IconKeyFeature,
   IconExplanCard,
-  WindowTintingPrice,
   ServiceInfo,
-  PaintPrice,
-  WindowPrice
-  // GoogleMap
+  // GoogleMap,
+  CeramicProProtectionPackage,
+  CeramicProProtectionOptions,
+  IGLProtectionProducts,
+  PaintProtectionFilmPackage,
+  PaintProtectionFilmOptions,
+  WindowTintingCarbon,
+  WindowTintingCeramic,
+  DetailingPaintPackage
 } from 'containers';
 import { Icon, Video } from 'components/';
 import { colors } from 'theme/theme';
 import { calcRem } from '../../theme/theme';
-
-import TagPriceTable from 'components/PriceTable/TagPriceTable';
-import CeramicProProtectionPackage from 'containers/CeramicProProtectionPackage/CeramicProProtectionPackage';
-import CeramicProProtectionOptions from 'containers/CeramicProProtectionOptions/CeramicProProtectionOptions';
-import IGLProtectionProducts from 'containers/IGLProtectionProducts/IGLProtectionProducts';
-import PaintProtectionFilmPackage from 'containers/PaintProtectionFilmPackage/PaintProtectionFilmPackage';
-import PaintProtectionFilmOptions from 'containers/PaintProtectionFilmOptions/PaintProtectionFilmOptions';
-import WindowTintingCarbon from 'containers/WindowTintingCarbon/WindowTintingCarbon';
-import WindowTintingCeramic from 'containers/WindowTintingCeramic/WindowTintingCeramic';
-import DetailingPaintPackage from 'containers/DetailingPaintPackage/DetailingPaintPackage';
 
 const Home = () => {
   return (
@@ -50,19 +45,10 @@ const Home = () => {
         Visit Instagram
         <Icon type="instagram" color={colors.white} width={calcRem(25)} />
       </SubBanner>
-      <GetAQuoteBanner>
-        <GetAQuoteBanner.Title />
-        <GetAQuoteBanner.Link />
-      </GetAQuoteBanner>
-      <Review>
-        <Review.Title />
-        <Review.Contents />
-      </Review>
 
-      <OurWorks>
-        <OurWorks.Title />
-        <OurWorks.Contents />
-      </OurWorks>
+      <GetAQuoteBanner />
+      <Review />
+      <OurWorks />
       <SubBanner />
       <OurBestServices />
       <IconExplanCard />
@@ -75,12 +61,6 @@ const Home = () => {
       <WindowTintingCarbon />
       <WindowTintingCeramic />
       <DetailingPaintPackage />
-
-      {/* <PaintPrice /> */}
-      {/* <WindowPrice /> */}
-
-      {/* <WindowTintingPrice /> */}
-      {/* <TagPriceTable /> */}
     </>
   );
 };
