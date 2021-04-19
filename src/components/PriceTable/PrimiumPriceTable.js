@@ -39,8 +39,8 @@ const PrimiumPriceTableContainer = styled(PriceTable)`
 
 const PrimiumPriceTable = ({ option, ...restProps }) => {
   const [active, setActive] = useState(false);
-
   const handleClick = () => setActive(!active);
+
   return (
     <PrimiumPriceTableContainer
       mode="title"

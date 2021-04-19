@@ -2,7 +2,7 @@ import GlobalStyle from 'styles/GlobalStyle';
 import Video from './Video';
 
 export default {
-  title: 'LVPS/Component/Video',
+  title: 'LVPS/Container/Video',
   component: Video,
   parameters: {
     docs: {
