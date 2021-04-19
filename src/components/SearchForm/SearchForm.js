@@ -23,7 +23,7 @@ const StyledFieldset = styled.fieldset`
     padding-left: ${calcRem(10)};
     margin: ${calcInterval([0, 25])};
     color: ${colors.white};
-    font-size: ${fontSizes.small};
+    font-size: ${fontSizes.xl};
   }
 
   @media only screen and (max-width: 870px) {
@@ -149,7 +149,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
           value={value}
           ref={inputRef}
         >
-          Service Search
+          {mobile ? '' : 'Service Search'}
         </Input>
         <StyledAutoCompleteContainer>
           {results.map((item, idx) => (
@@ -164,9 +164,10 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
         </StyledAutoCompleteContainer>
 
         <Icon
+          button={!mobile}
           type={mobile ? 'searchWhite' : 'close'}
           color={colors.lightGray}
-          width={calcRem(25)}
+          width={mobile ? calcRem(18) : calcRem(25)}
           onClick={mobile ? null : onClick}
         />
       </StyledFieldset>
