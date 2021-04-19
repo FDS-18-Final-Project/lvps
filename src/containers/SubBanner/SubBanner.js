@@ -57,9 +57,6 @@ const SubBannerContainer = styled.div`
       }
     }
 
-    .gridImg {
-      margin: ${calcInterval([15, 0])};
-    }
     .gridBtn {
       grid-row: 3 / 4;
 
@@ -71,6 +68,7 @@ const SubBannerContainer = styled.div`
     }
     .gridImg {
       grid-area: 2 / 1 / 3 /1;
+      margin: ${calcInterval([15, 0])};
     }
   }
 `;

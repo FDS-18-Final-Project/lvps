@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { calcInterval, colors, calcRem, fontSizes } from 'theme/theme';
 import PriceTable from './PriceTable';
@@ -35,25 +35,28 @@ const HelmetPriceTableContainer = styled(PriceTable)`
 
 const HelmetPriceTable = ({
   color,
-  heading,
+  option,
   title,
   priceColor,
+  id,
+  name,
+  active,
+  onClick,
   ...restProps
 }) => {
-  const [active, setActive] = useState(false);
-
-  const handleClick = () => setActive(!active);
   return (
     <HelmetPriceTableContainer
+      id={id}
+      name={name}
       color={color}
       title={title}
       priceColor={priceColor}
-      heading={heading}
+      heading={option}
       active={active}
-      onClick={handleClick}
+      onClick={onClick}
       {...restProps}
     >
-      <em>{heading}</em>
+      <em>{option}</em>
     </HelmetPriceTableContainer>
   );
 };

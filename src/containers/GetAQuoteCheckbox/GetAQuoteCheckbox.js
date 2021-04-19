@@ -1,9 +1,18 @@
 import { Button, Icon } from 'components/';
+import { CeramicModalDialog } from 'containers/ModalDialog/CeramicProModalDialog.stories';
+import DetailModalDialog from 'containers/ModalDialog/DetailModalDialog';
+import PPFModalDialog from 'containers/ModalDialog/PPFModalDialog';
+import WindowModalDialog from 'containers/ModalDialog/WindowModalDialog';
 import { Layout } from 'pages';
 import React from 'react';
 import styled from 'styled-components';
 import { calcInterval, fontSizes, calcRem, colors } from 'theme/theme';
 import CheckBox from '../../components/CheckBox/CheckBox';
+import { useDispatch } from 'react-redux';
+import { ceramicReset } from 'store/modal/ceramic';
+import { ppfReset } from 'store/modal/ppf';
+import { windowReset } from 'store/modal/window';
+import { detailReset } from 'store/modal/detail';
 
 const FullContainer = styled.section`
   position: relative;
@@ -50,15 +59,40 @@ const GetAQuoteCheckboxContainer = styled.div`
 `;
 
 const GetAQuoteCheckbox = () => {
+  const dispatch = useDispatch();
+
+  const handleReset = actionFunc => {
+    return reset => {
+      dispatch(actionFunc());
+      reset();
+    };
+  };
+
   return (
     <FullContainer>
       <h2>You Can Choose Multiple Services</h2>
       <GetAQuoteCheckboxContainer>
-        <CheckBox />
-        <CheckBox />
-        <CheckBox />
-        <CheckBox />
-        <CheckBox />
+        <CheckBox
+          label="CERAMIC COATING"
+          Modal={CeramicModalDialog}
+          handleReset={handleReset(ceramicReset)}
+        />
+        <CheckBox
+          label="PAINT PROTECTION FILM"
+          Modal={PPFModalDialog}
+          handleReset={handleReset(ppfReset)}
+        />
+        <CheckBox
+          label="WINDOW TINTING"
+          Modal={WindowModalDialog}
+          handleReset={handleReset(windowReset)}
+        />
+        <CheckBox
+          label="PROFESSIONAL DETAILING & PAINT CORRECTION"
+          Modal={DetailModalDialog}
+          handleReset={handleReset(detailReset)}
+        />
+        <CheckBox label="WHEELS & TIRES" />
       </GetAQuoteCheckboxContainer>
       <Layout.FlexContainer className="btnContainer">
         <Button>

@@ -3,72 +3,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
 import { Button, A11yHidden, Icon, HelmetPriceTable } from 'components';
-import Portal from 'utils/portal';
-
-const FromText = ({ title }) => {
-  return (
-    <>
-      <span>{title}</span>
-      <p style={{ textAlign: 'center', marginTop: calcRem(5) }}>From</p>
-    </>
-  );
-};
-
-const windowData = {
-  label: 'Window Tinting Product Options',
-  title: 'Window Tinting Film Product ModalDialog',
-  firstPackage: {
-    title: 'Package Options',
-    contents: [
-      {
-        color: 'red_05',
-        title: <FromText title="PRIME CS ™" />,
-        heading: 'CARBON FILM',
-        price: '250',
-        info: [
-          'Non-Metal / Fading, Color Stable, Dyed',
-          '5 Year Warranty',
-          'Great solar performance with advanced UV protection',
-          'No metal layers to cause interference with cell phone/radio'
-        ]
-      },
-      {
-        color: 'red_05',
-        title: <FromText title="PRIME CS ™Hybrid Film" />,
-        heading: 'CARBON FILM',
-        price: '250',
-        info: [
-          'Non-Metal / Fading, Color Stable, Dyed',
-          '5 Year Warranty',
-          'Great solar performance with advanced UV protection',
-          'No metal layers to cause interference with cell phone/radio'
-        ]
-      },
-      {
-        color: 'black',
-        heading: 'CARBON FILM',
-        title: <FromText title="PRIME XR" />,
-        price: '400',
-        info: [
-          'Non-Metal, Maximum Heat Rejection',
-          'Lifetime Warranty',
-          'Proprietary non-metallized, nonconductive nano-ceramic technology maximizes heat and ultraviolet rejection, keeping you and your vehicle cool and helping to protect from the damaging effects of the sun.'
-        ]
-      },
-      {
-        color: 'black',
-        heading: 'CARBON FILM',
-        title: <FromText title="PRIME XR PLUS™" />,
-        price: '600',
-        info: [
-          'Non-Metal, Maximum Heat Rejection',
-          'Lifetime Warranty',
-          'Proprietary non-metallized, nonconductive nano-ceramic technology maximizes heat and ultraviolet rejection, keeping you and your vehicle cool and helping to protect from the damaging effects of the sun.'
-        ]
-      }
-    ]
-  }
-};
+import useModalSelected from 'hooks/useModalSelected';
+import {
+  windowMultiToggleActive,
+  windowSingleToggleActive
+} from 'store/modal/window';
 
 const StyledModalContainer = styled.section`
   position: fixed;
@@ -195,8 +134,15 @@ const StyledButtonContainer = styled.div`
     font-size: ${calcRem(18)};
   }
 `;
-const PPFModalDialog = () => {
-  const { label, title, firstPackage } = windowData;
+const WindowModalDialog = ({ onChange, confirmCheck }) => {
+  const { modalData, onlyOneSelected, addServices } = useModalSelected(
+    'windowModal',
+    windowSingleToggleActive,
+    windowMultiToggleActive,
+    onChange,
+    confirmCheck
+  );
+  const { label, title, firstPackage } = modalData;
 
   return (
     // <Portal id="modal-root">
@@ -220,14 +166,23 @@ const PPFModalDialog = () => {
               numOfProd={firstPackage.contents?.length}
             >
               {firstPackage.contents?.map(content => (
-                <HelmetPriceTable {...content} />
+                <HelmetPriceTable
+                  key={content.id}
+                  id={content.id}
+                  data-name="firstPackage"
+                  active={content.active}
+                  onClick={onlyOneSelected}
+                  {...content}
+                />
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
           <StyledButtonContainer>
-            <Button mode="button">Confirm</Button>
+            <Button mode="button" onClick={addServices('window', firstPackage)}>
+              Confirm
+            </Button>
           </StyledButtonContainer>
-          <Button mode="button" aria-label="Modal 닫기">
+          <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
             <Icon type="close" />
           </Button>
         </StyledModalBodyContainer>
@@ -243,4 +198,4 @@ StyledModalBodyContainer.displayName = 'Modal Body Container';
 StyledPackageContainer.displayName = 'Modal Product List Container';
 StyledButtonContainer.displayName = 'Button Container';
 
-export default React.memo(PPFModalDialog);
+export default React.memo(WindowModalDialog);
