@@ -195,7 +195,7 @@ const StyledButtonContainer = styled.div`
     font-size: ${calcRem(18)};
   }
 `;
-const PPFModalDialog = () => {
+const WindowModalDialog = () => {
   const { label, title, firstPackage } = windowData;
 
   return (
@@ -219,8 +219,8 @@ const PPFModalDialog = () => {
               className="firstPackage"
               numOfProd={firstPackage.contents?.length}
             >
-              {firstPackage.contents?.map(content => (
-                <HelmetPriceTable {...content} />
+              {firstPackage.contents?.map((content, idx) => (
+                <HelmetPriceTable key={idx} {...content} />
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -243,4 +243,4 @@ StyledModalBodyContainer.displayName = 'Modal Body Container';
 StyledPackageContainer.displayName = 'Modal Product List Container';
 StyledButtonContainer.displayName = 'Button Container';
 
-export default React.memo(PPFModalDialog);
+export default React.memo(WindowModalDialog);

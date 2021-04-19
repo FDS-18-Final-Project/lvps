@@ -294,8 +294,8 @@ const PPFModalDialog = () => {
               className="firstPackage"
               numOfProd={firstPackage.contents?.length}
             >
-              {firstPackage.contents?.map(content => (
-                <PrimiumPriceTable {...content} />
+              {firstPackage.contents?.map((content, idx) => (
+                <PrimiumPriceTable key={idx} {...content} />
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -304,8 +304,8 @@ const PPFModalDialog = () => {
             <StyledPackageListContainer
               numOfProd={secondPackage.contents?.length}
             >
-              {secondPackage.contents?.map(content => (
-                <HelmetPriceTable {...content} />
+              {secondPackage.contents?.map((content, idx) => (
+                <HelmetPriceTable key={idx} {...content} />
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>

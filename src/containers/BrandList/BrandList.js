@@ -1,5 +1,5 @@
-import { string, oneOf } from 'prop-types';
-import styled, { css } from 'styled-components';
+import { string } from 'prop-types';
+import styled from 'styled-components';
 import { fontSizes, colors, calcRem } from 'theme/theme';
 import BrandItem from 'components/BrandItem/BrandItem';
 
@@ -7,7 +7,7 @@ const StyledContainer = styled.section`
   display: flex;
   flex-direction: column;
   background-color: ${colors.white};
-  border-bottom: 1px solid ${colors.lightGray};
+  border-bottom: ${calcRem(1)} solid ${colors.lightGray};
   padding: ${calcRem(75)} 0;
   text-align: center;
   justify-content: center;
@@ -24,9 +24,9 @@ const StyledList = styled.ul`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  max-width: 1200px;
+  max-width: ${calcRem(1200)};
   margin: auto;
-  padding-left: 20px;
+  padding-left: ${calcRem(20)};
 `;
 
 const tireList = [
@@ -78,12 +78,12 @@ const tireList = [
   {
     id: 'tire_10',
     value: 'tirerays',
-    src: 'assets/img/tire_tirerays.png'
+    src: 'assets/img/tire_rays.png'
   },
   {
     id: 'tire_11',
     value: 'replica',
-    src: 'assets/img/tire_replica.png'
+    src: 'assets/img/tire_replika.png'
   },
   {
     id: 'tire_12',
@@ -195,14 +195,31 @@ const wheelList = [
   }
 ];
 
-const BrandList = ({ title, type }) => {
+const BrandList = ({ title, type, ...restProps }) => {
+  console.log(type, title, { ...restProps });
   return (
     <StyledContainer>
       <StyledTitle>{title}</StyledTitle>
       <StyledList>
-        {wheelList.map((item, idx) => (
-          <BrandItem key={idx} id={item.id} value={item.value} src={item.src} />
-        ))}
+        {type === 'wheel'
+          ? wheelList.map((item, idx) => (
+              <BrandItem
+                key={idx}
+                id={item.id}
+                value={item.value}
+                src={item.src}
+                {...restProps}
+              />
+            ))
+          : tireList.map((item, idx) => (
+              <BrandItem
+                key={idx}
+                id={item.id}
+                value={item.value}
+                src={item.src}
+                {...restProps}
+              />
+            ))}
       </StyledList>
     </StyledContainer>
   );

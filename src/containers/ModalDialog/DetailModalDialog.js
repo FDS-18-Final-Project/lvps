@@ -315,7 +315,7 @@ const StyledButtonContainer = styled.div`
     transform: translate(-50%, -30%);
   }
 `;
-const CeramicProModalDialog = () => {
+const DetailModalDialog = () => {
   const {
     label,
     title,
@@ -344,8 +344,8 @@ const CeramicProModalDialog = () => {
               className="firstPackage"
               numOfProd={firstPackage.contents?.length}
             >
-              {firstPackage.contents?.map(content => (
-                <PrimiumPriceTable {...content} />
+              {firstPackage.contents?.map((content, idx) => (
+                <PrimiumPriceTable key={idx} {...content} />
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -354,8 +354,8 @@ const CeramicProModalDialog = () => {
             <StyledPackageListContainer
               numOfProd={secondPackage.contents?.length}
             >
-              {secondPackage.contents?.map(content => (
-                <HelmetPriceTable {...content} />
+              {secondPackage.contents?.map((content, idx) => (
+                <HelmetPriceTable key={idx} {...content} />
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -378,4 +378,4 @@ StyledModalBodyContainer.displayName = 'Modal Body Container';
 StyledPackageContainer.displayName = 'Modal Product List Container';
 StyledButtonContainer.displayName = 'Button Container';
 
-export default React.memo(CeramicProModalDialog);
+export default React.memo(DetailModalDialog);

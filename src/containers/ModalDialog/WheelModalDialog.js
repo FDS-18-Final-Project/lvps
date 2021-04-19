@@ -1,13 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
-import {
-  Button,
-  A11yHidden,
-  Icon,
-  HelmetPriceTable,
-  PrimiumPriceTable
-} from 'components';
+import { Button, A11yHidden, Icon } from 'components';
+import { BrandList } from 'containers';
 import Portal from 'utils/portal';
 
 const cermicProData = {
@@ -196,11 +191,11 @@ const StyledModalContainer = styled.section`
   }
   /* 스크롤바 스타일  */
   & > div::-webkit-scrollbar {
-    width: ${calcRem(10)};
+    width: 10px;
   }
   & > div::-webkit-scrollbar-thumb {
     background-color: #2f3542;
-    border-radius: ${calcRem(10)};
+    border-radius: 10px;
     background-clip: padding-box;
     border: 2px solid transparent;
   }
@@ -250,46 +245,18 @@ const StyledModalBodyContainer = styled.div`
 const StyledPackageContainer = styled.div`
   border-bottom: ${calcRem(2.4)} solid ${colors.lightGray};
 
-  &:nth-child(2) em {
-    text-align: center;
-    margin: 1.5rem 0rem 4rem;
+  section {
+    border: 0;
+    background: ${colors.gray2};
   }
-
-  &:nth-child(1) strong {
-    margin-bottom: ${calcRem(120)};
-  }
-  &:nth-last-child(3) {
+  & + & {
     border-bottom: 0;
-  }
-  .firstPackage > div {
-    justify-content: initial;
-    min-height: ${calcRem(520)};
-  }
-  .thirdPackage > div {
-    justify-content: initial;
-  }
-  .firstPackage ul li p {
-    color: ${colors.white};
-  }
-`;
-const StyledPackageListContainer = styled.div`
-  display: grid;
-  grid-template-columns: ${({ numOfProd }) =>
-    numOfProd === 8 ? `repeat(4, 1fr)` : `repeat(${numOfProd}, 1fr)`};
-  gap: ${calcRem(20)};
-  padding: 0 ${({ numOfProd }) => (numOfProd <= 3 ? calcRem(160) : 0)} 3.75rem;
-
-  & div {
-    margin: ${({ numOfProd }) => numOfProd === 1 && '0 auto'};
-  }
-  &.secondPackage > div:nth-child(2) em {
-    margin: 0rem 0rem 5rem;
   }
 `;
 
 const StyledButtonContainer = styled.div`
   width: 100%;
-  padding: ${calcRem(200)} 0;
+  padding: 200px 0;
   position: relative;
   button {
     position: absolute;
@@ -298,62 +265,36 @@ const StyledButtonContainer = styled.div`
     transform: translate(-50%, -30%);
   }
 `;
-const CeramicProModalDialog = () => {
-  const {
-    label,
-    title,
-    firstPackage,
-    secondPackage,
-    thirdPackage
-  } = cermicProData;
-
+const WheelModalDialog = () => {
   return (
     // <Portal id="modal-root">
     <StyledModalContainer>
       <div
         role="dialog"
         aria-modal="true"
-        aria-label={label}
-        aria-describedby={label}
+        aria-label="Wheels and Tires Product Options"
+        aria-describedby="Wheels and Tires Product Options"
         tabIndex="0"
       >
-        <header id={label}>
-          <A11yHidden as="h3">{title}</A11yHidden>
+        <header id="Wheels and Tires Product Options">
+          <A11yHidden as="h3">Ceramic Pro Product ModalDialog</A11yHidden>
         </header>
         <StyledModalBodyContainer>
-          {/* 카드 컨텐츠  */}
           <StyledPackageContainer>
-            <h4>{firstPackage.title}</h4>
-            <StyledPackageListContainer
-              className="firstPackage"
-              numOfProd={firstPackage.contents?.length}
-            >
-              {firstPackage.contents?.map((content, idx) => (
-                <PrimiumPriceTable key={idx} {...content} />
-              ))}
-            </StyledPackageListContainer>
+            <BrandList
+              type="wheel"
+              mode="checkbox"
+              size="wheel"
+              title="Tire Brands We Offer"
+            />
           </StyledPackageContainer>
           <StyledPackageContainer>
-            <h4>{secondPackage.title}</h4>
-            <StyledPackageListContainer
-              className="secondPackage"
-              numOfProd={secondPackage.contents?.length}
-            >
-              {secondPackage.contents?.map((content, idx) => (
-                <HelmetPriceTable key={idx} {...content} />
-              ))}
-            </StyledPackageListContainer>
-          </StyledPackageContainer>
-          <StyledPackageContainer>
-            <h4>{thirdPackage.title}</h4>
-            <StyledPackageListContainer
-              className="thirdPackage"
-              numOfProd={thirdPackage.contents?.length}
-            >
-              {thirdPackage.contents?.map((content, idx) => (
-                <HelmetPriceTable key={idx} {...content} />
-              ))}
-            </StyledPackageListContainer>
+            <BrandList
+              type="tire"
+              mode="checkbox"
+              size="tire"
+              title="Tire Brands We Offer"
+            />
           </StyledPackageContainer>
           <StyledButtonContainer>
             <Button mode="button">Confirm</Button>
@@ -374,4 +315,4 @@ StyledModalBodyContainer.displayName = 'Modal Body Container';
 StyledPackageContainer.displayName = 'Modal Product List Container';
 StyledButtonContainer.displayName = 'Button Container';
 
-export default React.memo(CeramicProModalDialog);
+export default React.memo(WheelModalDialog);
