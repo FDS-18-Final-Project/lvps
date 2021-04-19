@@ -4,7 +4,6 @@ import { colors, calcRem, fontSizes } from 'theme/theme';
 const MessageContainer = styled.div`
   background-color: rgba(17, 17, 17, 0.6);
   max-width: ${calcRem(995)};
-  width: auto;
   height: auto;
   text-align: center;
   justify-content: center;

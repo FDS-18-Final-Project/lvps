@@ -38,6 +38,11 @@ const Home = () => {
         Visit Instagram
         <Icon type="instagram" color={colors.white} width={calcRem(25)} />
       </SubBanner>
+      <Video videoId="dEHu-STjB-Q" />
+      <Review>
+        <Review.Title />
+        <Review.Contents />
+      </Review>
       <GetAQuoteBanner>
         <GetAQuoteBanner.Title />
         <GetAQuoteBanner.Link />
@@ -46,7 +51,6 @@ const Home = () => {
         <Review.Title />
         <Review.Contents />
       </Review>
-
       <OurWorks>
         <OurWorks.Title />
         <OurWorks.Contents />
