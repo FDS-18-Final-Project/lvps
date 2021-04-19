@@ -23,3 +23,8 @@ export { default as Tag } from './Tag/Tag';
 export { default as PriceTable } from './PriceTable/PriceTable';
 export { default as PriceCardLayout } from './PriceCardLayout/PriceCardLayout';
 export { default as CheckBox } from './CheckBox/CheckBox';
+export { default as DescriptionPriceTable } from './PriceTable/DescriptionPriceTable';
+export { default as HelmetPriceTable } from './PriceTable/HelmetPriceTable';
+export { default as PrimiumPriceTable } from './PriceTable/PrimiumPriceTable';
+export { default as TagPriceTable } from './PriceTable/TagPriceTable';
+export { default as TitlePriceTable } from './PriceTable/TitlePriceTable';

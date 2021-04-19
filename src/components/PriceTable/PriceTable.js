@@ -69,6 +69,7 @@ const PriceTable = ({
   iconColor,
   icon,
   children,
+  heading,
   info,
   iconContents,
   descriptionContainer,
@@ -76,7 +77,6 @@ const PriceTable = ({
 }) => {
   const [isActive, setIsActive] = useState(false);
   const handleClick = () => setIsActive(!isActive);
-
   return (
     <PriceTableContainer
       maxWidth={maxWidth}
@@ -85,6 +85,7 @@ const PriceTable = ({
       {...restProps}
     >
       {children}
+
       <div className="title">{title}</div>
       <strong>${price}</strong>
       <Divider className="divider" width={55} height={1} margin="33 0" />

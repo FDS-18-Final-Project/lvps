@@ -48,6 +48,7 @@ const HelmetPriceTable = ({
       color={color}
       title={title}
       priceColor={priceColor}
+      heading={heading}
       active={active}
       onClick={handleClick}
       {...restProps}
