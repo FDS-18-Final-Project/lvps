@@ -62,7 +62,7 @@ const ServiceInfoContainer = styled.div`
 
   @media only screen and (max-width: 768px) {
     padding: ${calcInterval([38, 27, 58])};
-    grid-template: repeat(1, 0.2fr 0.2fr 0.25fr 0.2fr) / repeat(1, 1fr);
+    grid-template: repeat(1, 0.2fr 200px 0.25fr 0.2fr) / repeat(1, 1fr);
     align-items: center;
     justify-content: center;
     .gridTitle {
@@ -89,7 +89,8 @@ const ServiceInfoContainer = styled.div`
       margin-top: ${calcRem(33)};
     }
     .gridBtn {
-      width: 83%;
+      max-width: 100%;
+      width: 100%;
       justify-self: center;
       margin-top: ${calcRem(33)};
     }
@@ -147,7 +148,7 @@ ServiceInfo.defaultProps = {
   title: 'Ceramic Pro',
   subTitle: 'Meet Our Skilled Crew.',
   imagePath: 'assets/dummyCar.png',
-  linkText: 'See more about this service',
+  linkText: 'Read More',
   mode: 'right'
 };
 
