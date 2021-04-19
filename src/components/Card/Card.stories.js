@@ -27,8 +27,7 @@ export default {
     },
     iconType: {
       control: {
-        type: 'select',
-        options: ['goodWork', 'clickHand']
+        type: 'text'
       }
     }
   }
@@ -37,12 +36,18 @@ export default {
 const fakeData = [
   {
     id: 1,
-    content: [{ id: 1, content: 'test' }],
+    content: [
+      {
+        id: 1,
+        content:
+          ' Professional services & products offered to exceed your expectations'
+      }
+    ],
     iconType: 'likeCircle',
-    background: colors.red_01,
     fontColor: colors.white
   }
 ];
+
 //template 만들기
 const Template = args => <Card {...args}></Card>;
 
@@ -52,6 +57,14 @@ SqaureCard.args = {
   content: fakeData[0].content[0],
   iconType: 'likeCircle',
   type: 'square',
-  background: colors.redMain,
-  color: colors.white
+  background: colors.black
+};
+
+export const ArrowCard = Template.bind({});
+
+ArrowCard.args = {
+  content: fakeData[0].content[0],
+  iconType: 'likeCircle',
+  type: 'arrow',
+  background: colors.black
 };

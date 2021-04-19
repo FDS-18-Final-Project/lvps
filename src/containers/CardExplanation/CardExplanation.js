@@ -2,7 +2,7 @@ import { string, array } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, calcInterval, colors } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
-import { Paragraph, Card } from 'components/';
+import { Card } from 'components/';
 
 const FullContainer = styled(Layout.FlexContainer)`
   width: ${calcRem(1200)};
@@ -18,6 +18,7 @@ const CardContainer = styled.div`
   width: 100%;
 
   h2 {
+    margin-top: ${calcRem(75)};
     font-size: ${calcRem(45)};
     margin-bottom: ${calcRem(15)};
   }
@@ -31,8 +32,6 @@ const CardContainer = styled.div`
 
   @media only screen and (max-width: 1200px) {
     padding: ${calcInterval([0, 50])};
-  }
-  @media only screen and (max-width: 1000px) {
     svg {
       width: ${calcRem(100)};
     }
@@ -40,34 +39,44 @@ const CardContainer = styled.div`
       font-size: ${calcRem(14)};
     }
   }
+  @media only screen and (max-width: 768px) {
+    padding: 0 1.1rem;
+
+    h2 {
+      font-size: ${calcRem(24)};
+      text-align: center;
+      margin-bottom: ${calcRem(10)};
+      margin-top: ${calcRem(75)};
+    }
+  }
 `;
 const CardListContainer = styled.div`
   display: grid;
   margin: ${calcInterval([30, 0, 40])};
-  grid-template-columns: repeat(3, 1fr);
+  padding: 0 ${calcRem(30)};
+  grid-template-columns: ${({ type }) =>
+    `repeat(${type === 'arrow' ? 4 : 3}, 1fr)`};
   gap: 25px;
 
   @media only screen and (max-width: 768px) {
-    padding: ${calcInterval([0])};
-    grid-template-columns: repeat(2, 1fr);
+    padding: ${calcRem(0)};
+    margin: ${calcInterval([30, 0, 0])};
+    grid-template-columns: repeat(1, 1fr);
     row-gap: 25px;
+
     p {
       font-size: ${calcRem(16)};
     }
   }
-  @media only screen and (max-width: 550px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
 `;
-const CardExplanation = ({ title, desc, cardList, children }) => {
+const CardExplanation = ({ title, cardList, children }) => {
+  console.log(cardList);
   return (
-    <section>
+    <section style={{ borderTop: 0 }}>
       <FullContainer tag="CardExplanation" justifyContent="space-around">
         <CardContainer>
-          <Paragraph type="title" headingNum="2" title={title}>
-            {desc}
-          </Paragraph>
-          <CardListContainer title={title}>
+          <h2>{title}</h2>
+          <CardListContainer title={title} type={cardList[0].type}>
             {cardList.map((card, idx) => {
               return (
                 <Card
@@ -76,8 +85,7 @@ const CardExplanation = ({ title, desc, cardList, children }) => {
                   iconType={card.iconType}
                   background={card.background}
                   color={card.fontColor}
-                  zIndex={1 * (4 - idx)}
-                  translateX={-10 * idx}
+                  translateX={-30 * idx}
                   content={card.content[0]}
                   as={title === 'LVPS Process' && 'li'}
                 ></Card>
@@ -93,13 +101,11 @@ const CardExplanation = ({ title, desc, cardList, children }) => {
 
 CardExplanation.prototype = {
   title: string.isRequired,
-  desc: string,
   cardList: array.isRequired,
   children: string
 };
 CardExplanation.defaultProps = {
   title: '',
-  desc: '',
   cardList: [],
   children: ''
 };
