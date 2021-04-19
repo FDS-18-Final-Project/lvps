@@ -35,7 +35,7 @@ const Carousel = ({
 }) => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [isMoving, setIsMoving] = useState(false);
-  const { desktop, mobile } = useViewSize();
+  const { desktop } = useViewSize();
 
   const TOTAL_LENGTH = contents.length;
 

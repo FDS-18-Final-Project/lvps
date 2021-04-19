@@ -25,34 +25,42 @@ const InputContainer = styled.div`
   }
 `;
 
-const Input = ({
-  id,
-  type,
-  label,
-  name,
-  children,
-  formik,
-  errorMessage,
-  ...restProps
-}) => {
-  return (
-    <InputContainer {...restProps}>
-      <Layout.FlexContainer as="label" htmlFor={id}>
-        {label}
-      </Layout.FlexContainer>
-      <input
-        id={id}
-        type={type}
-        placeholder={children}
-        name={name}
-        {...formik?.getFieldProps(name)}
-      />
-      {errorMessage && formik.errors[name] && formik.touched[name] && (
-        <span>{formik.errors[name]}</span>
-      )}
-    </InputContainer>
-  );
-};
+const Input = React.forwardRef(
+  (
+    {
+      id,
+      type,
+      label,
+      name,
+      children,
+      formik,
+      errorMessage,
+
+      ...restProps
+    },
+    ref
+  ) => {
+    return (
+      <InputContainer {...restProps}>
+        <Layout.FlexContainer as="label" htmlFor={id}>
+          {label}
+        </Layout.FlexContainer>
+        <input
+          id={id}
+          type={type}
+          placeholder={children}
+          name={name}
+          ref={ref}
+          autocomplete="off"
+          {...formik?.getFieldProps(name)}
+        />
+        {errorMessage && formik.errors[name] && formik.touched[name] && (
+          <span>{formik.errors[name]}</span>
+        )}
+      </InputContainer>
+    );
+  }
+);
 
 Input.propTypes = {
   id: string.isRequired,

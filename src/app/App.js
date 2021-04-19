@@ -2,18 +2,19 @@ import React from 'react';
 import Routes from '../routes';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Header, Footer, FAQ } from 'containers';
+import { Header, Footer } from 'containers';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <FAQ />
-      {/* <Routes /> */}
-      {/* <Footer>
+
+      <Routes />
+      <Footer>
         <Footer.Logo />
         <Footer.Content />
-      </Footer> */}
+      </Footer>
+
     </BrowserRouter>
   );
 };
