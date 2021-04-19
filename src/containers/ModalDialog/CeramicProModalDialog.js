@@ -27,7 +27,7 @@ const StyledModalContainer = styled.section`
     margin-top: ${calcRem(170)};
     width: ${calcRem(1350)};
     height: 100vh;
-    margin: 170px auto 0;
+    margin: ${calcRem(170)} auto 0;
     background: ${colors.gray2};
     overflow: auto;
     display: flex;
@@ -37,11 +37,11 @@ const StyledModalContainer = styled.section`
   }
   /* 스크롤바 스타일  */
   & > div::-webkit-scrollbar {
-    width: 10px;
+    width: ${calcRem(10)};
   }
   & > div::-webkit-scrollbar-thumb {
     background-color: #2f3542;
-    border-radius: 10px;
+    border-radius: ${calcRem(10)};
     background-clip: padding-box;
     border: 2px solid transparent;
   }
@@ -130,7 +130,7 @@ const StyledPackageListContainer = styled.div`
 
 const StyledButtonContainer = styled.div`
   width: 100%;
-  padding: 200px 0;
+  padding: ${calcRem(200)} 0;
   position: relative;
   button {
     position: absolute;
@@ -176,6 +176,7 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
               className="firstPackage"
               numOfProd={firstPackage.contents?.length}
             >
+
               {firstPackage.contents?.map(content => (
                 <PrimiumPriceTable
                   key={content.id}
@@ -185,6 +186,7 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={onlyOneSelected}
                   {...content}
                 />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -194,6 +196,7 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
               className="secondPackage"
               numOfProd={secondPackage.contents?.length}
             >
+
               {secondPackage.contents?.map(content => (
                 <HelmetPriceTable
                   key={content.id}
@@ -203,6 +206,7 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={multiSelected}
                   {...content}
                 />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -212,6 +216,7 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
               className="thirdPackage"
               numOfProd={thirdPackage.contents?.length}
             >
+
               {thirdPackage.contents?.map(content => (
                 <HelmetPriceTable
                   key={content.id}

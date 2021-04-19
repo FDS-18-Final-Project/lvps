@@ -148,7 +148,9 @@ const StyledButtonContainer = styled.div`
     transform: translate(-50%, -30%);
   }
 `;
+
 const DetailModalDialog = ({ onChange, confirmCheck }) => {
+
   const {
     modalData,
     onlyOneSelected,
@@ -193,6 +195,7 @@ const DetailModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={onlyOneSelected}
                   {...content}
                 />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -201,6 +204,7 @@ const DetailModalDialog = ({ onChange, confirmCheck }) => {
             <StyledPackageListContainer
               numOfProd={secondPackage.contents?.length}
             >
+
               {secondPackage.contents?.map(content => (
                 <HelmetPriceTable
                   key={content.id}
@@ -210,6 +214,7 @@ const DetailModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={multiSelected}
                   {...content}
                 />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>

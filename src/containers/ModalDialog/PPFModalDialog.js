@@ -170,6 +170,7 @@ const PPFModalDialog = ({ onChange, confirmCheck }) => {
               className="firstPackage"
               numOfProd={firstPackage.contents?.length}
             >
+
               {firstPackage.contents?.map(content => (
                 <PrimiumPriceTable
                   key={content.id}
@@ -179,6 +180,7 @@ const PPFModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={onlyOneSelected}
                   {...content}
                 />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -187,6 +189,7 @@ const PPFModalDialog = ({ onChange, confirmCheck }) => {
             <StyledPackageListContainer
               numOfProd={secondPackage.contents?.length}
             >
+
               {secondPackage.contents?.map(content => (
                 <HelmetPriceTable
                   key={content.id}
@@ -196,6 +199,7 @@ const PPFModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={multiSelected}
                   {...content}
                 />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>

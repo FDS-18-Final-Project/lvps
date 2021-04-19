@@ -1,26 +1,25 @@
 import React from 'react';
 import { string, array } from 'prop-types';
 import styled from 'styled-components';
-import { calcInterval, calcRem, colors } from 'theme/theme';
+import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
 import { IconParagraph } from 'components';
 import { motion } from 'framer-motion';
 
 const typeStyle = {
   arrow: {
-    'clip-path': 'polygon(80% 0, 100% 50%, 80% 100%, 0 99%, 0 0)',
-    width: '100%'
+    'clip-path': 'polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%)',
+    'max-width': calcRem(300)
   },
   square: {
     'clip-path': 'initial',
-    width: '100%'
+    'max-width': calcRem(340)
   }
 };
 const typeMobileStyle = {
   arrow: {
-    'flex-direction': 'row'
-  },
-  square: {
-    'flex-direction': 'row'
+    'clip-path': 'polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%)',
+    'min-height': calcRem(345),
+    padding: `${calcRem(57)} 1.25rem 1rem`
   }
 };
 
@@ -34,6 +33,8 @@ const StyledCard = styled(motion('div'))`
   flex-direction: column;
   align-items: center;
   padding: ${calcInterval([50, 35])};
+  transform: ${({ translateX, type }) =>
+    type === 'arrow' ? `translateX(${calcRem(translateX)})` : null};
 
   p {
     font-weight: 500;
@@ -54,11 +55,31 @@ const StyledCard = styled(motion('div'))`
   ${({ type }) => typeStyle[type]}
 
   @media only screen and (max-width: 1200px) {
-    padding: ${calcInterval([50, 20])};
+    padding: ${calcInterval([50, 30])};
   }
 
   @media only screen and (max-width: 768px) {
-    ${({ type }) => typeMobileStyle[type]}
+    max-width: initial;
+    height: initial;
+    padding: ${({ type }) =>
+      type === 'arrow' ? `1rem 1.25rem 1rem !important` : '1rem 1.25rem;'};
+    transform: ${({ translateX, type }) =>
+      type === 'arrow' ? `translate(0, ${calcRem(translateX * 2)})` : null};
+    min-height: ${({ type }) =>
+      type === 'arrow' ? `${calcRem(220)} !important` : 'initial'};
+
+    & div {
+      flex-direction: row;
+      margin: 0;
+    }
+    & p,
+    & h3 {
+      margin: 0 0 ${calcRem(20)} 0;
+      padding-left: ${calcRem(20)};
+      text-align: center;
+      font-size: ${fontSizes.lg};
+    }
+    ${({ type }) => typeMobileStyle[type]};
   }
 `;
 
@@ -97,8 +118,7 @@ Card.defaultProps = {
   iconType: 'likeCircle',
   iconColor: colors.white,
   content: [],
-  height: '340',
-  background: colors.redMain
+  background: colors.black
 };
 
 Card.displayName = 'StyledCard';

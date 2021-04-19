@@ -14,6 +14,7 @@ export { default as ErrorMessage } from './ErrorMessage/ErrorMessage';
 export { default as ServiceMainBanner } from './ServiceMainBanner/ServiceMainBanner';
 export { default as CeramicProModalDialog } from './ModalDialog/CeramicProModalDialog';
 export { default as PPFModalDialog } from './ModalDialog/PPFModalDialog';
+export { default as WheelModalDialog } from './ModalDialog/WheelModalDialog';
 export { default as WindowModalDialog } from './ModalDialog/WindowModalDialog';
 export { default as PaintPrice } from './PaintPrice/PaintPrice';
 export { default as IconKeyFeature } from './IconKeyFeature/IconKeyFeature';
@@ -24,3 +25,4 @@ export { default as StaffIntroduction } from './StaffIntroduction/StaffIntroduct
 export { default as FAQ } from './FAQ/FAQ';
 export { default as WindowTintingPrice } from './WindowTintingPrice/WindowTintingPrice';
 export { default as Video } from './Video/Video';
+export { default as BrandList } from './BrandList/BrandList';

@@ -28,3 +28,4 @@ export { default as HelmetPriceTable } from './PriceTable/HelmetPriceTable';
 export { default as PrimiumPriceTable } from './PriceTable/PrimiumPriceTable';
 export { default as TagPriceTable } from './PriceTable/TagPriceTable';
 export { default as TitlePriceTable } from './PriceTable/TitlePriceTable';
+export { default as ExplainCard } from './ExplainCard/ExplainCard';

@@ -134,6 +134,7 @@ const StyledButtonContainer = styled.div`
     font-size: ${calcRem(18)};
   }
 `;
+
 const WindowModalDialog = ({ onChange, confirmCheck }) => {
   const { modalData, onlyOneSelected, addServices } = useModalSelected(
     'windowModal',
@@ -143,6 +144,7 @@ const WindowModalDialog = ({ onChange, confirmCheck }) => {
     confirmCheck
   );
   const { label, title, firstPackage } = modalData;
+
 
   return (
     // <Portal id="modal-root">
@@ -165,6 +167,7 @@ const WindowModalDialog = ({ onChange, confirmCheck }) => {
               className="firstPackage"
               numOfProd={firstPackage.contents?.length}
             >
+
               {firstPackage.contents?.map(content => (
                 <HelmetPriceTable
                   key={content.id}
@@ -174,6 +177,7 @@ const WindowModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={onlyOneSelected}
                   {...content}
                 />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
