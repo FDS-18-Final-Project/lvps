@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 const typeStyle = {
   arrow: {
-    'clip-path': 'polygon(80% 0, 100% 50%, 80% 100%, 0 99%, 0 0)',
+    'clip-path': 'polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%)',
     'max-width': calcRem(300)
   },
   square: {
@@ -53,7 +53,7 @@ const StyledCard = styled(motion('div'))`
   ${({ type }) => typeStyle[type]}
 
   @media only screen and (max-width: 1200px) {
-    padding: ${calcInterval([50, 20])};
+    padding: ${calcInterval([50, 30])};
   }
 
   @media only screen and (max-width: 768px) {
