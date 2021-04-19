@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { calcInterval, colors, calcRem, fontSizes } from 'theme/theme';
 import PriceTable from './PriceTable';
 import { oneOfType } from 'prop-types';
 
 const PrimiumPriceTableContainer = styled(PriceTable)`
+  position: relative;
   padding: ${calcInterval([28, 15, 58])};
   background-image: url(assets/${({ option }) => `${option}.png`});
   background-repeat: no-repeat;
@@ -12,9 +13,10 @@ const PrimiumPriceTableContainer = styled(PriceTable)`
   border: 3px solid
     ${({ active, option }) => (active ? colors[option] : colors.lightGray)};
   box-shadow: ${({ active }) =>
-    active ? 'none' : '0 3px 5px rgba(94, 94, 94, 0.4)'};
+    active ? 'none' : '0px 5px 10px rgba(94, 94, 94, 0.4)'};
   background-size: cover;
   padding: ${calcInterval([23, 30, 58])};
+  transform: ${({ active }) => active && 'scale(1.05)'};
   transition: 0.3s;
 
   em {
@@ -37,17 +39,15 @@ const PrimiumPriceTableContainer = styled(PriceTable)`
   }
 `;
 
-const PrimiumPriceTable = ({ option, ...restProps }) => {
-  const [active, setActive] = useState(false);
-
-  const handleClick = () => setActive(!active);
+const PrimiumPriceTable = ({ id, option, active, onClick, ...restProps }) => {
   return (
     <PrimiumPriceTableContainer
+      id={id}
       mode="title"
       title="Starting At"
       option={option}
+      onClick={e => onClick(e)}
       active={active}
-      onClick={handleClick}
       {...restProps}
     >
       <em>{option.toUpperCase()}</em>

@@ -2,7 +2,7 @@ import React from 'react';
 import Routes from '../routes';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Header, Footer } from 'containers';
+import { Header, Footer, GetAQuteCheckbox } from 'containers';
 
 const App = () => {
   return (

@@ -1,7 +1,9 @@
 import React from 'react';
+import { string } from 'prop-types';
 import styled from 'styled-components';
+import { A11yHidden } from 'components/';
 
-const StyledVideoContainer = styled.div`
+const StyledVideoContainer = styled.section`
   position: relative;
   overflow: hidden;
   height: 0;
@@ -17,22 +19,29 @@ const StyledVideoContainer = styled.div`
   }
 `;
 
-const Video = ({ videoId, videoTitle, ...restProps }) => {
+const Video = ({ videoId, videoTitle }) => {
   return (
     <StyledVideoContainer>
+      <A11yHidden as="h2">Video Player section</A11yHidden>
       <iframe
         src={`https://www.youtube.com/embed/${videoId}`}
         title={videoTitle}
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+        allowFullScreen
       ></iframe>
     </StyledVideoContainer>
   );
 };
-
+Video.prototype = {
+  videoId: string,
+  videoTitle: string
+};
 Video.defaultProps = {
   videoId: 'dEHu-STjB-Q',
   videoTitle: 'service-ceramic-pro-vedio'
 };
+
+StyledVideoContainer.displayName = 'VideoContainer';
+
 export default Video;
