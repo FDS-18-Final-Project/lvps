@@ -21,13 +21,19 @@ const FullContainer = styled.section`
     background-size: cover;
     background-position: center;
   }
+  @media only screen and (max-width: 1200px) {
+    padding: ${calcInterval([0, 50])};
+  }
+  @media only screen and (max-width: 375px) {
+    padding: ${calcInterval([0, 15])};
+  }
 `;
 const StaffIntroductionContainer = styled.div`
   max-width: ${calcRem(1200)};
   padding: ${calcInterval([75, 0, 90])};
   margin: 0 auto;
   display: grid;
-  grid-template: repeat(1, 0.5fr, 1fr, 1fr) / repeat(1, 0.5fr, 2fr, 0.5fr);
+  grid-template: repeat(1, 0.2fr 0.5fr 1fr) / repeat(1, 1fr 2fr 0.3fr);
 
   .gridTitle {
     font-size: ${fontSizes.titleBase};
@@ -35,10 +41,16 @@ const StaffIntroductionContainer = styled.div`
     color: ${colors.white};
     grid-area: 1 / 1 / 2 / 2;
     margin-bottom: ${calcRem(75)};
+    white-space: nowrap;
   }
 
   .gridBtn {
     grid-area: 1 / 3 / 2 / 4;
+    min-width: ${calcRem(222)};
+    a {
+      width: 100%;
+      padding: 0;
+    }
   }
 
   .gridImage {
@@ -63,38 +75,115 @@ const StaffIntroductionContainer = styled.div`
     }
   }
   .gridDescription {
-    background-color: ${colors.white};
-    font-size: ${fontSizes.xl};
-    line-height: 1.5;
-    padding: ${calcInterval([30, 91])};
+    background-color: ${colors.black};
+
     grid-area: 2 / 2 / 3 / 4;
     display: flex;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
+    flex-direction: column;
+    padding: ${calcInterval([49, 43])};
 
-    &::before,
-    &::after {
-      content: '"';
-      width: 50px;
-      height: 50px;
-      display: block;
-      line-height: 1;
-      font-size: ${calcRem(100)};
-      color: ${colors.lightGray};
-      margin: 0 20px;
+    h3 {
+      font-size: ${fontSizes.xl};
+      font-weight: bold;
+      line-height: ${calcRem(36)};
+      color: ${colors.white};
+      margin-bottom: ${calcRem(5)};
+    }
+    pre,
+    span {
+      color: ${colors.gray};
+      line-height: ${calcRem(27)};
+      white-space: pre-wrap;
     }
   }
 
   .gridSubDescription {
-    background-color: ${colors.black};
-    color: ${colors.lightGray};
-    font-size: ${fontSizes.lg};
-    line-height: 1.5;
-    margin-top: ${calcRem(15)};
+    display: flex;
+    align-items: center;
+    font-size: ${fontSizes.xl};
+    line-height: ${calcRem(36)};
+    background-color: ${colors.white};
+    padding: ${calcInterval([83, 104])};
+    grid-area: 3 / 1 / 4 / 4;
+    font-weight: bold;
+    text-align: center;
+    margin-top: ${calcRem(30)};
 
-    padding: ${calcInterval([24, 104, 36])};
-    grid-area: 3 / 2 / 4 / 4;
+    .openQuote {
+      margin-right: ${calcRem(60)};
+    }
+
+    .closeQuote {
+      margin-left: ${calcRem(60)};
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    grid-template: repeat(1, 0.2fr 0.5fr 0.5fr 0.5fr) / repeat(1, 1fr);
+    padding: ${calcInterval([75, 0, 0])};
+
+    .gridTitle {
+      grid-area: 1 / 1 / 2 / 2;
+      font-size: ${fontSizes.xl};
+      line-height: ${calcRem(36)};
+      text-align: center;
+    }
+
+    .gridImage {
+      position: absolute;
+      top: 135px;
+      left: 50%;
+      transform: translateX(-50%);
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+    }
+
+    .gridBtn {
+      grid-area: 4 / 1 / 5 / 2;
+      margin-top: ${calcRem(80)};
+      min-height: ${calcRem(130)};
+      margin-left: ${calcRem(-50)};
+      a {
+        border-top: 1px solid ${colors.lightGray};
+        font-size: ${fontSizes.xl};
+        line-height: ${calcRem(36)};
+        width: 116%;
+        height: 100%;
+      }
+    }
+
+    .gridDescription {
+      grid-area: 2 / 1 / 3 / 2;
+      padding: ${calcInterval([60, 15, 25])};
+
+      h3,
+      span {
+        text-align: center;
+        font-size: ${calcRem(14)};
+        line-height: ${calcRem(21)};
+      }
+
+      pre {
+        font-size: ${calcRem(14)};
+        line-height: ${calcRem(21)};
+      }
+    }
+
+    .gridSubDescription {
+      grid-area: 3 / 1 / 4 / 2;
+      padding: ${calcInterval([21, 12])};
+      font-size: ${calcRem(14)};
+      line-height: ${calcRem(21)};
+      margin: 0;
+      .openQuote,
+      .closeQuote {
+        width: 20px;
+        margin: 0;
+      }
+    }
   }
 `;
 
@@ -105,30 +194,34 @@ const StaffIntroduction = () => {
         <h2 class="gridTitle">Staff Introduction</h2>
         <div className="gridBtn">
           <Button mode="link" to="/" styledmode="primary" height={40}>
-            Visit Instagram
+            Visit Our Instagram
             <Icon type="instagram" color={colors.white} width={calcRem(25)} />
           </Button>
         </div>
-        <figure className="gridImage">
+        <div className="gridImage">
           <img src="assets/staff.png" alt="staff" />
-          <figcaption>
-            Maxim Malyshau
-            <span>General Manager</span>
-          </figcaption>
-        </figure>
-        <blockquote className="gridDescription">
+        </div>
+        <p className="gridDescription">
+          <h3>Maxim Malyshau</h3>
+          <span>General Manager at LVPS</span>
+          <pre>
+            {` 
+- 10+ Years of Experience in Automotive industry 
+- Certified Ceramic Pro Installer 
+- Professional at detailing, polishing, and paint correcting.`}
+          </pre>
+        </p>
+        <blockquote className="gridSubDescription">
+          <Icon className="openQuote" type="openQuote" width={47} height={47} />
           Our goal is to provide our customers with the highest quality service,
           convenient automotive experience possible.
+          <Icon
+            className="closeQuote"
+            type="closeQuote"
+            width={47}
+            height={47}
+          />
         </blockquote>
-        <p className="gridSubDescription">
-          Maxim has been in the automotive industry since high school because of
-          his co-op at a car dealership. After his co-op he got a job as a lot
-          attendant to help with moving, parking, organizing, cleaning cars.
-          Thats when his passion for cars started. He has many years of
-          experience in detailing, polishing cars. He is also certified by
-          Ceramic Pro for ceramic coating applications. Maxim will make sure
-          that every customer is happy with the services they get from LVCS.
-        </p>
       </StaffIntroductionContainer>
     </FullContainer>
   );

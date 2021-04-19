@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { calcInterval, calcRem, colors } from 'theme/theme';
-import { AccordionList, Icon, Paragraph, PriceTable } from 'components/';
+import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
+import { AccordionList, Icon, Paragraph } from 'components/';
 import useAccordionState from '../../hooks/useAccordionState';
+import useViewSize from 'hooks/useViewSize';
 
 const FullContainer = styled.section``;
 
@@ -10,7 +11,7 @@ const FAQContainer = styled.div`
   max-width: ${calcRem(1200)};
   margin: 0 auto;
   display: grid;
-  grid-template: repeat(1, 0.5fr, 1fr) / repeat(1, 0.5fr, 1fr);
+  grid-template: repeat(1, 0.2fr 1fr) / repeat(1, 0.7fr 1fr);
 
   padding: ${calcInterval([75, 0, 191])};
   grid-gap: 0 10px;
@@ -22,10 +23,18 @@ const FAQContainer = styled.div`
 
   .gridImage {
     grid-area: 2 / 1 / 3 / 2;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .gridAccordion {
     grid-area: 2 / 2 / 3 / 3;
+    a {
+      margin-bottom: 0;
+    }
   }
 
   h2 {
@@ -33,6 +42,57 @@ const FAQContainer = styled.div`
     align-items: center;
     div {
       margin-left: ${calcRem(10)};
+    }
+  }
+  @media only screen and (max-width: 1200px) {
+    .gridTitle {
+      margin-bottom: 0;
+      h2 {
+        font-size: ${fontSizes.xxl};
+      }
+
+      svg {
+        width: ${calcRem(35)};
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    grid-template: repeat(1, 1fr) / repeat(1, 1fr);
+    padding: ${calcInterval([50, 15])};
+    .gridTitle {
+      grid-area: 1 / 1 / 2 / 2;
+      margin-bottom: ${calcRem(10)};
+
+      h2 {
+        display: block;
+
+        width: 100%;
+        text-align: center;
+      }
+    }
+    .gridImage {
+      display: none;
+    }
+    .gridAccordion {
+      grid-area: 2 / 1 / 3 / 2;
+      width: 100%;
+
+      ul {
+        width: 100%;
+      }
+      a {
+        padding: ${calcInterval([5, 15, 14])};
+      }
+      h3 {
+        padding: 0;
+        font-size: ${fontSizes.small};
+        line-height: ${calcRem(27)};
+        white-space: initial;
+      }
+      p {
+        margin: 10px;
+      }
     }
   }
 `;
@@ -169,33 +229,37 @@ const variants = mobile => ({
   visible: {
     color: colors.white,
     backgroundColor: colors.black,
-    height: calcRem(200),
+    height: mobile ? 'auto' : calcRem(200),
     opacity: 0.8,
     transition: { duration: 0.5, type: 'tween' }
   },
   hidden: {
     color: colors.black,
     backgroundColor: colors.lightGray,
-    height: calcRem(50),
+    height: mobile ? calcRem(60) : calcRem(50),
     opacity: 1,
     transition: { duration: 0.5, type: 'tween' }
   }
 });
 const FAQ = () => {
   const [accordionItemList, handleClick] = useAccordionState(accordionState);
-
+  const { mobile } = useViewSize();
   return (
     <FullContainer>
       <FAQContainer>
         <Paragraph
           type="title"
-          title={['FAQ (Frequently asked questions)', <Icon type="message" />]}
+          title={
+            mobile
+              ? 'FAQ'
+              : ['FAQ (Frequently asked questions)', <Icon type="message" />]
+          }
           headingNum={2}
           colors={{ main: colors.black, sub: colors.redMain }}
           size={15}
           className="gridTitle"
         >
-          If you want to check our works, press the button.
+          {mobile ? '' : 'If you want to check our works, press the button.'}
         </Paragraph>
 
         <div className="gridImage">
