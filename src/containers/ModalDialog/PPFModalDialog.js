@@ -8,144 +8,8 @@ import {
   HelmetPriceTable,
   PrimiumPriceTable
 } from 'components';
-import Portal from 'utils/portal';
-
-const ppfData = {
-  label: 'Paint Protection Film Product Options',
-  title: 'Paint Protection Film Product ModalDialog',
-  firstPackage: {
-    title: 'Package Options',
-    contents: [
-      {
-        option: 'Platinum',
-        price: '1499',
-        info: [
-          {
-            id: 1,
-            description: 'Full Front & Rear Bumpers'
-          },
-          {
-            id: 2,
-            description: 'Full Hood, Fenders, Roof, Trunk'
-          },
-          {
-            id: 3,
-            description: 'Full Door Panels'
-          },
-          {
-            id: 4,
-            description: 'Full Quarter & Pillar Panels'
-          },
-          {
-            id: 5,
-            description: 'Mirror Covers'
-          },
-          {
-            id: 6,
-            description: 'Headlights & Fog Lights'
-          }
-        ]
-      },
-      {
-        option: 'Gold',
-        price: '899',
-        info: [
-          {
-            id: 1,
-            description: 'Full Front Bumper'
-          },
-          {
-            id: 2,
-            description: 'Full Hood & Fenders'
-          },
-          {
-            id: 3,
-            description: 'Mirror Covers'
-          },
-          {
-            id: 4,
-            description: 'Headlights & Fog Lights'
-          }
-        ]
-      },
-      {
-        option: 'Silver',
-        price: '599',
-        info: [
-          {
-            id: 1,
-            description: 'Full Front Bumper'
-          },
-          {
-            id: 2,
-            description: 'Hood & Fenders 18″'
-          },
-          {
-            id: 3,
-            description: 'Mirror Covers'
-          },
-          {
-            id: 4,
-            description: 'Headlights & Fog Lights'
-          }
-        ]
-      }
-    ]
-  },
-  secondPackage: {
-    title: 'Paint Protection OPTIONS',
-    contents: [
-      {
-        color: 'red_05',
-        heading: '',
-        price: '250',
-        info: ["18'' HOOD AND FENDERS"]
-      },
-      {
-        color: 'red_05',
-        heading: '',
-        price: '300',
-        info: ["24'' HOOD AND FENDERS"]
-      },
-      {
-        color: 'red_05',
-        heading: '',
-        price: '80',
-        info: ['Trunk Strip Paint Protection Coverage']
-      },
-      {
-        color: 'red_05',
-        heading: '',
-        price: '250',
-        info: ['Rocker Panel Paint Protection coverage']
-      },
-      {
-        color: 'red_05',
-        heading: '',
-        price: '150',
-        info: ['Front Headlight Paint Protection Coverage']
-      },
-      {
-        color: 'red_05',
-        heading: '',
-        price: '600',
-        info: ['Full Bumper Paint Protection Coverage']
-      },
-      {
-        color: 'red_05',
-        heading: '',
-        price: '600',
-        info: ['Full Hood Paint Protection Coverage']
-      },
-      {
-        color: 'red_05',
-        heading: '',
-        price: '300',
-        info: ['Pillars Paint Protection Coverage(A-PILLARS AND FRONT OF ROOF)']
-      }
-    ]
-  }
-};
+import useModalSelected from 'hooks/useModalSelected';
+import { ppfMultiToggleActive, ppfSingleToggleActive } from 'store/modal/ppf';
 
 const StyledModalContainer = styled.section`
   position: fixed;
@@ -270,8 +134,20 @@ const StyledButtonContainer = styled.div`
     transform: translate(-50%, -30%);
   }
 `;
-const PPFModalDialog = () => {
-  const { label, title, firstPackage, secondPackage } = ppfData;
+const PPFModalDialog = ({ onChange, confirmCheck }) => {
+  const {
+    modalData,
+    onlyOneSelected,
+    multiSelected,
+    addServices
+  } = useModalSelected(
+    'ppfModal',
+    ppfSingleToggleActive,
+    ppfMultiToggleActive,
+    onChange,
+    confirmCheck
+  );
+  const { label, title, firstPackage, secondPackage } = modalData;
 
   return (
     // <Portal id="modal-root">
@@ -294,8 +170,17 @@ const PPFModalDialog = () => {
               className="firstPackage"
               numOfProd={firstPackage.contents?.length}
             >
-              {firstPackage.contents?.map((content, idx) => (
-                <PrimiumPriceTable key={idx} {...content} />
+
+              {firstPackage.contents?.map(content => (
+                <PrimiumPriceTable
+                  key={content.id}
+                  id={content.id}
+                  data-name="firstPackage"
+                  active={content.active}
+                  onClick={onlyOneSelected}
+                  {...content}
+                />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -304,15 +189,29 @@ const PPFModalDialog = () => {
             <StyledPackageListContainer
               numOfProd={secondPackage.contents?.length}
             >
-              {secondPackage.contents?.map((content, idx) => (
-                <HelmetPriceTable key={idx} {...content} />
+
+              {secondPackage.contents?.map(content => (
+                <HelmetPriceTable
+                  key={content.id}
+                  id={content.id}
+                  data-name="secondPackage"
+                  active={content.active}
+                  onClick={multiSelected}
+                  {...content}
+                />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
           <StyledButtonContainer>
-            <Button mode="button">Confirm</Button>
+            <Button
+              mode="button"
+              onClick={addServices('ppf', firstPackage, secondPackage)}
+            >
+              Confirm
+            </Button>
           </StyledButtonContainer>
-          <Button mode="button" aria-label="Modal 닫기">
+          <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
             <Icon type="close" />
           </Button>
         </StyledModalBodyContainer>

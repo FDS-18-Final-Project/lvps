@@ -45,6 +45,8 @@ const FAQContainer = styled.div`
     }
   }
   @media only screen and (max-width: 1200px) {
+    padding: ${calcInterval([50, 15, 70])};
+
     .gridTitle {
       margin-bottom: 0;
       h2 {
@@ -82,7 +84,7 @@ const FAQContainer = styled.div`
         width: 100%;
       }
       a {
-        padding: ${calcInterval([5, 15, 14])};
+        padding: ${calcInterval([5, 30, 14])};
       }
       h3 {
         padding: 0;
@@ -177,7 +179,7 @@ const accordionState = [
   },
   {
     id: 8,
-    title: 'Do I Have To Wash My Vehicle Before My Installation Appointment?',
+    title: 'Do I Have to Wash My Car Prior To Receiving services?',
     description: [
       'Quality Protection',
       'ServicesQuality Protection',
@@ -189,7 +191,7 @@ const accordionState = [
   },
   {
     id: 9,
-    title: 'After Installation, How Long Should I Wait Before Washing My Car?',
+    title: 'How Long Should I Wait Before Washing My Car?',
     description: [
       'Quality Protection',
       'ServicesQuality Protection',

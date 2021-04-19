@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { fontSizes } from 'theme/theme';
+import { fontSizes, colors } from 'theme/theme';
 import { string } from 'prop-types';
+import Icon from 'components/Icon/Icon';
 
 const CheckBoxContainer = styled.label`
   display: inline-block;
   border: 1px solid lightgray;
   position: relative;
-  border: 4px solid #c9c9c9;
+  border: ${({ confirm }) =>
+    confirm ? `4px solid ${colors.redMain}` : '4px solid #c9c9c9'};
   background-color: white;
-
 
   &::before {
     position: absolute;
     content: '';
     width: 100%;
     height: 230px;
+    opacity: ${({ confirm }) => (confirm ? 0.8 : 1)};
     background-color: black;
     background-image: url(${({ imagePath }) => imagePath});
     background-repeat: no-repeat;
@@ -39,14 +41,50 @@ const CheckBoxContainer = styled.label`
     width: 300px;
     height: 380px;
     opacity: 0;
+    cursor: pointer;
+
+  }
+
+  button {
+    width: 60px;
+    height: 50px;
+    cursor: pointer;
+  }
+  .icon {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+
   }
 `;
 
-const CheckBox = ({ imagePath, label }) => {
+const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
+  const [visible, isVisible] = useState(false);
+  const [confirm, setConfirm] = useState(false);
+  const handleModalVisible = () => {
+    isVisible(!visible);
+  };
+  const handleConfirmCheck = () => setConfirm(true);
+  const resetConfirm = () => setConfirm(false);
   return (
-    <CheckBoxContainer imagePath={imagePath} label={label}>
-      <input type="checkbox" />
-    </CheckBoxContainer>
+    <>
+      <CheckBoxContainer imagePath={imagePath} label={label} confirm={confirm}>
+        <input
+          type="checkbox"
+          checked={visible}
+          onChange={handleModalVisible}
+        />
+        <button onClick={() => handleReset(resetConfirm)}>초기화</button>
+        {confirm && <Icon className="icon" type="circleCheck" />}
+      </CheckBoxContainer>
+      {visible && (
+        <Modal
+          onChange={handleModalVisible}
+          confirmCheck={handleConfirmCheck}
+        />
+      )}
+    </>
   );
 };
 
