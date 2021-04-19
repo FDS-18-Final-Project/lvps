@@ -30,7 +30,7 @@ export default {
   }
 };
 
-const CardList = [
+const squareCardList = [
   {
     id: 1,
     type: 'square',
@@ -42,7 +42,7 @@ const CardList = [
       }
     ],
     iconType: 'likeCircle',
-    background: colors.redMain,
+    background: colors.black,
     fontColor: colors.white
   },
   {
@@ -52,7 +52,7 @@ const CardList = [
       { id: 1, content: 'Certified Professional & Trained Installers' }
     ],
     iconType: 'likeCircle',
-    background: colors.redMain,
+    background: colors.black,
     fontColor: colors.white
   },
   {
@@ -60,7 +60,7 @@ const CardList = [
     type: 'square',
     content: [{ id: 1, content: '100% Satisfaction Guaranteed' }],
     iconType: 'likeCircle',
-    background: colors.redMain,
+    background: colors.black,
     fontColor: colors.white
   },
   {
@@ -68,7 +68,7 @@ const CardList = [
     type: 'square',
     content: [{ id: 1, content: 'We work with every make & model' }],
     iconType: 'likeCircle',
-    background: colors.redMain,
+    background: colors.black,
     fontColor: colors.white
   },
   {
@@ -76,15 +76,57 @@ const CardList = [
     type: 'square',
     content: [{ id: 1, content: 'Pick up & delivery service available' }],
     iconType: 'likeCircle',
-    background: colors.redMain,
-    fontColor: colors.white
+    background: colors.black,
+    fontColor: colors.black
   },
   {
     id: 6,
     type: 'square',
     content: [{ id: 1, content: 'Mobile services on request' }],
     iconType: 'likeCircle',
-    background: colors.redMain,
+    background: colors.black,
+    fontColor: colors.white
+  }
+];
+const arrowCardList = [
+  {
+    id: 1,
+    type: 'arrow',
+    content: [
+      {
+        id: 1,
+        content:
+          'Professional services & products offered to exceed your expectations.'
+      }
+    ],
+    iconType: 'likeCircle',
+    background: colors.black,
+    fontColor: colors.white
+  },
+  {
+    id: 2,
+    type: 'arrow',
+    content: [
+      { id: 1, content: 'Certified Professional & Trained Installers' }
+    ],
+    iconType: 'likeCircle',
+    background: colors.black,
+    fontColor: colors.white
+  },
+  {
+    id: 3,
+    type: 'arrow',
+    content: [{ id: 1, content: '100% Satisfaction Guaranteed' }],
+    iconType: 'likeCircle',
+    background: colors.black,
+    fontColor: colors.white
+  },
+  {
+    id: 4,
+    type: 'arrow',
+    content: [{ id: 1, content: 'We work with every make & model' }],
+    iconType: 'likeCircle',
+    background: colors.black,
     fontColor: colors.white
   }
 ];
@@ -100,16 +142,12 @@ export const CardExplanationType1Container = Template.bind({});
 
 CardExplanationType1Container.args = {
   title: 'Our Quality Protection Services',
-  desc: 'Why choose us?',
-  cardList: CardList
+  cardList: squareCardList
 };
 
 export const CardExplanationType2Container = Template.bind({});
 
 CardExplanationType2Container.args = {
   title: 'Luxury Vehicle Protection Services',
-  desc: 'Why choose us?',
-  cardList: CardList,
-  children:
-    'LVPS operates in North York, Ontario. The major intersection is Dufferin St and Finch Ave W. Our goal is to provide our customers with the best quality services & products, and convenient automotive services experience possible. We use the most modern and up-to-date tools. Through our experience with working with many cars using different kind of products on the market, we chose our products that are the best in the industry for your car.'
+  cardList: arrowCardList
 };

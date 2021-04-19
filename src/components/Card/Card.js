@@ -33,10 +33,12 @@ const StyledCard = styled(motion('div'))`
   flex-direction: column;
   align-items: center;
   padding: ${calcInterval([50, 35])};
+  transform: ${({ translateX, type }) =>
+    type === 'arrow' ? `translateX(${calcRem(translateX)})` : null};
 
   p {
     font-weight: 500;
-    text-align: center;
+    text-align: center !important;
     color: ${colors.white};
     font-size: ${calcRem(18)};
     line-height: ${calcRem(27)};
@@ -59,7 +61,12 @@ const StyledCard = styled(motion('div'))`
   @media only screen and (max-width: 768px) {
     max-width: initial;
     height: initial;
-    padding: 1rem 1.25rem;
+    padding: ${({ type }) =>
+      type === 'arrow' ? `1rem 1.25rem 1rem !important` : '1rem 1.25rem;'};
+    transform: ${({ translateX, type }) =>
+      type === 'arrow' ? `translate(0, ${calcRem(translateX * 2)})` : null};
+    min-height: ${({ type }) =>
+      type === 'arrow' ? `${calcRem(220)} !important` : 'initial'};
 
     & div {
       flex-direction: row;
@@ -111,7 +118,6 @@ Card.defaultProps = {
   iconType: 'likeCircle',
   iconColor: colors.white,
   content: [],
-  height: '340',
   background: colors.black
 };
 
