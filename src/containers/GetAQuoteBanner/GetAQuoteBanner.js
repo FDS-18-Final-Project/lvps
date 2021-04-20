@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors, calcInterval, calcRem, fontSizes } from 'theme/theme';
 import { Button, Icon, Paragraph } from 'components';
 import Layout from 'pages/Layout/Layout';
-import useViewSize from 'hooks/useViewSize';
+import { useViewSize } from 'hooks/';
 import { Link } from 'react-router-dom';
 
 const StyledGetAQuoteBannerContainer = styled.section`

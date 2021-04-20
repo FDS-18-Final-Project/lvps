@@ -16,7 +16,6 @@ export { default as CeramicProModalDialog } from './ModalDialog/CeramicProModalD
 export { default as PPFModalDialog } from './ModalDialog/PPFModalDialog';
 export { default as WheelModalDialog } from './ModalDialog/WheelModalDialog';
 export { default as WindowModalDialog } from './ModalDialog/WindowModalDialog';
-// export { default as PaintPrice } from './PaintPrice/PaintPrice';
 export { default as IconKeyFeature } from './IconKeyFeature/IconKeyFeature';
 export { default as GetAQuteCheckbox } from './GetAQuoteCheckbox/GetAQuoteCheckbox';
 export { default as StaffIntroduction } from './StaffIntroduction/StaffIntroduction';

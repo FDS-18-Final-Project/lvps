@@ -3,11 +3,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
 import { Button, A11yHidden, Icon, HelmetPriceTable } from 'components';
-import useModalSelected from 'hooks/useModalSelected';
+import { useModalSelected } from 'hooks/';
 import {
   windowMultiToggleActive,
   windowSingleToggleActive
 } from 'store/modal/window';
+import { motion } from 'framer-motion';
 
 const StyledModalContainer = styled.section`
   position: fixed;
@@ -23,7 +24,7 @@ const StyledModalContainer = styled.section`
     width: ${calcRem(1350)};
     height: 100vh;
     margin: 170px auto 0;
-    background: ${colors.gray2};
+    background: ${colors.gray_02};
     overflow: auto;
     display: flex;
     position: relative;
@@ -116,6 +117,7 @@ const StyledPackageListContainer = styled.div`
   & strong {
     margin-top: 1.5rem !important;
   }
+
   & ul li p {
     line-height: 130%;
   }
@@ -135,8 +137,13 @@ const StyledButtonContainer = styled.div`
   }
 `;
 
-const WindowModalDialog = ({ onChange, confirmCheck }) => {
-  const { modalData, onlyOneSelected, addServices } = useModalSelected(
+const WindowModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
+  const {
+    modalData,
+    onlyOneSelected,
+    addServices,
+    checkActive
+  } = useModalSelected(
     'windowModal',
     windowSingleToggleActive,
     windowMultiToggleActive,
@@ -145,16 +152,16 @@ const WindowModalDialog = ({ onChange, confirmCheck }) => {
   );
   const { label, title, firstPackage } = modalData;
 
-
   return (
     // <Portal id="modal-root">
     <StyledModalContainer>
-      <div
+      <motion.div
         role="dialog"
         aria-modal="true"
         aria-label={label}
         aria-describedby={label}
         tabIndex="0"
+        {...restProps}
       >
         <header id={label}>
           <A11yHidden as="h3">{title}</A11yHidden>
@@ -167,7 +174,6 @@ const WindowModalDialog = ({ onChange, confirmCheck }) => {
               className="firstPackage"
               numOfProd={firstPackage.contents?.length}
             >
-
               {firstPackage.contents?.map(content => (
                 <HelmetPriceTable
                   key={content.id}
@@ -177,12 +183,15 @@ const WindowModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={onlyOneSelected}
                   {...content}
                 />
-
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
           <StyledButtonContainer>
-            <Button mode="button" onClick={addServices('window', firstPackage)}>
+            <Button
+              disabled={checkActive(firstPackage)}
+              mode="button"
+              onClick={addServices('window', firstPackage)}
+            >
               Confirm
             </Button>
           </StyledButtonContainer>
@@ -190,7 +199,7 @@ const WindowModalDialog = ({ onChange, confirmCheck }) => {
             <Icon type="close" />
           </Button>
         </StyledModalBodyContainer>
-      </div>
+      </motion.div>
     </StyledModalContainer>
     // </Portal>
   );

@@ -1,13 +1,13 @@
 import { string, object } from 'prop-types';
 import styled from 'styled-components';
-import { calcRem, colors } from 'theme/theme';
+import { calcRem, colors, device } from 'theme/theme';
 import { Icon, Paragraph } from 'components';
 import Layout from 'pages/Layout/Layout';
 
 const StyledIconExplanList = styled(Layout.FlexContainer)`
   width: ${({ contentWidth }) => contentWidth};
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     margin-bottom: ${calcRem(50)};
   }
 `;

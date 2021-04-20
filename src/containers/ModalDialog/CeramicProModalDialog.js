@@ -8,11 +8,12 @@ import {
   HelmetPriceTable,
   PrimiumPriceTable
 } from 'components';
-import useModalSelected from 'hooks/useModalSelected';
+import { useModalSelected } from 'hooks/';
 import {
   ceramicMultiToggleActive,
   ceramicSingleToggleActive
 } from 'store/modal/ceramic';
+import { motion } from 'framer-motion';
 
 const StyledModalContainer = styled.section`
   position: fixed;
@@ -22,13 +23,13 @@ const StyledModalContainer = styled.section`
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
   z-index: 100;
+  backdrop-filter: blur(4px);
 
   & > div {
-    margin-top: ${calcRem(170)};
     width: ${calcRem(1350)};
-    height: 100vh;
-    margin: ${calcRem(170)} auto 0;
-    background: ${colors.gray2};
+    height: 90vh;
+    margin: ${calcRem(50)} auto 0;
+    background: ${colors.gray_02};
     overflow: auto;
     display: flex;
     position: relative;
@@ -53,9 +54,9 @@ const StyledModalContainer = styled.section`
 `;
 
 const StyledModalBodyContainer = styled.div`
+  user-select: none;
   width: 100%;
-  padding-top: ${calcRem(180)};
-
+  padding-top: ${calcRem(30)};
   h4 {
     font-size: ${calcRem(45)};
     text-align: center;
@@ -115,12 +116,14 @@ const StyledPackageContainer = styled.div`
 `;
 const StyledPackageListContainer = styled.div`
   display: grid;
+
   grid-template-columns: ${({ numOfProd }) =>
     numOfProd === 8 ? `repeat(4, 1fr)` : `repeat(${numOfProd}, 1fr)`};
   gap: ${calcRem(20)};
   padding: 0 ${({ numOfProd }) => (numOfProd <= 3 ? calcRem(160) : 0)} 3.75rem;
 
   & div {
+    cursor: pointer;
     margin: ${({ numOfProd }) => numOfProd === 1 && '0 auto'};
   }
   &.secondPackage > div:nth-child(2) em {
@@ -139,12 +142,13 @@ const StyledButtonContainer = styled.div`
     transform: translate(-50%, -30%);
   }
 `;
-const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
+const CeramicProModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
   const {
     modalData,
     onlyOneSelected,
     multiSelected,
-    addServices
+    addServices,
+    checkActive
   } = useModalSelected(
     'ceramicModal',
     ceramicSingleToggleActive,
@@ -152,18 +156,19 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
     onChange,
     confirmCheck
   );
-
   const { label, title, firstPackage, secondPackage, thirdPackage } = modalData;
+  console.log(checkActive(firstPackage, secondPackage, thirdPackage));
 
   return (
     // <Portal id="modal-root">
     <StyledModalContainer>
-      <div
+      <motion.div
         role="dialog"
         aria-modal="true"
         aria-label={label}
         aria-describedby={label}
         tabIndex="0"
+        {...restProps}
       >
         <header id={label}>
           <A11yHidden as="h3">{title}</A11yHidden>
@@ -176,7 +181,6 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
               className="firstPackage"
               numOfProd={firstPackage.contents?.length}
             >
-
               {firstPackage.contents?.map(content => (
                 <PrimiumPriceTable
                   key={content.id}
@@ -186,7 +190,6 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={onlyOneSelected}
                   {...content}
                 />
-
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -196,7 +199,6 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
               className="secondPackage"
               numOfProd={secondPackage.contents?.length}
             >
-
               {secondPackage.contents?.map(content => (
                 <HelmetPriceTable
                   key={content.id}
@@ -206,7 +208,6 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={multiSelected}
                   {...content}
                 />
-
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -216,7 +217,6 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
               className="thirdPackage"
               numOfProd={thirdPackage.contents?.length}
             >
-
               {thirdPackage.contents?.map(content => (
                 <HelmetPriceTable
                   key={content.id}
@@ -231,6 +231,7 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
           </StyledPackageContainer>
           <StyledButtonContainer>
             <Button
+              disabled={checkActive(firstPackage, secondPackage, thirdPackage)}
               mode="button"
               onClick={addServices(
                 'ceramicpro',
@@ -246,7 +247,7 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
             <Icon type="close" />
           </Button>
         </StyledModalBodyContainer>
-      </div>
+      </motion.div>
     </StyledModalContainer>
     // </Portal>
   );

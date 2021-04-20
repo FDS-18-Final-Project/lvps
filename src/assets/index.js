@@ -57,8 +57,12 @@ export default {
   openQuote: OpenQuote,
   closeQuote: CloseQuote,
   star: Star,
+<<<<<<< HEAD
   circleCheck: CircleCheck,
   marker: Marker,
   email: Email,
   phone: Phone
+=======
+  circleCheck: CircleCheck
+>>>>>>> d93953ef7728f47f6a5a47f46011c47c73a1de72
 };

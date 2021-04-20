@@ -8,7 +8,8 @@ import {
   HelmetPriceTable,
   PrimiumPriceTable
 } from 'components';
-import useModalSelected from 'hooks/useModalSelected';
+import { useModalSelected } from 'hooks/';
+import { motion } from 'framer-motion';
 import {
   detailMultiToggleActive,
   detailSingleToggleActive
@@ -28,7 +29,7 @@ const StyledModalContainer = styled.section`
     width: ${calcRem(1350)};
     height: 100vh;
     margin: 170px auto 0;
-    background: ${colors.gray2};
+    background: ${colors.gray_02};
     overflow: auto;
     display: flex;
     position: relative;
@@ -149,13 +150,13 @@ const StyledButtonContainer = styled.div`
   }
 `;
 
-const DetailModalDialog = ({ onChange, confirmCheck }) => {
-
+const DetailModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
   const {
     modalData,
     onlyOneSelected,
     multiSelected,
-    addServices
+    addServices,
+    checkActive
   } = useModalSelected(
     'detailModal',
     detailSingleToggleActive,
@@ -168,12 +169,13 @@ const DetailModalDialog = ({ onChange, confirmCheck }) => {
   return (
     // <Portal id="modal-root">
     <StyledModalContainer>
-      <div
+      <motion.div
         role="dialog"
         aria-modal="true"
         aria-label={label}
         aria-describedby={label}
         tabIndex="0"
+        {...restProps}
       >
         <header id={label}>
           <A11yHidden as="h3">{title}</A11yHidden>
@@ -195,7 +197,6 @@ const DetailModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={onlyOneSelected}
                   {...content}
                 />
-
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -204,7 +205,6 @@ const DetailModalDialog = ({ onChange, confirmCheck }) => {
             <StyledPackageListContainer
               numOfProd={secondPackage.contents?.length}
             >
-
               {secondPackage.contents?.map(content => (
                 <HelmetPriceTable
                   key={content.id}
@@ -214,12 +214,12 @@ const DetailModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={multiSelected}
                   {...content}
                 />
-
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
           <StyledButtonContainer>
             <Button
+              disabled={checkActive(firstPackage, secondPackage)}
               mode="button"
               onClick={addServices('detail', firstPackage, secondPackage)}
             >
@@ -230,7 +230,7 @@ const DetailModalDialog = ({ onChange, confirmCheck }) => {
             <Icon type="close" />
           </Button>
         </StyledModalBodyContainer>
-      </div>
+      </motion.div>
     </StyledModalContainer>
     // </Portal>
   );

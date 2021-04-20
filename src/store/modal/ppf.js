@@ -107,7 +107,7 @@ const ppfData = {
         active: false,
         color: 'red_05',
         option: '',
-        price: '250',
+        price: 250,
         info: ["18'' HOOD AND FENDERS"]
       },
       {
@@ -115,7 +115,7 @@ const ppfData = {
         active: false,
         color: 'red_05',
         option: '',
-        price: '300',
+        price: 300,
         info: ["24'' HOOD AND FENDERS"]
       },
       {
@@ -123,7 +123,7 @@ const ppfData = {
         active: false,
         color: 'red_05',
         option: '',
-        price: '80',
+        price: 80,
         info: ['Trunk Strip Paint Protection Coverage']
       },
       {
@@ -131,7 +131,7 @@ const ppfData = {
         active: false,
         color: 'red_05',
         option: '',
-        price: '250',
+        price: 250,
         info: ['Rocker Panel Paint Protection coverage']
       },
       {
@@ -139,7 +139,7 @@ const ppfData = {
         active: false,
         color: 'red_05',
         option: '',
-        price: '150',
+        price: 150,
         info: ['Front Headlight Paint Protection Coverage']
       },
       {
@@ -147,7 +147,7 @@ const ppfData = {
         active: false,
         color: 'red_05',
         option: '',
-        price: '600',
+        price: 600,
         info: ['Full Bumper Paint Protection Coverage']
       },
       {
@@ -155,7 +155,7 @@ const ppfData = {
         active: false,
         color: 'red_05',
         option: '',
-        price: '600',
+        price: 600,
         info: ['Full Hood Paint Protection Coverage']
       },
       {
@@ -163,7 +163,7 @@ const ppfData = {
         active: false,
         color: 'red_05',
         option: '',
-        price: '300',
+        price: 300,
         info: ['Pillars Paint Protection Coverage(A-PILLARS AND FRONT OF ROOF)']
       }
     ]

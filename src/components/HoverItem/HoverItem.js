@@ -11,21 +11,17 @@ const StyledButton = styled(Button)`
   color: ${colors.white};
   padding: ${calcRem(18)} ${calcRem(37)} ${calcRem(18)} ${calcRem(30)};
   font-size: ${fontSizes.lg};
-
   & p {
     flex-grow: 1;
   }
-
   & div {
     width: ${calcRem(8)};
     opacity: 0;
   }
-
   &:hover {
     background-color: ${colors.black};
     border: none;
     color: ${colors.redMain};
-
     & div {
       opacity: 1;
     }
@@ -34,15 +30,22 @@ const StyledButton = styled(Button)`
 
 const StyledButtonContainer = styled.li`
   max-width: ${calcRem(348)};
+  border-bottom: ${calcRem(1)} solid transparent;
+  :hover {
+    ul {
+      display: block;
+    }
+  }
 `;
 
-const HoverItem = ({ value, to }) => {
+const HoverItem = ({ value, to, children }) => {
   return (
     <StyledButtonContainer>
       <StyledButton mode="link" to={to}>
         <p>{value}</p>
         <Icon type="rightArrow" color="white" />
       </StyledButton>
+      {children}
     </StyledButtonContainer>
   );
 };

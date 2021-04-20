@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import PriceTable from './PriceTable';
 import { string } from 'prop-types';
 import { calcInterval, calcRem, colors } from '../../theme/theme';
-import useViewSize from 'hooks/useViewSize';
+import { useViewSize } from 'hooks/';
 
 const TagPriceTableContainer = styled(PriceTable)`
   padding: ${calcInterval([135, 30, 103])};

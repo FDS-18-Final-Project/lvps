@@ -1,5 +1,6 @@
-import { Carousel, PriceCardLayout, TagPriceTable } from 'components/';
 import styled from 'styled-components';
+import { Carousel, TagPriceTable } from 'components/';
+import PriceCardLayout from 'pages/Layout/PriceCardLayout';
 
 const package_01 = [
   {

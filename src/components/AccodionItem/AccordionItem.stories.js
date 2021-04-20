@@ -2,7 +2,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import AccordionItem from 'components/AccodionItem/AccordionItem';
 import GlobalStyle from 'styles/GlobalStyle';
-import { colors } from '../../theme/theme';
+import { colors, calcRem } from 'theme/theme';
 
 export default {
   title: 'LVPS/Component/AccodionItem',
@@ -52,6 +52,23 @@ const Template = args => (
 
 //스토리 구성 객체 기본 내보내기
 
+const variants = mobile => ({
+  visible: {
+    color: colors.white,
+    backgroundColor: colors.redMain,
+    height: 'auto',
+    opacity: 0.8,
+    transition: { duration: 0.5, type: 'tween' }
+  },
+  hidden: {
+    color: colors.black,
+    backgroundColor: colors.white,
+    height: mobile ? calcRem(37) : calcRem(46),
+    opacity: 1,
+    transition: { duration: 0.5, type: 'tween' }
+  }
+});
+
 export const Accondion = Template.bind({});
 
 Accondion.args = {
@@ -65,7 +82,8 @@ Accondion.args = {
       'Services'
     ],
     active: false
-  }
+  },
+  variant: variants
 };
 
 export const AccondionActive = Template.bind({});
@@ -81,5 +99,6 @@ AccondionActive.args = {
       'Services'
     ],
     active: true
-  }
+  },
+  variant: variants
 };

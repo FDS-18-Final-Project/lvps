@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors, calcRem, calcInterval, fontSizes } from 'theme/theme';
 import { IconParagraph } from 'components/';
 import Layout from 'pages/Layout/Layout';
-import useViewSize from 'hooks/useViewSize';
+import { useViewSize } from 'hooks/';
 
 const explanCeramic = [
   {

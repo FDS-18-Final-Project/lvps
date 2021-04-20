@@ -13,44 +13,25 @@ const useModalSelected = (
   const dispatch = useDispatch();
 
   const onlyOneSelected = e => {
-    if (!e.target.dataset.name) return;
+    if (!e.target.closest('div').dataset.name) return;
 
     const {
       dataset: { name },
       id
-    } = e.target;
+    } = e.target.closest('div');
 
     dispatch(single(id, name));
-    // setOption({
-    //   ...option,
-    //   [name]: {
-    //     ...option[name],
-    //     contents: option[name].contents.map(content =>
-    //       content.id === +id
-    //         ? { ...content, active: true }
-    //         : { ...content, active: false }
-    //     )
-    //   }
-    // });
   };
 
   const multiSelected = e => {
-    if (!e.target.dataset.name) return;
+    if (!e.target.closest('div').dataset.name) return;
+
     const {
       dataset: { name },
       id
-    } = e.target;
+    } = e.target.closest('div');
 
     dispatch(multi(id, name));
-    // setOption({
-    //   ...option,
-    //   [name]: {
-    //     ...option[name],
-    //     contents: option[name].contents.map(content =>
-    //       content.id === +id ? { ...content, active: !content.active } : content
-    //     )
-    //   }
-    // });
   };
 
   const addServices = (key, firstPackage, secondPackage, thirdPackage) => {
@@ -67,7 +48,22 @@ const useModalSelected = (
     };
   };
 
-  return { modalData, onlyOneSelected, multiSelected, addServices };
+  const checkActive = (firstPackage, secondPackage, thirdPackage) => {
+    const selectedItem = [
+      ...firstPackage.contents.filter(content => content.active),
+      ...(secondPackage?.contents?.filter(content => content.active) || []),
+      ...(thirdPackage?.contents?.filter(content => content.active) || [])
+    ];
+
+    return !selectedItem.length;
+  };
+  return {
+    modalData,
+    onlyOneSelected,
+    multiSelected,
+    addServices,
+    checkActive
+  };
 };
 
 export default useModalSelected;
