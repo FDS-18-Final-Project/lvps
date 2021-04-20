@@ -35,6 +35,7 @@ const StyledExplainCardContainer = styled.div`
   }
 `;
 const ExplainCard = ({ title, desc, infoList }) => {
+  console.log(title, desc, infoList);
   return (
     <StyledExplainCardContainer>
       <Paragraph type="normal" title={title} headingNum="4">

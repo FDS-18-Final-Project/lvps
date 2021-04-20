@@ -98,10 +98,6 @@ const Home = () => {
         for your auto care needs.
       </ServiceInfo>
       <OurBestServices />
-      <CardExplanation
-        cardList={CardList}
-        title="Luxury Vehicle Protection Services"
-      ></CardExplanation>
       <SubBanner title="Our Works" description="Visit our Instagram.">
         Visit Instagram
         <Icon type="instagram" color={colors.white} width={calcRem(25)} />
