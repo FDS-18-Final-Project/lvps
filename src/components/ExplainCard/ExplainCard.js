@@ -34,6 +34,7 @@ const StyledExplainCardContainer = styled.div`
     line-height: 150%;
   }
 `;
+
 const ExplainCard = ({ title, desc, infoList }) => {
   console.log(title, desc, infoList);
   return (

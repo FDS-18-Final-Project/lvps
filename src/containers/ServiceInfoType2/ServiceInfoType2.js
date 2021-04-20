@@ -1,10 +1,9 @@
 import React from 'react';
-import { array, string } from 'prop-types';
+import { array, string, oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, fontSizes } from 'theme/theme';
 import { A11yHidden, Paragraph } from 'components';
 import CardInfo from 'components/CardInfo/CardInfo';
-import { oneOf } from 'prop-types';
 
 const ServiceInfoType2Container = styled.section`
   border-top: 2px solid ${colors.lightGray};
