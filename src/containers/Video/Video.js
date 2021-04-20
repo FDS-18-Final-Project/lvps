@@ -1,47 +1,90 @@
 import React from 'react';
-import { string } from 'prop-types';
 import styled from 'styled-components';
+
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
+import YouTube from 'react-youtube';
 
-const StyledVideoContainer = styled.section`
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
+/* -------------------------------------------------------------------------- */
 
-  & iframe {
+const opts = {
+  width: '100%',
+  height: '680px',
+  playerVars: {
+    autoplay: 1,
+    modestbranding: 1,
+    showinfo: 0,
+    controls: 0,
+    fs: 0,
+    cc_load_policy: 0,
+    iv_load_policy: 3,
+    autohide: 0,
+    loop: 1
+  }
+};
+
+/* -------------------------------------------------------------------------- */
+const StyledVideo = styled(YouTube)`
+  .youtubeContainer {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    margin-bottom: 50px;
+  }
+
+  .youtubeContainer iframe {
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
   }
 `;
 
-const Video = ({ videoId, videoTitle }) => {
+const Video = ({ videoId, options = {}, ...restProps }) => {
+  options = { ...opts, ...options };
+
+  const youtubeRef = React.useRef(null);
+
+  const handleReady = e => {
+    e.target.mute();
+  };
+
+  const handleEnd = e => {
+    e.target.playVideo();
+  };
+
+  React.useEffect(() => {
+    const player = youtubeRef.current.getInternalPlayer();
+    const handleKeyUp = e => {
+      const code = e.keyCode;
+
+      // when a user enter the ESC
+      code === 27 && player.pauseVideo();
+
+      // When a user enter Shift or Enter
+      (code === 32 || code === 13) && player.playVideo();
+    };
+
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
+
   return (
-    <StyledVideoContainer>
-      <A11yHidden as="h2">Video Player section</A11yHidden>
-      <iframe
-        src={`https://www.youtube.com/embed/${videoId}`}
-        title={videoTitle}
-        frameBorder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
-    </StyledVideoContainer>
+    <StyledVideo
+      ref={youtubeRef}
+      opts={options}
+      videoId={videoId}
+      onReady={handleReady}
+      onEnd={handleEnd}
+      containerClassName={'youtubeContainer'}
+      {...restProps}
+    />
   );
 };
-Video.prototype = {
-  videoId: string,
-  videoTitle: string
-};
-Video.defaultProps = {
-  videoId: 'dEHu-STjB-Q',
-  videoTitle: 'service-ceramic-pro-vedio'
-};
-
-StyledVideoContainer.displayName = 'VideoContainer';
 
 export default Video;
