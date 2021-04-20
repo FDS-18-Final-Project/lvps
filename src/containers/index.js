@@ -32,3 +32,4 @@ export { default as DetailingPaintPackage } from './DetailingPaintPackage/Detail
 export { default as Video } from './Video/Video';
 export { default as BrandList } from './BrandList/BrandList';
 export { default as SubMainBanner } from './SubMainBanner/SubMainBanner';
+export { default as ChooseUs } from './ChooseUs/ChooseUs';
