@@ -1,7 +1,6 @@
 import { array, oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors } from 'theme/theme';
-// import { Icon, CarouselItem, Indicator } from 'components/';
 import CarouselItem from 'components/CarouselItem/CarouselItem';
 import Icon from 'components/Icon/Icon';
 import Indicator from 'components/Indicator/Indicator';

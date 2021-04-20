@@ -21,9 +21,9 @@ const StyledSubContainer = styled.ul`
   }
 `;
 
-const HoverBox = ({ HoverItems }) => {
+const HoverBox = ({ HoverItems, ...restProps }) => {
   return (
-    <StyledContainer>
+    <StyledContainer {...restProps}>
       <HoverItem id="hover_1" value="Ceramic Coating" to="/">
         <StyledSubContainer>
           <HoverItem id="hover_2" value="Ceramic Pro" to="/" />

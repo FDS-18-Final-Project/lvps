@@ -39,7 +39,7 @@ const ServiceInfoContainer = styled.div`
   }
 
   .gridBtn {
-    max-width: ${calcRem(294)};
+    width: ${calcRem(294)};
     margin-top: ${calcRem(70)};
     align-self: flex-end;
   }

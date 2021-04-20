@@ -13,7 +13,6 @@ const ServiceMainBannerContainer = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template: repeat(1, 1fr) / repeat(2, 1fr);
-  max-height: ${calcRem(683)};
 
   .gridTitle {
     font-size: ${fontSizes.titleBase};
@@ -27,11 +26,12 @@ const ServiceMainBannerContainer = styled.div`
     line-height: ${calcRem(27)};
     grid-area: 1 / 1 / 2 / 2;
     padding-top: ${calcRem(200)};
-
     margin-right: ${calcRem(157)};
   }
 
   .gridImage {
+    max-height: ${calcRem(683)};
+
     img {
       width: 100%;
       height: 100%;
