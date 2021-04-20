@@ -5,6 +5,7 @@ import { calcRem, colors, fontSizes, device } from 'theme/theme';
 import CardInfo from 'components/CardInfo/CardInfo';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import useViewSize from 'hooks/useViewSize';
+
 const ServiceInfoType3Container = styled.section`
   border-top: 2px solid ${colors.lightGray};
 `;
@@ -14,9 +15,6 @@ const FullContainer = styled.div`
   display: flex;
   flex-direction: row;
 
-  ${device.desktop} {
-    padding: 0 ${calcRem(50)};
-  }
   ${device.tablet} {
     flex-direction: column;
     padding: 0 ${calcRem(15)};

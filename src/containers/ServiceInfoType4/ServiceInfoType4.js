@@ -1,11 +1,12 @@
 import React from 'react';
 import { array, string } from 'prop-types';
 import styled from 'styled-components';
-import { calcRem, colors, fontSizes } from 'theme/theme';
+import { calcRem, colors, fontSizes, device, calcInterval } from 'theme/theme';
 import CardInfo from 'components/CardInfo/CardInfo';
 import ExplainCard from 'components/ExplainCard/ExplainCard';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import Paragraph from 'components/Paragraph/Paragraph';
+import useViewSize from 'hooks/useViewSize';
 
 const explainCardType1InfoList = [
   'Excellent Durability',
@@ -30,6 +31,11 @@ const ServiceInfoType4Container = styled.section`
 const FullContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+
+  ${device.tablet} {
+    flex-direction: column;
+    padding: 0 ${calcRem(15)};
+  }
 `;
 const ServiceInfoContainer = styled.div`
   display: flex;
@@ -44,6 +50,14 @@ const ImageSideContainer = styled.div`
   img {
     width: 100%;
     height: 100%;
+  }
+  ${device.tablet} {
+    max-width: initial;
+    margin-bottom: ${calcRem(25)};
+
+    div {
+      width: 100%;
+    }
   }
 `;
 const ContentSideContainer = styled.div`
@@ -60,6 +74,20 @@ const ContentSideContainer = styled.div`
     text-align: start;
     margin-top: ${calcRem(75)};
     margin-bottom: ${calcRem(20)};
+  }
+  ${device.desktop} {
+    h3 {
+      font-size: ${calcRem(40)};
+      line-height: 120%;
+    }
+  }
+  ${device.tablet} {
+    h3 {
+      font-size: ${fontSizes.xl};
+      line-height: 150%;
+      text-align: center;
+      margin-bottom: ${calcRem(35)};
+    }
   }
 `;
 const StyledContentContainer = styled.div`
@@ -84,6 +112,21 @@ const StyledContentContainer = styled.div`
   ul li p {
     margin: 0;
   }
+  ${device.desktop} {
+    h4 {
+      font-size: ${calcRem(20)};
+    }
+    p {
+      font-size: ${fontSizes.base};
+    }
+  }
+  ${device.tablet} {
+    margin: 0;
+
+    ul {
+      margin-bottom: ${calcRem(75)};
+    }
+  }
 `;
 
 const ExplainCardContainer = styled.div`
@@ -94,28 +137,61 @@ const ExplainCardContainer = styled.div`
   h4 {
     margin-bottom: ${calcRem(45)};
   }
+
+  ${device.desktop} {
+    & > div {
+      max-width: ${calcRem(400)};
+      padding: ${calcInterval([75, 30])};
+    }
+  }
+
+  ${device.tablet} {
+    flex-direction: column;
+    align-items: center;
+    justify-content: initial;
+
+    & > div {
+      max-width: initial;
+      width: 100%;
+      padding: ${calcInterval([75, 50])};
+    }
+    & > div:nth-child(2) {
+      margin-top: ${calcRem(20)};
+    }
+  }
 `;
 
 const ServiceInfoType4 = ({
   title,
   children,
   imagePath,
+  mobileImagePath,
   imageLabel,
   infoList
 }) => {
+  const { desktop, mobile } = useViewSize();
   return (
     <ServiceInfoType4Container>
       <A11yHidden as="h2">{title}</A11yHidden>
       <FullContainer>
         <ServiceInfoContainer>
-          <ImageSideContainer>
-            <div>
-              <img src={imagePath} alt={imageLabel} />
-            </div>
-          </ImageSideContainer>
+          {desktop && (
+            <ImageSideContainer>
+              <div>
+                <img src={imagePath} alt={imageLabel} />
+              </div>
+            </ImageSideContainer>
+          )}
           <ContentSideContainer>
             <StyledContentContainer>
               <h3>{title}</h3>
+              {mobile && (
+                <ImageSideContainer>
+                  <div>
+                    <img src={mobileImagePath} alt="mobile paint correction" />
+                  </div>
+                </ImageSideContainer>
+              )}
               <Paragraph type="normal" headingNum="4">
                 {children}
               </Paragraph>
@@ -144,6 +220,7 @@ ServiceInfoType4.propTypes = {
   title: string,
   subTitle: string,
   children: string,
+  mobileImagePath: string,
   imagePath: string,
   imageLabel: string,
   infoList: array
@@ -152,6 +229,7 @@ ServiceInfoType4.propTypes = {
 ServiceInfoType4.defaultProps = {
   title: 'PAINT PROTECTION FILM & VINYL',
   subTitle: 'CERAMIC PRO PPF & VINYL',
+  mobileImagePath: '',
   children:
     'Top Coat allows the surface to stay cleaner longer as dirt and grime will not stick to it. The super hydrophobic effect of the coating will cause water to bead up and roll off the surface along with any dirt and grime. Top Coat is usually applied over 9H in the layering process. Though not as durable as 9H, it can also be applied on its own. Top Coat also enhances gloss depth further on all painted surfaces for that wet look that is often hard to attain with synthetic waxes.',
   imagePath: './assets/dummyCar.png',
