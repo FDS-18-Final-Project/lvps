@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { number, string, oneOf, bool, array, node } from 'prop-types';
+import {
+  number,
+  string,
+  oneOf,
+  bool,
+  array,
+  node,
+  oneOfType
+} from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, fontSizes } from 'theme/theme';
 import { CardInfo, Divider, CardInfoTitleDescription } from 'components';
@@ -124,7 +132,7 @@ PriceTable.propTypes = {
   minHeight: number,
   fgColor: string,
   iconColor: string,
-  title: string,
+  title: oneOfType([string, node]),
   price: number,
   icon: bool,
   info: array,

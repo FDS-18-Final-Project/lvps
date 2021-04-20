@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import React from 'react';
+import { oneOf } from 'prop-types';
+import styled from 'styled-components';
 import { calcInterval, colors, calcRem, fontSizes } from 'theme/theme';
 import PriceTable from './PriceTable';
-import { oneOfType } from 'prop-types';
 
 const PrimiumPriceTableContainer = styled(PriceTable)`
   position: relative;
@@ -56,7 +56,7 @@ const PrimiumPriceTable = ({ id, option, active, onClick, ...restProps }) => {
 };
 
 PrimiumPriceTable.propTypes = {
-  option: oneOfType(['Gold', 'Silver', 'Platinum', 'Bronze'])
+  option: oneOf(['Gold', 'Silver', 'Platinum', 'Bronze'])
 };
 
 PrimiumPriceTable.defaultProps = {

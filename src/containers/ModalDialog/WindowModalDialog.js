@@ -8,6 +8,7 @@ import {
   windowMultiToggleActive,
   windowSingleToggleActive
 } from 'store/modal/window';
+import { motion } from 'framer-motion';
 
 const StyledModalContainer = styled.section`
   position: fixed;
@@ -116,6 +117,7 @@ const StyledPackageListContainer = styled.div`
   & strong {
     margin-top: 1.5rem !important;
   }
+
   & ul li p {
     line-height: 130%;
   }
@@ -135,8 +137,13 @@ const StyledButtonContainer = styled.div`
   }
 `;
 
-const WindowModalDialog = ({ onChange, confirmCheck }) => {
-  const { modalData, onlyOneSelected, addServices } = useModalSelected(
+const WindowModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
+  const {
+    modalData,
+    onlyOneSelected,
+    addServices,
+    checkActive
+  } = useModalSelected(
     'windowModal',
     windowSingleToggleActive,
     windowMultiToggleActive,
@@ -148,12 +155,13 @@ const WindowModalDialog = ({ onChange, confirmCheck }) => {
   return (
     // <Portal id="modal-root">
     <StyledModalContainer>
-      <div
+      <motion.div
         role="dialog"
         aria-modal="true"
         aria-label={label}
         aria-describedby={label}
         tabIndex="0"
+        {...restProps}
       >
         <header id={label}>
           <A11yHidden as="h3">{title}</A11yHidden>
@@ -179,7 +187,11 @@ const WindowModalDialog = ({ onChange, confirmCheck }) => {
             </StyledPackageListContainer>
           </StyledPackageContainer>
           <StyledButtonContainer>
-            <Button mode="button" onClick={addServices('window', firstPackage)}>
+            <Button
+              disabled={checkActive(firstPackage)}
+              mode="button"
+              onClick={addServices('window', firstPackage)}
+            >
               Confirm
             </Button>
           </StyledButtonContainer>
@@ -187,7 +199,7 @@ const WindowModalDialog = ({ onChange, confirmCheck }) => {
             <Icon type="close" />
           </Button>
         </StyledModalBodyContainer>
-      </div>
+      </motion.div>
     </StyledModalContainer>
     // </Portal>
   );

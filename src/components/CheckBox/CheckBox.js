@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { string, node, func, object, oneOfType } from 'prop-types';
 import styled from 'styled-components';
-import { fontSizes, colors } from 'theme/theme';
-import { string } from 'prop-types';
+import { fontSizes, colors, calcRem } from 'theme/theme';
 import Icon from 'components/Icon/Icon';
+import { AnimatePresence } from 'framer-motion';
 
 const CheckBoxContainer = styled.label`
   display: inline-block;
@@ -42,13 +43,14 @@ const CheckBoxContainer = styled.label`
     height: 380px;
     opacity: 0;
     cursor: pointer;
-
   }
 
-  button {
-    width: 60px;
-    height: 50px;
-    cursor: pointer;
+  .resetBtn {
+    position: absolute;
+    top: ${calcRem(5)};
+    right: ${calcRem(5)};
+    z-index: ${({ confirm }) => (confirm ? 1000 : -1000)};
+
   }
   .icon {
     position: absolute;
@@ -65,8 +67,17 @@ const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
   const handleModalVisible = () => {
     isVisible(!visible);
   };
+
   const handleConfirmCheck = () => setConfirm(true);
-  const resetConfirm = () => setConfirm(false);
+
+  const resetConfirm = () => {
+    setConfirm(false);
+  };
+
+  // useEffect(() => {
+  //   document.body.style.overflow = visible ? 'hidden' : 'initial';
+  // });
+
   return (
     <>
       <CheckBoxContainer imagePath={imagePath} label={label} confirm={confirm}>
@@ -75,22 +86,49 @@ const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
           checked={visible}
           onChange={handleModalVisible}
         />
-        <button onClick={() => handleReset(resetConfirm)}>초기화</button>
+        <Icon
+          className="resetBtn"
+          type="close"
+          color={colors.white}
+          button
+          onClick={() => handleReset(resetConfirm)}
+        />
+
         {confirm && <Icon className="icon" type="circleCheck" />}
       </CheckBoxContainer>
-      {visible && (
-        <Modal
-          onChange={handleModalVisible}
-          confirmCheck={handleConfirmCheck}
-        />
-      )}
+
+      <AnimatePresence>
+        {visible && (
+          <Modal
+            onChange={handleModalVisible}
+            confirmCheck={handleConfirmCheck}
+            initial={{
+              opacity: 0,
+              y: -200,
+              transition: { duration: 0.3 }
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.3 }
+            }}
+            exit={{
+              y: -200,
+              opacity: 0,
+              transition: { duration: 0.3 }
+            }}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 };
 
 CheckBox.propTypes = {
   imagePath: string,
-  label: string
+  label: string,
+  Modal: oneOfType([func, object, node]),
+  handleReset: func
 };
 
 CheckBox.defaultProps = {

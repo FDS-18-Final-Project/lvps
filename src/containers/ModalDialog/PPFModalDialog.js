@@ -10,6 +10,7 @@ import {
 } from 'components';
 import { useModalSelected } from 'hooks/';
 import { ppfMultiToggleActive, ppfSingleToggleActive } from 'store/modal/ppf';
+import { motion } from 'framer-motion';
 
 const StyledModalContainer = styled.section`
   position: fixed;
@@ -134,12 +135,13 @@ const StyledButtonContainer = styled.div`
     transform: translate(-50%, -30%);
   }
 `;
-const PPFModalDialog = ({ onChange, confirmCheck }) => {
+const PPFModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
   const {
     modalData,
     onlyOneSelected,
     multiSelected,
-    addServices
+    addServices,
+    checkActive
   } = useModalSelected(
     'ppfModal',
     ppfSingleToggleActive,
@@ -152,12 +154,13 @@ const PPFModalDialog = ({ onChange, confirmCheck }) => {
   return (
     // <Portal id="modal-root">
     <StyledModalContainer>
-      <div
+      <motion.div
         role="dialog"
         aria-modal="true"
         aria-label={label}
         aria-describedby={label}
         tabIndex="0"
+        {...restProps}
       >
         <header id={label}>
           <A11yHidden as="h3">{title}</A11yHidden>
@@ -201,6 +204,7 @@ const PPFModalDialog = ({ onChange, confirmCheck }) => {
           </StyledPackageContainer>
           <StyledButtonContainer>
             <Button
+              disabled={checkActive(firstPackage, secondPackage)}
               mode="button"
               onClick={addServices('ppf', firstPackage, secondPackage)}
             >
@@ -211,7 +215,7 @@ const PPFModalDialog = ({ onChange, confirmCheck }) => {
             <Icon type="close" />
           </Button>
         </StyledModalBodyContainer>
-      </div>
+      </motion.div>
     </StyledModalContainer>
     // </Portal>
   );

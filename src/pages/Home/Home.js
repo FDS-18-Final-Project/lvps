@@ -21,7 +21,7 @@ import {
   DetailingPaintPackage,
   CardExplanation
 } from 'containers';
-import { Icon } from 'components/';
+import { Icon, NavbarMobile } from 'components/';
 import { colors, calcRem } from 'theme/theme';
 
 const CardList = [
@@ -98,6 +98,7 @@ const Home = () => {
         each client is highly satisfied with us. Please feel free to contact us
         for your auto care needs.
       </ServiceInfo>
+      <NavbarMobile></NavbarMobile>
       <OurBestServices />
       <CardExplanation
         cardList={CardList}

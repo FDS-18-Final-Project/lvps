@@ -18,14 +18,14 @@ import logger from 'redux-logger';
 // 한국어 출력
 //autoA11yTest();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const ReduxStore = createStore(
+const store = createStore(
   appReducers,
   composeEnhancers(applyMiddleware(promiseMiddleware, logger))
 );
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={ReduxStore}>
+    <Provider store={store}>
       <Router>
         <GlobalStyle />
         <App />
