@@ -5,17 +5,35 @@ import HoverItem from 'components/HoverItem/HoverItem';
 
 // HoverBox 컴포넌트 스타일링
 const StyledContainer = styled.ul`
-  li + li {
-    margin-top: ${calcRem(1)};
+  position: absolute;
+`;
+
+const StyledSubContainer = styled.ul`
+  display: none;
+  margin-left: ${calcRem(1)};
+  position: absolute;
+  top: 0;
+  left: 100%;
+
+  li {
+    width: ${calcRem(348)};
+    border-bottom: ${calcRem(1)} solid transparent;
   }
 `;
 
 const HoverBox = ({ HoverItems }) => {
   return (
     <StyledContainer>
-      {HoverItems.map(item => (
-        <HoverItem key={item.id} value={item.value} to={item.to} />
-      ))}
+      <HoverItem id="hover_1" value="Ceramic Coating" to="/">
+        <StyledSubContainer>
+          <HoverItem id="hover_2" value="Ceramic Pro" to="/" />
+          <HoverItem id="hover_3" value="IGL Coatings" to="/" />
+        </StyledSubContainer>
+      </HoverItem>
+      <HoverItem id="hover_4" value="Paint Protection Film" to="/" />
+      <HoverItem id="hover_5" value="Window Tinting" to="/" />
+      <HoverItem id="hover_6" value="Detailing &amp; Paint Correction" to="/" />
+      <HoverItem id="hover_7" value="Wheel &amp; Tire" to="/" />
     </StyledContainer>
   );
 };
@@ -49,6 +67,18 @@ HoverBox.defaultProps = {
     {
       id: 5,
       value: 'Wheels & Tires',
+      to: '/'
+    }
+  ],
+  HoverSubItems: [
+    {
+      id: 'hover_2',
+      value: 'Ceramic Pro',
+      to: '/'
+    },
+    {
+      id: 'hover_3',
+      value: 'IGL Coatings',
       to: '/'
     }
   ]

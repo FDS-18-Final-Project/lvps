@@ -53,6 +53,6 @@ export default {
   message: Message,
   openQuote: OpenQuote,
   closeQuote: CloseQuote,
-  star: Star
+  star: Star,
   circleCheck: CircleCheck
 };
