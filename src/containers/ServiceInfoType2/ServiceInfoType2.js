@@ -31,7 +31,7 @@ const ContentSideContainer = styled.div`
   flex-grow: 2;
   display: flex;
   justify-content: center;
-  margin-top: ${calcRem(115)};
+  margin-top: ${calcRem(75)};
 
   text-align: center;
   & h3 {
