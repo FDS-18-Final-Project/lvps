@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from 'styles/GlobalStyle';
 import Paragraph from './Paragraph';
 
@@ -14,7 +15,7 @@ export default {
     design: {
       type: 'figma',
       url:
-        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=34%3A68'
+        'https://www.figma.com/file/UqapsvM6RAF371unsQkgus/%EC%B0%A8%EB%9F%89%EC%84%9C%EB%B9%84%EC%8A%A4(%EC%88%98%EC%A0%95)?node-id=723%3A6591'
     }
   },
   argTypes: {
@@ -34,15 +35,41 @@ export default {
         type: 'select',
         options: [1, 2, 3]
       }
+    },
+    icon: {
+      description: '아이콘 타입',
+      control: {
+        type: 'select',
+        options: ['facebook', 'instagram', 'map']
+      }
+    },
+    iconColor: {
+      description: '아이콘 색',
+      control: {
+        type: 'select',
+        options: ['red_01', 'red_05', 'green']
+      }
+    },
+    size: {
+      description: '사이즈',
+      control: {
+        type: 'number'
+      }
+    },
+    link: {
+      description: '아이콘 링크',
+      control: {
+        type: 'boolean'
+      }
     }
   }
 };
 
 const Template = args => (
-  <>
+  <BrowserRouter>
     <GlobalStyle />
     <Paragraph {...args} />
-  </>
+  </BrowserRouter>
 );
 
 export const Normal = Template.bind({});
@@ -57,6 +84,8 @@ export const List = Template.bind({});
 List.args = {
   title: 'blabla',
   type: 'list',
+  icon: 'facebook',
+  link: true,
   headingNum: 3,
   items: ['첫 번째', '두 번째']
 };

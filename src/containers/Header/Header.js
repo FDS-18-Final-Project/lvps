@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { calcRem, calcInterval, colors, fontSizes } from 'theme/theme';
 import { Navbar, Logo, Icon, SearchForm } from 'components';
 
 import { AnimatePresence } from 'framer-motion';
 import Layout from 'pages/Layout/Layout';
-import useViewSize from 'hooks/useViewSize';
+import { useViewSize } from 'hooks/';
 
 const HeaderContainer = styled.header`
   background: ${colors.black};

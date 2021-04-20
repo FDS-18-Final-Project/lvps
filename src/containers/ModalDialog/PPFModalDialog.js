@@ -8,7 +8,7 @@ import {
   HelmetPriceTable,
   PrimiumPriceTable
 } from 'components';
-import useModalSelected from 'hooks/useModalSelected';
+import { useModalSelected } from 'hooks/';
 import { ppfMultiToggleActive, ppfSingleToggleActive } from 'store/modal/ppf';
 
 const StyledModalContainer = styled.section`
@@ -25,7 +25,7 @@ const StyledModalContainer = styled.section`
     width: ${calcRem(1350)};
     height: 100vh;
     margin: 170px auto 0;
-    background: ${colors.gray2};
+    background: ${colors.gray_02};
     overflow: auto;
     display: flex;
     position: relative;
@@ -170,7 +170,6 @@ const PPFModalDialog = ({ onChange, confirmCheck }) => {
               className="firstPackage"
               numOfProd={firstPackage.contents?.length}
             >
-
               {firstPackage.contents?.map(content => (
                 <PrimiumPriceTable
                   key={content.id}
@@ -180,7 +179,6 @@ const PPFModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={onlyOneSelected}
                   {...content}
                 />
-
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -189,7 +187,6 @@ const PPFModalDialog = ({ onChange, confirmCheck }) => {
             <StyledPackageListContainer
               numOfProd={secondPackage.contents?.length}
             >
-
               {secondPackage.contents?.map(content => (
                 <HelmetPriceTable
                   key={content.id}
@@ -199,7 +196,6 @@ const PPFModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={multiSelected}
                   {...content}
                 />
-
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>

@@ -7,7 +7,7 @@ import Input from 'components/Input/Input';
 import { A11yHidden } from '..';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import useSearch from 'hooks/useSearch';
+import { useSearch } from 'hooks/';
 
 const StyledFieldset = styled.fieldset`
   display: flex;

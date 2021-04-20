@@ -8,7 +8,7 @@ import {
   HelmetPriceTable,
   PrimiumPriceTable
 } from 'components';
-import useModalSelected from 'hooks/useModalSelected';
+import { useModalSelected } from 'hooks/';
 import {
   ceramicMultiToggleActive,
   ceramicSingleToggleActive
@@ -28,7 +28,7 @@ const StyledModalContainer = styled.section`
     width: ${calcRem(1350)};
     height: 100vh;
     margin: ${calcRem(170)} auto 0;
-    background: ${colors.gray2};
+    background: ${colors.gray_02};
     overflow: auto;
     display: flex;
     position: relative;
@@ -176,7 +176,6 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
               className="firstPackage"
               numOfProd={firstPackage.contents?.length}
             >
-
               {firstPackage.contents?.map(content => (
                 <PrimiumPriceTable
                   key={content.id}
@@ -186,7 +185,6 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={onlyOneSelected}
                   {...content}
                 />
-
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -196,7 +194,6 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
               className="secondPackage"
               numOfProd={secondPackage.contents?.length}
             >
-
               {secondPackage.contents?.map(content => (
                 <HelmetPriceTable
                   key={content.id}
@@ -206,7 +203,6 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
                   onClick={multiSelected}
                   {...content}
                 />
-
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -216,7 +212,6 @@ const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
               className="thirdPackage"
               numOfProd={thirdPackage.contents?.length}
             >
-
               {thirdPackage.contents?.map(content => (
                 <HelmetPriceTable
                   key={content.id}

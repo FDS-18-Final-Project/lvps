@@ -1,5 +1,5 @@
-import useViewSize from 'hooks/useViewSize';
 import styled, { css } from 'styled-components';
+import { useViewSize } from 'hooks/';
 import { calcInterval, calcRem, fontSizes } from 'theme/theme';
 
 const gridStyle = css`

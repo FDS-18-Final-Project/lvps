@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import formReducer from './form/form';
-import posts from './posts/posts_reducer';
 import serviceReducer from './service/service';
 import ceramicReducer from './modal/ceramic';
 import detailModalReducer from './modal/detail';
@@ -13,8 +12,7 @@ const appReducers = combineReducers({
   ceramicModal: ceramicReducer,
   detailModal: detailModalReducer,
   service: serviceReducer,
-  formState: formReducer,
-  posts
+  formState: formReducer
 });
 
 export default appReducers;

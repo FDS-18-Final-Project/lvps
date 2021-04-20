@@ -1,5 +1,6 @@
-import { Carousel, PriceCardLayout, DescriptionPriceTable } from 'components/';
 import styled from 'styled-components';
+import PriceCardLayout from 'pages/Layout/PriceCardLayout';
+import { Carousel, DescriptionPriceTable } from 'components/';
 
 const carbon_01 = [
   "Reduces Glare PRIME CS reduces the sun's glare, enhancing visibility and reducing eyestrain.",

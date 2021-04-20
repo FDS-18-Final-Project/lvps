@@ -1,4 +1,4 @@
-import { PriceCardLayout } from 'components/';
+import PriceCardLayout from 'pages/Layout/PriceCardLayout';
 
 const contents = [
   {

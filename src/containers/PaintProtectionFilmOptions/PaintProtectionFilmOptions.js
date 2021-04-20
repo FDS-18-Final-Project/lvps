@@ -1,5 +1,6 @@
-import { Carousel, PriceCardLayout, TitlePriceTable } from 'components/';
 import styled from 'styled-components';
+import PriceCardLayout from 'pages/Layout/PriceCardLayout';
+import { Carousel, TitlePriceTable } from 'components/';
 
 const StyledTitlePriceTable = styled(TitlePriceTable)`
   .divider {

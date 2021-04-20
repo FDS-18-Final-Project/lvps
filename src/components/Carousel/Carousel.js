@@ -1,9 +1,11 @@
-import { array, string } from 'prop-types';
+import { array, oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors } from 'theme/theme';
-import { Icon, CarouselItem, Indicator } from 'components/';
-import useViewSize from 'hooks/useViewSize';
-import useCarousel from 'hooks/useCarousel';
+// import { Icon, CarouselItem, Indicator } from 'components/';
+import CarouselItem from 'components/CarouselItem/CarouselItem';
+import Icon from 'components/Icon/Icon';
+import Indicator from 'components/Indicator/Indicator';
+import { useCarousel, useViewSize } from 'hooks/';
 
 const StyledCarouselContainer = styled.div`
   max-width: ${calcRem(750)};
@@ -81,8 +83,8 @@ const Carousel = ({ type, contents, ...restProps }) => {
 };
 
 Carousel.propTypes = {
-  type: string.isRequired,
-  content: array.isRequired
+  type: oneOf(['img', 'paragraph', 'card']).isRequired,
+  contents: array.isRequired
 };
 
 Carousel.defaultProps = {

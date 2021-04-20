@@ -18,7 +18,8 @@ import {
   PaintProtectionFilmOptions,
   WindowTintingCarbon,
   WindowTintingCeramic,
-  DetailingPaintPackage
+  DetailingPaintPackage,
+  CardExplanation
 } from 'containers';
 import { Icon } from 'components/';
 import { colors, calcRem } from 'theme/theme';

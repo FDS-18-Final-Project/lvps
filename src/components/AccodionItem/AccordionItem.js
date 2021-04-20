@@ -3,7 +3,7 @@ import { object, func, number } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, fontSizes, colors, calcRem } from 'theme/theme';
 import { Button, Icon } from 'components';
-import useViewSize from 'hooks/useViewSize';
+import { useViewSize } from 'hooks/';
 
 const StyledButton = styled(Button)`
   display: block;
