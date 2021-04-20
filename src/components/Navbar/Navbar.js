@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, fontSizes } from 'theme/theme';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import HoverBox from 'components/HoverBox/HoverBox';
 
 const NavbarContainer = styled(motion.ul)`
   width: 100%;
@@ -15,7 +16,7 @@ const NavbarContainer = styled(motion.ul)`
   font-weight: bold;
 
   a {
-    display: inline-block;
+    display: flex;
     transition: 0.4s;
     color: inherit;
     white-space: nowrap;
@@ -28,6 +29,16 @@ const NavbarContainer = styled(motion.ul)`
   .active {
     color: rgba(235, 21, 39, 0.8);
   }
+
+  .serviceLink .hoverbox {
+    opacity: 0;
+    z-index: -1000;
+    transition: 0.5s;
+  }
+  .serviceLink:hover .hoverbox {
+    opacity: 1;
+    z-index: 1000;
+  }
 `;
 
 const Navbar = ({ ...restProps }) => {
@@ -39,8 +50,9 @@ const Navbar = ({ ...restProps }) => {
       <li>
         <NavLink to="/about">ABOUT</NavLink>
       </li>
-      <li>
-        <NavLink to="/main-service">SERVICES</NavLink>
+      <li className="serviceLink">
+        <NavLink to="/mainService">SERVICES</NavLink>
+        <HoverBox className="hoverbox" />
       </li>
       <li>
         <NavLink to="/get-a-queue">GET A QUOUE</NavLink>

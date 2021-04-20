@@ -5,11 +5,18 @@ import Home from 'pages/Home/Home';
 import AboutUs from 'pages/AboutUs/AboutUs';
 import WheelAndTire from 'pages/Services/WheelAndTire';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
-import ContactUs from 'pages/ContactUs/ContactUs';
 
+import MainService from 'pages/MainService/MainService';
+import ContactUs from 'pages/ContactUs/ContactUs';
 const Routes = () => (
   <Switch>
-    <Route path="/" exact component={Home} />
+    <Route path="/" exact>
+      <Home />
+    </Route>
+    <Route path="/home" exact>
+      <Home />
+    </Route>
+    <Route path="/mainService" component={MainService} />
     <Route path="/AboutUs" component={AboutUs} />
     <Route path="/WheelAndTire" component={WheelAndTire} />
     <Route path="/ContactUs" component={ContactUs} />

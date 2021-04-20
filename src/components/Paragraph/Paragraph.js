@@ -144,6 +144,7 @@ Paragraph.propTypes = {
 };
 
 Paragraph.defaultProps = {
+  headingNum: 2,
   title: '',
   type: 'normal',
   items: [],

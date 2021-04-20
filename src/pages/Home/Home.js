@@ -3,11 +3,13 @@ import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import { colors, calcRem } from 'theme/theme';
 import MainBanner from 'containers/MainBanner/MainBanner';
 import ServiceInfo from 'containers/ServiceInfo/ServiceInfo';
-import NavbarMobile from 'components/NavbarMobile/NavbarMobile';
 import OurBestServices from 'containers/OurBestServices/OurBestServices';
 import SubBanner from 'containers/SubBanner/SubBanner';
 import Icon from 'components/Icon/Icon';
 import Review from 'containers/Review/Review';
+
+import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
+
 
 const Home = () => {
   return (
@@ -29,12 +31,14 @@ const Home = () => {
         each client is highly satisfied with us. Please feel free to contact us
         for your auto care needs.
       </ServiceInfo>
-      <NavbarMobile></NavbarMobile>
       <OurBestServices />
       <SubBanner title="Our Works" description="Visit our Instagram.">
         Visit Instagram
         <Icon type="instagram" color={colors.white} width={calcRem(25)} />
       </SubBanner>
+
+      <GetAQuoteBanner />
+
       <Review />
     </>
   );
