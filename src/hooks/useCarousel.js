@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSwipeable } from 'react-swipeable';
 
-const useCarousel = TOTAL_LENGTH => {
+const useCarousel = contents => {
+  const TOTAL_LENGTH = contents.length;
   const [currentSlide, setCurrentSlide] = useState(1);
   const [isMoving, setIsMoving] = useState(1);
 

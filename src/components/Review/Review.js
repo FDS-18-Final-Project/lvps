@@ -1,3 +1,4 @@
+import Icon from 'components/Icon/Icon';
 import { object } from 'prop-types';
 import styled from 'styled-components';
 import { colors, calcRem, device } from 'theme/theme';
@@ -5,6 +6,10 @@ import { colors, calcRem, device } from 'theme/theme';
 const StyledReviewContainer = styled.div`
   width: 100%;
   height: 100%;
+
+  & > div {
+    display: inline;
+  }
 `;
 
 const StyledReviewContent = styled.p`
@@ -38,6 +43,11 @@ const Review = ({ content, colors }) => {
       <StyledReviewContent colors={colors}>
         {content.review}
       </StyledReviewContent>
+      {Array(content.star)
+        .fill()
+        .map(_ => (
+          <Icon type="star" color="yellow" />
+        ))}
       <StyledReviewInfo aria-label="writer" colors={colors}>
         {content.name}
       </StyledReviewInfo>
