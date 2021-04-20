@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import GlobalStyle from 'styles/GlobalStyle';
 import Carousel from './Carousel';
+import { TitlePriceTable } from 'components/';
 // import TitlePriceTable from 'components/PriceTable/TitlePriceTable';
 
 export default {
@@ -16,7 +17,6 @@ export default {
   },
   argTypes: {
     type: {
-      description: '캐러셀 아이템 선택',
       control: {
         type: 'select',
         options: ['paragraph', 'img', 'card']
@@ -116,33 +116,33 @@ const option_03 = [
   'Extremely durable lasting up to 3 years'
 ];
 
-// const carouselCards = [
-//   <TitlePriceTable
-//     heading="Glass"
-//     title="Starting from"
-//     price={199}
-//     info={option_01}
-//     priceColor="pink"
-//     hover
-//   />,
-//   <TitlePriceTable
-//     heading="Wheels &amp; Calipers
-//   Protection"
-//     title="Starting from"
-//     price={399}
-//     info={option_02}
-//     priceColor="pink"
-//     hover
-//   />,
-//   <TitlePriceTable
-//     heading="Interior Protection"
-//     title="Starting from"
-//     price={599}
-//     info={option_03}
-//     priceColor="pink"
-//     hover
-//   />
-// ];
+const carouselCards = [
+  <TitlePriceTable
+    heading="Glass"
+    title="Starting from"
+    price={199}
+    info={option_01}
+    priceColor="pink"
+    hover
+  />,
+  <TitlePriceTable
+    heading="Wheels &amp; Calipers
+  Protection"
+    title="Starting from"
+    price={399}
+    info={option_02}
+    priceColor="pink"
+    hover
+  />,
+  <TitlePriceTable
+    heading="Interior Protection"
+    title="Starting from"
+    price={599}
+    info={option_03}
+    priceColor="pink"
+    hover
+  />
+];
 
 const Template = args => (
   <>
@@ -169,11 +169,20 @@ imgCarousel.args = {
 
 imgCarousel.storyName = '이미지 캐러셀';
 
-// export const cardCarousel = Template.bind({});
+export const cardCarousel = Template.bind({});
 
-// imgCarousel.args = {
-//   type: 'card',
-//   contents: carouselCards
-// };
+cardCarousel.args = {
+  type: 'card',
+  contents: [
+    <TitlePriceTable
+      heading="Glass"
+      title="Starting from"
+      price={199}
+      info={option_01}
+      priceColor="pink"
+      hover
+    />
+  ]
+};
 
-// cardCarousel.storyName = '카드 캐러셀';
+cardCarousel.storyName = '카드 캐러셀';

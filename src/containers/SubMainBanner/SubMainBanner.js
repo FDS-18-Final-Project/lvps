@@ -14,6 +14,7 @@ const StyledMainBanner = styled.div`
   height: ${calcRem(370)};
   box-sizing: border-box;
   width: 100%;
+  position: relative;
   @media only screen and (max-width: 768px) {
     height: ${calcRem(180)};
   }
@@ -23,6 +24,8 @@ const FullContainer = styled.div`
   max-width: ${calcRem(1200)};
   margin: 0 auto;
   padding: 90px ${calcRem(50)} 0;
+  position: relative;
+  z-index: 100;
 
   & > div {
     margin: ${calcRem(30)} 0;
@@ -46,13 +49,20 @@ const MainBannerTitle = styled.h2`
   margin: ${calcRem(0)};
   color: ${colors.white};
   font-size: ${fontSizes.titleLarge};
-  font-family: 'Montserrat';
+  font-family: Montserrat;
   font-weight: 800;
   @media only screen and (max-width: 768px) {
     font-size: ${fontSizes.xl};
   }
 `;
-
+const StyledDim = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+`;
 const MainBannerDesc = styled.p`
   color: ${colors.white};
   font-size: ${fontSizes.lg};
@@ -66,11 +76,13 @@ const MainBannerDesc = styled.p`
 const SubMainBanner = ({ bgImg, title, desc }) => {
   return (
     <StyledMainBanner bgImg={bgImg}>
-      <FullContainer>
-        <MainBannerTitle>{title}</MainBannerTitle>
-        <Divider />
-        <MainBannerDesc>{desc}</MainBannerDesc>
-      </FullContainer>
+      <StyledDim>
+        <FullContainer>
+          <MainBannerTitle>{title}</MainBannerTitle>
+          <Divider />
+          <MainBannerDesc>{desc}</MainBannerDesc>
+        </FullContainer>
+      </StyledDim>
     </StyledMainBanner>
   );
 };

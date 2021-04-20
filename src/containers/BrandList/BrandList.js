@@ -30,7 +30,6 @@ const StyledList = styled.ul`
 `;
 
 const BrandList = ({ title, type, wheelList, tireList, ...restProps }) => {
-  console.log(type, title, { ...restProps });
   return (
     <StyledContainer>
       <StyledTitle>{title}</StyledTitle>

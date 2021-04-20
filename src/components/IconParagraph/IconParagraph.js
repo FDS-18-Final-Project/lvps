@@ -6,7 +6,7 @@ import Icon from 'components/Icon/Icon';
 import Paragraph from 'components/Paragraph/Paragraph';
 
 const StyledIconExplanList = styled(Layout.FlexContainer)`
-  width: ${({ contentWidth }) => contentWidth};
+  width: ${({ contentWidth }) => calcRem(contentWidth)};
 
   ${device.tablet} {
     margin-bottom: ${calcRem(50)};

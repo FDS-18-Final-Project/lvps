@@ -35,6 +35,7 @@ const StyedParagraph = styled(Paragraph)`
   }
   p {
     margin-bottom: ${calcRem(70)};
+    line-height: 150%;
   }
 `;
 const StyledContentContainer = styled.div`
