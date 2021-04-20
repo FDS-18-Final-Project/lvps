@@ -1,7 +1,9 @@
 import { array, oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors } from 'theme/theme';
-import { Icon, CarouselItem, Indicator } from 'components/';
+import Icon from 'components/Icon/Icon';
+import CarouselItem from 'components/CarouselItem/CarouselItem';
+import Indicator from 'components/Indicator/Indicator';
 import { useCarousel, useViewSize } from 'hooks/';
 
 const StyledCarouselContainer = styled.div`

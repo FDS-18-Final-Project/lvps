@@ -110,7 +110,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
           {results.map((item, idx) => (
             <li
               style={
-                idx === focusIdx ? { backgroundColor: colors.gray3 } : null
+                idx === focusIdx ? { backgroundColor: colors.gray_03 } : null
               }
             >
               <StyledLink to={item.link}>{item.keyWord}</StyledLink>
