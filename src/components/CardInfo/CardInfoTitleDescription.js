@@ -1,7 +1,7 @@
 import React from 'react';
 import { array } from 'prop-types';
 import styled from 'styled-components';
-import { calcInterval, calcRem, colors } from 'theme/theme';
+import { calcRem, colors } from 'theme/theme';
 
 const CardInfoTitleDescriptionContainer = styled.ul`
   min-height: ${({ minHeight }) => calcRem(minHeight)};

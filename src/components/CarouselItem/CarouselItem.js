@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
 import { object, bool, string } from 'prop-types';
 import { colors, fontSizes, calcRem } from 'theme/theme';
-import { CarouselImgItem, Review } from 'components/';
+import Review from 'components/Review/Review';
+import CarouselImgItem from 'components/CarouselImgItem/CarouselImgItem';
 
 const styledParagraph = css`
   margin: 0 auto;

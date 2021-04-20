@@ -64,4 +64,4 @@ PrimiumPriceTable.defaultProps = {
 };
 
 PrimiumPriceTableContainer.displayName = 'PrimiumPriceTableContainer';
-export default PrimiumPriceTable;
+export default React.memo(PrimiumPriceTable);

@@ -1,8 +1,8 @@
 import React from 'react';
+import { oneOf, string } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, colors, calcRem, fontSizes } from 'theme/theme';
 import PriceTable from './PriceTable';
-import { oneOf, string } from 'prop-types';
 
 const HelmetPriceTableContainer = styled(PriceTable)`
   padding: ${calcInterval([0, 15, 58])};
@@ -74,4 +74,4 @@ HelmetPriceTable.defaultProps = {
   title: 'Starting At',
   priceColor: 'red_05'
 };
-export default HelmetPriceTable;
+export default React.memo(HelmetPriceTable);

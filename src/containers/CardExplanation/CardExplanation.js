@@ -2,7 +2,7 @@ import { string, array } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, calcInterval, colors } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
-import { Card } from 'components/';
+import Card from 'components/Card/Card';
 
 const FullContainer = styled(Layout.FlexContainer)`
   width: ${calcRem(1200)};

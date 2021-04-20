@@ -1,7 +1,9 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { Home, PageNotFound, AboutUs } from './pages';
 import GetAQuoteFormSection from 'containers/GetAQuoteFormSection/GetAQuoteFormSection';
+import Home from 'pages/Home/Home';
+import AboutUs from 'pages/AboutUs/AboutUs';
+import PageNotFound from 'pages/PageNotFound/PageNotFound';
 
 const Routes = () => (
   <Switch>

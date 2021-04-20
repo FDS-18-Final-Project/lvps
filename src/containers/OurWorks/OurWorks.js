@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
-import { Button, Carousel, Icon, Paragraph } from 'components/';
 import { useViewSize } from 'hooks/';
+import Paragraph from 'components/Paragraph/Paragraph';
+import Button from 'components/Button/Button';
+import Icon from 'components/Icon/Icon';
+import Carousel from 'components/Carousel/Carousel';
 
 const carouselImgs = [
   {

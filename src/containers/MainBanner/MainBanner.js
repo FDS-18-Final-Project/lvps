@@ -1,7 +1,10 @@
 import { string } from 'prop-types';
 import styled from 'styled-components';
 import { colors, fontSizes, calcRem, calcInterval } from 'theme/theme';
-import { Button, Divider, Icon, Paragraph } from 'components';
+import Button from 'components/Button/Button';
+import Divider from 'components/Divider/Divider';
+import Icon from 'components/Icon/Icon';
+import Paragraph from 'components/Paragraph/Paragraph';
 
 const StyledMainBannerContainer = styled.section`
   background: url(${props => props.bgImg}) center center / cover no-repeat;

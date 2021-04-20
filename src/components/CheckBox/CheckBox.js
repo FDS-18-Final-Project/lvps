@@ -93,7 +93,6 @@ const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
           button
           onClick={() => handleReset(resetConfirm)}
         />
-
         {confirm && <Icon className="icon" type="circleCheck" />}
       </CheckBoxContainer>
 

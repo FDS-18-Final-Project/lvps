@@ -2,8 +2,9 @@ import React from 'react';
 import { node, string } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
-import { Paragraph, Button } from 'components/';
 import Layout from 'pages/Layout/Layout';
+import Paragraph from 'components/Paragraph/Paragraph';
+import Button from 'components/Button/Button';
 
 const FullContainer = styled.section`
   @media only screen and (max-width: 375px) {
@@ -21,6 +22,9 @@ const SubBannerContainer = styled.div`
   .gridParagraph {
     padding-top: ${calcRem(70)};
     margin-bottom: ${calcRem(10)};
+    p {
+      color: ${colors.gray};
+    }
   }
 
   .gridBtn {
@@ -53,7 +57,6 @@ const SubBannerContainer = styled.div`
       p {
         font-size: ${calcRem(14)};
         line-height: ${calcRem(21)};
-        color: ${colors.gray};
       }
     }
 

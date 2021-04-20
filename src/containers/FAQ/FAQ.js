@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
-import { AccordionList, Icon, Paragraph } from 'components/';
 import { useAccordionState } from 'hooks/';
 import { useViewSize } from 'hooks/';
+import Paragraph from 'components/Paragraph/Paragraph';
+import Icon from 'components/Icon/Icon';
+import AccordionList from 'components/AccordionList/AccordionList';
 
 const FullContainer = styled.section``;
 

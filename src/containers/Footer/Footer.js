@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { colors, calcInterval, calcRem } from 'theme/theme';
-import { Logo, Paragraph } from 'components';
 import Layout from 'pages/Layout/Layout';
+import Paragraph from 'components/Paragraph/Paragraph';
+import Logo from 'components/Logo/Logo';
 
 const StyledFooterContainer = styled.div`
   background-color: ${colors.black};

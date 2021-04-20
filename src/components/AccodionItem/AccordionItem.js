@@ -2,8 +2,9 @@ import React from 'react';
 import { object, func, number } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, fontSizes, colors, calcRem } from 'theme/theme';
-import { Button, Icon } from 'components';
 import { useViewSize } from 'hooks/';
+import Button from 'components/Button/Button';
+import Icon from 'components/Icon/Icon';
 
 const StyledButton = styled(Button)`
   display: block;
@@ -40,27 +41,26 @@ const StyledButton = styled(Button)`
     line-height: ${calcRem(30)};
   }
 
-  a {
-    padding: 0;
-  }
-
   div {
     position: absolute;
     top: 50%;
     right: ${calcRem(-25)};
-    transform: translate3d(-50px, -50%, 0);
+    transform: translate3d(-40px, -50%, 0);
   }
 `;
 
 const AccordionItemContainer = styled.li`
   max-width: ${({ maxWidth }) => calcRem(maxWidth)};
+  a {
+    margin-bottom: 0;
+  }
 `;
 
 const variants = mobile => ({
   visible: {
     color: colors.white,
     backgroundColor: colors.redMain,
-    height: 'auto',
+    height: mobile ? calcRem(120) : calcRem(215),
     opacity: 0.8,
     transition: { duration: 0.5, type: 'tween' }
   },

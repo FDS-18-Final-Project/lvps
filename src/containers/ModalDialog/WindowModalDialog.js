@@ -1,14 +1,17 @@
 import React from 'react';
+import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 
 import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
-import { Button, A11yHidden, Icon, HelmetPriceTable } from 'components';
 import { useModalSelected } from 'hooks/';
 import {
   windowMultiToggleActive,
   windowSingleToggleActive
 } from 'store/modal/window';
 import { motion } from 'framer-motion';
+import HelmetPriceTable from 'components/PriceTable/HelmetPriceTable';
+import Button from 'components/Button/Button';
+import Icon from 'components/Icon/Icon';
 
 const StyledModalContainer = styled.section`
   position: fixed;

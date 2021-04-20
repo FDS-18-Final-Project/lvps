@@ -1,7 +1,7 @@
-import { Divider } from 'components';
 import { ThemeProvider } from 'styled-components';
 import theme, { colors } from 'theme/theme';
 import GlobalStyle from 'styles/GlobalStyle';
+import Divider from './Divider';
 
 //스토리 구성 객체
 export default {

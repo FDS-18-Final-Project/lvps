@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 import styled from 'styled-components';
-import { A11yHidden } from 'components/';
+import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 
 const StyledVideoContainer = styled.section`
   position: relative;

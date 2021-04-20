@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { Carousel, TagPriceTable } from 'components/';
 import PriceCardLayout from 'pages/Layout/PriceCardLayout';
+import TagPriceTable from 'components/PriceTable/TagPriceTable';
+import Carousel from 'components/Carousel/Carousel';
 
 const detailing = [
   'Complete exterior hand wash',
