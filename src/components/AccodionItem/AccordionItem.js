@@ -73,7 +73,7 @@ const variants = mobile => ({
   }
 });
 
-const AccordionItem = ({ item, onClick, maxWidth, variant = variants }) => {
+const AccordionItem = ({ item, onClick, maxWidth, variant }) => {
   const { mobile } = useViewSize();
 
   return (
@@ -121,7 +121,8 @@ AccordionItem.defaultProps = {
     ],
     active: true
   },
-  maxWidth: 310
+  maxWidth: 310,
+  variant: variants
 };
 
 AccordionItemContainer.displayName = 'AccordionItemContainer';

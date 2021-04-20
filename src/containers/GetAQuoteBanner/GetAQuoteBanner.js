@@ -47,7 +47,7 @@ const FullContainer = styled(Layout.FlexContainer)`
 `;
 
 const GetAQuoteBanner = () => {
-  const { desktop, mobile } = useViewSize();
+  const { desktop } = useViewSize();
   return (
     <StyledGetAQuoteBannerContainer>
       {desktop ? (

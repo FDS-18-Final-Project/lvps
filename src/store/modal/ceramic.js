@@ -199,39 +199,3 @@ const ceramicProData = {
 const ceramicReducer = createModalReducer('ceramic', ceramicProData);
 
 export default ceramicReducer;
-
-// const multiSelected = e => {
-//   if (!e.target.dataset.name) return;
-//   const {
-//     dataset: { name },
-//     id
-//   } = e.target;
-//   setOption({
-//     ...option,
-//     [name]: {
-//       ...option[name],
-//       contents: option[name].contents.map(content =>
-//         content.id === +id ? { ...content, active: !content.active } : content
-//       )
-//     }
-//   });
-// };
-// const onlyOneSelected = e => {
-//   if (!e.target.dataset.name) return;
-
-//   const {
-//     dataset: { name },
-//     id
-//   } = e.target;
-//   setOption({
-//     ...option,
-//     [name]: {
-//       ...option[name],
-//       contents: option[name].contents.map(content =>
-//         content.id === +id
-//           ? { ...content, active: true }
-//           : { ...content, active: false }
-//       )
-//     }
-//   });
-// };

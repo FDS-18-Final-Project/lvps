@@ -51,7 +51,7 @@ const Input = React.forwardRef(
           placeholder={children}
           name={name}
           ref={ref}
-          autocomplete="off"
+          autoComplete="off"
           {...formik?.getFieldProps(name)}
         />
         {errorMessage && formik.errors[name] && formik.touched[name] && (

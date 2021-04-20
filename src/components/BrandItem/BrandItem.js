@@ -1,6 +1,8 @@
 import { oneOf } from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { calcRem, calcInterval, colors } from 'theme/theme';
+import { useDispatch } from 'react-redux';
+import { wheelAndTiretoggleActive } from 'store/modal/wheelAndTire';
 
 const modeSize = {
   wheel: {
@@ -54,14 +56,16 @@ const ImgComp = ({ src, value }) => {
   return <StyledImg src={src} alt={value}></StyledImg>;
 };
 
-const InputComp = ({ id, value, src }) => {
+const InputComp = ({ id, value, src, checked, name }) => {
+  const dispatch = useDispatch();
   return (
     <>
       <StyledCheckbox
         type="checkbox"
         id={id}
-        name="product name"
         value={value}
+        onChange={() => dispatch(wheelAndTiretoggleActive(id, name))}
+        checked={checked}
       />
       <StyledLabel htmlFor={id} aria-label={value}>
         <img src={src} alt={value} />

@@ -78,6 +78,7 @@ const PriceCardLayout = ({ title, type, icon, contents, ...restProps }) => {
               <PriceTable
                 type={type}
                 icon={icon}
+                key={content.id}
                 maxWidth={322}
                 content={content}
                 className="price-table"

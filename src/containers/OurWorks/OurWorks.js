@@ -71,7 +71,7 @@ const StyledOurWorksTitle = styled(Layout.FlexContainer)`
 `;
 
 const OurWorks = () => {
-  const { desktop, mobile } = useViewSize();
+  const { desktop } = useViewSize();
 
   return (
     <StyledOurWorksContainer>
