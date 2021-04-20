@@ -8,10 +8,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <GetAQuteCheckbox />
       <Routes />
       <Footer>{/* <Footer.Logo />
         <Footer.Content /> */}</Footer>
+      <Footer />
+
     </BrowserRouter>
   );
 };

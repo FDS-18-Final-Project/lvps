@@ -33,9 +33,7 @@ const CarouselItem = ({
     <StyledCarouselItemContainer type={type} active={active} {...restProps}>
       {type === 'paragraph' && <Review content={content} colors={colors} />}
       {type === 'img' && <CarouselImgItem content={content} />}
-      {type === 'card' && (
-        <PriceTable content={content} type={title} hover={false} icon={icon} />
-      )}
+      {type === 'card' && content}
     </StyledCarouselItemContainer>
   );
 };

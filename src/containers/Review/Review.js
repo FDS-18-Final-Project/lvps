@@ -8,6 +8,7 @@ const reviews = [
     id: 1,
     name: 'ADEL GHQYEM',
     model: 'Mercedes Benz GLC300',
+    star: 1,
     review:
       'After buying my brand new car I wanted to protect it. I inquired with LVPS about Ceramic Coating. I got offered with a Ceramic Pro Silver package! I am very happy with the end results. My car looks like new after every car wash. Will definitely recommend LVPS services to everyone!'
   },
@@ -15,6 +16,7 @@ const reviews = [
     id: 2,
     name: 'Andy',
     model: 'Honda',
+    star: 2,
     review:
       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste dicta dolores minima cumque qui vitae totam! Aliquid ut in facere obcaecati incidunt illo eum, laudantium animi corrupti, iste itaque dicta?'
   },
@@ -22,6 +24,7 @@ const reviews = [
     id: 3,
     name: 'Breanna',
     model: 'Toyota',
+    star: 3,
     review:
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem tempore vero dolorum, culpa provident exercitationem similique possimus ab ad corrupti!'
   },
@@ -29,6 +32,7 @@ const reviews = [
     id: 4,
     name: 'Conrad',
     model: 'Ford',
+    star: 4,
     review:
       'Aut corrupti quod ipsum exercitationem natus non dolore nam voluptas laborum voluptatem numquam necessitatibus hic commodi pariatur, inventore optio libero delectus! Non, corrupti similique odio expedita saepe dolore! Iusto reprehenderit, ea magnam necessitatibus doloremque provident accusantium enim incidunt ratione rerum repellendus facilis?'
   },
@@ -36,6 +40,7 @@ const reviews = [
     id: 5,
     name: 'Eavan',
     model: 'Chevrolet',
+    star: 5,
     review:
       'Incidunt facilis dolorum commodi consequatur quia iste? Fuga minima consectetur odit doloribus temporibus tempora quidem modi quaerat perferendis praesentium magnam, impedit dolorem velit qui nostrum! Quis asperiores consectetur tempora temporibus, similique assumenda exercitationem architecto quod ipsum!'
   }
@@ -65,7 +70,6 @@ const FullContainer = styled.div`
       max-width: ${calcRem(300)};
       padding: ${calcRem(40)};
       box-sizing: border-box;
-      /* line-height: 1; */
     }
 
     h2 {
@@ -93,10 +97,13 @@ const StyledReviewTitleContainer = styled(Layout.FlexContainer)`
   }
 `;
 
-const Review = ({ children }) => {
+const Review = () => {
   return (
     <StyledReviewContainer>
-      <FullContainer>{children}</FullContainer>
+      <FullContainer>
+        <Review.Title />
+        <Review.Contents />
+      </FullContainer>
     </StyledReviewContainer>
   );
 };
@@ -104,6 +111,12 @@ const Review = ({ children }) => {
 Review.Title = () => {
   return (
     <StyledReviewTitleContainer justifyContent="flex-start">
+      <div>
+        {/* <Icon type="star" style={{ display: 'inline' }} />
+        <Icon type="star" style={{ display: 'inline' }} />
+        <Icon type="star" style={{ display: 'inline' }} />
+        <Icon type="star" style={{ display: 'inline' }} /> */}
+      </div>
       <Paragraph
         headingNum={2}
         size={24}
@@ -112,7 +125,7 @@ Review.Title = () => {
         colors={{ main: colors.white, sub: colors.redMain }}
         className="review-title"
       >
-        Our customers value &amp; trust us with their vehicles.
+        Google Reviews - 5 Stars Link to google page.
       </Paragraph>
     </StyledReviewTitleContainer>
   );

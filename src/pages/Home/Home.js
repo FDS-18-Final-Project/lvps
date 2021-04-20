@@ -9,14 +9,19 @@ import {
   SubBanner,
   IconKeyFeature,
   IconExplanCard,
-  CardExplanation,
-  WindowTintingPrice,
-  ServiceInfo
-  // GoogleMap
+  ServiceInfo,
+  // GoogleMap,
+  CeramicProProtectionPackage,
+  CeramicProProtectionOptions,
+  IGLProtectionProducts,
+  PaintProtectionFilmPackage,
+  PaintProtectionFilmOptions,
+  WindowTintingCarbon,
+  WindowTintingCeramic,
+  DetailingPaintPackage
 } from 'containers';
 import { Icon } from 'components/';
-import { colors } from 'theme/theme';
-import { calcRem } from '../../theme/theme';
+import { colors, calcRem } from 'theme/theme';
 
 const CardList = [
   {
@@ -101,28 +106,21 @@ const Home = () => {
         Visit Instagram
         <Icon type="instagram" color={colors.white} width={calcRem(25)} />
       </SubBanner>
-      <Review>
-        <Review.Title />
-        <Review.Contents />
-      </Review>
-      <GetAQuoteBanner>
-        <GetAQuoteBanner.Title />
-        <GetAQuoteBanner.Link />
-      </GetAQuoteBanner>
-      <Review>
-        <Review.Title />
-        <Review.Contents />
-      </Review>
-      <OurWorks>
-        <OurWorks.Title />
-        <OurWorks.Contents />
-      </OurWorks>
+      <GetAQuoteBanner />
+      <Review />
+      <OurWorks />
       <SubBanner />
       <OurBestServices />
       <IconExplanCard />
       <IconKeyFeature />
-
-      <WindowTintingPrice />
+      <CeramicProProtectionPackage />
+      <CeramicProProtectionOptions />
+      <IGLProtectionProducts />
+      <PaintProtectionFilmPackage />
+      <PaintProtectionFilmOptions />
+      <WindowTintingCarbon />
+      <WindowTintingCeramic />
+      <DetailingPaintPackage />
     </>
   );
 };

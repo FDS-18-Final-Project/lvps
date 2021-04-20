@@ -47,8 +47,6 @@ const FullContainer = styled(Layout.FlexContainer)`
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-
-  
 `;
 
 const StyledOurWorksTitle = styled(Layout.FlexContainer)`

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import {
   node,
   oneOf,
@@ -25,19 +25,9 @@ const InputContainer = styled.div`
   }
 `;
 
-const Input = React.forwardRef(
+const Input = forwardRef(
   (
-    {
-      id,
-      type,
-      label,
-      name,
-      children,
-      formik,
-      errorMessage,
-
-      ...restProps
-    },
+    { id, type, label, name, children, formik, errorMessage, ...restProps },
     ref
   ) => {
     return (
@@ -49,10 +39,11 @@ const Input = React.forwardRef(
           id={id}
           type={type}
           placeholder={children}
-          name={name}
+          name={name
           ref={ref}
           autoComplete="off"
           {...formik?.getFieldProps(name)}
+
         />
         {errorMessage && formik.errors[name] && formik.touched[name] && (
           <span>{formik.errors[name]}</span>
