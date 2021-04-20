@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { Carousel, TitlePriceTable } from 'components/';
 import PriceCardLayout from 'pages/Layout/PriceCardLayout';
+import TitlePriceTable from 'components/PriceTable/TitlePriceTable';
+import Carousel from 'components/Carousel/Carousel';
 
 const option_01 = [
   'Premium high solids silica coating',

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from 'styles/GlobalStyle';
-import { NavbarMobileItem } from 'components/';
+import NavbarMobileItem from '../NavbarMobileItem/NavbarMobileItem';
 import NavbarMobile from './NavbarMobile';
 
 export default {

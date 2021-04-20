@@ -10,9 +10,11 @@ import {
 } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, fontSizes } from 'theme/theme';
-import { CardInfo, Divider, CardInfoTitleDescription } from 'components';
-import { Layout } from 'pages';
+import Layout from 'pages/Layout/Layout';
 import IconParagraph from 'components/IconParagraph/IconParagraph';
+import Divider from 'components/Divider/Divider';
+import CardInfo from 'components/CardInfo/CardInfo';
+import CardInfoTitleDescription from 'components/CardInfo/CardInfoTitleDescription';
 
 const PriceTableContainer = styled.div`
   max-width: ${({ maxWidth }) => calcRem(maxWidth)};
@@ -152,4 +154,4 @@ PriceTable.defaultProps = {
 };
 
 PriceTableContainer.displayName = 'PriceTableContainer';
-export default PriceTable;
+export default React.memo(PriceTable);

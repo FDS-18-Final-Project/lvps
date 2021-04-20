@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import { colors, calcInterval, calcRem, fontSizes } from 'theme/theme';
-import { Button, Icon, Paragraph } from 'components';
 import Layout from 'pages/Layout/Layout';
 import { useViewSize } from 'hooks/';
 import { Link } from 'react-router-dom';
+import Icon from 'components/Icon/Icon';
+import Paragraph from 'components/Paragraph/Paragraph';
+import Button from 'components/Button/Button';
 
 const StyledGetAQuoteBannerContainer = styled.section`
   padding: ${calcInterval([75, 100])};

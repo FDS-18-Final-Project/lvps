@@ -1,8 +1,8 @@
-import { Paragraph } from 'components/';
-import GetAQuoteForm from 'containers/GetAQuoteForm/GetAQuoteForm';
 import React from 'react';
 import styled from 'styled-components';
 import { colors, fontSizes, calcRem, calcInterval } from '../../theme/theme';
+import GetAQuoteForm from 'containers/GetAQuoteForm/GetAQuoteForm';
+import Paragraph from 'components/Paragraph/Paragraph';
 
 const FullContainer = styled.section`
   position: relative;

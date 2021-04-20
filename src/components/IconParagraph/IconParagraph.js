@@ -1,8 +1,9 @@
 import { string, object } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, device } from 'theme/theme';
-import { Icon, Paragraph } from 'components';
 import Layout from 'pages/Layout/Layout';
+import Icon from 'components/Icon/Icon';
+import Paragraph from 'components/Paragraph/Paragraph';
 
 const StyledIconExplanList = styled(Layout.FlexContainer)`
   width: ${({ contentWidth }) => calcRem(contentWidth)};

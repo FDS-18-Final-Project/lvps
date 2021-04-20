@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { BrowserRouter } from 'react-router-dom';
 import AccordionItem from 'components/AccodionItem/AccordionItem';
+import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from 'styles/GlobalStyle';
 import { colors, calcRem } from 'theme/theme';
 

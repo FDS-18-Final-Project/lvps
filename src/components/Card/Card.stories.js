@@ -1,6 +1,6 @@
-import { Card } from 'components';
 import { withDesign } from 'storybook-addon-designs';
 import { colors } from 'theme/theme';
+import Card from './Card';
 
 export default {
   title: 'LVPS/Component/Card',

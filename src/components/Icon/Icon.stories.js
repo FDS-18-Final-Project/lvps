@@ -1,5 +1,5 @@
 import GlobalStyle from 'styles/GlobalStyle';
-import { Icon } from 'components';
+import Icon from './Icon';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {

@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-import PriceTable from './PriceTable';
-import { calcInterval, fontSizes, calcRem, colors } from 'theme/theme';
 import { string } from 'prop-types';
+import styled from 'styled-components';
+import { calcInterval, fontSizes, calcRem, colors } from 'theme/theme';
+import PriceTable from './PriceTable';
 
 const TitlePriceTableContainer = styled(PriceTable)`
   padding: ${({ padding }) => calcInterval(padding)};
@@ -51,4 +51,4 @@ TitlePriceTable.defaultProps = {
   padding: [78, 50, 81]
 };
 
-export default TitlePriceTable;
+export default React.memo(TitlePriceTable);

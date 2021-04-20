@@ -1,21 +1,22 @@
-import { Button, Icon } from 'components/';
-import { CeramicModalDialog } from 'containers/ModalDialog/CeramicProModalDialog.stories';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
+import { calcInterval, fontSizes, calcRem, colors } from 'theme/theme';
+import CeramicProModalDialog from 'containers/ModalDialog/CeramicProModalDialog';
 import DetailModalDialog from 'containers/ModalDialog/DetailModalDialog';
 import PPFModalDialog from 'containers/ModalDialog/PPFModalDialog';
 import WindowModalDialog from 'containers/ModalDialog/WindowModalDialog';
-import { Layout } from 'pages';
-import React from 'react';
-import styled from 'styled-components';
-import { calcInterval, fontSizes, calcRem, colors } from 'theme/theme';
-import CheckBox from '../../components/CheckBox/CheckBox';
-import { useDispatch } from 'react-redux';
+import WheelModalDialog from 'containers/ModalDialog/WheelModalDialog';
 import { ceramicReset } from 'store/modal/ceramic';
 import { ppfReset } from 'store/modal/ppf';
 import { windowReset } from 'store/modal/window';
 import { detailReset } from 'store/modal/detail';
-import WheelModalDialog from 'containers/ModalDialog/WheelModalDialog';
 import { wheelAndTireReset } from 'store/modal/wheelAndTire';
 import { deleteService } from 'store/service/service';
+import CheckBox from 'components/CheckBox/CheckBox';
+import Layout from 'pages/Layout/Layout';
+import Button from 'components/Button/Button';
+import Icon from 'components/Icon/Icon';
 
 const FullContainer = styled.section`
   position: relative;
@@ -78,7 +79,7 @@ const GetAQuoteCheckbox = () => {
       <GetAQuoteCheckboxContainer>
         <CheckBox
           label="CERAMIC COATING"
-          Modal={CeramicModalDialog}
+          Modal={CeramicProModalDialog}
           handleReset={handleReset(ceramicReset, 'ceramicpro')}
         />
         <CheckBox

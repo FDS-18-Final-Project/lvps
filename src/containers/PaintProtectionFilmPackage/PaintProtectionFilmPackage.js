@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import PriceCardLayout from 'pages/Layout/PriceCardLayout';
-import { Carousel, TagPriceTable } from 'components/';
+import TagPriceTable from 'components/PriceTable/TagPriceTable';
+import Carousel from 'components/Carousel/Carousel';
 
 const paint_01 = [
   'Full Front & Rear Bumpers',

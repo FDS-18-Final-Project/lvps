@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
-import { Button } from 'components';
+import styled from 'styled-components';
 import { calcRem, colors, fontSizes } from 'theme/theme';
 import { string } from 'prop-types';
+import Button from 'components/Button/Button';
 
 const StyledText = styled.p`
   margin-left: ${({ type }) => {

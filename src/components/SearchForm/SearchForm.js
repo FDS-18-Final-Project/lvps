@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import { calcRem, colors, calcInterval, fontSizes } from 'theme/theme';
 import Icon from 'components/Icon/Icon';
 import Input from 'components/Input/Input';
-import { A11yHidden } from '..';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useSearch } from 'hooks/';
+import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 
 const StyledFieldset = styled.fieldset`
   display: flex;

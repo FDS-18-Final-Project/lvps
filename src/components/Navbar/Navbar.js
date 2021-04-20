@@ -40,7 +40,7 @@ const Navbar = ({ ...restProps }) => {
         <NavLink to="/about">ABOUT</NavLink>
       </li>
       <li>
-        <NavLink to="/services">SERVICES</NavLink>
+        <NavLink to="/main-service">SERVICES</NavLink>
       </li>
       <li>
         <NavLink to="/get-a-queue">GET A QUOUE</NavLink>
