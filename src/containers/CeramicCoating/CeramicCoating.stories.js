@@ -1,11 +1,11 @@
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from 'styles/GlobalStyle';
-import IconExplanCard from './IconExplanCard';
+import CeramicCoating from './CeramicCoating';
 
 //스토리 구성 객체
 export default {
-  title: ' LVPS/Container/IconExplanCard',
-  components: IconExplanCard,
+  title: ' LVPS/Container/CeramicCoating',
+  components: CeramicCoating,
   parameters: {
     docs: {
       description: {
@@ -23,14 +23,12 @@ export default {
 const Template = args => (
   <BrowserRouter>
     <GlobalStyle />
-    <IconExplanCard {...args}></IconExplanCard>
+    <CeramicCoating {...args}></CeramicCoating>
   </BrowserRouter>
 );
 
-export const IconExplanCardBlock = Template.bind({});
+export const CeramicCoatingBlock = Template.bind({});
 
-IconExplanCardBlock.args = {
-  children: [<IconExplanCard.Title />, <IconExplanCard.Contents />]
-};
+CeramicCoatingBlock.args = {};
 
-IconExplanCardBlock.storyName = '아이콘 설명 카드 컨테이너';
+CeramicCoatingBlock.storyName = '아이콘 설명 카드 컨테이너';

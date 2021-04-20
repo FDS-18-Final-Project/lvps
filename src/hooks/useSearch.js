@@ -54,6 +54,7 @@ const useSearch = inputRef => {
           type: 'KEYDOWN',
           focusIdx: !focusIdx ? results.length - 1 : focusIdx - 1
         });
+
       if (e.key === 'ArrowDown')
         dispatch({
           type: 'KEYDOWN',
@@ -80,7 +81,7 @@ const useSearch = inputRef => {
     inputRef.current.focus();
   }, [inputRef]);
 
-  return { state, handleChange };
+  return { state, handleChange, handleKeydown };
 };
 
 export default useSearch;

@@ -112,12 +112,6 @@ const Review = () => {
 Review.Title = () => {
   return (
     <StyledReviewTitleContainer justifyContent="flex-start">
-      <div>
-        {/* <Icon type="star" style={{ display: 'inline' }} />
-        <Icon type="star" style={{ display: 'inline' }} />
-        <Icon type="star" style={{ display: 'inline' }} />
-        <Icon type="star" style={{ display: 'inline' }} /> */}
-      </div>
       <Paragraph
         headingNum={2}
         size={24}

@@ -1,9 +1,8 @@
 import { array, oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors } from 'theme/theme';
-// import { Icon, CarouselItem, Indicator } from 'components/';
-import CarouselItem from 'components/CarouselItem/CarouselItem';
 import Icon from 'components/Icon/Icon';
+import CarouselItem from 'components/CarouselItem/CarouselItem';
 import Indicator from 'components/Indicator/Indicator';
 import { useCarousel, useViewSize } from 'hooks/';
 
@@ -35,7 +34,7 @@ const Carousel = ({ type, contents, ...restProps }) => {
     moveNext,
     movePrev,
     handlers
-  } = useCarousel(contents, TOTAL_LENGTH);
+  } = useCarousel(contents);
 
   return (
     <>
@@ -83,7 +82,9 @@ const Carousel = ({ type, contents, ...restProps }) => {
 };
 
 Carousel.propTypes = {
+  /** 캐러셀 아이템 선택 */
   type: oneOf(['img', 'paragraph', 'card']).isRequired,
+  /** 캐러셀 배열  */
   contents: array.isRequired
 };
 
