@@ -42,7 +42,7 @@ export const fontSizes = {
   titleLarge: calcRem(50)
 };
 
-const deviceSizes = {
+export const deviceSizes = {
   mobileS: '320px',
   mobileM: '375px',
   mobileL: '450px',
@@ -51,7 +51,7 @@ const deviceSizes = {
   desktop: '1920px'
 };
 
-const device = {
+export const device = {
   mobileS: `only screen and (max-width: ${deviceSizes.mobileS})`,
   mobileM: `only screen and (max-width: ${deviceSizes.mobileM})`,
   mobileL: `only screen and (max-width: ${deviceSizes.mobileL})`,
