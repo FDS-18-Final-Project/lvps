@@ -8,7 +8,7 @@ export { default as ServiceInfo } from './ServiceInfo/ServiceInfo';
 export { default as MainBanner } from './MainBanner/MainBanner';
 export { default as OurBestServices } from './OurBestServices/OurBestServices';
 export { default as OurWorks } from './OurWorks/OurWorks';
-export { default as IconExplanCard } from './IconExplanCard/IconExplanCard';
+export { default as IconExplanCard } from './CeramicCoating/CeramicCoating';
 export { default as ErrorMessage } from './ErrorMessage/ErrorMessage';
 // export { default as GoogleMap } from './GoogleMap/GoogleMap';
 export { default as ServiceMainBanner } from './ServiceMainBanner/ServiceMainBanner';
@@ -31,3 +31,4 @@ export { default as DetailingPaintPackage } from './DetailingPaintPackage/Detail
 export { default as Video } from './Video/Video';
 export { default as BrandList } from './BrandList/BrandList';
 export { default as SubMainBanner } from './SubMainBanner/SubMainBanner';
+export { default as StealthSignature } from './StealthSignature/StealthSignature';

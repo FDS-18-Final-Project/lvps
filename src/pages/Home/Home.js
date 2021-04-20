@@ -19,7 +19,8 @@ import {
   WindowTintingCarbon,
   WindowTintingCeramic,
   DetailingPaintPackage,
-  CardExplanation
+  CardExplanation,
+  StealthSignature
 } from 'containers';
 import { Icon, NavbarMobile } from 'components/';
 import { colors, calcRem } from 'theme/theme';
@@ -123,6 +124,7 @@ const Home = () => {
       <WindowTintingCarbon />
       <WindowTintingCeramic />
       <DetailingPaintPackage />
+      <StealthSignature />
     </>
   );
 };

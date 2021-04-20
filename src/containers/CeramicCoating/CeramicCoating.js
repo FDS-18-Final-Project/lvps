@@ -1,7 +1,7 @@
 import useViewSize from 'hooks/useViewSize';
 import IconParagraphLayout from 'pages/Layout/IconParagraphLayout';
-import styled, { css } from 'styled-components';
-import { calcInterval, calcRem } from 'theme/theme';
+import styled from 'styled-components';
+import { calcRem } from 'theme/theme';
 
 const explanCeramic = [
   {
@@ -24,51 +24,28 @@ const explanCeramic = [
     title: 'LESS MAINTENANCE',
     content:
       'The slick coated surface won’t allow dirt, brake dust and tar to stick to your paint, wheels or glass. This makes washing your vehicle less labor intensive and less frequent. Waxing is now obsolete.'
-  },
-  {
-    id: 4,
-    iconType: 'facebook',
-    title: 'LESS MAINTENANCE',
-    content:
-      'The slick coated surface won’t allow dirt, brake dust and tar to stick to your paint, wheels or glass. This makes washing your vehicle less labor intensive and less frequent. Waxing is now obsolete.'
   }
 ];
 
-const styledMobile = css`
-  display: flex;
-  justify-content: space-between;
-  .icon-paragraph {
-    width: ${calcRem(304)};
-  }
+const StyledIconParagraphLayout = styled(IconParagraphLayout)`
   svg {
     margin-right: 0;
-    margin-bottom: ${calcRem(34)};
+    margin-bottom: ${calcRem(35)};
   }
 `;
 
-const StyledIconParagraphLayout = styled(IconParagraphLayout)`
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(2, 1fr);
-  gap: ${calcInterval([70, 20])};
-  .icon-paragraph {
-    width: 100%;
-  }
-
-  ${({ desktop }) => !desktop && styledMobile}
-`;
-
-const IconKeyFeature = () => {
+const IconExplanCard = () => {
   const { desktop } = useViewSize();
+
   return (
     <StyledIconParagraphLayout
-      title="Xpel Ultimate Plus Key Features"
+      title="Why Ceramic Pro Protection?"
       contents={explanCeramic}
       paragraphWidth="100%"
-      direction={desktop ? 'row' : 'column'}
+      direction="column"
       desktop={desktop}
     />
   );
 };
 
-export default IconKeyFeature;
+export default IconExplanCard;

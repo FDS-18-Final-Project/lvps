@@ -7,7 +7,7 @@ const StyledImgContent = styled.img`
 `;
 
 const CarouselImgItem = ({ content }) => {
-  return <StyledImgContent draggable={false} src={content.path} />;
+  return <StyledImgContent src={content.path} />;
 };
 
 CarouselImgItem.propTypes = {
