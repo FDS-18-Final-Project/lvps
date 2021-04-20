@@ -22,6 +22,31 @@ export default {
         type: 'radio',
         options: ['left', 'right']
       }
+    },
+    title: {
+      control: {
+        type: 'text'
+      }
+    },
+    subTitle: {
+      control: {
+        type: 'text'
+      }
+    },
+    imagePath: {
+      control: {
+        type: 'text'
+      }
+    },
+    imageLabel: {
+      control: {
+        type: 'text'
+      }
+    },
+    infoList: {
+      control: {
+        type: 'object'
+      }
     }
   }
 };

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { calcRem } from 'theme/theme';
 import { array } from 'prop-types';
-import { NavbarMobileItem } from 'components';
+import NavbarMobileItem from 'components/NavbarMobileItem/NavbarMobileItem';
 
 const StyledContainer = styled.ul`
   max-width: 100%;

@@ -5,6 +5,8 @@ export { default as Header } from './Header/Header';
 export { default as SubBanner } from './SubBanner/SubBanner';
 export { default as CardExplanation } from './CardExplanation/CardExplanation';
 export { default as ServiceInfo } from './ServiceInfo/ServiceInfo';
+export { default as ServiceInfoType2 } from './ServiceInfoType2/ServiceInfoType2';
+export { default as ServiceInfoType3 } from './ServiceInfoType3/ServiceInfoType3';
 export { default as MainBanner } from './MainBanner/MainBanner';
 export { default as OurBestServices } from './OurBestServices/OurBestServices';
 export { default as OurWorks } from './OurWorks/OurWorks';
