@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { string } from 'prop-types';
-import { Divider } from 'components';
 import { colors, fontSizes, calcRem } from 'theme/theme';
+import Divider from 'components/Divider/Divider';
 
 // 메인 배너 스타일링
 const MainBannerBg = css`

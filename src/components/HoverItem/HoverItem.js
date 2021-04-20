@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { object } from 'prop-types';
 import { colors, calcRem, fontSizes } from 'theme/theme';
-import { Button, Icon } from 'components';
+import Button from 'components/Button/Button';
+import Icon from 'components/Icon/Icon';
 
 const StyledButton = styled(Button)`
   display: flex;

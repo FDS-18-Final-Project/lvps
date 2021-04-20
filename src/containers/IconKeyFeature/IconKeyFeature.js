@@ -1,4 +1,4 @@
-import { IconParagraph } from 'components/';
+import IconParagraph from 'components/IconParagraph/IconParagraph';
 import { useViewSize } from 'hooks/';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';

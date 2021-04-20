@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { calcRem, colors } from 'theme/theme';
 import ErrorMessage from 'containers/ErrorMessage/ErrorMessage';
-import { Button, Icon } from 'components';
+import Button from 'components/Button/Button';
+import Icon from 'components/Icon/Icon';
 
 const StyledPage = styled.section`
   display: flex;

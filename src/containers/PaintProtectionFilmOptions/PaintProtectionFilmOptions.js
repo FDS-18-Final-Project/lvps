@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import PriceCardLayout from 'pages/Layout/PriceCardLayout';
-import { Carousel, TitlePriceTable } from 'components/';
+import TitlePriceTable from 'components/PriceTable/TitlePriceTable';
+import Carousel from 'components/Carousel/Carousel';
 
 const StyledTitlePriceTable = styled(TitlePriceTable)`
   .divider {

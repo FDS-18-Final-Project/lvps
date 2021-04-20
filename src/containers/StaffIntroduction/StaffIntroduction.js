@@ -1,7 +1,8 @@
+import Button from 'components/Button/Button';
+import Icon from 'components/Icon/Icon';
 import React from 'react';
 import styled from 'styled-components';
 import { calcRem, colors, calcInterval, fontSizes } from 'theme/theme';
-import { Button, Icon } from 'components/';
 
 const FullContainer = styled.section`
   position: relative;

@@ -1,7 +1,8 @@
+import CardExplanation from 'containers/CardExplanation/CardExplanation';
+import StaffIntroduction from 'containers/StaffIntroduction/StaffIntroduction';
+import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import React from 'react';
-import styled from 'styled-components';
 import { colors } from 'theme/theme';
-import { SubMainBanner, CardExplanation, StaffIntroduction } from 'containers';
 
 const CardList = [
   {

@@ -1,9 +1,9 @@
-import Tag from 'components/Tag/Tag';
 import React from 'react';
-import styled, { css } from 'styled-components';
-import PriceTable from './PriceTable';
 import { string } from 'prop-types';
+import styled, { css } from 'styled-components';
 import { calcInterval, calcRem, colors } from '../../theme/theme';
+import Tag from 'components/Tag/Tag';
+import PriceTable from './PriceTable';
 import { useViewSize } from 'hooks/';
 
 const TagPriceTableContainer = styled(PriceTable)`
@@ -77,4 +77,4 @@ TagPriceTable.defaultProps = {
 };
 
 TagPriceTableContainer.displayName = 'TagPriceTableContainer';
-export default TagPriceTable;
+export default React.memo(TagPriceTable);

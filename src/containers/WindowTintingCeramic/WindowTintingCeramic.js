@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import PriceCardLayout from 'pages/Layout/PriceCardLayout';
-import { Carousel, DescriptionPriceTable } from 'components/';
+import DescriptionPriceTable from 'components/PriceTable/DescriptionPriceTable';
+import Carousel from 'components/Carousel/Carousel';
 
 const carbon_01 = [
   "Ceramic Particle Technology PRIME XR contains ceramic particles that filter out the sun's infrared radiation — making them more effective than traditional metallized or dyed films.",

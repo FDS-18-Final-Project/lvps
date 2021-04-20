@@ -2,7 +2,9 @@ import React from 'react';
 import { oneOf, string } from 'prop-types';
 import styled, { css } from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
-import { Button, Icon, Paragraph } from 'components/';
+import Paragraph from 'components/Paragraph/Paragraph';
+import Button from 'components/Button/Button';
+import Icon from 'components/Icon/Icon';
 
 const FullContainer = styled.section`
   border-top: 1px solid ${colors.lightGray};
@@ -10,12 +12,11 @@ const FullContainer = styled.section`
 
 const ServiceInfoContainer = styled.div`
   display: grid;
-  grid-template: repeat(1, 0.2fr 0.3fr 0.25fr) / repeat(2, 1fr);
   align-items: flex-start;
   justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: ${calcInterval([80, 200, 75])};
+  padding: ${calcInterval([75, 100, 75])};
 
   .gridTitle {
     grid-area: 1 / 1 / 2 / 3;
@@ -40,7 +41,6 @@ const ServiceInfoContainer = styled.div`
   .gridBtn {
     max-width: ${calcRem(294)};
     margin-top: ${calcRem(70)};
-
     align-self: flex-end;
   }
 
@@ -59,10 +59,12 @@ const ServiceInfoContainer = styled.div`
         justify-self: flex-end;
       }
     `}
-
+  @media only screen and (max-width: 1200px) {
+    padding: ${calcInterval([40, 50, 40])};
+  }
   @media only screen and (max-width: 768px) {
     padding: ${calcInterval([38, 27, 58])};
-    grid-template: repeat(1, 0.2fr 200px 0.25fr 0.2fr) / repeat(1, 1fr);
+    grid-template: repeat(1, 0.2fr 0.2fr 0.25fr 0.2fr) / repeat(1, 1fr);
     align-items: center;
     justify-content: center;
     .gridTitle {
@@ -95,6 +97,10 @@ const ServiceInfoContainer = styled.div`
       margin-top: ${calcRem(33)};
     }
   }
+
+  @media only screen and (max-width: 375px) {
+    padding: ${calcInterval([70, 15, 55])};
+  }
 `;
 
 const ServiceInfo = ({
@@ -122,9 +128,7 @@ const ServiceInfo = ({
           <img src={imagePath} alt="dummyimage" />
         </div>
 
-        <div className="gridParagraph" as="p">
-          {children}
-        </div>
+        <div className="gridParagraph">{children}</div>
         <div className="gridBtn">
           <Button mode="link" to="/get-a-quote" fullwidth>
             {linkText}
@@ -148,7 +152,7 @@ ServiceInfo.defaultProps = {
   title: 'Ceramic Pro',
   subTitle: 'Meet Our Skilled Crew.',
   imagePath: 'assets/dummyCar.png',
-  linkText: 'Read More',
+  linkText: 'See more about this service',
   mode: 'right'
 };
 

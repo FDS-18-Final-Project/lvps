@@ -1,12 +1,15 @@
-import { A11yHidden, Button, Icon, Input } from 'components/';
-import { useFormik } from 'formik';
-import { Layout } from 'pages';
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { updateForm } from 'store/form/form';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 import { calcInterval, calcRem, colors, fontSizes } from '../../theme/theme';
+import { useFormik } from 'formik';
+import Layout from 'pages/Layout/Layout';
+import { updateForm } from 'store/form/form';
 import { validationSchema } from '../../utils/validation';
+import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
+import Input from 'components/Input/Input';
+import Button from 'components/Button/Button';
+import Icon from 'components/Icon/Icon';
 
 const FormContainer = styled.form`
   max-width: ${calcRem(984)};

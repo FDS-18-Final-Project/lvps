@@ -3,9 +3,9 @@ import { string } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
-import { AccordionList } from 'components/';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAccordionState } from 'hooks/';
+import AccordionList from 'components/AccordionList/AccordionList';
 
 const FullContainer = styled.section`
   position: relative;
@@ -57,7 +57,7 @@ const ServicesContainer = styled.div`
   img {
     width: 100%;
     height: ${calcRem(419)};
-    transition: 0.4s;
+    transition: 0.3s;
   }
 
   div + div {
@@ -121,63 +121,43 @@ const accordionState = [
   {
     id: 1,
     title: 'Ceramic Coating',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummy_ourbestservice.png',
+    description: `It can be described as an additional clear coat,
+    with 3 times the hardness and self cleaning properties.
+    `,
+    imagePath: 'assets/OurBestServiceImage_01.png',
     active: true
   },
   {
     id: 2,
     title: 'Paint Protection Film',
-    description: `It can be described as an additional clear coat,
-    with 3 times the hardness and self cleaning properties.
-    `,
-    imagePath: 'assets/dummyCar.png',
+    description: `It  protects your vehicle’s paint from everyday damages.`,
+    imagePath: 'assets/OurBestServiceImage_02.png',
     active: false
   },
   {
     id: 3,
     title: 'Window Tinting',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummyImage.png',
+    description: `Protect yourself from 99% harmful cancer causing UV rays & achieve the privacy you desire with window tinting.`,
+    imagePath: 'assets/OurBestServiceImage_03.png',
     active: false
   },
   {
     id: 4,
-    title: 'Detail Correction',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummy_background.png',
+    title: 'Detailing & Paint Correction',
+    description: `Get your car back to like when you bought it new with an interior/exterior packages we offer.`,
+    imagePath: 'assets/OurBestServiceImage_04.png',
     active: false
   },
   {
     id: 5,
-    title: 'Ceramic Coating',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummy_car1.png',
+    title: 'Wheel & Tire',
+    description: `We work with most wheel and tires distributors and can get you the wheels and tires you need.`,
+    imagePath: 'assets/OurBestServiceImage_05.png',
     active: false
   }
 ];
 
-const OurBestServices = ({ title, imagePath }) => {
+const OurBestServices = ({ title }) => {
   const [accordionItemList, handleClick] = useAccordionState(accordionState);
 
   const setActiveImage = () => {

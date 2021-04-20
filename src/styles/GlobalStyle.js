@@ -29,7 +29,9 @@ const GlobalStyle = createGlobalStyle`
     border-top: 1px solid ${colors.lightGray};
     border-bottom: 1px solid ${colors.lightGray};
   }
-
+  img {
+    user-drag: none; 
+  }
 `;
 
 export default GlobalStyle;

@@ -2,8 +2,8 @@ import React from 'react';
 import { string, array } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
-import { IconParagraph } from 'components';
 import { motion } from 'framer-motion';
+import IconParagraph from 'components/IconParagraph/IconParagraph';
 
 const typeStyle = {
   arrow: {

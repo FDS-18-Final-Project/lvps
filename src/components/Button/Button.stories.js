@@ -1,6 +1,7 @@
-import { Button, Icon } from 'components';
+import Icon from 'components/Icon/Icon';
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from '../../styles/GlobalStyle';
+import Button from './Button';
 
 //스토리 구성 객체
 export default {

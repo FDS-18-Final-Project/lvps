@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
-import PriceTable from './PriceTable';
-import { Tag } from 'components';
-import { calcInterval, calcRem, fontSizes } from 'theme/theme';
 import { string } from 'prop-types';
+import styled from 'styled-components';
+import { calcInterval, calcRem, fontSizes } from 'theme/theme';
+import PriceTable from './PriceTable';
+import Tag from 'components/Tag/Tag';
 
 const DescriptionPriceTableContainer = styled(PriceTable)`
   padding: ${calcInterval([130, 80, 114])};
@@ -99,4 +99,4 @@ DescriptionPriceTable.defaultProps = {
 
 DescriptionPriceTableContainer.displayName = 'DescriptionPriceTableContainer';
 
-export default DescriptionPriceTable;
+export default React.memo(DescriptionPriceTable);

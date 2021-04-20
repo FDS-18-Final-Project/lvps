@@ -1,8 +1,9 @@
 import React from 'react';
-import { array, string } from 'prop-types';
+import { string } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, fontSizes } from 'theme/theme';
-import { Paragraph, Icon } from 'components';
+import Paragraph from 'components/Paragraph/Paragraph';
+import Icon from 'components/Icon/Icon';
 
 const ChooseUsContainer = styled.section`
   border-top: 2px solid ${colors.lightGray};

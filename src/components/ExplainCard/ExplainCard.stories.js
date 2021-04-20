@@ -1,5 +1,5 @@
-import { ExplainCard } from 'components';
 import { withDesign } from 'storybook-addon-designs';
+import ExplainCard from './ExplainCard';
 
 export default {
   title: 'LVPS/Component/ExplainCard',
