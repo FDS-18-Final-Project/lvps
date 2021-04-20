@@ -98,12 +98,26 @@ const PriceCardLayout = ({
       <StyledPriceCard mode={mode}>
         <StyledPriceCardHeading>{title}</StyledPriceCardHeading>
         {desktop ? (
+
+          <PriceTableContainer>
+            {contents.map(content => (
+              <PriceTable
+                type={type}
+                icon={icon}
+                key={content.id}
+                maxWidth={322}
+                content={content}
+                className="price-table"
+              />
+            ))}
+
           <PriceTableContainer
             marginRight={marginRight}
             display={display}
             className="card-container"
           >
             {cardList}
+
           </PriceTableContainer>
         ) : (
           <>{children}</>

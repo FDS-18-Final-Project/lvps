@@ -24,7 +24,7 @@ const windowData = {
         color: 'red_05',
         title: <FromText title="PRIME CS ™" />,
         option: 'CARBON FILM',
-        price: '250',
+        price: 250,
         info: [
           'Non-Metal / Fading, Color Stable, Dyed',
           '5 Year Warranty',
@@ -38,7 +38,7 @@ const windowData = {
         color: 'red_05',
         title: <FromText title="PRIME CS ™Hybrid Film" />,
         option: 'CARBON FILM',
-        price: '250',
+        price: 250,
         info: [
           'Non-Metal / Fading, Color Stable, Dyed',
           '5 Year Warranty',
@@ -52,7 +52,7 @@ const windowData = {
         color: 'black',
         option: 'CARBON FILM',
         title: <FromText title="PRIME XR" />,
-        price: '400',
+        price: 400,
         info: [
           'Non-Metal, Maximum Heat Rejection',
           'Lifetime Warranty',
@@ -65,7 +65,7 @@ const windowData = {
         color: 'black',
         option: 'CARBON FILM',
         title: <FromText title="PRIME XR PLUS™" />,
-        price: '600',
+        price: 600,
         info: [
           'Non-Metal, Maximum Heat Rejection',
           'Lifetime Warranty',

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { calcInterval, colors, calcRem, fontSizes } from 'theme/theme';
 import PriceTable from './PriceTable';
-import { oneOfType, string } from 'prop-types';
+import { oneOf, string } from 'prop-types';
 
 const HelmetPriceTableContainer = styled(PriceTable)`
   padding: ${calcInterval([0, 15, 58])};
@@ -62,7 +62,7 @@ const HelmetPriceTable = ({
 };
 
 HelmetPriceTable.propTypes = {
-  color: oneOfType(['black', 'green', 'red_05']),
+  color: oneOf(['black', 'green', 'red_05']),
   heading: string,
   title: string,
   priceColor: string

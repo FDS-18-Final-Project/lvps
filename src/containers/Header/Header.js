@@ -71,8 +71,8 @@ const IconContainer = styled(Layout.FlexContainer)`
 
 const variants = {
   visible: { y: 0, transition: { duration: 0.4 } },
-  hidden: { y: -100 },
-  exit: { y: -100, opacity: 0, transition: { duration: 0.4 } }
+  hidden: { y: -100 }
+  //exit: { y: -100, opacity: 0, transition: { duration: 0.4 } }
 };
 
 const iconVariants = {

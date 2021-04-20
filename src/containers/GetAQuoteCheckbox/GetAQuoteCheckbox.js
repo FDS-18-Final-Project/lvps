@@ -13,6 +13,9 @@ import { ceramicReset } from 'store/modal/ceramic';
 import { ppfReset } from 'store/modal/ppf';
 import { windowReset } from 'store/modal/window';
 import { detailReset } from 'store/modal/detail';
+import WheelModalDialog from 'containers/ModalDialog/WheelModalDialog';
+import { wheelAndTireReset } from 'store/modal/wheelAndTire';
+import { deleteService } from 'store/service/service';
 
 const FullContainer = styled.section`
   position: relative;
@@ -61,9 +64,10 @@ const GetAQuoteCheckboxContainer = styled.div`
 const GetAQuoteCheckbox = () => {
   const dispatch = useDispatch();
 
-  const handleReset = actionFunc => {
+  const handleReset = (actionFunc, key) => {
     return reset => {
       dispatch(actionFunc());
+      dispatch(deleteService(key));
       reset();
     };
   };
@@ -75,24 +79,28 @@ const GetAQuoteCheckbox = () => {
         <CheckBox
           label="CERAMIC COATING"
           Modal={CeramicModalDialog}
-          handleReset={handleReset(ceramicReset)}
+          handleReset={handleReset(ceramicReset, 'ceramicpro')}
         />
         <CheckBox
           label="PAINT PROTECTION FILM"
           Modal={PPFModalDialog}
-          handleReset={handleReset(ppfReset)}
+          handleReset={handleReset(ppfReset, 'ppf')}
         />
         <CheckBox
           label="WINDOW TINTING"
           Modal={WindowModalDialog}
-          handleReset={handleReset(windowReset)}
+          handleReset={handleReset(windowReset, 'window')}
         />
         <CheckBox
           label="PROFESSIONAL DETAILING & PAINT CORRECTION"
           Modal={DetailModalDialog}
-          handleReset={handleReset(detailReset)}
+          handleReset={handleReset(detailReset, 'detail')}
         />
-        <CheckBox label="WHEELS & TIRES" />
+        <CheckBox
+          label="WHEELS & TIRES"
+          Modal={WheelModalDialog}
+          handleReset={handleReset(wheelAndTireReset, 'wheelAndTire')}
+        />
       </GetAQuoteCheckboxContainer>
       <Layout.FlexContainer className="btnContainer">
         <Button>

@@ -39,10 +39,11 @@ const Input = forwardRef(
           id={id}
           type={type}
           placeholder={children}
-          name={name}
-          autocomplete="off"
-          {...formik?.getFieldProps(name)}
+          name={name
           ref={ref}
+          autoComplete="off"
+          {...formik?.getFieldProps(name)}
+
         />
         {errorMessage && formik.errors[name] && formik.touched[name] && (
           <span>{formik.errors[name]}</span>
