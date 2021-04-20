@@ -16,6 +16,7 @@ const StyledParagraphContainer = styled.div`
   color: ${({ colors }) => colors.sub};
   line-height: 1.4;
   ${({ headingNum }) => headingNum && styledHeading}
+
   h1 {
     font-size: ${fontSizes.titleLarge};
   }
@@ -27,6 +28,7 @@ const StyledParagraphContainer = styled.div`
   h3 {
     font-size: ${fontSizes.xl};
   }
+
   li {
     font-size: ${({ size }) => calcRem(size)};
     margin-bottom: ${({ type }) => type === 'list' && calcRem(7)};
@@ -92,6 +94,7 @@ const Paragraph = ({
                       <Icon
                         type={icon}
                         color={iconColor}
+                        stroke={stroke}
                         width="20"
                         height="20"
                       >
@@ -132,6 +135,7 @@ Paragraph.propTypes = {
   headingNum: number,
   items: array,
   icon: string,
+  stroke: string,
   iconColor: string,
   colors: object,
   size: number,

@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import GlobalStyle from 'styles/GlobalStyle';
-import { Carousel } from 'components/';
+import Carousel from './Carousel';
+// import TitlePriceTable from 'components/PriceTable/TitlePriceTable';
 
 export default {
   title: 'LVPS/Component/Carousel',
@@ -15,12 +16,14 @@ export default {
   },
   argTypes: {
     type: {
+      description: '캐러셀 아이템 선택',
       control: {
         type: 'select',
-        options: ['paraghaph', 'img']
+        options: ['paragraph', 'img', 'card']
       }
     },
     contents: {
+      description: '캐러셀 배열',
       control: {
         type: 'string'
       }
@@ -89,7 +92,58 @@ const carouselImgs = [
   }
 ];
 
-//template 만들기
+const option_01 = [
+  'Premium high solids silica coating',
+  '8H hardness',
+  'Ultimate gloss & shine',
+  'Repels water, oil & dirt',
+  'Extremely durable lasting up to 1 year'
+];
+
+const option_02 = [
+  'Premium high solids silica coating',
+  '9H hardness',
+  'Ultimate gloss & shine',
+  'Repels water, oil & dirt',
+  'Extremely durable lasting up to 2 years'
+];
+
+const option_03 = [
+  'Premium high solids silica coating',
+  '9H hardness with improved chemical resistance',
+  'Ultimate gloss & shine',
+  'Repels water, oil & dirt',
+  'Extremely durable lasting up to 3 years'
+];
+
+// const carouselCards = [
+//   <TitlePriceTable
+//     heading="Glass"
+//     title="Starting from"
+//     price={199}
+//     info={option_01}
+//     priceColor="pink"
+//     hover
+//   />,
+//   <TitlePriceTable
+//     heading="Wheels &amp; Calipers
+//   Protection"
+//     title="Starting from"
+//     price={399}
+//     info={option_02}
+//     priceColor="pink"
+//     hover
+//   />,
+//   <TitlePriceTable
+//     heading="Interior Protection"
+//     title="Starting from"
+//     price={599}
+//     info={option_03}
+//     priceColor="pink"
+//     hover
+//   />
+// ];
+
 const Template = args => (
   <>
     <GlobalStyle />
@@ -97,7 +151,6 @@ const Template = args => (
   </>
 );
 
-//스토리 구성 객체 기본 내보내기
 export const ReviewCarousel = Template.bind({});
 
 ReviewCarousel.args = {
@@ -115,3 +168,12 @@ imgCarousel.args = {
 };
 
 imgCarousel.storyName = '이미지 캐러셀';
+
+// export const cardCarousel = Template.bind({});
+
+// imgCarousel.args = {
+//   type: 'card',
+//   contents: carouselCards
+// };
+
+// cardCarousel.storyName = '카드 캐러셀';

@@ -9,10 +9,7 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Routes />
-      <Footer>{/* <Footer.Logo />
-        <Footer.Content /> */}</Footer>
       <Footer />
-
     </BrowserRouter>
   );
 };

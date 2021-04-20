@@ -8,7 +8,7 @@ import {
   HelmetPriceTable,
   PrimiumPriceTable
 } from 'components';
-import useModalSelected from 'hooks/useModalSelected';
+import { useModalSelected } from 'hooks/';
 import {
   ceramicMultiToggleActive,
   ceramicSingleToggleActive
@@ -29,7 +29,7 @@ const StyledModalContainer = styled.section`
     width: ${calcRem(1350)};
     height: 90vh;
     margin: ${calcRem(50)} auto 0;
-    background: ${colors.gray2};
+    background: ${colors.gray_02};
     overflow: auto;
     display: flex;
     position: relative;

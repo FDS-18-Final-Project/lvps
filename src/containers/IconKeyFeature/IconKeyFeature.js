@@ -1,5 +1,5 @@
 import { IconParagraph } from 'components/';
-import useViewSize from 'hooks/useViewSize';
+import { useViewSize } from 'hooks/';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
 

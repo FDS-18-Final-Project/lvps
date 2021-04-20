@@ -20,7 +20,6 @@ export { default as CardInfoTitleDescription } from './CardInfo/CardInfoTitleDes
 export { default as CardInfo } from './CardInfo/CardInfo';
 export { default as IconParagraph } from './IconParagraph/IconParagraph';
 export { default as Tag } from './Tag/Tag';
-export { default as PriceCardLayout } from './PriceCardLayout/PriceCardLayout';
 export { default as CheckBox } from './CheckBox/CheckBox';
 export { default as DescriptionPriceTable } from './PriceTable/DescriptionPriceTable';
 export { default as HelmetPriceTable } from './PriceTable/HelmetPriceTable';

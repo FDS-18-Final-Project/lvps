@@ -8,7 +8,7 @@ import {
   HelmetPriceTable,
   PrimiumPriceTable
 } from 'components';
-import useModalSelected from 'hooks/useModalSelected';
+import { useModalSelected } from 'hooks/';
 import { motion } from 'framer-motion';
 import {
   detailMultiToggleActive,
@@ -29,7 +29,7 @@ const StyledModalContainer = styled.section`
     width: ${calcRem(1350)};
     height: 100vh;
     margin: 170px auto 0;
-    background: ${colors.gray2};
+    background: ${colors.gray_02};
     overflow: auto;
     display: flex;
     position: relative;

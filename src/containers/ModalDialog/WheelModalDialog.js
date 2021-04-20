@@ -21,7 +21,7 @@ const StyledModalContainer = styled.section`
     width: ${calcRem(1350)};
     height: 100vh;
     margin: ${calcRem(170)} auto 0;
-    background: ${colors.gray2};
+    background: ${colors.gray_02};
     overflow: auto;
     display: flex;
     position: relative;
@@ -86,7 +86,7 @@ const StyledPackageContainer = styled.div`
 
   section {
     border: 0;
-    background: ${colors.gray2};
+    background: ${colors.gray_02};
   }
   & + & {
     border-bottom: 0;

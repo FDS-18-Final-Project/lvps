@@ -1,6 +1,6 @@
 import { object } from 'prop-types';
 import styled from 'styled-components';
-import { colors, calcRem } from 'theme/theme';
+import { colors, calcRem, device } from 'theme/theme';
 
 const StyledReviewContainer = styled.div`
   width: 100%;
@@ -15,7 +15,7 @@ const StyledReviewContent = styled.p`
   margin-bottom: ${calcRem(50)};
   height: ${calcRem(450)};
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     line-height: ${calcRem(25)};
     height: ${calcRem(255)};
   }
@@ -58,6 +58,7 @@ Review.defaultProps = {
   colors: { main: colors.black, sub: colors.black }
 };
 
+StyledReviewContainer.displayName = 'StyledReviewContainer';
 StyledReviewContent.displayName = 'StyledReviewContent';
 StyledReviewInfo.displayName = 'StyledReviewInfo';
 

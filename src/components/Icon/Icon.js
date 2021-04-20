@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { string, object, bool } from 'prop-types';
 import styled from 'styled-components';
+import { colors } from 'theme/theme';
 import { motion } from 'framer-motion';
 import svg from 'assets';
 
@@ -10,7 +11,7 @@ const StyledIconContainer = styled(motion.div)`
   align-items: center;
 
   path {
-    fill: ${({ color }) => color};
+    fill: ${({ color }) => color && colors[color]};
     stroke: ${({ stroke }) => stroke};
   }
 `;
@@ -27,12 +28,12 @@ const Icon = ({
   type,
   color,
   stroke,
-  children,
   motionProps,
-  stylesForContainer,
   button,
   link,
   to,
+  stylesForContainer,
+  children,
   ...restProps
 }) => {
   let Comp = null;
@@ -66,6 +67,7 @@ Icon.propTypes = {
   color: string,
   stroke: string,
   motionProps: object,
+  stylesForContainer: object,
   button: bool,
   link: bool,
   to: string
@@ -73,12 +75,13 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   type: 'rightArrow',
-  color: '',
+  color: 'red_05',
   stroke: '',
   button: false,
   link: false
 };
 
 StyledIconContainer.displayName = 'StyledIconContainer';
+StyledIconButton.displayName = 'StyledIconButton';
 
 export default Icon;

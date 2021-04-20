@@ -5,7 +5,7 @@ import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import { AccordionList } from 'components/';
 import { motion, AnimatePresence } from 'framer-motion';
-import useAccordionState from '../../hooks/useAccordionState';
+import { useAccordionState } from 'hooks/';
 
 const FullContainer = styled.section`
   position: relative;

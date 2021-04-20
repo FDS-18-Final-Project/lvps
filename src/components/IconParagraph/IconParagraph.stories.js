@@ -20,9 +20,16 @@ export default {
         type: 'string'
       }
     },
+    iconType: {
+      control: {
+        type: 'select',
+        options: ['likeCircle', 'facebook', 'instagram']
+      }
+    },
     iconColor: {
       control: {
-        type: 'string'
+        type: 'select',
+        options: [colors.red_05, colors.green]
       }
     },
     direction: {
@@ -31,11 +38,7 @@ export default {
         options: ['row', 'column']
       }
     },
-    iconType: {
-      control: {
-        type: 'string'
-      }
-    },
+
     textAlign: {
       control: {
         type: 'object'
@@ -54,28 +57,13 @@ export default {
   }
 };
 
-const explanCeramic = [
-  {
-    id: 1,
-    title: 'GOOD INVESTMENT',
-    content:
-      'The coating will protect the vehicle’s exterior and interior from deteriorating for a lifetime. The resale market value will therefore be substantially higher! Ceramic Pro pays for itself in the end.'
-  },
-  {
-    id: 2,
-    title: 'LOOK NEW ALL THE TIME',
-    content:
-      'Once the coating is applied you will see a mirror effect, glossiness and color depth, incomparable to anything else! With proper maintenance your car’s finish will shine for many years to come.'
-  },
-  {
-    id: 3,
-    title: 'LESS MAINTENANCE',
-    content:
-      'The slick coated surface won’t allow dirt, brake dust and tar to stick to your paint, wheels or glass. This makes washing your vehicle less labor intensive and less frequent. Waxing is now obsolete.'
-  }
-];
+const explanCeramic = {
+  id: 1,
+  title: 'GOOD INVESTMENT',
+  content:
+    'The coating will protect the vehicle’s exterior and interior from deteriorating for a lifetime. The resale market value will therefore be substantially higher! Ceramic Pro pays for itself in the end.'
+};
 
-//template 만들기
 const Template = args => (
   <>
     <GlobalStyle />
@@ -83,12 +71,11 @@ const Template = args => (
   </>
 );
 
-//스토리 구성 객체 기본 내보내기
 export const IconParagraphColumn = Template.bind({});
 
 IconParagraphColumn.args = {
   direction: 'column',
-  content: explanCeramic[0],
+  content: explanCeramic,
   iconType: 'likeCircle',
   iconColor: colors.red_05,
   textAlign: { title: 'center', content: 'left' },
@@ -102,7 +89,7 @@ export const IconParagraphRow = Template.bind({});
 
 IconParagraphRow.args = {
   direction: 'row',
-  content: explanCeramic[0],
+  content: explanCeramic,
   iconType: 'facebook',
   iconColor: colors.red_05,
   textAlign: { title: 'left', content: 'left' },
