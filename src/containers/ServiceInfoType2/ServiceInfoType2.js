@@ -41,7 +41,7 @@ const ContentSideContainer = styled.div`
     color: ${colors.black};
     line-height: 150%;
     text-align: start;
-    margin-bottom: ${calcRem(35)};
+    margin-bottom: ${calcRem(25)};
   }
 `;
 const StyledContentContainer = styled.div`
@@ -60,7 +60,7 @@ const StyledContentContainer = styled.div`
   ul {
     padding: 0;
     width: 100%;
-    margin: 0 auto;
+    margin: ${calcRem(20)} auto 0;
   }
   ul li p {
     margin: 0;

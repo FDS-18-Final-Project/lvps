@@ -48,6 +48,7 @@ const StyledContentContainer = styled.div`
   h4 {
     text-align: start;
     font-size: ${fontSizes.xl};
+    margin: ${calcRem(33)} 0 ${calcRem(15)};
   }
   p {
     text-align: start;
@@ -61,6 +62,9 @@ const StyledContentContainer = styled.div`
   }
   ul li p {
     margin: 0;
+  }
+  .firstPara {
+    margin-bottom: ${calcRem(30)};
   }
 `;
 
@@ -85,7 +89,7 @@ const ServiceInfoType3 = ({
         <ContentSideContainer>
           <StyledContentContainer>
             <h3>{title}</h3>
-            <p>{para1}</p>
+            <p className="firstPara">{para1}</p>
             <p>{para2}</p>
             <h4>{subTitle}</h4>
             {infoList && <CardInfo infoList={infoList}></CardInfo>}

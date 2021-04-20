@@ -58,6 +58,7 @@ const ContentSideContainer = styled.div`
     color: ${colors.black};
     line-height: 150%;
     text-align: start;
+    margin-top: ${calcRem(75)};
     margin-bottom: ${calcRem(20)};
   }
 `;
@@ -89,6 +90,10 @@ const ExplainCardContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: ${calcRem(45)} 0 ${calcRem(60)};
+
+  h4 {
+    margin-bottom: ${calcRem(45)};
+  }
 `;
 
 const ServiceInfoType4 = ({
