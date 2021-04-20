@@ -23,6 +23,8 @@ import { ReactComponent as LikeCircle } from './svg/likeCircle.svg';
 import { ReactComponent as Message } from './svg/message.svg';
 import { ReactComponent as OpenQuote } from './svg/openQuote.svg';
 import { ReactComponent as CloseQuote } from './svg/closeQuote.svg';
+import { ReactComponent as Star } from './svg/star.svg';
+import { ReactComponent as CircleCheck } from './svg/circleCheck.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -50,5 +52,7 @@ export default {
   likeCircle: LikeCircle,
   message: Message,
   openQuote: OpenQuote,
-  closeQuote: CloseQuote
+  closeQuote: CloseQuote,
+  star: Star,
+  circleCheck: CircleCheck
 };

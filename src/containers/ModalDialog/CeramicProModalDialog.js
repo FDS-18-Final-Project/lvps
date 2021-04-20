@@ -8,170 +8,11 @@ import {
   HelmetPriceTable,
   PrimiumPriceTable
 } from 'components';
-import Portal from 'utils/portal';
-
-const cermicProData = {
-  label: 'Ceramic Pro Product Options',
-  title: 'Ceramic Pro Product ModalDialog',
-  firstPackage: {
-    title: 'Ceramic Pro Protection Packages',
-    contents: [
-      {
-        option: 'Gold',
-        price: '1499',
-        info: [
-          {
-            id: 1,
-            title: '4 Layers Ceramic Pro 9H',
-            description: 'on all painted surfaces and trim'
-          },
-          {
-            id: 2,
-            title: '1 Layer of Ceramic Pro Top Coat',
-            description: 'on all painted surfaces and trim.'
-          },
-          {
-            id: 3,
-            title: '1 Layer of Ceramic Pro Glass',
-            description: 'on all glass surfaces.'
-          },
-          {
-            id: 4,
-            title: '1 Layer of Ceramic Pro Wheel and Caliper',
-            description: 'on the face of the wheels.'
-          }
-        ]
-      },
-      {
-        option: 'Silver',
-        price: '899',
-        info: [
-          {
-            id: 1,
-            title: '1 Layers of Ceramic Pro 9H',
-            description: 'on all painted surfaces and trim'
-          },
-          {
-            id: 2,
-            title: '1 Layer of Ceramic Pro Top Coat',
-            description: 'on all painted surfaces and trim.'
-          },
-          {
-            id: 3,
-            title: '1 Layer of Ceramic Pro Glass',
-            description: 'on all glass surfaces.'
-          },
-          {
-            id: 4,
-            title: '1 Layer of Ceramic Pro Wheel and Caliper',
-            description: 'on the face of the wheels.'
-          }
-        ]
-      },
-      {
-        option: 'Bronze',
-        price: '599',
-        info: [
-          {
-            id: 1,
-            title: '1 Layer of Ceramic Pro Top Coat',
-            description: 'on all painted surfaces and trim.'
-          },
-          {
-            id: 2,
-            title: '1 Layer of Ceramic Pro Glass',
-            description: 'on all glass surfaces.'
-          },
-          {
-            id: 3,
-            title: '1 Layer of Ceramic Pro Wheel and Caliper',
-            description: 'on the face of the wheels.'
-          }
-        ]
-      }
-    ]
-  },
-  secondPackage: {
-    title: 'Ceramic Pro Protection Additional Options',
-    contents: [
-      {
-        color: 'black',
-        price: '199',
-        heading: 'GLASS',
-        mode: 'list',
-        info: ['2 Layers of "Glass" on all glass and mirrors.']
-      },
-      {
-        color: 'black',
-        price: '399',
-        heading: 'WHEELS & CALIPERS PROTECTION',
-        info: ['1 Layer of “Wheel & Caliper” on Wheels & Calipers.']
-      },
-      {
-        color: 'black',
-        price: '599',
-        heading: 'INTERIOR PROTECTION',
-        info: [
-          '1 Coat of "Leather" on the high traffic area and "Textile" on the carpet floor.'
-        ]
-      }
-    ]
-  },
-  thirdPackage: {
-    title: 'IGL Coatings',
-    priceTableType: 'helmetPriceTable',
-    contents: [
-      {
-        color: 'green',
-        price: '400',
-        heading: 'IGL POLY',
-        info: [
-          'Premium high solids silica coating',
-          '8H hardness',
-          'Ultimate gloss & shine',
-          'Repels water, oil & dirt',
-          'Extremely durable lasting up to 1 year'
-        ]
-      },
-      {
-        color: 'green',
-        price: '600',
-        heading: 'IGL QUARTZ',
-        info: [
-          'Premium high solids silica coating',
-          '9H hardness',
-          'Ultimate gloss & shine',
-          'Repels water, oil & dirt',
-          'Extremely durable lasting up to 2 years'
-        ]
-      },
-      {
-        color: 'green',
-        price: '800',
-        heading: 'IGL QUARTZ+',
-        info: [
-          'Premium high solids silica coating',
-          '9H hardness with improved chemical resistance',
-          'Ultimate gloss & shine',
-          'Repels water, oil & dirt',
-          'Extremely durable lasting up to 3 years'
-        ]
-      },
-      {
-        color: 'green',
-        price: '1200',
-        heading: 'IGL KENZO',
-        info: [
-          'Premium 100% solid hybrid silica coating',
-          '10H hardness with extreme silk like slick',
-          'Ultimate gloss & shine',
-          'Repels water, oil & dirt',
-          'Extremely durable lasting up to 5 years'
-        ]
-      }
-    ]
-  }
-};
+import useModalSelected from 'hooks/useModalSelected';
+import {
+  ceramicMultiToggleActive,
+  ceramicSingleToggleActive
+} from 'store/modal/ceramic';
 
 const StyledModalContainer = styled.section`
   position: fixed;
@@ -186,7 +27,7 @@ const StyledModalContainer = styled.section`
     margin-top: ${calcRem(170)};
     width: ${calcRem(1350)};
     height: 100vh;
-    margin: 170px auto 0;
+    margin: ${calcRem(170)} auto 0;
     background: ${colors.gray2};
     overflow: auto;
     display: flex;
@@ -196,11 +37,11 @@ const StyledModalContainer = styled.section`
   }
   /* 스크롤바 스타일  */
   & > div::-webkit-scrollbar {
-    width: 10px;
+    width: ${calcRem(10)};
   }
   & > div::-webkit-scrollbar-thumb {
     background-color: #2f3542;
-    border-radius: 10px;
+    border-radius: ${calcRem(10)};
     background-clip: padding-box;
     border: 2px solid transparent;
   }
@@ -289,7 +130,7 @@ const StyledPackageListContainer = styled.div`
 
 const StyledButtonContainer = styled.div`
   width: 100%;
-  padding: 200px 0;
+  padding: ${calcRem(200)} 0;
   position: relative;
   button {
     position: absolute;
@@ -298,14 +139,21 @@ const StyledButtonContainer = styled.div`
     transform: translate(-50%, -30%);
   }
 `;
-const CeramicProModalDialog = () => {
+const CeramicProModalDialog = ({ onChange, confirmCheck }) => {
   const {
-    label,
-    title,
-    firstPackage,
-    secondPackage,
-    thirdPackage
-  } = cermicProData;
+    modalData,
+    onlyOneSelected,
+    multiSelected,
+    addServices
+  } = useModalSelected(
+    'ceramicModal',
+    ceramicSingleToggleActive,
+    ceramicMultiToggleActive,
+    onChange,
+    confirmCheck
+  );
+
+  const { label, title, firstPackage, secondPackage, thirdPackage } = modalData;
 
   return (
     // <Portal id="modal-root">
@@ -328,8 +176,17 @@ const CeramicProModalDialog = () => {
               className="firstPackage"
               numOfProd={firstPackage.contents?.length}
             >
+
               {firstPackage.contents?.map(content => (
-                <PrimiumPriceTable {...content} />
+                <PrimiumPriceTable
+                  key={content.id}
+                  id={content.id}
+                  data-name="firstPackage"
+                  active={content.active}
+                  onClick={onlyOneSelected}
+                  {...content}
+                />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -339,8 +196,17 @@ const CeramicProModalDialog = () => {
               className="secondPackage"
               numOfProd={secondPackage.contents?.length}
             >
+
               {secondPackage.contents?.map(content => (
-                <HelmetPriceTable {...content} />
+                <HelmetPriceTable
+                  key={content.id}
+                  id={content.id}
+                  data-name="secondPackage"
+                  active={content.active}
+                  onClick={multiSelected}
+                  {...content}
+                />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -350,15 +216,33 @@ const CeramicProModalDialog = () => {
               className="thirdPackage"
               numOfProd={thirdPackage.contents?.length}
             >
+
               {thirdPackage.contents?.map(content => (
-                <HelmetPriceTable {...content} />
+                <HelmetPriceTable
+                  key={content.id}
+                  id={content.id}
+                  data-name="thirdPackage"
+                  active={content.active}
+                  onClick={multiSelected}
+                  {...content}
+                />
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
           <StyledButtonContainer>
-            <Button mode="button">Confirm</Button>
+            <Button
+              mode="button"
+              onClick={addServices(
+                'ceramicpro',
+                firstPackage,
+                secondPackage,
+                thirdPackage
+              )}
+            >
+              Confirm
+            </Button>
           </StyledButtonContainer>
-          <Button mode="button" aria-label="Modal 닫기">
+          <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
             <Icon type="close" />
           </Button>
         </StyledModalBodyContainer>

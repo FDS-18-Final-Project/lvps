@@ -18,6 +18,7 @@ export const colors = {
   Platinum: '#797686',
 
   gray2: '#F4F4F4',
+  gray3: '#e9ecef',
 
   lightGray: '#C9C9C9',
   green: '#00B056',
@@ -41,7 +42,7 @@ export const fontSizes = {
   titleLarge: calcRem(50)
 };
 
-const deviceSizes = {
+export const deviceSizes = {
   mobileS: '320px',
   mobileM: '375px',
   mobileL: '450px',
@@ -50,7 +51,7 @@ const deviceSizes = {
   desktop: '1920px'
 };
 
-const device = {
+export const device = {
   mobileS: `only screen and (max-width: ${deviceSizes.mobileS})`,
   mobileM: `only screen and (max-width: ${deviceSizes.mobileM})`,
   mobileL: `only screen and (max-width: ${deviceSizes.mobileL})`,

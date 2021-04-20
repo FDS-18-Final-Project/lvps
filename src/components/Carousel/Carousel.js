@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
 import { array, string } from 'prop-types';
 import styled from 'styled-components';
-import { useSwipeable } from 'react-swipeable';
 import { calcRem, colors } from 'theme/theme';
 import { Icon, CarouselItem, Indicator } from 'components/';
 import useViewSize from 'hooks/useViewSize';
+import useCarousel from 'hooks/useCarousel';
 
 const StyledCarouselContainer = styled.div`
   max-width: ${calcRem(750)};
@@ -25,53 +24,20 @@ const StyledCarouselButton = styled(Icon)`
   ${({ direction }) => (direction === 'left' ? 'left: 0' : 'right: 0')};
 `;
 
-const Carousel = ({
-  type,
-  contents,
-  title,
-  icon,
-  iconContents,
-  ...restProps
-}) => {
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const [isMoving, setIsMoving] = useState(false);
-  const { desktop } = useViewSize();
-
+const Carousel = ({ type, contents, ...restProps }) => {
   const TOTAL_LENGTH = contents.length;
-
-  const moveNext = () => {
-    if (!isMoving) {
-      // if (currentSlide === TOTAL_LENGTH) return setCurrentSlide(1);
-      if (currentSlide === TOTAL_LENGTH) return;
-      else setCurrentSlide(currentSlide + 1);
-    }
-  };
-
-  const movePrev = () => {
-    if (!isMoving) {
-      // if (currentSlide === 1) return setCurrentSlide(TOTAL_LENGTH);
-      if (currentSlide === 1) return;
-      else setCurrentSlide(currentSlide - 1);
-    }
-  };
-
-  const handlers = useSwipeable({
-    onSwipedLeft: moveNext,
-    onSwipedRight: movePrev,
-    preventDefaultTouchmoveEvent: true,
-    trackMouse: true
-  });
-
-  useEffect(() => {
-    setIsMoving(true);
-    setTimeout(() => {
-      setIsMoving(false);
-    }, 500);
-  }, [currentSlide]);
+  const { desktop } = useViewSize();
+  const {
+    currentSlide,
+    setCurrentSlide,
+    moveNext,
+    movePrev,
+    handlers
+  } = useCarousel(contents, TOTAL_LENGTH);
 
   return (
     <>
-      <StyledCarouselContainer type={type} {...handlers}>
+      <StyledCarouselContainer type={type} {...handlers} {...restProps}>
         <Slides currentSlide={currentSlide} length={TOTAL_LENGTH}>
           {[contents[TOTAL_LENGTH - 1], ...contents, contents[0]].map(
             (content, idx) => (
@@ -80,10 +46,7 @@ const Carousel = ({
                 type={type}
                 colors={{ main: colors.lightGray, sub: colors.white }}
                 content={content}
-                iconContents={iconContents}
                 active={currentSlide === idx}
-                title={title}
-                icon={icon}
               />
             )
           )}
@@ -124,7 +87,7 @@ Carousel.propTypes = {
 
 Carousel.defaultProps = {
   type: 'img',
-  content: []
+  contents: []
 };
 
 StyledCarouselContainer.displayName = 'StyledCarouselContainer';

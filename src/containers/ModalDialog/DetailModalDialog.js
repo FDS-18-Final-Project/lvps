@@ -8,178 +8,11 @@ import {
   HelmetPriceTable,
   PrimiumPriceTable
 } from 'components';
-import Portal from 'utils/portal';
-
-const detailAndPaintCorrectionData = {
-  label: 'Detailing and Paint Correction Product Options',
-  title: 'Detailing and Paint Correction Product ModalDialog',
-  firstPackage: {
-    title: 'Package Options',
-    contents: [
-      {
-        option: 'Gold',
-        price: '499.99',
-        info: [
-          {
-            id: 1,
-            description: 'Complete exterior hand wash'
-          },
-          {
-            id: 2,
-            description: 'Complete interior vacuum'
-          },
-          {
-            id: 3,
-            description: 'Leather cleaning and conditioning'
-          },
-          {
-            id: 4,
-            description: 'Cleaning windows and mirrors'
-          },
-          {
-            id: 5,
-            description: 'Salt removal'
-          },
-          {
-            id: 6,
-            description: 'Cleaning door jams'
-          },
-          {
-            id: 7,
-            description: 'Wheel cleaning and tire dressing'
-          },
-          {
-            id: 8,
-            description: 'Removing bugs, tar, tree sap'
-          },
-          {
-            id: 9,
-            description: 'Claybar & iron paint decontamination'
-          },
-          {
-            id: 10,
-            description: 'Compound and polish to remove scratches'
-          },
-          {
-            id: 11,
-            description: 'Polish to add gloss to paint'
-          },
-          {
-            id: 12,
-            description: 'Compound and polish to remove scratches'
-          },
-          {
-            id: 13,
-            description: 'Paint sealant'
-          },
-          {
-            id: 14,
-            description: 'Engine cleaning and dressing'
-          },
-          {
-            id: 15,
-            description: 'Headlights polish'
-          }
-        ]
-      },
-      {
-        option: 'Silver',
-        price: '399.99',
-        info: [
-          {
-            id: 1,
-            description: 'Complete exterior hand wash'
-          },
-          {
-            id: 2,
-            description: 'Complete interior vacuum'
-          },
-          {
-            id: 3,
-            description: 'Leather cleaning and conditioning'
-          },
-          {
-            id: 4,
-            description: 'Cleaning windows and mirrors'
-          },
-          {
-            id: 5,
-            description: 'Salt removal'
-          },
-          {
-            id: 6,
-            description: 'Cleaning door jams'
-          },
-          {
-            id: 7,
-            description: 'Wheel cleaning and tire dressing'
-          },
-          {
-            id: 8,
-            description: 'Removing bugs, tar, tree sap'
-          },
-          {
-            id: 9,
-            description: 'Claybar & iron paint decontamination'
-          },
-          {
-            id: 10,
-            description: 'Polish to add gloss to paint'
-          }
-        ]
-      },
-      {
-        option: 'Bronze',
-        price: '199.99',
-        info: [
-          {
-            id: 1,
-            description: 'Complete exterior hand wash'
-          },
-          {
-            id: 2,
-            description: 'Complete interior vacuum'
-          },
-          {
-            id: 3,
-            description: 'Leather cleaning and conditioning'
-          },
-          {
-            id: 4,
-            description: 'Cleaning windows and mirrors'
-          },
-          {
-            id: 5,
-            description: 'Salt removal'
-          },
-          {
-            id: 6,
-            description: 'Cleaning door jams'
-          },
-          {
-            id: 7,
-            description: 'Wheel cleaning and tire dressing'
-          },
-          {
-            id: 8,
-            description: 'Removing bugs, tar, tree sap'
-          }
-        ]
-      }
-    ]
-  },
-  secondPackage: {
-    title: 'Paint Correction',
-    contents: [
-      {
-        color: 'black',
-        price: '300',
-        heading: 'PAINT CORRECTION',
-        info: ['1 Stage Polish to correct minor scratches and swirls']
-      }
-    ]
-  }
-};
+import useModalSelected from 'hooks/useModalSelected';
+import {
+  detailMultiToggleActive,
+  detailSingleToggleActive
+} from 'store/modal/detail';
 
 const StyledModalContainer = styled.section`
   position: fixed;
@@ -315,13 +148,22 @@ const StyledButtonContainer = styled.div`
     transform: translate(-50%, -30%);
   }
 `;
-const CeramicProModalDialog = () => {
+
+const DetailModalDialog = ({ onChange, confirmCheck }) => {
+
   const {
-    label,
-    title,
-    firstPackage,
-    secondPackage
-  } = detailAndPaintCorrectionData;
+    modalData,
+    onlyOneSelected,
+    multiSelected,
+    addServices
+  } = useModalSelected(
+    'detailModal',
+    detailSingleToggleActive,
+    detailMultiToggleActive,
+    onChange,
+    confirmCheck
+  );
+  const { label, title, firstPackage, secondPackage } = modalData;
 
   return (
     // <Portal id="modal-root">
@@ -345,7 +187,15 @@ const CeramicProModalDialog = () => {
               numOfProd={firstPackage.contents?.length}
             >
               {firstPackage.contents?.map(content => (
-                <PrimiumPriceTable {...content} />
+                <PrimiumPriceTable
+                  key={content.id}
+                  id={content.id}
+                  data-name="firstPackage"
+                  active={content.active}
+                  onClick={onlyOneSelected}
+                  {...content}
+                />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
@@ -354,15 +204,29 @@ const CeramicProModalDialog = () => {
             <StyledPackageListContainer
               numOfProd={secondPackage.contents?.length}
             >
+
               {secondPackage.contents?.map(content => (
-                <HelmetPriceTable {...content} />
+                <HelmetPriceTable
+                  key={content.id}
+                  id={content.id}
+                  data-name="secondPackage"
+                  active={content.active}
+                  onClick={multiSelected}
+                  {...content}
+                />
+
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
           <StyledButtonContainer>
-            <Button mode="button">Confirm</Button>
+            <Button
+              mode="button"
+              onClick={addServices('detail', firstPackage, secondPackage)}
+            >
+              Confirm
+            </Button>
           </StyledButtonContainer>
-          <Button mode="button" aria-label="Modal 닫기">
+          <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
             <Icon type="close" />
           </Button>
         </StyledModalBodyContainer>
@@ -378,4 +242,4 @@ StyledModalBodyContainer.displayName = 'Modal Body Container';
 StyledPackageContainer.displayName = 'Modal Product List Container';
 StyledButtonContainer.displayName = 'Button Container';
 
-export default React.memo(CeramicProModalDialog);
+export default React.memo(DetailModalDialog);
