@@ -95,8 +95,7 @@ const arrowCardList = [
     content: [
       {
         id: 1,
-        content:
-          'Professional services & products offered to exceed your expectations.'
+        content: 'Wash and decontamination of complete car.'
       }
     ],
     iconType: 'likeCircle',
@@ -107,7 +106,10 @@ const arrowCardList = [
     id: 2,
     type: 'arrow',
     content: [
-      { id: 1, content: 'Certified Professional & Trained Installers' }
+      {
+        id: 1,
+        content: 'Paint correction to remove scratches, swirls, imperfections'
+      }
     ],
     iconType: 'likeCircle',
     background: colors.black,
@@ -116,7 +118,13 @@ const arrowCardList = [
   {
     id: 3,
     type: 'arrow',
-    content: [{ id: 1, content: '100% Satisfaction Guaranteed' }],
+    content: [
+      {
+        id: 1,
+        content:
+          'Completely dry & complete solvent & alcohol wipe down to remove waxes, oils on the painted surfaces'
+      }
+    ],
     iconType: 'likeCircle',
     background: colors.black,
     fontColor: colors.white
@@ -124,7 +132,7 @@ const arrowCardList = [
   {
     id: 4,
     type: 'arrow',
-    content: [{ id: 1, content: 'We work with every make & model' }],
+    content: [{ id: 1, content: 'Ceramic Coating application' }],
     iconType: 'likeCircle',
     background: colors.black,
     fontColor: colors.white
@@ -141,13 +149,13 @@ const Template = args => (
 export const CardExplanationType1Container = Template.bind({});
 
 CardExplanationType1Container.args = {
-  title: 'Our Quality Protection Services',
+  title: 'Why Choose us?',
   cardList: squareCardList
 };
 
 export const CardExplanationType2Container = Template.bind({});
 
 CardExplanationType2Container.args = {
-  title: 'Luxury Vehicle Protection Services',
+  title: 'The process of installing Ceramic Pro',
   cardList: arrowCardList
 };

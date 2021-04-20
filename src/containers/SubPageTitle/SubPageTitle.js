@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { fontSizes, calcRem } from 'theme/theme';
+import { fontSizes, calcRem, device } from 'theme/theme';
 
 const StyledSubPageContainer = styled.section``;
 
@@ -23,6 +23,13 @@ const FullContainer = styled.div`
     font-weight: 700;
     font-size: ${fontSizes.xl};
     margin-top: ${calcRem(30)};
+  }
+
+  ${device.tablet} {
+    padding: ${calcRem(13)} 0;
+    p {
+      margin-top: ${calcRem(5)};
+    }
   }
 `;
 

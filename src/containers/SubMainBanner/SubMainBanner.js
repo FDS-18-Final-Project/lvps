@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { string } from 'prop-types';
-import { colors, fontSizes, calcRem } from 'theme/theme';
+import { colors, fontSizes, calcRem, device } from 'theme/theme';
 import Divider from 'components/Divider/Divider';
 
 // 메인 배너 스타일링
@@ -15,7 +15,8 @@ const StyledMainBanner = styled.div`
   box-sizing: border-box;
   width: 100%;
   position: relative;
-  @media only screen and (max-width: 768px) {
+
+  ${device.tablet} {
     height: ${calcRem(180)};
   }
 `;
@@ -31,7 +32,8 @@ const FullContainer = styled.div`
     margin: ${calcRem(30)} 0;
     width: 260px;
   }
-  @media only screen and (max-width: 768px) {
+
+  ${device.tablet} {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,7 +53,8 @@ const MainBannerTitle = styled.h2`
   font-size: ${fontSizes.titleLarge};
   font-family: Montserrat;
   font-weight: 800;
-  @media only screen and (max-width: 768px) {
+
+  ${device.tablet} {
     font-size: ${fontSizes.xl};
   }
 `;
@@ -67,8 +70,10 @@ const MainBannerDesc = styled.p`
   color: ${colors.white};
   font-size: ${fontSizes.lg};
   font-weight: 500;
-  @media only screen and (max-width: 768px) {
+
+  ${device.tablet} {
     margin: 0;
+    font-size: ${fontSizes.small};
   }
 `;
 
