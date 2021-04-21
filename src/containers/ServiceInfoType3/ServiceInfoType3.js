@@ -56,6 +56,7 @@ const ContentSideContainer = styled.div`
     line-height: 150%;
   }
   ${device.desktop} {
+    margin-right: ${calcRem(50)};
     h3 {
       font-size: ${calcRem(40)};
       line-height: 120%;
@@ -71,7 +72,7 @@ const ContentSideContainer = styled.div`
   }
 `;
 const StyledContentContainer = styled.div`
-  margin-left: ${calcRem(110)};
+  margin-left: ${calcRem(60)};
 
   h4 {
     text-align: start;

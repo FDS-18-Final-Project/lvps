@@ -65,6 +65,7 @@ const ContentSideContainer = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
+
   & h3 {
     font-size: ${fontSizes.titleBase};
     font-family: Monserrat;
@@ -76,6 +77,7 @@ const ContentSideContainer = styled.div`
     margin-bottom: ${calcRem(20)};
   }
   ${device.desktop} {
+    margin-right: ${calcRem(50)};
     h3 {
       font-size: ${calcRem(40)};
       line-height: 120%;
@@ -91,7 +93,7 @@ const ContentSideContainer = styled.div`
   }
 `;
 const StyledContentContainer = styled.div`
-  margin-left: ${calcRem(110)};
+  margin-left: ${calcRem(60)};
 
   h4 {
     text-align: start;

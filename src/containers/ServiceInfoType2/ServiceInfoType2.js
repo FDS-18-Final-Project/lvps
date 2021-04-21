@@ -1,7 +1,7 @@
 import React from 'react';
 import { array, string, oneOf } from 'prop-types';
 import styled from 'styled-components';
-import { calcRem, colors, fontSizes, device } from 'theme/theme';
+import { calcRem, colors, fontSizes, device, calcInterval } from 'theme/theme';
 import CardInfo from 'components/CardInfo/CardInfo';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import Paragraph from 'components/Paragraph/Paragraph';
@@ -75,8 +75,10 @@ const ContentSideContainer = styled.div`
   }
 `;
 const StyledContentContainer = styled.div`
-  margin-left: ${({ mode }) => (mode === 'left' ? calcRem(110) : 0)};
-  margin-right: ${({ mode }) => (mode === 'right' ? calcRem(110) : 0)};
+  margin: ${({ mode }) =>
+    mode === 'left'
+      ? calcInterval([0, 0, 0, 60])
+      : calcInterval([0, 60, 0, 0])};
 
   h4 {
     text-align: start;
@@ -96,6 +98,10 @@ const StyledContentContainer = styled.div`
     margin: 0;
   }
   ${device.desktop} {
+    margin: ${({ mode }) =>
+      mode === 'left'
+        ? calcInterval([0, 50, 0, 60])
+        : calcInterval([0, 60, 0, 50])};
     h4 {
       font-size: ${calcRem(20)};
     }

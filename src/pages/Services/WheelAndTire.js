@@ -179,6 +179,7 @@ const ContactUs = () => {
         title="We offer only Wheels and Tires brands you can trust."
         mode="right"
         imagePath="./assets/wheel-tire-service-banner.png"
+        mobileImagePath="./assets/mobile-wheel-tire-service-banner.png"
         imageLabel="Wheel Tire Service Banner Image"
       >
         We work with most wheel and tires distributors and can get you the
