@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, calcRem } from 'theme/theme';
+import { colors, calcRem, device, calcInterval } from 'theme/theme';
 import { motion } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 import { addService } from 'store/service/service';
@@ -43,6 +43,11 @@ const StyledModalContainer = styled.section`
     background-color: grey;
     border-radius: ${calcRem(10)};
     box-shadow: inset 0px 0px ${calcRem(5)} white;
+  }
+  @media only screen and (max-width: 1350px) {
+    & > div {
+      width: 100%;
+    }
   }
 `;
 
@@ -103,6 +108,12 @@ const StyledButtonContainer = styled.div`
     top: 30%;
     left: 50%;
     transform: translate(-50%, -30%);
+  }
+  ${device.tablet} {
+    button {
+      width: 100%;
+      margin: ${calcInterval([0, 15])};
+    }
   }
 `;
 

@@ -76,7 +76,7 @@ const CardExplanation = ({ title, cardList, children }) => {
   console.log(cardList);
   return (
     <section style={{ borderTop: 0 }}>
-      <FullContainer tag="CardExplanation" justifyContent="space-around">
+      <FullContainer>
         <CardContainer>
           <h2>{title}</h2>
           <CardListContainer title={title} type={cardList[0].type}>

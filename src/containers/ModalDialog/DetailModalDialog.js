@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, calcRem } from 'theme/theme';
+import { colors, calcRem, device, fontSizes, calcInterval } from 'theme/theme';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 
 import { useModalSelected } from 'hooks/';
@@ -49,6 +49,11 @@ const StyledModalContainer = styled.section`
     border-radius: ${calcRem(10)};
     box-shadow: inset 0px 0px ${calcRem(5)} white;
   }
+  @media only screen and (max-width: 1350px) {
+    & > div {
+      width: 100%;
+    }
+  }
 `;
 
 const StyledModalBodyContainer = styled.div`
@@ -90,7 +95,7 @@ const StyledModalBodyContainer = styled.div`
 const StyledPackageContainer = styled.div`
   border-bottom: ${calcRem(2.4)} solid ${colors.lightGray};
 
-  &:nth-last-child(3) {
+  &:nth-last-child(4) {
     border-bottom: 0;
   }
 
@@ -145,6 +150,47 @@ const StyledButtonContainer = styled.div`
     top: 30%;
     left: 50%;
     transform: translate(-50%, -30%);
+  }
+  ${device.tablet} {
+    button {
+      width: 100%;
+      margin: ${calcInterval([0, 15])};
+    }
+  }
+`;
+
+const StyledTotalPriceContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: ${calcRem(60)};
+  margin-right: ${calcRem(100)};
+  p {
+    font-size: ${calcRem(30)};
+    line-height: 150%;
+    position: relative;
+    top: 15px;
+    margin-right: ${calcRem(20)};
+  }
+
+  span {
+    color: ${colors.red_05};
+    font-weight: 700;
+    font-size: ${fontSizes.titleBase};
+    min-width: ${calcRem(220)};
+    text-align: center;
+    line-height: 150%;
+    border-bottom: ${calcRem(2)} solid ${colors.black};
+  }
+
+  ${device.tablet} {
+    p {
+      top: 5px;
+      font-size: ${calcRem(20)};
+    }
+    span {
+      min-width: ${calcRem(150)};
+      font-size: ${fontSizes.xl};
+    }
   }
 `;
 
@@ -215,6 +261,10 @@ const DetailModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
               ))}
             </StyledPackageListContainer>
           </StyledPackageContainer>
+          <StyledTotalPriceContainer>
+            <p>Total Price</p>
+            <span>$1500</span>
+          </StyledTotalPriceContainer>
           <StyledButtonContainer>
             <Button
               disabled={checkActive(firstPackage, secondPackage)}

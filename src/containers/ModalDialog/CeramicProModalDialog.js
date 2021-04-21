@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors, calcRem, calcInterval, device, fontSizes } from 'theme/theme';
-
-import { useModalSelected } from 'hooks/';
+import { useModalSelected, useViewSize } from 'hooks/';
 import {
   ceramicMultiToggleActive,
   ceramicSingleToggleActive
@@ -13,6 +12,7 @@ import PrimiumPriceTable from 'components/PriceTable/PrimiumPriceTable';
 import HelmetPriceTable from 'components/PriceTable/HelmetPriceTable';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import Carousel from 'components/Carousel/Carousel';
 
 const StyledModalContainer = styled.section`
   position: fixed;
@@ -110,16 +110,20 @@ const StyledPackageContainer = styled.div`
   &:nth-child(1) strong {
     margin-bottom: ${calcRem(120)};
   }
-  &:nth-last-child(3) {
+
+  &:nth-last-child(4) {
     border-bottom: 0;
   }
+
   .firstPackage > div {
     justify-content: initial;
     min-height: ${calcRem(520)};
   }
+
   .thirdPackage > div {
     justify-content: initial;
   }
+
   .firstPackage ul li p {
     color: ${colors.white};
   }
@@ -170,7 +174,63 @@ const StyledButtonContainer = styled.div`
     left: 50%;
     transform: translate(-50%, -30%);
   }
+  ${device.tablet} {
+    button {
+      width: 100%;
+      margin: ${calcInterval([0, 15])};
+    }
+  }
 `;
+
+const StyledTotalPriceContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: ${calcRem(60)};
+  margin-right: ${calcRem(100)};
+
+  p {
+    font-size: ${calcRem(30)};
+    line-height: 150%;
+    position: relative;
+    top: 15px;
+    margin-right: ${calcRem(20)};
+  }
+
+  span {
+    color: ${colors.red_05};
+    font-weight: 700;
+    font-size: ${fontSizes.titleBase};
+    min-width: ${calcRem(220)};
+    text-align: center;
+    line-height: 150%;
+    border-bottom: ${calcRem(2)} solid ${colors.black};
+  }
+
+  ${device.tablet} {
+    p {
+      top: 5px;
+      font-size: ${calcRem(20)};
+    }
+    span {
+      min-width: ${calcRem(150)};
+      font-size: ${fontSizes.xl};
+    }
+  }
+`;
+
+const StyledCarouselContainer = styled.div`
+  overflow-x: hidden;
+
+  & > div:nth-child(1) {
+    text-align: center;
+    margin-top: ${calcRem(100)};
+  }
+
+  .firstCarousel ul li > div {
+    height: ${calcRem(563)};
+  }
+`;
+
 const CeramicProModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
   const {
     modalData,
@@ -186,7 +246,39 @@ const CeramicProModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
     confirmCheck
   );
   const { label, title, firstPackage, secondPackage, thirdPackage } = modalData;
-  console.log(checkActive(firstPackage, secondPackage, thirdPackage));
+  const { desktop } = useViewSize();
+
+  const firstPackageContents = firstPackage.contents?.map(content => (
+    <PrimiumPriceTable
+      key={content.id}
+      id={content.id}
+      data-name="firstPackage"
+      active={content.active}
+      onClick={onlyOneSelected}
+      {...content}
+    />
+  ));
+
+  const secondPackageContents = secondPackage.contents?.map(content => (
+    <HelmetPriceTable
+      key={content.id}
+      id={content.id}
+      data-name="secondPackage"
+      active={content.active}
+      onClick={multiSelected}
+      {...content}
+    />
+  ));
+  const thirdPackageContents = thirdPackage.contents?.map(content => (
+    <HelmetPriceTable
+      key={content.id}
+      id={content.id}
+      data-name="thirdPackage"
+      active={content.active}
+      onClick={multiSelected}
+      {...content}
+    />
+  ));
 
   return (
     // <Portal id="modal-root">
@@ -204,60 +296,93 @@ const CeramicProModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
         </header>
         <StyledModalBodyContainer>
           {/* 카드 컨텐츠  */}
-          <StyledPackageContainer>
-            <h4>{firstPackage.title}</h4>
-            <StyledPackageListContainer
-              className="firstPackage"
-              numOfProd={firstPackage.contents?.length}
-            >
-              {firstPackage.contents?.map(content => (
-                <PrimiumPriceTable
-                  key={content.id}
-                  id={content.id}
-                  data-name="firstPackage"
-                  active={content.active}
-                  onClick={onlyOneSelected}
-                  {...content}
+          {desktop ? (
+            <>
+              <StyledPackageContainer>
+                <h4>{firstPackage.title}</h4>
+                <StyledPackageListContainer
+                  className="firstPackage"
+                  numOfProd={firstPackage.contents?.length}
+                >
+                  {firstPackage.contents?.map(content => (
+                    <PrimiumPriceTable
+                      key={content.id}
+                      id={content.id}
+                      data-name="firstPackage"
+                      active={content.active}
+                      onClick={onlyOneSelected}
+                      {...content}
+                    />
+                  ))}
+                </StyledPackageListContainer>
+              </StyledPackageContainer>
+              <StyledPackageContainer>
+                <h4>{secondPackage.title}</h4>
+                <StyledPackageListContainer
+                  className="secondPackage"
+                  numOfProd={secondPackage.contents?.length}
+                >
+                  {secondPackage.contents?.map(content => (
+                    <HelmetPriceTable
+                      key={content.id}
+                      id={content.id}
+                      data-name="secondPackage"
+                      active={content.active}
+                      onClick={multiSelected}
+                      {...content}
+                    />
+                  ))}
+                </StyledPackageListContainer>
+              </StyledPackageContainer>
+              <StyledPackageContainer>
+                <h4>{thirdPackage.title}</h4>
+                <StyledPackageListContainer
+                  className="thirdPackage"
+                  numOfProd={thirdPackage.contents?.length}
+                >
+                  {thirdPackage.contents?.map(content => (
+                    <HelmetPriceTable
+                      key={content.id}
+                      id={content.id}
+                      data-name="thirdPackage"
+                      active={content.active}
+                      onClick={multiSelected}
+                      {...content}
+                    />
+                  ))}
+                </StyledPackageListContainer>
+              </StyledPackageContainer>
+            </>
+          ) : (
+            <>
+              <StyledCarouselContainer>
+                <Carousel
+                  type="card"
+                  className="firstCarousel"
+                  contents={firstPackageContents}
                 />
-              ))}
-            </StyledPackageListContainer>
-          </StyledPackageContainer>
-          <StyledPackageContainer>
-            <h4>{secondPackage.title}</h4>
-            <StyledPackageListContainer
-              className="secondPackage"
-              numOfProd={secondPackage.contents?.length}
-            >
-              {secondPackage.contents?.map(content => (
-                <HelmetPriceTable
-                  key={content.id}
-                  id={content.id}
-                  data-name="secondPackage"
-                  active={content.active}
-                  onClick={multiSelected}
-                  {...content}
+              </StyledCarouselContainer>
+              <StyledCarouselContainer>
+                <Carousel
+                  type="card"
+                  className="secondCarousel"
+                  contents={secondPackageContents}
                 />
-              ))}
-            </StyledPackageListContainer>
-          </StyledPackageContainer>
-          <StyledPackageContainer>
-            <h4>{thirdPackage.title}</h4>
-            <StyledPackageListContainer
-              className="thirdPackage"
-              numOfProd={thirdPackage.contents?.length}
-            >
-              {thirdPackage.contents?.map(content => (
-                <HelmetPriceTable
-                  key={content.id}
-                  id={content.id}
-                  data-name="thirdPackage"
-                  active={content.active}
-                  onClick={multiSelected}
-                  {...content}
+              </StyledCarouselContainer>
+              <StyledCarouselContainer>
+                <Carousel
+                  type="card"
+                  className="thirdCarousel"
+                  contents={thirdPackageContents}
                 />
-              ))}
-            </StyledPackageListContainer>
-          </StyledPackageContainer>
+              </StyledCarouselContainer>
+            </>
+          )}
+
+          <StyledTotalPriceContainer>
+            <p>Total Price</p>
+            <span>$1500</span>
+          </StyledTotalPriceContainer>
           <StyledButtonContainer>
             <Button
               disabled={checkActive(firstPackage, secondPackage, thirdPackage)}

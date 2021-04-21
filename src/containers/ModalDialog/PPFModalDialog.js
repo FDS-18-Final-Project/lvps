@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, calcRem } from 'theme/theme';
-
-import { useModalSelected } from 'hooks/';
+import { colors, calcRem, device, fontSizes, calcInterval } from 'theme/theme';
+import { useModalSelected, useViewSize } from 'hooks/';
 import { ppfMultiToggleActive, ppfSingleToggleActive } from 'store/modal/ppf';
 import { motion } from 'framer-motion';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
@@ -10,6 +9,7 @@ import PrimiumPriceTable from 'components/PriceTable/PrimiumPriceTable';
 import HelmetPriceTable from 'components/PriceTable/HelmetPriceTable';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import Carousel from 'components/Carousel/Carousel';
 
 const StyledModalContainer = styled.section`
   position: fixed;
@@ -50,6 +50,16 @@ const StyledModalContainer = styled.section`
     justify-content: initial;
     min-height: ${calcRem(520)};
   }
+  @media only screen and (max-width: 1350px) {
+    & > div {
+      width: 100%;
+    }
+  }
+  ${device.desktop} {
+    & > div {
+      padding: 0;
+    }
+  }
 `;
 
 const StyledModalBodyContainer = styled.div`
@@ -87,11 +97,16 @@ const StyledModalBodyContainer = styled.div`
       fill: black;
     }
   }
+  @media only screen and (max-width: 1350px) {
+    & > div {
+      width: 100%;
+    }
+  }
 `;
 const StyledPackageContainer = styled.div`
   border-bottom: ${calcRem(2.4)} solid ${colors.lightGray};
 
-  &:nth-last-child(3) {
+  &:nth-last-child(4) {
     border-bottom: 0;
   }
 
@@ -120,6 +135,9 @@ const StyledPackageListContainer = styled.div`
   & div {
     margin: ${({ numOfProd }) => numOfProd === 1 && '0 auto'};
   }
+  ${device.desktop} {
+    padding: 0 ${({ numOfProd }) => (numOfProd <= 3 ? calcRem(35) : 0)} 3.75rem;
+  }
 `;
 
 const StyledButtonContainer = styled.div`
@@ -131,6 +149,80 @@ const StyledButtonContainer = styled.div`
     top: 30%;
     left: 50%;
     transform: translate(-50%, -30%);
+  }
+  ${device.tablet} {
+    button {
+      width: 100%;
+      margin: ${calcInterval([0, 15])};
+    }
+  }
+`;
+
+const StyledTotalPriceContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: ${calcRem(60)};
+  margin-right: ${calcRem(100)};
+
+  p {
+    font-size: ${calcRem(30)};
+    line-height: 150%;
+    position: relative;
+    top: 15px;
+    margin-right: ${calcRem(20)};
+  }
+
+  span {
+    color: ${colors.red_05};
+    font-weight: 700;
+    font-size: ${fontSizes.titleBase};
+    min-width: ${calcRem(220)};
+    text-align: center;
+    line-height: 150%;
+    border-bottom: ${calcRem(2)} solid ${colors.black};
+  }
+
+  ${device.tablet} {
+    width: initial !important;
+    p {
+      top: 5px;
+      font-size: ${calcRem(20)};
+    }
+    span {
+      min-width: ${calcRem(150)};
+      font-size: ${fontSizes.xl};
+    }
+  }
+`;
+
+const StyledCarouselContainer = styled.div`
+  overflow-x: hidden;
+
+  & > div:nth-child(1) {
+    text-align: center;
+    margin-top: ${calcRem(100)};
+  }
+
+  &:nth-child(1) > div p {
+    color: ${colors.white};
+  }
+
+  .firstCarousel ul li > div {
+    width: ${calcRem(300)};
+    height: ${calcRem(500)};
+  }
+  .secondCarousel ul li > div {
+    width: ${calcRem(320)};
+    ul {
+      width: 100%;
+
+      div {
+        width: 30px;
+      }
+      p {
+        text-align: start;
+      }
+    }
   }
 `;
 const PPFModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
@@ -148,6 +240,28 @@ const PPFModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
     confirmCheck
   );
   const { label, title, firstPackage, secondPackage } = modalData;
+  const { desktop } = useViewSize();
+  const firstPackageContents = firstPackage.contents?.map(content => (
+    <PrimiumPriceTable
+      key={content.id}
+      id={content.id}
+      data-name="firstPackage"
+      active={content.active}
+      onClick={onlyOneSelected}
+      {...content}
+    />
+  ));
+
+  const secondPackageContents = secondPackage.contents?.map(content => (
+    <HelmetPriceTable
+      key={content.id}
+      id={content.id}
+      data-name="secondPackage"
+      active={content.active}
+      onClick={multiSelected}
+      {...content}
+    />
+  ));
 
   return (
     // <Portal id="modal-root">
@@ -165,41 +279,66 @@ const PPFModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
         </header>
         <StyledModalBodyContainer>
           {/* 카드 컨텐츠  */}
-          <StyledPackageContainer>
-            <h4>{firstPackage.title}</h4>
-            <StyledPackageListContainer
-              className="firstPackage"
-              numOfProd={firstPackage.contents?.length}
-            >
-              {firstPackage.contents?.map(content => (
-                <PrimiumPriceTable
-                  key={content.id}
-                  id={content.id}
-                  data-name="firstPackage"
-                  active={content.active}
-                  onClick={onlyOneSelected}
-                  {...content}
+          {desktop ? (
+            <>
+              <StyledPackageContainer>
+                <h4>{firstPackage.title}</h4>
+                <StyledPackageListContainer
+                  className="firstPackage"
+                  numOfProd={firstPackage.contents?.length}
+                >
+                  {firstPackage.contents?.map(content => (
+                    <PrimiumPriceTable
+                      key={content.id}
+                      id={content.id}
+                      data-name="firstPackage"
+                      active={content.active}
+                      onClick={onlyOneSelected}
+                      {...content}
+                    />
+                  ))}
+                </StyledPackageListContainer>
+              </StyledPackageContainer>
+              <StyledPackageContainer>
+                <h4>{secondPackage.title}</h4>
+                <StyledPackageListContainer
+                  numOfProd={secondPackage.contents?.length}
+                >
+                  {secondPackage.contents?.map(content => (
+                    <HelmetPriceTable
+                      key={content.id}
+                      id={content.id}
+                      data-name="secondPackage"
+                      active={content.active}
+                      onClick={multiSelected}
+                      {...content}
+                    />
+                  ))}
+                </StyledPackageListContainer>
+              </StyledPackageContainer>
+            </>
+          ) : (
+            <>
+              <StyledCarouselContainer>
+                <Carousel
+                  type="card"
+                  className="firstCarousel"
+                  contents={firstPackageContents}
                 />
-              ))}
-            </StyledPackageListContainer>
-          </StyledPackageContainer>
-          <StyledPackageContainer>
-            <h4>{secondPackage.title}</h4>
-            <StyledPackageListContainer
-              numOfProd={secondPackage.contents?.length}
-            >
-              {secondPackage.contents?.map(content => (
-                <HelmetPriceTable
-                  key={content.id}
-                  id={content.id}
-                  data-name="secondPackage"
-                  active={content.active}
-                  onClick={multiSelected}
-                  {...content}
+              </StyledCarouselContainer>
+              <StyledCarouselContainer>
+                <Carousel
+                  type="card"
+                  className="secondCarousel"
+                  contents={secondPackageContents}
                 />
-              ))}
-            </StyledPackageListContainer>
-          </StyledPackageContainer>
+              </StyledCarouselContainer>
+            </>
+          )}
+          <StyledTotalPriceContainer>
+            <p>Total Price</p>
+            <span>$1500</span>
+          </StyledTotalPriceContainer>
           <StyledButtonContainer>
             <Button
               disabled={checkActive(firstPackage, secondPackage)}
