@@ -5,8 +5,10 @@ import Home from 'pages/Home/Home';
 import AboutUs from 'pages/AboutUs/AboutUs';
 import WheelAndTire from 'pages/Services/WheelAndTire';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
-
 import MainService from 'pages/MainService/MainService';
+import ServiceCeramic from 'pages/ServiceCeramic/ServiceCeramic';
+import PaintProtectionFilm from 'pages/PaintProtectionFilm/PaintProtectionFilm';
+
 import ContactUs from 'pages/ContactUs/ContactUs';
 const Routes = () => (
   <Switch>
@@ -17,6 +19,8 @@ const Routes = () => (
       <Home />
     </Route>
     <Route path="/mainService" component={MainService} />
+    <Route path="/serviceCeramic" component={ServiceCeramic} />
+    <Route path="/paintProtection" component={PaintProtectionFilm} />
     <Route path="/AboutUs" component={AboutUs} />
     <Route path="/WheelAndTire" component={WheelAndTire} />
     <Route path="/ContactUs" component={ContactUs} />

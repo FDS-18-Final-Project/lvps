@@ -24,13 +24,17 @@ const StyledSubContainer = styled.ul`
 const HoverBox = ({ HoverItems, ...restProps }) => {
   return (
     <StyledContainer {...restProps}>
-      <HoverItem id="hover_1" value="Ceramic Coating" to="/">
+      <HoverItem id="hover_1" value="Ceramic Coating" to="/serviceCeramic">
         <StyledSubContainer>
           <HoverItem id="hover_2" value="Ceramic Pro" to="/" />
           <HoverItem id="hover_3" value="IGL Coatings" to="/" />
         </StyledSubContainer>
       </HoverItem>
-      <HoverItem id="hover_4" value="Paint Protection Film" to="/" />
+      <HoverItem
+        id="hover_4"
+        value="Paint Protection Film"
+        to="/paintProtection"
+      />
       <HoverItem id="hover_5" value="Window Tinting" to="/" />
       <HoverItem id="hover_6" value="Detailing &amp; Paint Correction" to="/" />
       <HoverItem id="hover_7" value="Wheel &amp; Tire" to="/" />

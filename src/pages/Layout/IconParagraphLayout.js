@@ -6,11 +6,9 @@ import IconParagraph from 'components/IconParagraph/IconParagraph';
 
 const StyledIconExplanCardContainer = styled.section`
   padding: ${calcRem(75)};
-
   @media only screen and (max-width: 1200px) {
     padding: ${calcRem(50)};
   }
-
   @media only screen and (max-width: 768px) {
     padding: ${calcInterval([75, 15])};
   }
@@ -24,7 +22,6 @@ const FullContainer = styled.div`
     padding: 2%;
     box-sizing: border-box;
   }
-
   @media only screen and (max-width: 1200px) {
     h3 {
       height: ${calcRem(50)};
@@ -38,7 +35,6 @@ const FullContainer = styled.div`
       }
     }
   }
-
   @media only screen and (max-width: 768px) {
     h2 {
       text-align: center;
@@ -74,12 +70,10 @@ const StyledHeading = styled.h2`
 const StyledIconExplanListContainer = styled(Layout.FlexContainer)`
   display: flex;
   justify-content: space-between;
-
   svg {
     margin: 0 auto;
     margin-right: ${calcRem(40)};
   }
-
   @media only screen and (max-width: 768px) {
     flex-flow: column;
   }

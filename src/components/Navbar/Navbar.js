@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, fontSizes } from 'theme/theme';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import HoverBox from 'components/HoverBox/HoverBox';
 
 const NavbarContainer = styled(motion.ul)`
@@ -20,7 +20,7 @@ const NavbarContainer = styled(motion.ul)`
     transition: 0.4s;
     color: inherit;
     white-space: nowrap;
-    padding: ${calcRem(10)};
+    padding: 30px ${calcRem(10)};
     &:hover {
       color: rgba(235, 21, 39, 0.8);
     }
@@ -31,9 +31,13 @@ const NavbarContainer = styled(motion.ul)`
   }
 
   .serviceLink .hoverbox {
+    top: 90px;
     opacity: 0;
     z-index: -1000;
     transition: 0.5s;
+    a {
+      padding: 0 30px;
+    }
   }
   .serviceLink:hover .hoverbox {
     opacity: 1;

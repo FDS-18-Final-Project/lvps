@@ -1,8 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import GlobalStyle from 'styles/GlobalStyle';
 import Carousel from './Carousel';
-import { TitlePriceTable } from 'components/';
-// import TitlePriceTable from 'components/PriceTable/TitlePriceTable';
+import TitlePriceTable from 'components/PriceTable/TitlePriceTable';
 
 export default {
   title: 'LVPS/Component/Carousel',
