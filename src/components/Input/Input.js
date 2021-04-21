@@ -15,6 +15,7 @@ import Layout from 'pages/Layout/Layout';
 
 const InputContainer = styled.div`
   display: flex;
+  align-items: center;
   width: 100%;
   position: relative;
 
@@ -22,6 +23,13 @@ const InputContainer = styled.div`
     width: ${({ width }) => (width ? calcRem(width) : '100%')};
     height: ${({ height }) => calcRem(height)};
     font-size: ${fontSizes.base};
+    border: none;
+    border-bottom: ${({ error, touch }) =>
+      touch && error
+        ? `2px solid ${colors.redMain}`
+        : touch && !error
+        ? `2px solid ${colors.Gold}`
+        : `2px solid ${colors.lightGray}`};
   }
 `;
 
@@ -31,7 +39,11 @@ const Input = forwardRef(
     ref
   ) => {
     return (
-      <InputContainer {...restProps}>
+      <InputContainer
+        error={formik.errors[name]}
+        touch={formik.touched[name]}
+        {...restProps}
+      >
         <Layout.FlexContainer as="label" htmlFor={id}>
           {label}
         </Layout.FlexContainer>
