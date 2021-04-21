@@ -29,6 +29,10 @@ const StyledPriceCard = styled.div`
       text-align: center;
       padding: 10px;
       box-sizing: border-box;
+
+      p {
+        text-align: left;
+      }
     }
   }
 
@@ -82,9 +86,6 @@ const PriceTableContainer = styled.div`
 
 const PriceCardLayout = ({
   title,
-  // type,
-  // icon,
-  // contents,
   children,
   cardList,
   marginRight,

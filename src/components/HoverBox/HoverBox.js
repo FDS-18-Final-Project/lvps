@@ -27,7 +27,7 @@ const HoverBox = ({ HoverItems, ...restProps }) => {
       <HoverItem id="hover_1" value="Ceramic Coating" to="/serviceCeramic">
         <StyledSubContainer>
           <HoverItem id="hover_2" value="Ceramic Pro" to="/" />
-          <HoverItem id="hover_3" value="IGL Coatings" to="/" />
+          <HoverItem id="hover_3" value="IGL Coatings" to="/IGLCoatings" />
         </StyledSubContainer>
       </HoverItem>
       <HoverItem

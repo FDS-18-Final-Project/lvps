@@ -8,7 +8,8 @@ import { useCarousel, useViewSize } from 'hooks/';
 
 const StyledCarouselContainer = styled.div`
   max-width: ${calcRem(750)};
-  overflow: ${({ type }) => type === 'paragraph' && 'hidden'};
+  overflow: ${({ type }) =>
+    (type === 'paragraph' || type === 'card') && 'hidden'};
   margin: 0 auto;
 `;
 

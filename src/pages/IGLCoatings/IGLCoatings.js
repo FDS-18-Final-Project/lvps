@@ -1,4 +1,5 @@
-import { GetAQuoteBanner, IGLProtectionProducts } from 'containers';
+import IGLProtectionProducts from 'containers/IGLProtectionProducts/IGLProtectionProducts';
+import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import CarCareGuide from 'containers/CarCareGuide/CarCareGuide';
 import FeaturesBenefits from 'containers/FeaturesBenefits/FeaturesBenefits';
 import ServiceInfoType2 from 'containers/ServiceInfoType2/ServiceInfoType2';
@@ -66,12 +67,19 @@ const IGLCoatings = () => {
         Fabric when necessary. Immediately wipe off spills on leather, vinyl, or
         fabric.
       </ServiceInfoType2>
-      {/* TODO: 색 바꾸기 */}
       <GetAQuoteBanner
-        title="Get a Free Quote"
-        color="red_05"
-        linkText="Get a Free Quote"
+        title={
+          <>
+            Didn’t find what you are looking for? <br />
+            Contact us!
+          </>
+        }
+        color="green"
+        linkText="Contact us!"
         styledmode="secondary"
+        borderColor="green"
+        hoverColor="green"
+        iconcolor="green"
       />
       {/* TODO: 구글맵 */}
     </>

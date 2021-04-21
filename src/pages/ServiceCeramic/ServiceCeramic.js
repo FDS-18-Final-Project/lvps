@@ -178,8 +178,7 @@ const ServiceCeramic = () => {
         <OurWorks.Contents />
       </OurWorks>
       <GetAQuoteBanner
-        title="Didn’t find what you are looking for?
-Contact us!"
+        title={`Didn’t find what you are looking for? <br /> Contact us!`}
         linkText="Contact Us"
         styledmode="secondary"
         color="pink"
