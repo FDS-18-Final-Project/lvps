@@ -15,7 +15,7 @@ import appReducers from './store';
 //web accessbility
 //import { autoA11yTest } from './utils/autoA11yTest';
 import logger from 'redux-logger';
-
+import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
 // 한국어 출력
 //autoA11yTest();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -27,8 +27,9 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <GlobalStyle />
       <Router>
-        <GlobalStyle />
+        <ScrollToTop />
         <App />
       </Router>
     </Provider>

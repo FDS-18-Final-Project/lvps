@@ -8,7 +8,7 @@ const carbon_01 = [
   'Keeps You Comfortable PRIME CS window films block solar heat radiation to keep your vehicle at a comfortable temperature and improve fuel efficiency.',
   'UV Ray Protection PRIME CS provides SPF 500 protection that effectively blocks over 99% of harmful UV rays that can lead to numerous skin cancers, premature aging and skin cell damage.',
   'Crystal Clear Signal PRIME CS contains no metalized particles ensuring that it does not interfere with radio, cellular, or Bluetooth signals.',
-  'Crystal Clear Signal PRIME CS contains no metalized particles ensuring that it does not interfere with radio, cellular, or Bluetooth signals.'
+  'Looks GoodThe black or neutral charcoal color in our PRIME CS window films remains the same over the years and never fades or turns purple.'
 ];
 
 const carbon_02 = [

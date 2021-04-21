@@ -70,7 +70,7 @@ const Carousel = ({ type, contents, ...restProps }) => {
         color={colors.lightGray}
         onClick={moveNext}
         width={desktop ? '40' : '20'}
-        desktop={desktop}
+        desktop={desktop ? 1 : 0}
         className="iconButton"
       />
       <StyledCarouselButton
@@ -81,7 +81,7 @@ const Carousel = ({ type, contents, ...restProps }) => {
         onClick={movePrev}
         width={desktop ? '40' : '20'}
         className="iconButton"
-        desktop={desktop}
+        desktop={desktop ? 1 : 0}
       />
       <Indicator
         contents={contents}
