@@ -8,6 +8,7 @@ import PageNotFound from 'pages/PageNotFound/PageNotFound';
 
 import MainService from 'pages/MainService/MainService';
 import ContactUs from 'pages/ContactUs/ContactUs';
+import IGLCoatings from 'pages/IGLCoatings/IGLCoatings';
 const Routes = () => (
   <Switch>
     <Route path="/" exact>
@@ -21,6 +22,7 @@ const Routes = () => (
     <Route path="/WheelAndTire" component={WheelAndTire} />
     <Route path="/ContactUs" component={ContactUs} />
     <Route path="/GetAQuote" component={GetAQuoteFormSection} />
+    <Route path="/IGLCoatings" component={IGLCoatings} />
     <Route path="/PageNotFound" component={PageNotFound} />
     <Redirect to="/PageNotFound" />
   </Switch>

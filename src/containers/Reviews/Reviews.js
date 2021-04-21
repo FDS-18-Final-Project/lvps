@@ -7,35 +7,35 @@ import Carousel from 'components/Carousel/Carousel';
 const reviews = [
   {
     id: 1,
-    name: 'ADEL GHQYEM',
-    model: 'Mercedes Benz GLC300',
-    star: 1,
+    name: 'Randy Cho',
+    model: '2021 Tesla Model 3',
+    star: 5,
     review:
-      'After buying my brand new car I wanted to protect it. I inquired with LVPS about Ceramic Coating. I got offered with a Ceramic Pro Silver package! I am very happy with the end results. My car looks like new after every car wash. Will definitely recommend LVPS services to everyone!'
+      'Amazing job on my Tesla model 3! Did a ceramic coat and it turned out so nice! Recommend going to see Max at LVP for all your vehicle needs !'
   },
   {
     id: 2,
-    name: 'Andy',
-    model: 'Honda',
-    star: 2,
+    name: 'Tesla Parts',
+    model: '2019 Tesla Model S',
+    star: 4,
     review:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste dicta dolores minima cumque qui vitae totam! Aliquid ut in facere obcaecati incidunt illo eum, laudantium animi corrupti, iste itaque dicta?'
+      'Got my Tesla tinted and ceramic coated with Lvps Great service, quality and price! Got complimentary interior clean up and sanitization because of covid. Thanks guys! Would  definitely recommend to friends and family!'
   },
   {
     id: 3,
-    name: 'Breanna',
-    model: 'Toyota',
-    star: 3,
+    name: 'Daniel Guarino',
+    model: '2018 Tesla Model 3',
+    star: 5,
     review:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem tempore vero dolorum, culpa provident exercitationem similique possimus ab ad corrupti!'
+      "Got my Tesla model 3 ceramic coated by Max @ LVPS.... did a fantastic job..the car looks cleaner, shines brighter, has a deep finish look.  I couldn't be more happier!"
   },
   {
     id: 4,
-    name: 'Conrad',
-    model: 'Ford',
-    star: 4,
+    name: 'Natasha Bayarskaya',
+    model: '2016 Honda Pilot',
+    star: 5,
     review:
-      'Aut corrupti quod ipsum exercitationem natus non dolore nam voluptas laborum voluptatem numquam necessitatibus hic commodi pariatur, inventore optio libero delectus! Non, corrupti similique odio expedita saepe dolore! Iusto reprehenderit, ea magnam necessitatibus doloremque provident accusantium enim incidunt ratione rerum repellendus facilis?'
+      'Amazing service! Thanks to Max and LVPS. Got my 2016 Honda Pilot all detailed and paint corrected with Ceramic Coating package. My car looks like brand new again. Would recommend to all my friends and family.'
   },
   {
     id: 5,
@@ -68,8 +68,8 @@ const FullContainer = styled.div`
       margin: 0 auto;
 
       font-size: ${fontSizes.base};
-      max-width: ${calcRem(300)};
-      padding: ${calcRem(40)};
+      /* max-width: ${calcRem(300)}; */
+      padding: ${calcRem(0)};
       box-sizing: border-box;
     }
 
@@ -82,6 +82,12 @@ const FullContainer = styled.div`
     }
     .review-title > p {
       display: none;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    h2 {
+      font-size: ${fontSizes.xl}
     }
   }
 `;
@@ -98,18 +104,18 @@ const StyledReviewTitleContainer = styled(Layout.FlexContainer)`
   }
 `;
 
-const Review = () => {
+const Reviews = () => {
   return (
     <StyledReviewContainer>
       <FullContainer>
-        <Review.Title />
-        <Review.Contents />
+        <Reviews.Title />
+        <Reviews.Contents />
       </FullContainer>
     </StyledReviewContainer>
   );
 };
 
-Review.Title = () => {
+Reviews.Title = () => {
   return (
     <StyledReviewTitleContainer justifyContent="flex-start">
       <Paragraph
@@ -126,13 +132,13 @@ Review.Title = () => {
   );
 };
 
-Review.Contents = () => {
+Reviews.Contents = () => {
   return <Carousel type="paragraph" contents={reviews} />;
 };
 
 StyledReviewContainer.displayName = 'StyledReviewContainer';
 StyledReviewTitleContainer.displayName = 'StyledReviewTitleContainer';
-Review.Title.displayName = 'Review-Title';
-Review.Contents.displayName = 'Review-Contents';
+Reviews.Title.displayName = 'Review-Title';
+Reviews.Contents.displayName = 'Review-Contents';
 
-export default Review;
+export default Reviews;

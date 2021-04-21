@@ -6,10 +6,11 @@ import ServiceInfo from 'containers/ServiceInfo/ServiceInfo';
 import OurBestServices from 'containers/OurBestServices/OurBestServices';
 import SubBanner from 'containers/SubBanner/SubBanner';
 import Icon from 'components/Icon/Icon';
-import Review from 'containers/Review/Review';
+import Review from 'containers/Reviews/Reviews';
 
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
-
+import FeaturesBenefits from 'containers/FeaturesBenefits/FeaturesBenefits';
+import CarCareGuide from 'containers/CarCareGuide/CarCareGuide';
 
 const Home = () => {
   return (
@@ -40,6 +41,8 @@ const Home = () => {
       <GetAQuoteBanner />
 
       <Review />
+      <FeaturesBenefits />
+      <CarCareGuide />
     </>
   );
 };

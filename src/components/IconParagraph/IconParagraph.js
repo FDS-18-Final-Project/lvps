@@ -26,7 +26,7 @@ const StyledIcon = styled(Icon)`
 `;
 
 const StyledParagraph = styled(Paragraph)`
-  width: ${({ paragraphWidth }) => paragraphWidth};
+  max-width: ${({ paragraphWidth }) => paragraphWidth};
   h3 {
     margin-bottom: ${calcRem(20)};
     text-align: ${({ textAlign }) => textAlign.title};
@@ -82,10 +82,10 @@ IconParagraph.defaultProps = {
   direction: 'column',
   content: { id: 1, title: '타이틀을 입력해주세요!' },
   iconType: 'facebook',
-  iconColor: colors.red_05,
+  iconColor: '',
   textAlign: { title: 'center', content: 'left' },
   contentWidth: '100%',
-  paragraphWidth: calcRem(304)
+  paragraphWidth: '100%'
 };
 
 StyledIconExplanList.displayName = 'StyledIconExplanList';

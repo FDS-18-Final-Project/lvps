@@ -28,8 +28,6 @@ const Template = args => (
 
 export const FooterBlock = Template.bind({});
 
-FooterBlock.args = {
-  children: [<Footer.Logo />, <Footer.Content />]
-};
+FooterBlock.args = {};
 
 FooterBlock.storyName = 'Footer 컨테이너';

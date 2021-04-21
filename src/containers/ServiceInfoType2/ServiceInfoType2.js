@@ -1,5 +1,5 @@
 import React from 'react';
-import { array, string, oneOf } from 'prop-types';
+import { array, string, oneOf, number } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, fontSizes } from 'theme/theme';
 import CardInfo from 'components/CardInfo/CardInfo';
@@ -61,6 +61,8 @@ const StyledContentContainer = styled.div`
     padding: 0;
     width: 100%;
     margin: 0 auto;
+    padding-bottom: 50px;
+    padding-bottom: ${({ paddingBottom }) => calcRem(paddingBottom)};
   }
   ul li p {
     margin: 0;
@@ -73,7 +75,9 @@ const ServiceInfoType2 = ({
   children,
   imagePath,
   imageLabel,
-  infoList
+  infoList,
+  iconColor,
+  paddingBottom
 }) => {
   return (
     <ServiceInfoType2Container>
@@ -87,12 +91,14 @@ const ServiceInfoType2 = ({
           </ImageSideContainer>
         )}
         <ContentSideContainer>
-          <StyledContentContainer mode={mode}>
+          <StyledContentContainer mode={mode} paddingBottom={paddingBottom}>
             <h3>{title}</h3>
             <Paragraph type="normal" title={subTitle} headingNum="4">
               {children}
             </Paragraph>
-            {infoList && <CardInfo infoList={infoList}></CardInfo>}
+            {infoList && (
+              <CardInfo infoList={infoList} iconColor={iconColor}></CardInfo>
+            )}
           </StyledContentContainer>
         </ContentSideContainer>
         {mode === 'right' && (
@@ -114,7 +120,8 @@ ServiceInfoType2.propTypes = {
   children: string,
   imagePath: string,
   imageLabel: string,
-  infoList: array
+  infoList: array,
+  paddingBottom: number
 };
 
 ServiceInfoType2.defaultProps = {
@@ -124,7 +131,8 @@ ServiceInfoType2.defaultProps = {
   children: '',
   imagePath: './assets/dummyCar.png',
   imageLabel: 'Car Image',
-  infoList: []
+  infoList: [],
+  paddingBottom: 0
 };
 
 FullContainer.displayName = 'FullContainer';

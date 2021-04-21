@@ -1,13 +1,13 @@
 import GlobalStyle from '../../styles/GlobalStyle';
-import Review from './Review';
+import Reviews from './Reviews';
 
 export default {
-  title: 'LVPS/Container/Review',
-  component: Review,
+  title: 'LVPS/Container/Reviews',
+  component: Reviews,
   parameters: {
     docs: {
       description: {
-        component: '**Review** 컨테이너는 메인 화면의 한 section 입니다.'
+        component: '**Reviews** 컨테이너는 메인 화면의 한 section 입니다.'
       }
     },
     design: {
@@ -21,14 +21,12 @@ export default {
 const Template = args => (
   <>
     <GlobalStyle />
-    <Review {...args} />
+    <Reviews {...args} />
   </>
 );
 
-export const ReviewBlock = Template.bind({});
+export const ReviewsBlock = Template.bind({});
 
-ReviewBlock.args = {
-  children: [<Review.Title />, <Review.Contents />]
-};
+ReviewsBlock.args = {};
 
-ReviewBlock.storyName = '리뷰';
+ReviewsBlock.storyName = '리뷰';

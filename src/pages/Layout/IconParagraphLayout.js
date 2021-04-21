@@ -90,6 +90,7 @@ const IconParagraphLayout = ({
   contents,
   paragraphWidth,
   direction,
+  textAlign,
   className
 }) => {
   const { desktop } = useViewSize();
@@ -106,10 +107,12 @@ const IconParagraphLayout = ({
               iconType={content.iconType}
               paragraphWidth={paragraphWidth}
               className="icon-paragraph"
-              textAlign={{
-                title: 'center',
-                content: desktop ? 'left' : 'center'
-              }}
+              textAlign={
+                textAlign || {
+                  title: 'center',
+                  content: desktop ? 'left' : 'center'
+                }
+              }
             />
           ))}
         </StyledIconExplanListContainer>

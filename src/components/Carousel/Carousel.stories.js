@@ -1,8 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import GlobalStyle from 'styles/GlobalStyle';
 import Carousel from './Carousel';
-import { TitlePriceTable } from 'components/';
-// import TitlePriceTable from 'components/PriceTable/TitlePriceTable';
+import TitlePriceTable from 'components/PriceTable/TitlePriceTable';
 
 export default {
   title: 'LVPS/Component/Carousel',
@@ -173,16 +172,7 @@ export const cardCarousel = Template.bind({});
 
 cardCarousel.args = {
   type: 'card',
-  contents: [
-    <TitlePriceTable
-      heading="Glass"
-      title="Starting from"
-      price={199}
-      info={option_01}
-      priceColor="pink"
-      hover
-    />
-  ]
+  contents: carouselCards
 };
 
 cardCarousel.storyName = '카드 캐러셀';
