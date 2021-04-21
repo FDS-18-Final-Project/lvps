@@ -28,7 +28,7 @@ const InputContainer = styled.div`
       touch && error
         ? `2px solid ${colors.redMain}`
         : touch && !error
-        ? `2px solid ${colors.Gold}`
+        ? `2px solid ${colors.green}`
         : `2px solid ${colors.lightGray}`};
   }
 `;

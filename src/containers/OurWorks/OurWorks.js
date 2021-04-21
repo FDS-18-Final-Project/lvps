@@ -77,7 +77,7 @@ const OurWorks = ({ contents }) => {
   return (
     <StyledOurWorksContainer>
       <FullContainer justifyContent="space-between" direction="column">
-        <OurWorks.Title desktop={desktop} />
+        <OurWorks.Title desktop={desktop ? 1 : 0} />
         <OurWorks.Contents contents={contents} />
       </FullContainer>
     </StyledOurWorksContainer>

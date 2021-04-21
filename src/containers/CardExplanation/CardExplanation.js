@@ -75,7 +75,7 @@ const CardListContainer = styled.div`
 const CardExplanation = ({ title, cardList, children }) => {
   return (
     <section style={{ borderTop: 0 }}>
-      <FullContainer tag="CardExplanation" justifyContent="space-around">
+      <FullContainer justifyContent="space-around">
         <CardContainer>
           <h2>{title}</h2>
           <CardListContainer title={title} type={cardList[0].type}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, array } from 'prop-types';
+import { string, array, oneOfType, object } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
 import { motion } from 'framer-motion';
@@ -116,7 +116,7 @@ Card.propTypes = {
   type: string.isRequired,
   iconType: string.isRequired,
   iconcolor: string,
-  content: array,
+  content: oneOfType([array, object]),
   width: string,
   height: string,
   color: string,
