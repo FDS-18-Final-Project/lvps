@@ -52,17 +52,17 @@ const Navbar = ({ ...restProps }) => {
         <NavLink to="/home">HOME</NavLink>
       </li>
       <li>
-        <NavLink to="/about">ABOUT</NavLink>
+        <NavLink to="/about-us">ABOUT</NavLink>
       </li>
       <li className="serviceLink">
-        <NavLink to="/mainService">SERVICES</NavLink>
+        <NavLink to="/main-service">SERVICES</NavLink>
         <HoverBox className="hoverbox" />
       </li>
       <li>
-        <NavLink to="/get-a-queue">GET A QUOUE</NavLink>
+        <NavLink to="/get-a-quote">GET A QUOUE</NavLink>
       </li>
       <li>
-        <NavLink to="/FAQ">FAQ</NavLink>
+        <NavLink to="/faq">FAQ</NavLink>
       </li>
       <li>
         <NavLink to="/contact-us">CONTACT US</NavLink>

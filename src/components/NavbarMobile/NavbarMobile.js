@@ -35,19 +35,19 @@ NavbarMobile.defaultProps = {
       id: 'nav_1',
       value: 'HOME',
       type: 'nav',
-      to: '/'
+      to: '/home'
     },
     {
       id: 'nav_2',
       value: 'ABOUT',
       type: 'nav',
-      to: '/'
+      to: '/about-us'
     },
     {
       id: 'nav_3',
       value: 'SERVICES',
       type: 'nav',
-      to: '/'
+      to: '/main-services'
     },
     {
       id: 'service_1',
@@ -71,37 +71,37 @@ NavbarMobile.defaultProps = {
       id: 'service_2',
       value: 'Paint Protection Film',
       type: 'service',
-      to: '/'
+      to: '/paint-protection'
     },
     {
       id: 'service_3',
       value: 'Window Tinting',
       type: 'service',
-      to: '/'
+      to: '/window-tinting'
     },
     {
       id: 'service_4',
       value: 'Detailing & Paint Correction',
       type: 'service',
-      to: '/'
+      to: '/detailing-and-correction'
     },
     {
       id: 'service_5',
       value: 'Wheel & Tire',
       type: 'service',
-      to: '/'
+      to: '/wheel-and-tire'
     },
     {
       id: 'nav_4',
       value: 'GET A QUOTE',
       type: 'nav',
-      to: '/'
+      to: '/get-a-quote'
     },
     {
       id: 'nav_5',
       value: 'CONTACT US',
       type: 'nav',
-      to: '/'
+      to: '/contact-us'
     }
   ]
 };

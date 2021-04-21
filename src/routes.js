@@ -19,17 +19,20 @@ const Routes = () => (
     <Route path="/home" exact>
       <Home />
     </Route>
-    <Route path="/mainService" component={MainService} />
-    <Route path="/serviceCeramic" component={ServiceCeramic} />
-    <Route path="/paintProtection" component={PaintProtectionFilm} />
-    <Route path="/windowTinting" component={WindowTinting} />
-    <Route path="/AboutUs" component={AboutUs} />
-    <Route path="/WheelAndTire" component={WheelAndTire} />
-    <Route path="/DetailingAndCorrection" component={DetailingAndCorrection} />
-    <Route path="/ContactUs" component={ContactUs} />
-    <Route path="/GetAQuote" component={GetAQuoteFormSection} />
-    <Route path="/PageNotFound" component={PageNotFound} />
-    <Redirect to="/PageNotFound" />
+    <Route path="/main-service" component={MainService} />
+    <Route path="/service-ceramic" component={ServiceCeramic} />
+    <Route path="/paint-protection" component={PaintProtectionFilm} />
+    <Route path="/window-tinting" component={WindowTinting} />
+    <Route path="/about-us" component={AboutUs} />
+    <Route path="/wheel-and-tire" component={WheelAndTire} />
+    <Route
+      path="/detailing-and-correction"
+      component={DetailingAndCorrection}
+    />
+    <Route path="/contact-us" component={ContactUs} />
+    <Route path="/get-a-quote" component={GetAQuoteFormSection} />
+    <Route path="/page-not-found" component={PageNotFound} />
+    <Redirect to="/page-not-found" />
   </Switch>
 );
 
