@@ -8,7 +8,8 @@ import { useCarousel, useViewSize } from 'hooks/';
 
 const StyledCarouselContainer = styled.div`
   max-width: ${calcRem(750)};
-  overflow: ${({ type }) => type === 'paragraph' && 'hidden'};
+  overflow: ${({ type }) =>
+    (type === 'paragraph' || type === 'card') && 'hidden'};
   margin: 0 auto;
 `;
 
@@ -70,7 +71,7 @@ const Carousel = ({ type, contents, ...restProps }) => {
         color={colors.lightGray}
         onClick={moveNext}
         width={desktop ? '40' : '20'}
-        desktop={desktop}
+        desktop={desktop ? 1 : 0}
         className="iconButton"
       />
       <StyledCarouselButton
@@ -81,7 +82,7 @@ const Carousel = ({ type, contents, ...restProps }) => {
         onClick={movePrev}
         width={desktop ? '40' : '20'}
         className="iconButton"
-        desktop={desktop}
+        desktop={desktop ? 1 : 0}
       />
       <Indicator
         contents={contents}

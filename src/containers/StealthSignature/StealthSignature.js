@@ -84,6 +84,7 @@ const StealthSignature = () => {
       contents={stealths}
       className="stealths"
       desktop={desktop}
+      direction="row"
     />
   );
 };

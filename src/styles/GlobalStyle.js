@@ -4,7 +4,7 @@ import { colors } from 'theme/theme';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
-
+  
   * {
     font-family: Inter, Monserrat, sans-serif;    
   }
@@ -24,7 +24,6 @@ const GlobalStyle = createGlobalStyle`
   ul, ol, li {
     list-style: none;
   }
-
   section {
     border-top: 1px solid ${colors.lightGray};
     border-bottom: 1px solid ${colors.lightGray};

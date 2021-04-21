@@ -11,6 +11,7 @@ import ServiceInfoType2 from 'containers/ServiceInfoType2/ServiceInfoType2';
 import ServiceInfoType4 from 'containers/ServiceInfoType4/ServiceInfoType4';
 import OurWorks from 'containers/OurWorks/OurWorks';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
+import CeramicCoating from 'containers/CeramicCoating/CeramicCoating';
 
 const cardList = [
   {
@@ -76,17 +77,23 @@ const ServiceCeramic = () => {
         title="Our Services"
         desc="Ceramic Pro"
       />
-      <ServiceMainBanner>
+      <ServiceInfoType2
+        imageLabel="ceramic pro coating bottle"
+        imagePath="./assets/ceramicInfoImage.png"
+        infoList={[]}
+        mode="right"
+        subTitle=" "
+        title="What Is Ceramic Pro?"
+      >
         Ceramic Pro is a multi-layerable, clear, liquid nano-ceramic coating.
         When cured, this technology will transform itself on the surface to a
         permanent, durable yet flexible glass shield. Ceramic Pro can be
         described as an additional clear coat, with 3 times the hardness and
         self cleaning properties.
-      </ServiceMainBanner>
-      {/* <IconExplanCard>
-        <IconExplanCard.Title />
-        <IconExplanCard.Contents />
-      </IconExplanCard> */}
+      </ServiceInfoType2>
+
+      <CeramicCoating />
+
       <CardExplanation
         title="The process of installing Ceramic Pro"
         cardList={cardList}
@@ -117,7 +124,6 @@ const ServiceCeramic = () => {
         the thickness of the coating can be increased with additional layers
         allowing a thicker/harder coating with improved scratch resistance.
       </ServiceInfoType2>
-
       <ServiceInfoType4
         imageLabel="CERAMIC PRO TOP COAT"
         imagePath="./assets/ceramic-pro-top-coat.png"
@@ -178,8 +184,7 @@ const ServiceCeramic = () => {
         <OurWorks.Contents />
       </OurWorks>
       <GetAQuoteBanner
-        title="Didn’t find what you are looking for?
-Contact us!"
+        title={`Didn’t find what you are looking for? <br /> Contact us!`}
         linkText="Contact Us"
         styledmode="secondary"
         color="pink"

@@ -27,7 +27,7 @@ const HoverBox = ({ HoverItems, ...restProps }) => {
       <HoverItem id="hover_1" value="Ceramic Coating" to="/serviceCeramic">
         <StyledSubContainer>
           <HoverItem id="hover_2" value="Ceramic Pro" to="/" />
-          <HoverItem id="hover_3" value="IGL Coatings" to="/" />
+          <HoverItem id="hover_3" value="IGL Coatings" to="/IGLCoatings" />
         </StyledSubContainer>
       </HoverItem>
       <HoverItem
@@ -36,8 +36,12 @@ const HoverBox = ({ HoverItems, ...restProps }) => {
         to="/paintProtection"
       />
       <HoverItem id="hover_5" value="Window Tinting" to="/WindowTinting" />
-      <HoverItem id="hover_6" value="Detailing &amp; Paint Correction" to="/" />
-      <HoverItem id="hover_7" value="Wheel &amp; Tire" to="/" />
+      <HoverItem
+        id="hover_6"
+        value="Detailing &amp; Paint Correction"
+        to="/DetailingAndCorrection"
+      />
+      <HoverItem id="hover_7" value="Wheel &amp; Tire" to="/WheelAndTire" />
     </StyledContainer>
   );
 };

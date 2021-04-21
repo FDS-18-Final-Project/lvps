@@ -130,7 +130,7 @@ const Paragraph = ({
 };
 
 Paragraph.propTypes = {
-  title: oneOfType([string, array]),
+  //title: oneOfType([string, array]),
   type: string,
   headingNum: number,
   items: array,

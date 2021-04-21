@@ -82,7 +82,7 @@ const AccordionItem = ({ item, onClick, maxWidth, variant }) => {
         fullwidth={mobile}
         mode="link"
         onClick={() => onClick(item.id)}
-        to={item.active ? '/home' : '/'}
+        to={item.active ? item.to : ''}
         variants={variant(mobile)}
         animate={item.active ? 'visible' : 'hidden'}
       >

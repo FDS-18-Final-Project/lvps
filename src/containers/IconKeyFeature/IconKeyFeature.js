@@ -67,7 +67,7 @@ const IconKeyFeature = () => {
       contents={explanCeramic}
       paragraphWidth="100%"
       direction={desktop ? 'row' : 'column'}
-      desktop={desktop}
+      desktop={desktop ? 1 : 0}
     />
   );
 };

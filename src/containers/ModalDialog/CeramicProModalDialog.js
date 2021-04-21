@@ -246,6 +246,7 @@ const CeramicProModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
     confirmCheck
   );
   const { label, title, firstPackage, secondPackage, thirdPackage } = modalData;
+
   const { desktop } = useViewSize();
 
   const firstPackageContents = firstPackage.contents?.map(content => (
