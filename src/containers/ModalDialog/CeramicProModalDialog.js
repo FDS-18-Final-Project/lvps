@@ -156,7 +156,6 @@ const CeramicProModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
     confirmCheck
   );
   const { label, title, firstPackage, secondPackage, thirdPackage } = modalData;
-  console.log(checkActive(firstPackage, secondPackage, thirdPackage));
 
   return (
     // <Portal id="modal-root">

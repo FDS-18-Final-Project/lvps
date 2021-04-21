@@ -17,7 +17,6 @@ export const parameters = {
 
 export const decorators = [
   Story => {
-    console.log(store);
     return (
       <>
         <Provider store={store}>

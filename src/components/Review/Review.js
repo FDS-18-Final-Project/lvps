@@ -45,7 +45,7 @@ const StyledReviewContent = styled.p`
   height: ${calcRem(350)};
 
   @media only screen and (max-width: 488px) {
-    height: auto;
+    height: ${calcRem(450)};
   }
 `;
 

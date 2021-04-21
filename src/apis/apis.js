@@ -1,4 +1,5 @@
-const POST_FORM_DATA_URL = 'https://naughty-goldwasser-b21f47.netlify.app/get-a-quote';
+const POST_FORM_DATA_URL =
+  'https://naughty-goldwasser-b21f47.netlify.app/get-a-quote';
 
 const Apis = {
   postData: async values => {

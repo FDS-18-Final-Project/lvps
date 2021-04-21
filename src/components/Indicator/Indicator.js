@@ -24,7 +24,7 @@ const Indicator = ({ contents, current, onChange, ...restProps }) => {
   return (
     <Layout.FlexContainer tag="ul" align="flex-start" {...restProps}>
       {contents.map((_, idx) => (
-        <li key={Math.random()} onClick={() => handleClick(idx + 1)}>
+        <li key={idx} onClick={() => handleClick(idx + 1)}>
           <StyledIndicatorItem
             aria-label={`indicator-${idx}`}
             selected={current === idx}

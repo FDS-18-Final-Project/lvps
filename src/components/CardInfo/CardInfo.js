@@ -54,7 +54,7 @@ const CardInfo = ({
   return (
     <CardInfoContainer minHeight={minHeight}>
       {infoList.map((info, idx) => (
-        <li key={info}>
+        <li key={idx}>
           <Icon
             type="checked"
             color={idx >= nonSelectedIdx ? colors.lightGray : colors[iconcolor]}
