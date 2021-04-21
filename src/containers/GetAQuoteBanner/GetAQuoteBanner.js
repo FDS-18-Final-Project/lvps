@@ -9,8 +9,7 @@ import Button from 'components/Button/Button';
 
 const StyledGetAQuoteBannerContainer = styled.section`
   padding: ${calcInterval([75, 100])};
-  background-color: ${colors.red_05};
-
+  background-color: ${({ color }) => colors[color]};
   @media only screen and (max-width: 1200px) {
     padding: ${calcRem(50)};
   }
@@ -48,14 +47,18 @@ const FullContainer = styled(Layout.FlexContainer)`
   }
 `;
 
-const GetAQuoteBanner = () => {
+const GetAQuoteBanner = ({ title, desc, linkText, color, styledmode }) => {
   const { desktop } = useViewSize();
   return (
-    <StyledGetAQuoteBannerContainer>
+    <StyledGetAQuoteBannerContainer color={color}>
       {desktop ? (
         <FullContainer justifyContent="space-between">
-          <GetAQuoteBanner.Title />
-          <GetAQuoteBanner.Link desktop={desktop} />
+          <GetAQuoteBanner.Title title={title} desc={desc} />
+          <GetAQuoteBanner.Link
+            styledmode={styledmode}
+            linkText={linkText}
+            desktop={desktop}
+          />
         </FullContainer>
       ) : (
         <Link to="/" className="getLink">
@@ -72,25 +75,32 @@ const GetAQuoteBanner = () => {
   );
 };
 
-GetAQuoteBanner.Title = () => {
+GetAQuoteBanner.Title = ({ title, desc }) => {
   return (
     <Paragraph
       type="title"
-      title="Get a free quote"
+      title={title}
       headingNum={2}
       colors={{ main: colors.white, sub: colors.lightGray }}
       size={15}
       className="title"
     >
-      If you want to check our works, press the button.
+      {desc}
     </Paragraph>
   );
 };
 
-GetAQuoteBanner.Link = () => {
+GetAQuoteBanner.Link = ({ linkText, styledmode }) => {
   return (
-    <Button mode="link" to="/" width={220} fontSize={18} padding="10">
-      Get a Free Quote
+    <Button
+      styledmode={styledmode}
+      mode="link"
+      to="/"
+      width={220}
+      fontSize={18}
+      padding="10"
+    >
+      {linkText}
       <Icon type="rightArrow" color={colors.white} />
     </Button>
   );

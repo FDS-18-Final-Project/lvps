@@ -7,7 +7,10 @@ import WheelAndTire from 'pages/Services/WheelAndTire';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
 import DetailingAndCorrection from 'pages/Services/DetailingAndCorrection';
 import MainService from 'pages/MainService/MainService';
+import ServiceCeramic from 'pages/ServiceCeramic/ServiceCeramic';
+import PaintProtectionFilm from 'pages/PaintProtectionFilm/PaintProtectionFilm';
 import ContactUs from 'pages/ContactUs/ContactUs';
+import WindowTinting from './pages/WindowTinting/WindowTinting';
 const Routes = () => (
   <Switch>
     <Route path="/" exact>
@@ -17,6 +20,9 @@ const Routes = () => (
       <Home />
     </Route>
     <Route path="/mainService" component={MainService} />
+    <Route path="/serviceCeramic" component={ServiceCeramic} />
+    <Route path="/paintProtection" component={PaintProtectionFilm} />
+    <Route path="/windowTinting" component={WindowTinting} />
     <Route path="/AboutUs" component={AboutUs} />
     <Route path="/WheelAndTire" component={WheelAndTire} />
     <Route path="/DetailingAndCorrection" component={DetailingAndCorrection} />
