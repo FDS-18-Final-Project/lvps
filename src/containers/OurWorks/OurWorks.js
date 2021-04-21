@@ -71,14 +71,14 @@ const StyledOurWorksTitle = styled(Layout.FlexContainer)`
   }
 `;
 
-const OurWorks = () => {
+const OurWorks = ({ contents }) => {
   const { desktop } = useViewSize();
 
   return (
     <StyledOurWorksContainer>
       <FullContainer justifyContent="space-between" direction="column">
         <OurWorks.Title desktop={desktop} />
-        <OurWorks.Contents />
+        <OurWorks.Contents contents={contents} />
       </FullContainer>
     </StyledOurWorksContainer>
   );
@@ -107,8 +107,8 @@ OurWorks.Title = ({ desktop }) => {
   );
 };
 
-OurWorks.Contents = () => {
-  return <Carousel type="img" contents={carouselImgs}></Carousel>;
+OurWorks.Contents = ({ contents = carouselImgs }) => {
+  return <Carousel type="img" contents={contents}></Carousel>;
 };
 
 export default OurWorks;

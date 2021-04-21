@@ -1,8 +1,37 @@
+import StealthSignature from 'containers/StealthSignature/StealthSignature';
 import IconKeyFeature from 'containers/IconKeyFeature/IconKeyFeature';
 import ServiceInfoType2 from 'containers/ServiceInfoType2/ServiceInfoType2';
 import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import React from 'react';
+import Video from 'containers/Video/Video';
+import PaintProtectionFilmPackage from 'containers/PaintProtectionFilmPackage/PaintProtectionFilmPackage';
+import PaintProtectionFilmOptions from 'containers/PaintProtectionFilmOptions/PaintProtectionFilmOptions';
+import OurWorks from 'containers/OurWorks/OurWorks';
+import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
+
+const carouselImgs = [
+  {
+    id: 1,
+    path: 'assets/paintOurWorks_01.png'
+  },
+  {
+    id: 2,
+    path: 'assets/paintOurWorks_02.png'
+  },
+  {
+    id: 3,
+    path: 'assets/paintOurWorks_03.png'
+  },
+  {
+    id: 4,
+    path: 'assets/paintOurWorks_04.png'
+  },
+  {
+    id: 5,
+    path: 'assets/paintOurWorks_05.png'
+  }
+];
 
 const PaintProtectionFilm = () => {
   return (
@@ -34,6 +63,18 @@ const PaintProtectionFilm = () => {
         repairs.
       </ServiceInfoType2>
       <IconKeyFeature />
+      <StealthSignature />
+      <Video />
+      <PaintProtectionFilmPackage />
+      <PaintProtectionFilmOptions />
+      <OurWorks contents={carouselImgs} />
+      <GetAQuoteBanner
+        title="Get a Free Quote"
+        desc="Book Youar Service button link to contact form."
+        linkText="Get a Free Quote"
+        styledmode="secondary"
+        color="red_05"
+      />
     </>
   );
 };

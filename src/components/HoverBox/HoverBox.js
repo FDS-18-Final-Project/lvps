@@ -35,7 +35,7 @@ const HoverBox = ({ HoverItems, ...restProps }) => {
         value="Paint Protection Film"
         to="/paintProtection"
       />
-      <HoverItem id="hover_5" value="Window Tinting" to="/" />
+      <HoverItem id="hover_5" value="Window Tinting" to="/WindowTinting" />
       <HoverItem id="hover_6" value="Detailing &amp; Paint Correction" to="/" />
       <HoverItem id="hover_7" value="Wheel &amp; Tire" to="/" />
     </StyledContainer>

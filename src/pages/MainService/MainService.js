@@ -86,7 +86,13 @@ const MainService = () => {
       ) : (
         <MainServiceCarousel />
       )}
-      <GetAQuoteBanner />
+      <GetAQuoteBanner
+        title="Get a Free Quote"
+        desc="Book Youar Service button link to contact form."
+        linkText="Get a Free Quote"
+        styledmode="secondary"
+        color="red_05"
+      />
     </>
   );
 };

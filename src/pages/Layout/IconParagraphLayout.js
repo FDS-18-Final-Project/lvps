@@ -73,6 +73,11 @@ const StyledIconExplanListContainer = styled(Layout.FlexContainer)`
   svg {
     margin: 0 auto;
     margin-right: ${calcRem(40)};
+
+    path {
+      fill: none;
+      stroke: none;
+    }
   }
   @media only screen and (max-width: 768px) {
     flex-flow: column;

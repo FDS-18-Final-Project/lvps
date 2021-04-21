@@ -2,6 +2,7 @@ import React from 'react';
 import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import ServiceMainBanner from 'containers/ServiceMainBanner/ServiceMainBanner';
+//import IconExplanCard from 'containers/IconExplanCard/IconExplanCard';
 import CardExplanation from 'containers/CardExplanation/CardExplanation';
 import Video from 'containers/Video/Video';
 import CeramicProProtectionPackage from 'containers/CeramicProProtectionPackage/CeramicProProtectionPackage';
@@ -82,7 +83,10 @@ const ServiceCeramic = () => {
         described as an additional clear coat, with 3 times the hardness and
         self cleaning properties.
       </ServiceMainBanner>
-
+      {/* <IconExplanCard>
+        <IconExplanCard.Title />
+        <IconExplanCard.Contents />
+      </IconExplanCard> */}
       <CardExplanation
         title="The process of installing Ceramic Pro"
         cardList={cardList}
