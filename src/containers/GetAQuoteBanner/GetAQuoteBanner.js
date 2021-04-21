@@ -36,8 +36,28 @@ const FullContainer = styled(Layout.FlexContainer)`
   max-width: ${calcRem(1200)};
   margin: 0 auto;
 
+  a {
+    border: ${({ borderColor }) => colors[borderColor]};
+
+    &:hover {
+      background-color: ${({ hoverColor }) => colors[hoverColor]};
+      border: 2px solid ${colors.white};
+    }
+    path {
+      fill: ${({ iconcolor }) => colors[iconcolor]};
+    }
+  }
+
   @media only screen and (max-width: 1200px) {
     width: 100%;
+
+    h2 {
+      font-size: ${fontSizes.xxl};
+    }
+
+    a {
+      font-size: ${fontSizes.base};
+    }
   }
 
   @media only screen and (max-width: 768px) {
@@ -47,12 +67,26 @@ const FullContainer = styled(Layout.FlexContainer)`
   }
 `;
 
-const GetAQuoteBanner = ({ title, desc, linkText, color, styledmode }) => {
+const GetAQuoteBanner = ({
+  title,
+  desc,
+  linkText,
+  color,
+  styledmode,
+  borderColor,
+  hoverColor,
+  iconcolor
+}) => {
   const { desktop } = useViewSize();
   return (
     <StyledGetAQuoteBannerContainer color={color}>
       {desktop ? (
-        <FullContainer justifyContent="space-between">
+        <FullContainer
+          justifyContent="space-between"
+          borderColor={borderColor}
+          hoverColor={hoverColor}
+          iconcolor={iconcolor}
+        >
           <GetAQuoteBanner.Title title={title} desc={desc} />
           <GetAQuoteBanner.Link
             styledmode={styledmode}
@@ -62,7 +96,7 @@ const GetAQuoteBanner = ({ title, desc, linkText, color, styledmode }) => {
         </FullContainer>
       ) : (
         <Link to="/" className="getLink">
-          Get a Free Quote{' '}
+          {linkText}
           <Icon
             className="icon"
             type="rightArrow"

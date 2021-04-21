@@ -100,11 +100,14 @@ const Home = () => {
         title="Our Quality Protection Services"
         cardList={squareCardList}
       />
-      <GetAQuoteBanner />
+      <GetAQuoteBanner
+        title="Get a Free Quote"
+        color="red_05"
+        linkText="Get a Free Quote"
+        styledmode="secondary"
+      />
 
       <Reviews />
-      <FeaturesBenefits />
-      <CarCareGuide />
     </>
   );
 };

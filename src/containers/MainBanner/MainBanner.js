@@ -5,8 +5,9 @@ import Button from 'components/Button/Button';
 import Divider from 'components/Divider/Divider';
 import Icon from 'components/Icon/Icon';
 import Paragraph from 'components/Paragraph/Paragraph';
+import { useViewSize } from 'hooks';
 
-const StyledMainBannerContainer = styled.section`
+const StyledMainBannerContainer = styled.div`
   background: url(${props => props.bgImg}) center center / cover no-repeat;
   padding: ${calcInterval([130, 100])};
 
@@ -26,6 +27,7 @@ const StyledMainBannerContainer = styled.section`
 `;
 
 const FullContainer = styled.div`
+  position: relative;
   max-width: ${calcRem(1200)};
   margin: 0 auto;
 
@@ -76,6 +78,7 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 const MainBanner = ({ bgImg }) => {
+  const { mobile } = useViewSize();
   return (
     <StyledMainBannerContainer bgImg={bgImg}>
       <FullContainer>

@@ -73,7 +73,6 @@ const CardListContainer = styled.div`
   }
 `;
 const CardExplanation = ({ title, cardList, children }) => {
-  console.log(cardList);
   return (
     <section style={{ borderTop: 0 }}>
       <FullContainer justifyContent="space-around">
