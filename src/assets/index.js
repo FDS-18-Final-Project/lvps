@@ -40,6 +40,7 @@ import { ReactComponent as PaintProtectionFinish } from './svg/paintProtectionFi
 import { ReactComponent as PaintProtectionHealing } from './svg/paintProtectionHealing.svg';
 import { ReactComponent as PaintProtectionShield } from './svg/paintProtectionShield.svg';
 import { ReactComponent as PaintProtectionWarranty } from './svg/paintProtectionWarranty.svg';
+import { ReactComponent as Alert } from './svg/Alert.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -54,6 +55,7 @@ export default {
   searchWhite: SearchWhite,
   searchGray: SearchGray,
   like: Like,
+  alert: Alert,
   checked: Checked,
   circle: Circle,
   tagSilver: TagSilver,

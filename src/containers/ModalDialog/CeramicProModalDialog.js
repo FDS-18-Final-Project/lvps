@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, calcRem } from 'theme/theme';
+import { colors, calcRem, calcInterval, device, fontSizes } from 'theme/theme';
 
 import { useModalSelected } from 'hooks/';
 import {
@@ -50,12 +50,24 @@ const StyledModalContainer = styled.section`
     border-radius: 10px;
     box-shadow: inset 0px 0px 5px white;
   }
+  @media only screen and (max-width: 1350px) {
+    & > div {
+      width: 100%;
+      padding: ${calcInterval([0, 15])};
+    }
+  }
+  ${device.desktop} {
+    & > div {
+      padding: 0;
+    }
+  }
 `;
 
 const StyledModalBodyContainer = styled.div`
   user-select: none;
   width: 100%;
   padding-top: ${calcRem(30)};
+
   h4 {
     font-size: ${calcRem(45)};
     text-align: center;
@@ -115,7 +127,6 @@ const StyledPackageContainer = styled.div`
 `;
 const StyledPackageListContainer = styled.div`
   display: grid;
-
   grid-template-columns: ${({ numOfProd }) =>
     numOfProd === 8 ? `repeat(4, 1fr)` : `repeat(${numOfProd}, 1fr)`};
   gap: ${calcRem(20)};
@@ -127,6 +138,26 @@ const StyledPackageListContainer = styled.div`
   }
   &.secondPackage > div:nth-child(2) em {
     margin: 0rem 0rem 5rem;
+  }
+
+  ${device.desktop} {
+    padding: 0 ${({ numOfProd }) => (numOfProd <= 3 ? calcRem(35) : 0)} 3.75rem;
+    grid-template-columns: ${({ numOfProd }) =>
+      numOfProd === 8 ? `repeat(2, 1fr)` : `repeat(${numOfProd / 2}, 1fr)`};
+    justify-items: center;
+
+    &.secondPackage > div em {
+      font-size: ${fontSizes.lg};
+    }
+
+    &.thirdPackage > div {
+      width: 100%;
+      max-width: ${calcRem(420)};
+      em {
+        margin: 2.5rem 0rem 9.0625rem;
+        font-size: ${fontSizes.xxxl};
+      }
+    }
   }
 `;
 
