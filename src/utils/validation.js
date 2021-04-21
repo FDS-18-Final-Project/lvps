@@ -1,12 +1,16 @@
 import * as Yup from 'yup';
 import Icon from '../components/Icon/Icon';
+import styled from 'styled-components';
 
 export const validationSchema = Yup.object({
   name: Yup.string()
-    .min(2, [
-      <Icon type="alert" />,
-      'Please input your name with longer than 2 characters'
-    ])
+    .min(
+      2,
+      <>
+        <Icon type="alert" />
+        Please input your name with longer than 2 characters
+      </>
+    )
     .required('Please input your name'),
   phoneNumber: Yup.string()
     .typeError('Please input your mobile number with numbers')

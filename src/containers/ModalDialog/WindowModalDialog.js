@@ -23,10 +23,9 @@ const StyledModalContainer = styled.section`
   z-index: 100;
 
   & > div {
-    margin-top: ${calcRem(170)};
     width: ${calcRem(1350)};
-    height: 100vh;
-    margin: 170px auto 0;
+    height: 90vh;
+    margin: ${calcRem(50)} auto 0;
     background: ${colors.gray_02};
     overflow: auto;
     display: flex;
@@ -56,7 +55,7 @@ const StyledModalContainer = styled.section`
 
 const StyledModalBodyContainer = styled.div`
   width: 100%;
-  padding-top: ${calcRem(180)};
+  padding-top: ${calcRem(30)};
 
   h4 {
     font-size: ${calcRem(45)};

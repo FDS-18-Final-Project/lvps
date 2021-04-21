@@ -43,17 +43,16 @@ const StyledModalContainer = styled.section`
     background-color: #2f3542;
     border-radius: ${calcRem(10)};
     background-clip: padding-box;
-    border: 2px solid transparent;
+    border: ${calcRem(2)} solid transparent;
   }
   & > div::-webkit-scrollbar-track {
     background-color: grey;
-    border-radius: 10px;
-    box-shadow: inset 0px 0px 5px white;
+    border-radius: ${calcRem(10)};
+    box-shadow: inset 0px 0px ${calcRem(5)} white;
   }
   @media only screen and (max-width: 1350px) {
     & > div {
       width: 100%;
-      padding: ${calcInterval([0, 15])};
     }
   }
   ${device.desktop} {

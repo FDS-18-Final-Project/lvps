@@ -19,10 +19,9 @@ const StyledModalContainer = styled.section`
   z-index: 100;
 
   & > div {
-    margin-top: ${calcRem(170)};
     width: ${calcRem(1350)};
-    height: 100vh;
-    margin: ${calcRem(170)} auto 0;
+    height: 90vh;
+    margin: ${calcRem(50)} auto 0;
     background: ${colors.gray_02};
     overflow: auto;
     display: flex;
@@ -32,24 +31,24 @@ const StyledModalContainer = styled.section`
   }
   /* 스크롤바 스타일  */
   & > div::-webkit-scrollbar {
-    width: 10px;
+    width: ${calcRem(10)};
   }
   & > div::-webkit-scrollbar-thumb {
     background-color: #2f3542;
-    border-radius: 10px;
+    border-radius: ${calcRem(10)};
     background-clip: padding-box;
-    border: 2px solid transparent;
+    border: ${calcRem(2)} solid transparent;
   }
   & > div::-webkit-scrollbar-track {
     background-color: grey;
-    border-radius: 10px;
-    box-shadow: inset 0px 0px 5px white;
+    border-radius: ${calcRem(10)};
+    box-shadow: inset 0px 0px ${calcRem(5)} white;
   }
 `;
 
 const StyledModalBodyContainer = styled.div`
   width: 100%;
-  padding-top: ${calcRem(180)};
+  padding-top: ${calcRem(30)};
 
   h4 {
     font-size: ${calcRem(45)};

@@ -118,6 +118,12 @@ const StyledFieldset = styled.fieldset`
     position: absolute;
     bottom: -30px;
     left: 27%;
+    display: flex;
+    align-items: center;
+
+    & > div {
+      margin-right: ${calcRem(10)};
+    }
   }
 
   textarea {
