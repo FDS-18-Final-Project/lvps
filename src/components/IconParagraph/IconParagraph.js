@@ -18,10 +18,10 @@ const StyledIcon = styled(Icon)`
   margin-right: ${({ direction }) => (direction === 'row' ? calcRem(40) : '0')};
 
   path:first-child {
-    stroke: ${({ iconColor }) => iconColor};
+    stroke: ${({ iconcolor }) => iconcolor};
   }
   path:last-child {
-    fill: ${({ iconColor }) => iconColor};
+    fill: ${({ iconcolor }) => iconcolor};
   }
 `;
 
@@ -40,7 +40,7 @@ const IconParagraph = ({
   direction,
   content,
   iconType,
-  iconColor,
+  iconcolor,
   textAlign,
   contentWidth,
   paragraphWidth,
@@ -54,7 +54,7 @@ const IconParagraph = ({
       contentWidth={contentWidth}
       {...restProps}
     >
-      <StyledIcon type={iconType} iconColor={iconColor} direction={direction} />
+      <StyledIcon type={iconType} iconcolor={iconcolor} direction={direction} />
       <StyledParagraph
         title={content.title}
         headingNum={3}
@@ -72,7 +72,7 @@ IconParagraph.propTypes = {
   direction: string,
   content: object,
   iconType: string,
-  iconColor: string,
+  iconcolor: string,
   textAlign: object,
   contentWidth: string,
   paragraphWidth: string
@@ -82,7 +82,7 @@ IconParagraph.defaultProps = {
   direction: 'column',
   content: { id: 1, title: '타이틀을 입력해주세요!' },
   iconType: 'facebook',
-  iconColor: '',
+  iconcolor: '',
   textAlign: { title: 'center', content: 'left' },
   contentWidth: '100%',
   paragraphWidth: '100%'

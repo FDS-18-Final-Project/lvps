@@ -51,9 +51,9 @@ const deviceSizes = {
 };
 
 export const device = {
-  mobile: `only screen and (max-width: ${deviceSizes.mobile})`,
-  tablet: `only screen and (max-width: ${deviceSizes.tablet})`,
-  desktop: `only screen and (max-width: ${deviceSizes.desktop})`
+  mobile: `@media only screen and (max-width: ${deviceSizes.mobile})`,
+  tablet: `@media only screen and (max-width: ${deviceSizes.tablet})`,
+  desktop: `@media only screen and (max-width: ${deviceSizes.desktop})`
 };
 
 const theme = {

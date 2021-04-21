@@ -10,23 +10,23 @@ import Carousel from 'components/Carousel/Carousel';
 const carouselImgs = [
   {
     id: 1,
-    path: 'assets/dummy_background.png'
+    path: 'assets/ceramicOurWorks_01.png'
   },
   {
     id: 2,
-    path: 'assets/dummy_background_02.png'
+    path: 'assets/ceramicOurWorks_02.png'
   },
   {
     id: 3,
-    path: 'assets/dummyImage.png'
+    path: 'assets/ceramicOurWorks_03.png'
   },
   {
     id: 4,
-    path: 'assets/dummy_ourbestservice.png'
+    path: 'assets/ceramicOurWorks_04.png'
   },
   {
     id: 5,
-    path: 'assets/dummy_car1.png'
+    path: 'assets/ceramicOurWorks_05.png'
   }
 ];
 
@@ -71,14 +71,14 @@ const StyledOurWorksTitle = styled(Layout.FlexContainer)`
   }
 `;
 
-const OurWorks = () => {
+const OurWorks = ({ contents }) => {
   const { desktop } = useViewSize();
 
   return (
     <StyledOurWorksContainer>
       <FullContainer justifyContent="space-between" direction="column">
         <OurWorks.Title desktop={desktop} />
-        <OurWorks.Contents />
+        <OurWorks.Contents contents={contents} />
       </FullContainer>
     </StyledOurWorksContainer>
   );
@@ -107,8 +107,8 @@ OurWorks.Title = ({ desktop }) => {
   );
 };
 
-OurWorks.Contents = () => {
-  return <Carousel type="img" contents={carouselImgs}></Carousel>;
+OurWorks.Contents = ({ contents = carouselImgs }) => {
+  return <Carousel type="img" contents={contents}></Carousel>;
 };
 
 export default OurWorks;

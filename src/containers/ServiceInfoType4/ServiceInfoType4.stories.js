@@ -65,6 +65,7 @@ ceramicProTopCoatInfoListBlock.args = {
   children:
     'Top Coat allows the surface to stay cleaner longer as dirt and grime will not stick to it. The super hydrophobic effect of the coating will cause water to bead up and roll off the surface along with any dirt and grime. Top Coat is usually applied over 9H in the layering process. Though not as durable as 9H, it can also be applied on its own. Top Coat also enhances gloss depth further on all painted surfaces for that wet look that is often hard to attain with synthetic waxes.',
   imagePath: './assets/ceramic-pro-top-coat.png',
+  mobileImagePath: './assets/mobile-ceramic-top-coat.png',
   imageLabel: 'CERAMIC PRO TOP COAT',
   infoList: ceramicProTopCoatInfoList
 };

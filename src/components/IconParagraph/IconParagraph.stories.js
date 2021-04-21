@@ -10,7 +10,7 @@ export default {
     docs: {
       description: {
         component:
-          'contents, iconColor를 받아 IconParagraph 컴포넌트를 만들어줍니다.'
+          'contents, iconcolor를 받아 IconParagraph 컴포넌트를 만들어줍니다.'
       }
     }
   },
@@ -26,7 +26,7 @@ export default {
         options: ['likeCircle', 'facebook', 'instagram']
       }
     },
-    iconColor: {
+    iconcolor: {
       control: {
         type: 'select',
         options: [colors.red_05, colors.green]
@@ -77,7 +77,7 @@ IconParagraphColumn.args = {
   direction: 'column',
   content: explanCeramic,
   iconType: 'likeCircle',
-  iconColor: colors.red_05,
+  iconcolor: colors.red_05,
   textAlign: { title: 'center', content: 'left' },
   contentWidth: '100%',
   paragraphWidth: calcRem(304)
@@ -91,7 +91,7 @@ IconParagraphRow.args = {
   direction: 'row',
   content: explanCeramic,
   iconType: 'facebook',
-  iconColor: colors.red_05,
+  iconcolor: colors.red_05,
   textAlign: { title: 'left', content: 'left' },
   contentWidth: '100%',
   paragraphWidth: calcRem(304)

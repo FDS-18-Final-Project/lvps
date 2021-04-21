@@ -58,7 +58,7 @@ const StyledPriceCardLayoutContainer = styled(PriceCardLayout)`
 const WindowTintingCeramic = () => {
   return (
     <StyledPriceCardLayoutContainer
-      title="Window Tinting Packages Options - Carbon"
+      title="Window Tinting Packages Options - Ceramic"
       cardList={carbon_group}
       marginRight={20}
       mode="desc"

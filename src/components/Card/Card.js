@@ -47,6 +47,9 @@ const StyledCard = styled(motion('div'))`
   svg {
     margin: 0;
   }
+  svg path:nth-child(1) {
+    fill: none;
+  }
   & div div:nth-child(2) {
     margin: 0;
     width: 100%;
@@ -61,6 +64,7 @@ const StyledCard = styled(motion('div'))`
   @media only screen and (max-width: 768px) {
     max-width: initial;
     height: initial;
+    align-items: flex-start;
     padding: ${({ type }) =>
       type === 'arrow' ? `1rem 1.25rem 1rem !important` : '1rem 1.25rem;'};
     transform: ${({ translateX, type }) =>
@@ -71,13 +75,19 @@ const StyledCard = styled(motion('div'))`
     & div {
       flex-direction: row;
       margin: 0;
+      width: 100%;
+
+      div:nth-child(1) {
+        width: initial;
+      }
     }
+
     & p,
     & h3 {
       margin: 0 0 ${calcRem(20)} 0;
       padding-left: ${calcRem(20)};
-      text-align: center;
       font-size: ${fontSizes.lg};
+      text-align: center;
     }
     ${({ type }) => typeMobileStyle[type]};
   }
@@ -85,7 +95,7 @@ const StyledCard = styled(motion('div'))`
 
 const Card = ({
   type,
-  iconColor,
+  iconcolor,
   content,
   iconType,
   motionProps,
@@ -95,7 +105,7 @@ const Card = ({
     <StyledCard type={type} iconType={iconType} {...motionProps} {...restProps}>
       <IconParagraph
         iconType={iconType}
-        iconColor={iconColor}
+        iconcolor={iconcolor}
         content={content}
       />
     </StyledCard>
@@ -105,7 +115,7 @@ const Card = ({
 Card.propTypes = {
   type: string.isRequired,
   iconType: string.isRequired,
-  iconColor: string,
+  iconcolor: string,
   content: array,
   width: string,
   height: string,
@@ -116,7 +126,7 @@ Card.propTypes = {
 Card.defaultProps = {
   type: 'square',
   iconType: 'likeCircle',
-  iconColor: colors.white,
+  iconcolor: colors.white,
   content: [],
   background: colors.black
 };

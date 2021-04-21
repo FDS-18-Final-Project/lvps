@@ -37,6 +37,18 @@ import { ReactComponent as IGLSpot } from './svg/IGLSpot.svg';
 import { ReactComponent as IGLBus } from './svg/IGLBus.svg';
 import { ReactComponent as IGLCar } from './svg/IGLCar.svg';
 import { ReactComponent as IGLHand } from './svg/IGLHand.svg';
+import { ReactComponent as CeramicDollar } from './svg/ceramicDollar.svg';
+import { ReactComponent as CeramicLike } from './svg/ceramicLike.svg';
+import { ReactComponent as CeramicCar } from './svg/ceramicCar.svg';
+import { ReactComponent as CeramicCardWashCar } from './svg/ceramicCardWashCar.svg';
+import { ReactComponent as CeramicCardHand } from './svg/ceramicCardHand.svg';
+import { ReactComponent as CeramicCardPaint } from './svg/ceramicCardPaint.svg';
+import { ReactComponent as PaintProtectionCustom } from './svg/paintProtectionCustom.svg';
+import { ReactComponent as PaintProtectionDiscolouration } from './svg/paintProtectionDiscolouration.svg';
+import { ReactComponent as PaintProtectionFinish } from './svg/paintProtectionFinish.svg';
+import { ReactComponent as PaintProtectionHealing } from './svg/paintProtectionHealing.svg';
+import { ReactComponent as PaintProtectionShield } from './svg/paintProtectionShield.svg';
+import { ReactComponent as PaintProtectionWarranty } from './svg/paintProtectionWarranty.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -78,5 +90,17 @@ export default {
   iGLSpot: IGLSpot,
   iGLBus: IGLBus,
   iGLCar: IGLCar,
-  iGLHand: IGLHand
+  iGLHand: IGLHand,
+  ceramicDollar: CeramicDollar,
+  ceramicLike: CeramicLike,
+  ceramicCar: CeramicCar,
+  ceramicCardPaint: CeramicCardPaint,
+  ceramicCardWashCar: CeramicCardWashCar,
+  ceramicCardHand: CeramicCardHand,
+  paintProtectionCustom: PaintProtectionCustom,
+  paintProtectionDiscolouration: PaintProtectionDiscolouration,
+  paintProtectionFinish: PaintProtectionFinish,
+  paintProtectionHealing: PaintProtectionHealing,
+  paintProtectionShield: PaintProtectionShield,
+  paintProtectionWarranty: PaintProtectionWarranty
 };

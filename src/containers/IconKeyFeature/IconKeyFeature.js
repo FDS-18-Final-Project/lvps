@@ -6,31 +6,33 @@ import { calcInterval, calcRem } from 'theme/theme';
 const explanCeramic = [
   {
     id: 1,
-    iconType: 'facebook',
-    title: 'GOOD INVESTMENT',
+    title: 'Self Healing',
+    iconType: 'paintProtectionHealing',
     content:
-      'The coating will protect the vehicle’s exterior and interior from deteriorating for a lifetime. The resale market value will therefore be substantially higher! Ceramic Pro pays for itself in the end.'
+      'When exposed to heat, the enhanced clear coat properties eliminate fine scratches and swirl marks'
   },
   {
     id: 2,
-    iconType: 'facebook',
-    title: 'LOOK NEW ALL THE TIME',
+    title: 'Discolouration & Stain Resistant',
+    iconType: 'paintProtectionDiscolouration',
+
     content:
-      'Once the coating is applied you will see a mirror effect, glossiness and color depth, incomparable to anything else! With proper maintenance your car’s finish will shine for many years to come.'
+      'Stain resistant and will maintain clarity under the harshest conditions here in Canada'
   },
   {
     id: 3,
-    iconType: 'facebook',
-    title: 'LESS MAINTENANCE',
+    title: 'Absolute Clarity & Protection',
+    iconType: 'paintProtectionShield',
+
     content:
-      'The slick coated surface won’t allow dirt, brake dust and tar to stick to your paint, wheels or glass. This makes washing your vehicle less labor intensive and less frequent. Waxing is now obsolete.'
+      'Zero orange peel finish, leaves the film virtually invisible. Protection should be indistinguishable from factory paint.'
   },
   {
     id: 4,
-    iconType: 'facebook',
-    title: 'LESS MAINTENANCE',
+    title: 'Warranty',
+    iconType: 'paintProtectionWarranty',
     content:
-      'The slick coated surface won’t allow dirt, brake dust and tar to stick to your paint, wheels or glass. This makes washing your vehicle less labor intensive and less frequent. Waxing is now obsolete.'
+      'Built to last. ULTIMATE PLUS is backed by our comprehensive 10 year warranty, ensuring your vehicle looks its best for years to come.'
   }
 ];
 
@@ -54,7 +56,6 @@ const StyledIconParagraphLayout = styled(IconParagraphLayout)`
   .icon-paragraph {
     width: 100%;
   }
-
   ${({ desktop }) => !desktop && styledMobile}
 `;
 

@@ -109,6 +109,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
         <StyledAutoCompleteContainer>
           {results.map((item, idx) => (
             <li
+              key={idx}
               style={
                 idx === focusIdx ? { backgroundColor: colors.gray_03 } : null
               }

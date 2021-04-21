@@ -39,7 +39,7 @@ const ExplainCard = ({ title, desc, infoList }) => {
   console.log(title, desc, infoList);
   return (
     <StyledExplainCardContainer>
-      <Paragraph type="normal" title={title} headingNum="4">
+      <Paragraph type="normal" title={title} headingNum={4}>
         {desc}
       </Paragraph>
       <CardInfo infoList={infoList}></CardInfo>

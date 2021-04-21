@@ -4,7 +4,6 @@ import FeaturesBenefits from 'containers/FeaturesBenefits/FeaturesBenefits';
 import ServiceInfoType2 from 'containers/ServiceInfoType2/ServiceInfoType2';
 import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
-import { colors } from 'theme/theme';
 
 const IGLCoatings = () => {
   return (
@@ -24,6 +23,7 @@ const IGLCoatings = () => {
         mode="right"
         title="FOR THOSE SEEKING THE NEXT-GEN TECH IN ULTIMATE VEHICLE SURFACE PROTECTION"
         imagePath="/assets/IGLCard.png"
+        mobileImagePath="/assets/IGLMobileCard.png"
       >
         Kenzo is a revolutionary paint protection coating that contains 100%
         silica providing the highest level of gloss and protection and is backed
@@ -39,6 +39,7 @@ const IGLCoatings = () => {
         mode="left"
         title="Benefits of having a KENZO IGL Coating include"
         imagePath="/assets/KENZO.png"
+        mobileImagePath="/assets/IGLMobileCard2.png"
         infoList={[
           'Never wax your vehicle again',
           'Installed by Professional Auto Detailing Experts',
@@ -48,7 +49,6 @@ const IGLCoatings = () => {
           'Scratch resistance. IGL Coatings have been independently tested at "Greater than 9H" hardness  levels',
           'Scratch resistance. IGL Coatings have been independently tested at "Greater than 9H" hardness  levels'
         ]}
-        iconColor="green"
       />
       {/* TODO: 비디오 */}
       <IGLProtectionProducts />
@@ -57,6 +57,7 @@ const IGLCoatings = () => {
         mode="right"
         title="IGL COATINGS™ LEATHER AND FABRIC MAINTENANCE PROGRAM"
         imagePath="/assets/IGLLeather.png"
+        mobileImagePath="/assets/IGLMobileCard3.png"
         paddingBottom={58}
       >
         For best results, clean all leather/vinyl surfaces bi-weekly with IGL
@@ -66,7 +67,12 @@ const IGLCoatings = () => {
         fabric.
       </ServiceInfoType2>
       {/* TODO: 색 바꾸기 */}
-      <GetAQuoteBanner />
+      <GetAQuoteBanner
+        title="Get a Free Quote"
+        color="red_05"
+        linkText="Get a Free Quote"
+        styledmode="secondary"
+      />
       {/* TODO: 구글맵 */}
     </>
   );

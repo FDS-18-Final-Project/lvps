@@ -91,6 +91,7 @@ ProtectionPaintFilmVinyLBlock.args = {
     'Ceramic Pro PPF & Vinyl was designed as a protective coating for polyurethane film and vinyl. It protects from contamination and weathering resulting in film that is much easier to clean. It also helps reduce vinyl’s orange peel look. The complete protection program involves a base coat and top coat application.',
   subTitle: 'CERAMIC PRO PPF & VINYL',
   imagePath: './assets/service-info-image.png',
+  mobileImagePath: './assets/mobile-ppf-vinyl.png',
   imageLabel: 'Ceramic pro top coat',
   infoList: ProtectionPaintFilmVinyLInfoList
 };
@@ -103,6 +104,7 @@ CeramicPro9HBlock.args = {
   children:
     'Ceramic Pro 9H forms a permanent bond with the surface and will not wash off or break down. Ceramic Pro 9H can only be removed by abrasion. It is a highly durable protective coating that protects your paintwork from damaging contaminants. 9H can be applied in multiple layers which means the thickness of the coating can be increased with additional layers allowing a thicker/harder coating with improved scratch resistance.',
   imagePath: './assets/ceramicpro9h.png',
+  mobileImagePath: './assets/mobile-ceramic-pro-9h.png',
   imageLabel: 'Ceramic prop 9h',
   infoList: ceramicPro9HInfoList
 };
@@ -116,6 +118,7 @@ HowToCareBlock.args = {
   children:
     'Ceramic Pro is designed to protect your factory clear coat, to provide a protective shield against the elements and to keep your vehicle looking new always. To maximize the effects of Ceramic Pro and to ensure your investment is long lasting, a few basic maintenance steps should be taken. We recommend maintaining your coating with Ceramic Pro After Care.',
   imagePath: './assets/how-to-care.png',
+  mobileImagePath: './assets/mobile-coated-vehicle.png',
   imageLabel: 'ceramic pro coating bottle'
 };
 
@@ -126,6 +129,8 @@ CarbonFilmBlock.args = {
   title: 'Carbon Film',
   subTitle: 'Non-Metal / Fading, Color Stable, Dyed',
   imagePath: './assets/carbon-film.png',
+  mobileImagePath: './assets/mobile-carbon-film.png',
+  showSubTitle: true,
   imageLabel: 'A Car with Carbon Film applied',
   infoList: carbonFilmInfoList
 };
@@ -137,6 +142,8 @@ CeramicFilmBlock.args = {
   title: 'Ceramic Film',
   subTitle: 'Non-Metal, Maximum Heat Rejection',
   imagePath: './assets/ceramic-film.png',
+  mobileImagePath: './assets/mobile-ceramic-film.png',
+  showSubTitle: true,
   imageLabel: 'A Car with Ceramic Film applied',
   infoList: ceramicFilmInfoList
 };

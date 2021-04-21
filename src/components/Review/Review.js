@@ -68,8 +68,8 @@ const Review = ({ content, colors }) => {
       </StyledReviewContent>
       {Array(content.star)
         .fill()
-        .map(_ => (
-          <Icon type="star" color="yellow" />
+        .map((_, idx) => (
+          <Icon key={idx} type="star" color="yellow" />
         ))}
       <StyledReviewInfo aria-label="writer" colors={colors}>
         {content.name}

@@ -61,7 +61,7 @@ const Paragraph = ({
   headingNum,
   items,
   icon,
-  iconColor,
+  iconcolor,
   stroke,
   children,
   colors,
@@ -93,7 +93,7 @@ const Paragraph = ({
                     {icon && (
                       <Icon
                         type={icon}
-                        color={iconColor}
+                        color={iconcolor}
                         stroke={stroke}
                         width="20"
                         height="20"
@@ -110,7 +110,7 @@ const Paragraph = ({
                 {icon && (
                   <Icon
                     type={icon}
-                    color={iconColor}
+                    color={iconcolor}
                     stroke={stroke}
                     width="20"
                     height="20"
@@ -136,7 +136,7 @@ Paragraph.propTypes = {
   items: array,
   icon: string,
   stroke: string,
-  iconColor: string,
+  iconcolor: string,
   colors: object,
   size: number,
   link: bool,
@@ -149,7 +149,7 @@ Paragraph.defaultProps = {
   type: 'normal',
   items: [],
   colors: { main: colors.black, sub: colors.black },
-  size: fontSizes.base,
+  size: 16,
   link: false
 };
 
