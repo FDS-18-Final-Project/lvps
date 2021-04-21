@@ -65,7 +65,7 @@ const Navbar = ({ ...restProps }) => {
         <NavLink to="/FAQ">FAQ</NavLink>
       </li>
       <li>
-        <NavLink to="/contact-us">CONTACT US</NavLink>
+        <NavLink to="/ContactUs">CONTACT US</NavLink>
       </li>
     </NavbarContainer>
   );

@@ -18,9 +18,10 @@ const Routes = () => (
     <Route path="/" exact>
       <Home />
     </Route>
-    <Route path="/home" exact>
+    <Route path="/home">
       <Home />
     </Route>
+
     <Route path="/mainService" component={MainService} />
     <Route path="/serviceCeramic" component={ServiceCeramic} />
     <Route path="/paintProtection" component={PaintProtectionFilm} />

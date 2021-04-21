@@ -119,6 +119,8 @@ const StyledPackageListContainer = styled.div`
   padding: 0 ${({ numOfProd }) => (numOfProd <= 3 ? calcRem(160) : 0)} 3.75rem;
 
   & div {
+    cursor: pointer;
+
     margin: ${({ numOfProd }) => numOfProd === 1 && '0 auto'};
   }
 `;

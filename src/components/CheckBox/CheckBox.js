@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { fontSizes, colors, calcRem } from 'theme/theme';
 import Icon from 'components/Icon/Icon';
 import { AnimatePresence } from 'framer-motion';
+import Portal from 'utils/portal';
 
 const CheckBoxContainer = styled.label`
   display: inline-block;
@@ -74,9 +75,9 @@ const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
     setConfirm(false);
   };
 
-  // useEffect(() => {
-  //   document.body.style.overflow = visible ? 'hidden' : 'initial';
-  // });
+  useEffect(() => {
+    // document.body.style.overflow = visible ? 'hidden' : 'initial';
+  });
 
   return (
     <>
@@ -98,25 +99,27 @@ const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
 
       <AnimatePresence>
         {visible && (
-          <Modal
-            onChange={handleModalVisible}
-            confirmCheck={handleConfirmCheck}
-            initial={{
-              opacity: 0,
-              y: -200,
-              transition: { duration: 0.3 }
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              transition: { duration: 0.3 }
-            }}
-            exit={{
-              y: -200,
-              opacity: 0,
-              transition: { duration: 0.3 }
-            }}
-          />
+          <Portal id="modal-root">
+            <Modal
+              onChange={handleModalVisible}
+              confirmCheck={handleConfirmCheck}
+              initial={{
+                opacity: 0,
+                y: -200,
+                transition: { duration: 0.3 }
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.3 }
+              }}
+              exit={{
+                y: -200,
+                opacity: 0,
+                transition: { duration: 0.3 }
+              }}
+            />
+          </Portal>
         )}
       </AnimatePresence>
     </>

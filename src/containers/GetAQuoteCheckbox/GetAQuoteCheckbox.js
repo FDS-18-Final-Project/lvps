@@ -59,6 +59,7 @@ const FullContainer = styled.section`
       font-size: ${fontSizes.small};
       line-height: ${calcRem(21)};
       color: ${colors.redMain};
+      text-align: center;
     }
 
     input {
@@ -94,6 +95,7 @@ const GetAQuoteCheckboxContainer = styled.div`
 const GetAQuoteCheckbox = () => {
   const dispatch = useDispatch();
   const { desktop } = useViewSize();
+
   const handleReset = (actionFunc, key) => {
     return reset => {
       dispatch(actionFunc());

@@ -60,6 +60,7 @@ const GetAQuoteFormSection = () => {
   return (
     <FullContainer>
       <Paragraph
+        id="paragraph"
         className="paragraph"
         title="Get a quote"
         size={24}
