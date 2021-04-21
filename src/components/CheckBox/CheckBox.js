@@ -17,7 +17,7 @@ const CheckBoxContainer = styled.label`
     position: absolute;
     content: '';
     width: 100%;
-    height: 230px;
+    height: 60%;
     opacity: ${({ confirm }) => (confirm ? 0.8 : 1)};
     background-color: black;
     background-image: url(${({ imagePath }) => imagePath});

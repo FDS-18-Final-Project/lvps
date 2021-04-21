@@ -125,35 +125,40 @@ const accordionState = [
     with 3 times the hardness and self cleaning properties.
     `,
     imagePath: 'assets/OurBestServiceImage_01.png',
-    active: true
+    active: true,
+    to: 'serviceCeramic'
   },
   {
     id: 2,
     title: 'Paint Protection Film',
     description: `It  protects your vehicle’s paint from everyday damages.`,
     imagePath: 'assets/OurBestServiceImage_02.png',
-    active: false
+    active: false,
+    to: 'paintProtection'
   },
   {
     id: 3,
     title: 'Window Tinting',
     description: `Protect yourself from 99% harmful cancer causing UV rays & achieve the privacy you desire with window tinting.`,
     imagePath: 'assets/OurBestServiceImage_03.png',
-    active: false
+    active: false,
+    to: 'windowTinting'
   },
   {
     id: 4,
     title: 'Detailing & Paint Correction',
     description: `Get your car back to like when you bought it new with an interior/exterior packages we offer.`,
     imagePath: 'assets/OurBestServiceImage_04.png',
-    active: false
+    active: false,
+    to: 'DetailingAndCorrection'
   },
   {
     id: 5,
     title: 'Wheel & Tire',
     description: `We work with most wheel and tires distributors and can get you the wheels and tires you need.`,
     imagePath: 'assets/OurBestServiceImage_05.png',
-    active: false
+    active: false,
+    to: 'WheelAndTire'
   }
 ];
 

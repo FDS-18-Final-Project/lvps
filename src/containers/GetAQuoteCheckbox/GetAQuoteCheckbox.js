@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { calcInterval, fontSizes, calcRem, colors } from 'theme/theme';
 import CeramicProModalDialog from 'containers/ModalDialog/CeramicProModalDialog';
 import DetailModalDialog from 'containers/ModalDialog/DetailModalDialog';
@@ -17,27 +17,32 @@ import CheckBox from 'components/CheckBox/CheckBox';
 import Layout from 'pages/Layout/Layout';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import { useViewSize } from 'hooks';
 
 const FullContainer = styled.section`
   position: relative;
-  background-color: rgba(45, 45, 45, 0.8);
-  padding: ${calcInterval([80, 0, 146])};
+  padding: ${calcInterval([30, 0])};
+  ${({ desktop }) =>
+    desktop &&
+    css`
+      background-color: rgba(45, 45, 45, 0.8);
+      padding: ${calcInterval([80, 0, 146])};
 
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background-image: url('assets/dummy_staff.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background-image: url('assets/dummy_staff.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    `}
   h2 {
     font-size: ${fontSizes.titleBase};
     line-height: ${calcRem(67)};
@@ -48,10 +53,23 @@ const FullContainer = styled.section`
   .btnContainer {
     margin-top: 50px;
   }
+
+  @media only screen and (max-width: 768px) {
+    h2 {
+      font-size: ${fontSizes.small};
+      line-height: ${calcRem(21)};
+      color: ${colors.redMain};
+    }
+
+    input {
+      width: 205px;
+      height: 260px;
+    }
+  }
 `;
 
 const GetAQuoteCheckboxContainer = styled.div`
-  background-color: rgba(45, 45, 45, 0.8);
+  background-color: ${({ desktop }) => desktop && `rgba(45, 45, 45, 0.8)`};
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -60,11 +78,22 @@ const GetAQuoteCheckboxContainer = styled.div`
   label {
     margin: ${calcInterval([25, 37])};
   }
+
+  @media only screen and (max-width: 768px) {
+    padding: ${calcInterval([20, 10])};
+
+    label {
+      margin: ${calcInterval([10, 10])};
+    }
+    label::after {
+      font-size: ${fontSizes.small};
+    }
+  }
 `;
 
 const GetAQuoteCheckbox = () => {
   const dispatch = useDispatch();
-
+  const { desktop } = useViewSize();
   const handleReset = (actionFunc, key) => {
     return reset => {
       dispatch(actionFunc());
@@ -74,9 +103,9 @@ const GetAQuoteCheckbox = () => {
   };
 
   return (
-    <FullContainer>
+    <FullContainer desktop={desktop ? 1 : 0}>
       <h2>You Can Choose Multiple Services</h2>
-      <GetAQuoteCheckboxContainer>
+      <GetAQuoteCheckboxContainer desktop={desktop ? 1 : 0}>
         <CheckBox
           label="CERAMIC COATING"
           Modal={CeramicProModalDialog}
@@ -104,7 +133,7 @@ const GetAQuoteCheckbox = () => {
         />
       </GetAQuoteCheckboxContainer>
       <Layout.FlexContainer className="btnContainer">
-        <Button>
+        <Button mode="link" to="/GetAQuoteForm">
           Next
           <Icon
             className="icon"

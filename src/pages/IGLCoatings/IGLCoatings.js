@@ -1,6 +1,7 @@
-import { GetAQuoteBanner, IGLProtectionProducts } from 'containers';
 import CarCareGuide from 'containers/CarCareGuide/CarCareGuide';
 import FeaturesBenefits from 'containers/FeaturesBenefits/FeaturesBenefits';
+import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
+import IGLProtectionProducts from 'containers/IGLProtectionProducts/IGLProtectionProducts';
 import ServiceInfoType2 from 'containers/ServiceInfoType2/ServiceInfoType2';
 import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';

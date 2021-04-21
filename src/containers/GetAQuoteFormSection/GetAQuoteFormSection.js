@@ -26,8 +26,7 @@ const FullContainer = styled.section`
   .paragraph {
     border-bottom: 1px solid ${colors.lightGray};
     text-align: center;
-    padding: ${calcInterval([55, 0, 74])};
-    margin-bottom: ${calcRem(39)};
+    padding: ${calcInterval([55, 0])};
     h2 {
       font-size: ${fontSizes.titleLarge};
       font-weight: 800;
@@ -41,6 +40,20 @@ const FullContainer = styled.section`
       font-weight: 700;
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    .paragraph {
+      padding: ${calcInterval([40, 0])};
+      h2 {
+        font-size: ${fontSizes.xl};
+        line-height: ${calcRem(36)};
+        font-weight: 800;
+      }
+      p {
+        font-size: ${fontSizes.small};
+      }
+    }
+  }
 `;
 
 const GetAQuoteFormSection = () => {
@@ -52,7 +65,7 @@ const GetAQuoteFormSection = () => {
         size={24}
         headingNum={2}
       >
-        Meet Our Quality Services
+        LVS for your car
       </Paragraph>
       <GetAQuoteForm />
     </FullContainer>

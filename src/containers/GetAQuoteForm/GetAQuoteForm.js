@@ -31,22 +31,6 @@ const FullContainer = styled.section`
     background-position: center;
     transition: 0.3s;
   }
-
-  h1,
-  p {
-    color: ${colors.white};
-  }
-
-  @media only screen and (max-width: 768px) {
-    h1 {
-      font-size: ${fontSizes.xl};
-      line-height: ${calcRem(36)};
-      font-weight: 800;
-    }
-    p {
-      font-size: ${fontSizes.small};
-    }
-  }
 `;
 
 const FormContainer = styled.div`
@@ -181,7 +165,6 @@ const GetAQuoteForm = () => {
   });
   return (
     <FullContainer>
-      <SubPageTitle title="Get a quote" desc="Meet Our Quality Services" />
       <FormContainer>
         <StyledForm onSubmit={formik.handleSubmit}>
           <StyledFieldset>
