@@ -74,7 +74,7 @@ const GetAQuoteCheckboxContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  padding: ${calcInterval([20, 200, 50])};
+  padding: ${calcInterval([20, 10, 50])};
 
   label {
     margin: ${calcInterval([25, 37])};
