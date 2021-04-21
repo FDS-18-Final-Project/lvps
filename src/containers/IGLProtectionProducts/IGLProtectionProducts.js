@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import PriceCardLayout from 'pages/Layout/PriceCardLayout';
 import TitlePriceTable from 'components/PriceTable/TitlePriceTable';
 import Carousel from 'components/Carousel/Carousel';
+import { calcRem } from 'theme/theme';
 
 const product_01 = [
   'Premium high solids silica coating',
@@ -78,6 +79,18 @@ const StyledIGLProtectionProductsContainer = styled(PriceCardLayout)`
       rgba(255, 255, 255, 0) 100%
     ),
     #ffffff;
+
+  .card-container {
+    div {
+      padding-left: ${calcRem(10)};
+    }
+    li {
+      line-height: 1.4;
+    }
+    li > div {
+      margin-right: 8px;
+    }
+  }
 `;
 
 const IGLProtectionProducts = () => {

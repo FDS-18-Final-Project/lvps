@@ -42,7 +42,7 @@ const StyledAutoCompleteContainer = styled.ul`
   min-width: 87%;
   font-weight: bold;
   box-sizing: border-box;
-  /* padding: ${calcRem(4)}; */
+  z-index: 1000;
 
   li {
     padding: ${calcInterval([10, 20])};
@@ -109,6 +109,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
         <StyledAutoCompleteContainer>
           {results.map((item, idx) => (
             <li
+              key={idx}
               style={
                 idx === focusIdx ? { backgroundColor: colors.gray_03 } : null
               }

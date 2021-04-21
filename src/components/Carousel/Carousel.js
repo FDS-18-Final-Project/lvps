@@ -20,9 +20,18 @@ const Slides = styled.ul`
 `;
 
 const StyledCarouselButton = styled(Icon)`
-  position: absolute;
-  top: 50%;
-  ${({ direction }) => (direction === 'left' ? 'left: 0' : 'right: 0')};
+  .iconButton {
+    position: relative;
+    background-color: red;
+  }
+
+  & > button {
+    position: absolute;
+    top: 50%;
+    ${({ direction }) => (direction === 'left' ? 'left: 0' : 'right: 0')};
+  }
+
+  display: ${({ desktop }) => !desktop && 'none'};
 `;
 
 const Carousel = ({ type, contents, ...restProps }) => {
@@ -60,7 +69,8 @@ const Carousel = ({ type, contents, ...restProps }) => {
         direction="right"
         color={colors.lightGray}
         onClick={moveNext}
-        width={desktop ? '45' : '20'}
+        width={desktop ? '40' : '20'}
+        desktop={desktop}
         className="iconButton"
       />
       <StyledCarouselButton
@@ -69,8 +79,9 @@ const Carousel = ({ type, contents, ...restProps }) => {
         direction="left"
         color={colors.lightGray}
         onClick={movePrev}
-        width={desktop ? '45' : '20'}
+        width={desktop ? '40' : '20'}
         className="iconButton"
+        desktop={desktop}
       />
       <Indicator
         contents={contents}

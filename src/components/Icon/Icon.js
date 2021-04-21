@@ -33,6 +33,7 @@ const Icon = ({
   link,
   to,
   stylesForContainer,
+  className,
   children,
   ...restProps
 }) => {
@@ -53,6 +54,7 @@ const Icon = ({
     <StyledIconContainer
       color={color}
       stroke={stroke}
+      className={className}
       {...motionProps}
       {...stylesForContainer}
     >
@@ -75,7 +77,7 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   type: 'rightArrow',
-  color: 'red_05',
+  color: '',
   stroke: '',
   button: false,
   link: false

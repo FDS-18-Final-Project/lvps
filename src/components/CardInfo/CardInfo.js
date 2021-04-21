@@ -45,7 +45,7 @@ const cardInfolist = [
 ];
 
 const CardInfo = ({
-  iconColor,
+  iconcolor,
   fgColor,
   infoList,
   nonSelectedIdx,
@@ -57,7 +57,7 @@ const CardInfo = ({
         <li key={info}>
           <Icon
             type="checked"
-            color={idx >= nonSelectedIdx ? colors.lightGray : colors[iconColor]}
+            color={idx >= nonSelectedIdx ? colors.lightGray : colors[iconcolor]}
             width={calcRem(17)}
             className={idx >= nonSelectedIdx ? 'non-selected-icon' : ''}
           />
@@ -75,13 +75,13 @@ const CardInfo = ({
 };
 
 CardInfo.propTypes = {
-  iconColor: string,
+  iconcolor: string,
   fgColor: string,
   infoList: array
 };
 
 CardInfo.defaultProps = {
-  iconColor: 'redMain',
+  iconcolor: 'redMain',
   fgColor: 'black',
   infoList: cardInfolist,
   padding: [0]

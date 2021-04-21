@@ -82,9 +82,9 @@ const PriceTableContainer = styled.div`
 
 const PriceCardLayout = ({
   title,
-  type,
-  icon,
-  contents,
+  // type,
+  // icon,
+  // contents,
   children,
   cardList,
   marginRight,

@@ -105,7 +105,7 @@ Footer.Contents = () => {
           'Wheel & Tire'
         ]}
         icon="map"
-        iconColor={colors.white}
+        iconcolor={colors.white}
         size={12}
       />
 

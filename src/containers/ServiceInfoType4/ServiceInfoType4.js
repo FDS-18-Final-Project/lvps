@@ -194,7 +194,7 @@ const ServiceInfoType4 = ({
                   </div>
                 </ImageSideContainer>
               )}
-              <Paragraph type="normal" headingNum="4">
+              <Paragraph type="normal" headingNum={4}>
                 {children}
               </Paragraph>
               {infoList && <CardInfo infoList={infoList}></CardInfo>}

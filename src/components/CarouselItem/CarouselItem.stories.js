@@ -2,7 +2,7 @@
 import GlobalStyle from 'styles/GlobalStyle';
 import CarouselItem from './CarouselItem';
 import theme from 'theme/theme';
-// import PriceTable from 'components/PriceTable/PriceTable';
+import PriceTable from 'components/PriceTable/PriceTable';
 
 const { colors } = theme;
 
@@ -83,7 +83,7 @@ export const CarouselCardItem = Template.bind({});
 
 CarouselCardItem.args = {
   type: 'card',
-  // content: [<PriceTable />],
+  content: [<PriceTable />],
   active: true
 };
 

@@ -172,16 +172,7 @@ export const cardCarousel = Template.bind({});
 
 cardCarousel.args = {
   type: 'card',
-  contents: [
-    <TitlePriceTable
-      heading="Glass"
-      title="Starting from"
-      price={199}
-      info={option_01}
-      priceColor="pink"
-      hover
-    />
-  ]
+  contents: carouselCards
 };
 
 cardCarousel.storyName = '카드 캐러셀';
