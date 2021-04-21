@@ -40,8 +40,8 @@ const Input = forwardRef(
   ) => {
     return (
       <InputContainer
-        error={formik.errors[name]}
-        touch={formik.touched[name]}
+        error={formik?.errors[name]}
+        touch={formik?.touched[name]}
         {...restProps}
       >
         <Layout.FlexContainer as="label" htmlFor={id}>

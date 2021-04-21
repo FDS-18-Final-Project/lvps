@@ -1,5 +1,5 @@
 import React from 'react';
-import { array, string, oneOf } from 'prop-types';
+import { array, string, oneOf, number } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, fontSizes, device, calcInterval } from 'theme/theme';
 import CardInfo from 'components/CardInfo/CardInfo';
@@ -92,6 +92,8 @@ const StyledContentContainer = styled.div`
   ul {
     padding: 0;
     width: 100%;
+    padding-bottom: 50px;
+    padding-bottom: ${({ paddingBottom }) => calcRem(paddingBottom)};
     margin: ${calcRem(20)} auto 0;
   }
   ul li p {
@@ -127,10 +129,11 @@ const ServiceInfoType2 = ({
   showSubTitle,
   mobileImagePath,
   imageLabel,
-  infoList
+  infoList,
+  iconcolor,
+  paddingBottom
 }) => {
   const { desktop, mobile } = useViewSize();
-
   return (
     <ServiceInfoType2Container>
       <A11yHidden as="h2">{title}</A11yHidden>
@@ -143,7 +146,7 @@ const ServiceInfoType2 = ({
           </ImageSideContainer>
         )}
         <ContentSideContainer>
-          <StyledContentContainer mode={mode}>
+          <StyledContentContainer mode={mode} paddingBottom={paddingBottom}>
             <h3>{title}</h3>
             {mobile && (
               <ImageSideContainer>
@@ -154,8 +157,9 @@ const ServiceInfoType2 = ({
             )}
             <Paragraph
               type="normal"
+              // TODO: warning 해결
               title={(desktop || (mobile && showSubTitle)) && subTitle}
-              headingNum="4"
+              headingNum={4}
             >
               {children}
             </Paragraph>
@@ -183,7 +187,8 @@ ServiceInfoType2.propTypes = {
   showSubTitle: bool,
   mobileImagePath: string,
   imageLabel: string,
-  infoList: array
+  infoList: array,
+  paddingBottom: number
 };
 
 ServiceInfoType2.defaultProps = {
@@ -195,7 +200,8 @@ ServiceInfoType2.defaultProps = {
   showSubTitle: false,
   mobileImagePath: '',
   imageLabel: 'Car Image',
-  infoList: []
+  infoList: [],
+  paddingBottom: 0
 };
 
 FullContainer.displayName = 'FullContainer';

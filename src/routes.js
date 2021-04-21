@@ -10,6 +10,7 @@ import MainService from 'pages/MainService/MainService';
 import ServiceCeramic from 'pages/ServiceCeramic/ServiceCeramic';
 import PaintProtectionFilm from 'pages/PaintProtectionFilm/PaintProtectionFilm';
 import ContactUs from 'pages/ContactUs/ContactUs';
+import IGLCoatings from 'pages/IGLCoatings/IGLCoatings';
 import WindowTinting from './pages/WindowTinting/WindowTinting';
 const Routes = () => (
   <Switch>
@@ -28,6 +29,7 @@ const Routes = () => (
     <Route path="/DetailingAndCorrection" component={DetailingAndCorrection} />
     <Route path="/ContactUs" component={ContactUs} />
     <Route path="/GetAQuote" component={GetAQuoteFormSection} />
+    <Route path="/IGLCoatings" component={IGLCoatings} />
     <Route path="/PageNotFound" component={PageNotFound} />
     <Redirect to="/PageNotFound" />
   </Switch>

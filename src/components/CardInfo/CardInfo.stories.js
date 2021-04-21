@@ -9,7 +9,7 @@ export default {
     docs: {
       description: {
         component:
-          '카드 설명을 렌더링하는 CardInfo 컴포넌트입니다. iconColor와 fgColor를 받을 수 있습니다.'
+          '카드 설명을 렌더링하는 CardInfo 컴포넌트입니다. iconcolor와 fgColor를 받을 수 있습니다.'
       }
     },
     design: {
@@ -19,7 +19,7 @@ export default {
     }
   },
   argTypes: {
-    iconColor: {
+    iconcolor: {
       description: '아이콘 색깔',
       control: {
         type: 'select',
@@ -86,14 +86,14 @@ const Template = args => (
 
 export const DefaultInfo = Template.bind({});
 DefaultInfo.args = {
-  iconColor: 'redMain',
+  iconcolor: 'redMain',
   fgColor: 'black',
   infoList: cardInfolist
 };
 
 export const GrayInfo = Template.bind({});
 GrayInfo.args = {
-  iconColor: 'lightGray',
+  iconcolor: 'lightGray',
   fgColor: 'lightGray',
   infoList: cardInfolist
 };

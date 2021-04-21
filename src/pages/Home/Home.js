@@ -7,8 +7,11 @@ import CardExplanation from 'containers/CardExplanation/CardExplanation';
 import OurBestServices from 'containers/OurBestServices/OurBestServices';
 import SubBanner from 'containers/SubBanner/SubBanner';
 import Icon from 'components/Icon/Icon';
-import Review from 'containers/Review/Review';
+import Reviews from 'containers/Reviews/Reviews';
+
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
+import FeaturesBenefits from 'containers/FeaturesBenefits/FeaturesBenefits';
+import CarCareGuide from 'containers/CarCareGuide/CarCareGuide';
 
 const squareCardList = [
   {
@@ -99,7 +102,9 @@ const Home = () => {
       />
       <GetAQuoteBanner />
 
-      <Review />
+      <Reviews />
+      <FeaturesBenefits />
+      <CarCareGuide />
     </>
   );
 };

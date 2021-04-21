@@ -75,8 +75,8 @@ const StyledIconExplanListContainer = styled(Layout.FlexContainer)`
     margin-right: ${calcRem(40)};
 
     path {
-      fill: none;
-      stroke: none;
+      /* fill: none; */
+      /* stroke: none; */
     }
   }
   @media only screen and (max-width: 768px) {
@@ -89,6 +89,7 @@ const IconParagraphLayout = ({
   contents,
   paragraphWidth,
   direction,
+  textAlign,
   className
 }) => {
   const { desktop } = useViewSize();
@@ -97,7 +98,7 @@ const IconParagraphLayout = ({
       <FullContainer>
         <StyledHeading>{title}</StyledHeading>
         <StyledIconExplanListContainer className={className}>
-          {contents.map(content => (
+          {contents.map((content, idx) => (
             <IconParagraph
               key={content.id}
               direction={desktop ? direction : 'column'}
@@ -105,10 +106,12 @@ const IconParagraphLayout = ({
               iconType={content.iconType}
               paragraphWidth={paragraphWidth}
               className="icon-paragraph"
-              textAlign={{
-                title: 'center',
-                content: desktop ? 'left' : 'center'
-              }}
+              textAlign={
+                textAlign || {
+                  title: 'center',
+                  content: desktop ? 'left' : 'center'
+                }
+              }
             />
           ))}
         </StyledIconExplanListContainer>

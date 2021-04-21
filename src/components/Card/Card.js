@@ -95,7 +95,7 @@ const StyledCard = styled(motion('div'))`
 
 const Card = ({
   type,
-  iconColor,
+  iconcolor,
   content,
   iconType,
   motionProps,
@@ -105,7 +105,7 @@ const Card = ({
     <StyledCard type={type} iconType={iconType} {...motionProps} {...restProps}>
       <IconParagraph
         iconType={iconType}
-        iconColor={iconColor}
+        iconcolor={iconcolor}
         content={content}
       />
     </StyledCard>
@@ -115,7 +115,7 @@ const Card = ({
 Card.propTypes = {
   type: string.isRequired,
   iconType: string.isRequired,
-  iconColor: string,
+  iconcolor: string,
   content: array,
   width: string,
   height: string,
@@ -126,7 +126,7 @@ Card.propTypes = {
 Card.defaultProps = {
   type: 'square',
   iconType: 'likeCircle',
-  iconColor: colors.white,
+  iconcolor: colors.white,
   content: [],
   background: colors.black
 };

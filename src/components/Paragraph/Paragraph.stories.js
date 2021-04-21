@@ -43,7 +43,7 @@ export default {
         options: ['facebook', 'instagram', 'map']
       }
     },
-    iconColor: {
+    iconcolor: {
       description: '아이콘 색',
       control: {
         type: 'select',

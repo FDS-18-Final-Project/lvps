@@ -28,8 +28,6 @@ const Template = args => (
 
 export const IconKeyFeatureBlock = Template.bind({});
 
-IconKeyFeatureBlock.args = {
-  children: [<IconKeyFeature.Title />, <IconKeyFeature.Contents />]
-};
+IconKeyFeatureBlock.args = {};
 
 IconKeyFeatureBlock.storyName = '아이콘 설명 카드 컨테이너';

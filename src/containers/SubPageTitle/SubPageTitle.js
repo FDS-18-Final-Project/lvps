@@ -37,9 +37,7 @@ const SubPageTitle = ({ type, imagePath, title, desc }) => {
   return (
     <StyledSubPageContainer>
       <FullContainer>
-        <h1>
-          {type === 'img' ? <img src={imagePath} alt={title}></img> : title}
-        </h1>
+        <h1>{type === 'img' ? <img src={imagePath} alt={title} /> : title}</h1>
         <p>{desc}</p>
       </FullContainer>
     </StyledSubPageContainer>

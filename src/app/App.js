@@ -9,7 +9,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <GetAQuoteForm />
+      {/* <GetAQuoteForm /> */}
       <Routes />
       <Footer />
     </BrowserRouter>

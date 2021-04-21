@@ -76,7 +76,7 @@ const PriceTable = ({
   price,
   maxWidth,
   fgColor,
-  iconColor,
+  iconcolor,
   icon,
   children,
   heading,
@@ -119,7 +119,7 @@ const PriceTable = ({
           minHeight={minHeight}
           nonSelectedIdx={nonSelectedIdx}
           fgColor={fgColor}
-          iconColor={iconColor}
+          iconcolor={iconcolor}
         />
       ) : (
         <CardInfoTitleDescription minHeight={minHeight} infoList={info} />
@@ -133,7 +133,7 @@ PriceTable.propTypes = {
   maxWidth: number,
   minHeight: number,
   fgColor: string,
-  iconColor: string,
+  iconcolor: string,
   title: oneOfType([string, node]),
   price: number,
   icon: bool,
@@ -148,7 +148,7 @@ PriceTable.defaultProps = {
   price: '4500',
   maxWidth: 500,
   fgColor: 'black',
-  iconColor: 'redMain',
+  iconcolor: 'redMain',
   iconContents: contents,
   descriptionContainer: null
 };
