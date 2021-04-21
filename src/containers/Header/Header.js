@@ -26,6 +26,9 @@ const HeaderContainer = styled.header`
     margin-left: ${calcRem(15)};
   }
 
+  svg {
+    height: 80px;
+  }
   @media only screen and (max-width: 1200px) {
     padding: ${calcInterval([0, 50])};
     a {
@@ -52,13 +55,6 @@ const IconContainer = styled(Layout.FlexContainer)`
   @media only screen and (max-width: 1200px) {
     svg {
       width: ${calcRem(18)};
-    }
-  }
-  @media only screen and (max-width: 768px) {
-    flex: 0;
-
-    svg {
-      width: 25px;
     }
   }
 
