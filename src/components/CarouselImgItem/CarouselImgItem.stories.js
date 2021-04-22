@@ -23,7 +23,7 @@ export default {
 
 const carouselImg = {
   id: 1,
-  path: 'assets/dummy_background.png'
+  path: 'assets/ceramicOurWorks_01.png'
 };
 
 const Template = args => (

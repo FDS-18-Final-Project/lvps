@@ -34,7 +34,6 @@ const StyledFieldset = styled.fieldset`
 
 const StyledAutoCompleteContainer = styled.ul`
   position: absolute;
-  z-index: 100;
   top: 70%;
   background-color: ${colors.white};
   color: ${colors.black};
@@ -42,7 +41,7 @@ const StyledAutoCompleteContainer = styled.ul`
   min-width: 87%;
   font-weight: bold;
   box-sizing: border-box;
-  z-index: 1000;
+  z-index: 10000;
 
   li {
     padding: ${calcInterval([10, 20])};

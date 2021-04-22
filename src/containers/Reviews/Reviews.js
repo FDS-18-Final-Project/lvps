@@ -48,7 +48,8 @@ const reviews = [
 ];
 
 const StyledReviewContainer = styled.section`
-  background: url('assets/dummy_background.png') no-repeat;
+  position: relative;
+  background: url('assets/reviewBackground.png') no-repeat;
   background-size: cover;
   background-position: center;
   padding: ${calcInterval([75, 100])};
@@ -58,7 +59,19 @@ const StyledReviewContainer = styled.section`
   }
 `;
 
+const StyledOverlay = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #2d2d2d;
+  z-index: 100;
+  opacity: 0.6;
+`;
+
 const FullContainer = styled.div`
+  z-index: 1000;
   max-width: ${calcRem(1200)};
   margin: 0 auto;
   position: relative;
@@ -107,6 +120,7 @@ const StyledReviewTitleContainer = styled(Layout.FlexContainer)`
 const Reviews = () => {
   return (
     <StyledReviewContainer>
+      <StyledOverlay />
       <FullContainer>
         <Reviews.Title />
         <Reviews.Contents />

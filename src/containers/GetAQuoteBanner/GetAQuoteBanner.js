@@ -1,4 +1,4 @@
-import { string } from 'prop-types';
+import { string, number } from 'prop-types';
 import styled from 'styled-components';
 import { colors, calcInterval, calcRem, fontSizes, device } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
@@ -77,7 +77,8 @@ const GetAQuoteBanner = ({
   styledmode,
   borderColor,
   hoverColor,
-  iconcolor
+  iconcolor,
+  width
 }) => {
   const { desktop } = useViewSize();
   return (
@@ -94,6 +95,7 @@ const GetAQuoteBanner = ({
             styledmode={styledmode}
             linkText={linkText}
             desktop={desktop}
+            width={width}
           />
         </FullContainer>
       ) : (
@@ -126,13 +128,13 @@ GetAQuoteBanner.Title = ({ title, desc }) => {
   );
 };
 
-GetAQuoteBanner.Link = ({ linkText, styledmode }) => {
+GetAQuoteBanner.Link = ({ linkText, styledmode, width }) => {
   return (
     <Button
       styledmode={styledmode}
       mode="link"
       to="/"
-      width={220}
+      width={width}
       fontSize={18}
       padding="10"
     >
@@ -158,14 +160,16 @@ GetAQuoteBanner.propTypes = {
   /** 배너 링크(버튼) 호버시 색 */
   hoverColor: string,
   /** 배너 링크(버튼) 아이콘 색 */
-  iconcolor: string
+  iconcolor: string,
+  width: number
 };
 
 GetAQuoteBanner.defaultProps = {
   title: 'Get a Free Quote',
   color: 'red_05',
   linkText: 'Get a Free Quote',
-  styledmode: 'secondary'
+  styledmode: 'secondary',
+  width: 220
 };
 
 StyledGetAQuoteBannerContainer.displayName = 'StyledGetAQuoteBannerContainer';

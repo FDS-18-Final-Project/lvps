@@ -85,7 +85,7 @@ const Home = () => {
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
       <A11yHidden>Main Page</A11yHidden>
-      <MainBanner bgImg="assets/dummy_background_02.png"></MainBanner>
+      <MainBanner bgImg="assets/Mainbanner.png"></MainBanner>
       <ServiceInfo
         mode="left"
         imagePath="assets/AboutUsCar.png"

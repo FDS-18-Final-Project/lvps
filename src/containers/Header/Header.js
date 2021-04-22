@@ -55,7 +55,7 @@ const HeaderContainer = styled.header`
     .MobileNav {
       position: absolute;
       width: ${calcRem(350)};
-      z-index: 1000;
+      z-index: 10000;
       top: ${calcRem(65)};
       right: ${calcRem(-10)};
     }

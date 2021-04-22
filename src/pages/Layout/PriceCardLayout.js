@@ -15,10 +15,15 @@ const flexStyle = css`
 `;
 
 const StyledPriceCardContainer = styled.section`
-  /* padding: ${calcInterval([0, 50])}; */
   ${device.desktop} {
     & > div > h2 {
-      margin-left: ${calcRem(50)};
+      padding-left: ${calcRem(50)};
+    }
+  }
+
+  ${device.tablet} {
+    & > div > h2 {
+      padding-left: 0;
     }
   }
 `;

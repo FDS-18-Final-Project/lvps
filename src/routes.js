@@ -13,6 +13,7 @@ import IGLCoatings from 'pages/IGLCoatings/IGLCoatings';
 import WindowTinting from './pages/WindowTinting/WindowTinting';
 import GetAQuote from 'pages/GetAQuote/GetAQuote';
 import GetAQuotePage from 'pages/GetAQuotePage/GetAQuotePage';
+import FAQPage from 'pages/FAQ/FAQ';
 import { AnimatePresence } from 'framer-motion';
 
 const Routes = () => (
@@ -36,8 +37,8 @@ const Routes = () => (
             />
             <Route path="/contact-us" component={ContactUs} />
             <Route path="/igl-coatings" component={IGLCoatings} />
+            <Route path="/faq" component={FAQPage} />
             <Route path="/get-a-quote" component={GetAQuote} />
-            <Route path="/get-a-quote-form" component={GetAQuotePage} />
             <Route path="/page-not-found" component={PageNotFound} />
           </Switch>
         </AnimatePresence>
