@@ -10,7 +10,6 @@ import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
-import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 
 const FullContainer = styled.section`
   position: relative;
@@ -31,25 +30,6 @@ const FullContainer = styled.section`
     background-position: center;
     transition: 0.3s;
   }
-<<<<<<< Updated upstream
-=======
-
-  /* h1,
-  p {
-    color: ${colors.white};
-  }
-
-  @media only screen and (max-width: 768px) {
-    h1 {
-      font-size: ${fontSizes.xl};
-      line-height: ${calcRem(36)};
-      font-weight: 800;
-    }
-    p {
-      font-size: ${fontSizes.small};
-    }
-  } */
->>>>>>> Stashed changes
 `;
 
 const FormContainer = styled.div`

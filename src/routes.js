@@ -13,28 +13,37 @@ import IGLCoatings from 'pages/IGLCoatings/IGLCoatings';
 import WindowTinting from './pages/WindowTinting/WindowTinting';
 import GetAQuote from 'pages/GetAQuote/GetAQuote';
 import GetAQuotePage from 'pages/GetAQuotePage/GetAQuotePage';
-const Routes = () => (
-  <Switch>
-    <Route path="/" exact>
-      <Home />
-    </Route>
-    <Route path="/home">
-      <Home />
-    </Route>
+import { AnimatePresence } from 'framer-motion';
 
-    <Route path="/mainService" component={MainService} />
-    <Route path="/serviceCeramic" component={ServiceCeramic} />
-    <Route path="/paintProtection" component={PaintProtectionFilm} />
-    <Route path="/windowTinting" component={WindowTinting} />
-    <Route path="/AboutUs" component={AboutUs} />
-    <Route path="/WheelAndTire" component={WheelAndTire} />
-    <Route path="/DetailingAndCorrection" component={DetailingAndCorrection} />
-    <Route path="/ContactUs" component={ContactUs} />
-    <Route path="/IGLCoatings" component={IGLCoatings} />
-    <Route path="/GetAQuote/" component={GetAQuote} />
-    <Route path="/GetAQuoteForm" component={GetAQuotePage} />
-    <Route path="/PageNotFound" component={PageNotFound} />
-  </Switch>
+const Routes = () => (
+  <Route
+    render={({ location }) => (
+      <>
+        <AnimatePresence exitBeforeEnter initial={false}>
+          <Switch location={location} key={location.pathname}>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/main-service" component={MainService} />
+            <Route path="/ceramic-coating" component={ServiceCeramic} />
+            <Route path="/paint-protection" component={PaintProtectionFilm} />
+            <Route path="/window-tinting" component={WindowTinting} />
+            <Route path="/about-us" component={AboutUs} />
+            <Route path="/wheel-and-tire" component={WheelAndTire} />
+            <Route
+              path="/detailing-and-correction"
+              component={DetailingAndCorrection}
+            />
+            <Route path="/contact-us" component={ContactUs} />
+            <Route path="/igl-coatings" component={IGLCoatings} />
+            <Route path="/get-a-quote" component={GetAQuote} />
+            <Route path="/get-a-quote-form" component={GetAQuotePage} />
+            <Route path="/page-not-found" component={PageNotFound} />
+          </Switch>
+        </AnimatePresence>
+      </>
+    )}
+  />
 );
 
 export default Routes;

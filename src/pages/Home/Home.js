@@ -12,6 +12,7 @@ import Reviews from 'containers/Reviews/Reviews';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import FeaturesBenefits from 'containers/FeaturesBenefits/FeaturesBenefits';
 import CarCareGuide from 'containers/CarCareGuide/CarCareGuide';
+import { motion } from 'framer-motion';
 
 const squareCardList = [
   {
@@ -71,9 +72,18 @@ const squareCardList = [
     fontColor: colors.white
   }
 ];
+
 const Home = () => {
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.2, type: 'tween' }
+      }}
+      enter={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
       <A11yHidden>Main Page</A11yHidden>
       <MainBanner bgImg="assets/dummy_background_02.png"></MainBanner>
       <ServiceInfo
@@ -108,7 +118,7 @@ const Home = () => {
       />
 
       <Reviews />
-    </>
+    </motion.main>
   );
 };
 export default Home;

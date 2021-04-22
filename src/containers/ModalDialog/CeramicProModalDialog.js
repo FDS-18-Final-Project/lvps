@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
 
@@ -159,7 +159,7 @@ const CeramicProModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
 
   return (
     // <Portal id="modal-root">
-    <StyledModalContainer>
+    <StyledModalContainer className="dim">
       <motion.div
         role="dialog"
         aria-modal="true"

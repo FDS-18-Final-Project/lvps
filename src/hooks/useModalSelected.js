@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addService } from 'store/service/service';
 
@@ -57,6 +58,20 @@ const useModalSelected = (
 
     return !selectedItem.length;
   };
+
+  useEffect(() => {
+    const closeModal = e => {
+      if (!e.target.matches('.dim')) return;
+      onChange();
+    };
+    document.body.addEventListener('click', closeModal);
+
+    return () => {
+      console.log('clean');
+      document.body.removeEventListener('click', closeModal);
+    };
+  });
+
   return {
     modalData,
     onlyOneSelected,

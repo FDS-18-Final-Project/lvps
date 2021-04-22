@@ -9,8 +9,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: Inter, Monserrat, sans-serif;    
   }
   html {
-    font-size: 16px;
-  }
+  font-size: 16px;
+
+}
+
   a {
     text-decoration: none;
     color: inherit;

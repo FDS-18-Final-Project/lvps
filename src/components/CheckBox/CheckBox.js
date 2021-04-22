@@ -52,6 +52,12 @@ const CheckBoxContainer = styled.label`
     right: ${calcRem(5)};
     z-index: ${({ confirm }) => (confirm ? 1000 : -1000)};
 
+    svg {
+      path {
+        fill: ${colors.white}
+      }
+    }
+
   }
   .icon {
     position: absolute;
@@ -75,9 +81,9 @@ const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
     setConfirm(false);
   };
 
-  useEffect(() => {
-    // document.body.style.overflow = visible ? 'hidden' : 'initial';
-  });
+  // useEffect(() => {
+  //   document.body.style.overflow = visible && 'hidden';
+  // });
 
   return (
     <>
@@ -90,7 +96,6 @@ const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
         <Icon
           className="resetBtn"
           type="close"
-          color={colors.white}
           button
           onClick={() => handleReset(resetConfirm)}
         />

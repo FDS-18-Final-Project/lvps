@@ -1,5 +1,5 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useLayoutEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { calcInterval, fontSizes, calcRem, colors } from 'theme/theme';
 import CeramicProModalDialog from 'containers/ModalDialog/CeramicProModalDialog';
@@ -18,6 +18,7 @@ import Layout from 'pages/Layout/Layout';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
 import { useViewSize } from 'hooks';
+import GetAQuoteFormSection from 'containers/GetAQuoteFormSection/GetAQuoteFormSection';
 
 const FullContainer = styled.section`
   position: relative;
@@ -74,7 +75,7 @@ const GetAQuoteCheckboxContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  padding: ${calcInterval([20, 10, 50])};
+  padding: ${calcInterval([20, 200, 50])};
 
   label {
     margin: ${calcInterval([25, 37])};
@@ -93,6 +94,8 @@ const GetAQuoteCheckboxContainer = styled.div`
 `;
 
 const GetAQuoteCheckbox = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const selectedService = useSelector(state => state.service);
   const dispatch = useDispatch();
   const { desktop } = useViewSize();
 
@@ -104,48 +107,72 @@ const GetAQuoteCheckbox = () => {
     };
   };
 
+  const handleVisible = () => {
+    setIsVisible(true);
+  };
+
+  useLayoutEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+
+    if (!isVisible) return;
+    const clientRect = document
+      .getElementById('paragraph')
+      .getBoundingClientRect();
+    const relativeTopPosition = clientRect.top;
+
+    const absoluteTopPosition = window.pageYOffset + relativeTopPosition; //절대 좌표
+    window.scrollTo(0, absoluteTopPosition);
+
+    return () => {
+      document.documentElement.style.scrollBehavior = 'initial';
+    };
+  }, [isVisible]);
+
   return (
-    <FullContainer desktop={desktop ? 1 : 0}>
-      <h2>You Can Choose Multiple Services</h2>
-      <GetAQuoteCheckboxContainer desktop={desktop ? 1 : 0}>
-        <CheckBox
-          label="CERAMIC COATING"
-          Modal={CeramicProModalDialog}
-          handleReset={handleReset(ceramicReset, 'ceramicpro')}
-        />
-        <CheckBox
-          label="PAINT PROTECTION FILM"
-          Modal={PPFModalDialog}
-          handleReset={handleReset(ppfReset, 'ppf')}
-        />
-        <CheckBox
-          label="WINDOW TINTING"
-          Modal={WindowModalDialog}
-          handleReset={handleReset(windowReset, 'window')}
-        />
-        <CheckBox
-          label="PROFESSIONAL DETAILING & PAINT CORRECTION"
-          Modal={DetailModalDialog}
-          handleReset={handleReset(detailReset, 'detail')}
-        />
-        <CheckBox
-          label="WHEELS & TIRES"
-          Modal={WheelModalDialog}
-          handleReset={handleReset(wheelAndTireReset, 'wheelAndTire')}
-        />
-      </GetAQuoteCheckboxContainer>
-      <Layout.FlexContainer className="btnContainer">
-        <Button mode="link" to="/GetAQuoteForm">
-          Next
-          <Icon
-            className="icon"
-            type="rightArrow"
-            color={colors.white}
-            width="20"
+    <>
+      <FullContainer desktop={desktop ? 1 : 0}>
+        <h2>You Can Choose Multiple Services</h2>
+        <GetAQuoteCheckboxContainer desktop={desktop ? 1 : 0}>
+          <CheckBox
+            label="CERAMIC COATING"
+            Modal={CeramicProModalDialog}
+            handleReset={handleReset(ceramicReset, 'ceramicpro')}
           />
-        </Button>
-      </Layout.FlexContainer>
-    </FullContainer>
+          <CheckBox
+            label="PAINT PROTECTION FILM"
+            Modal={PPFModalDialog}
+            handleReset={handleReset(ppfReset, 'ppf')}
+          />
+          <CheckBox
+            label="WINDOW TINTING"
+            Modal={WindowModalDialog}
+            handleReset={handleReset(windowReset, 'window')}
+          />
+          <CheckBox
+            label="PROFESSIONAL DETAILING & PAINT CORRECTION"
+            Modal={DetailModalDialog}
+            handleReset={handleReset(detailReset, 'detail')}
+          />
+          <CheckBox
+            label="WHEELS & TIRES"
+            Modal={WheelModalDialog}
+            handleReset={handleReset(wheelAndTireReset, 'wheelAndTire')}
+          />
+        </GetAQuoteCheckboxContainer>
+        <Layout.FlexContainer className="btnContainer">
+          <Button onClick={handleVisible}>
+            Next
+            <Icon
+              className="icon"
+              type="rightArrow"
+              color={colors.white}
+              width="20"
+            />
+          </Button>
+        </Layout.FlexContainer>
+      </FullContainer>
+      {isVisible && <GetAQuoteFormSection />}
+    </>
   );
 };
 

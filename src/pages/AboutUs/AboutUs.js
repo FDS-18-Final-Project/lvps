@@ -3,6 +3,7 @@ import StaffIntroduction from 'containers/StaffIntroduction/StaffIntroduction';
 import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import React from 'react';
 import { colors } from 'theme/theme';
+import { motion } from 'framer-motion';
 
 const CardList = [
   {
@@ -65,7 +66,7 @@ const CardList = [
 
 const AboutUs = () => {
   return (
-    <>
+    <motion.main enter={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <SubMainBanner
         bgImg="/assets/dummyImage.png"
         title="About Us"
@@ -77,7 +78,7 @@ const AboutUs = () => {
       ></CardExplanation>
       <StaffIntroduction />
       {/* <GoogleMap /> */}
-    </>
+    </motion.main>
   );
 };
 
