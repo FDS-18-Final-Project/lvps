@@ -10,7 +10,6 @@ import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
-import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 
 const FullContainer = styled.section`
   position: relative;

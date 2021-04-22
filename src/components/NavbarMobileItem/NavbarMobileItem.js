@@ -1,7 +1,10 @@
+import React, { useState, useEffect } from 'react';
+
 import styled from 'styled-components';
 import { calcRem, colors, fontSizes } from 'theme/theme';
 import { string } from 'prop-types';
 import Button from 'components/Button/Button';
+import { motion } from 'framer-motion';
 
 const StyledText = styled.p`
   margin-left: ${({ type }) => {
@@ -14,10 +17,12 @@ const StyledText = styled.p`
 `;
 
 const StyledButton = styled(Button)`
-  background-color: ${colors.lightGray};
+  /* background-color: ${colors.lightGray}; */
   border: none;
   width: 100%;
-  color: ${colors.black};
+  /* color: ${colors.black}; */
+  background-color: ${colors.black};
+  color: ${colors.white};
   font-size: ${fontSizes.lg};
   justify-content: left;
   &:hover {
@@ -27,17 +32,49 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const StyledButtonContainer = styled.li`
+const mobileMenuVariants = {
+  hidden: {
+    x: 300,
+    opacity: 0
+  },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.4 } },
+  exit: {
+    x: 300,
+    opacity: 0,
+    transition: { duration: 0.4 }
+  }
+};
+
+const StyledButtonContainer = styled(motion.li)`
   border-bottom: ${calcRem(1)} solid transparent;
   display: flex;
 `;
-const NavbarMobileItem = ({ value, type, to }) => {
+
+export const Delay = ({ children, delay }) => {
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    const showTimer = setTimeout(() => setDone(true), delay);
+    return () => clearTimeout(showTimer);
+  });
+
+  return done && <>{children}</>;
+};
+
+const NavbarMobileItem = ({ value, type, to, idx }) => {
   return (
-    <StyledButtonContainer>
-      <StyledButton mode="link" to={to}>
-        <StyledText type={type}>{value}</StyledText>
-      </StyledButton>
-    </StyledButtonContainer>
+    <Delay delay={70 * idx}>
+      <StyledButtonContainer
+        variants={mobileMenuVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
+        <StyledButton mode="link" to={to}>
+          <StyledText type={type}>{value}</StyledText>
+        </StyledButton>
+      </StyledButtonContainer>
+    </Delay>
   );
 };
 

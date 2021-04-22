@@ -138,7 +138,7 @@ const WheelModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
 
   return (
     // <Portal id="modal-root">
-    <StyledModalContainer>
+    <StyledModalContainer className="dim">
       <motion.div
         role="dialog"
         aria-modal="true"
