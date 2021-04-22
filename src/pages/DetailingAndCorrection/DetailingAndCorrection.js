@@ -6,6 +6,7 @@ import ServiceInfoType3 from 'containers/ServiceInfoType3/ServiceInfoType3';
 import DetailingPaintPackage from 'containers/DetailingPaintPackage/DetailingPaintPackage';
 import OurWorks from 'containers/OurWorks/OurWorks';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
+import { motion } from 'framer-motion';
 // import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const paintCorrectionInfoList = [
@@ -19,7 +20,15 @@ const paintCorrectionInfoList = [
 
 const DetailingAndCorrection = () => {
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.2, type: 'tween' }
+      }}
+      enter={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
       <SubMainBanner
         bgImg="/assets/wheel-and-tire.png"
         title="Detailing &amp; Paint Correction"
@@ -46,7 +55,8 @@ const DetailingAndCorrection = () => {
         from any of our detailing and paint correction packages. In addition, we
         treat every vehicle like it's our own as we know that your vehicle is
         very important to you. In conclusion, do not hesitate to contact us
-        today and let us do our magic touch on your car.
+        todayimport {motion} from 'framer-motion'; and let us do our magic touch
+        on your car.
       </ServiceInfoType2>
       <DetailingPaintPackage />
       <ServiceInfoType3
@@ -67,7 +77,7 @@ const DetailingAndCorrection = () => {
         <GetAQuoteBanner.Link />
       </GetAQuoteBanner>
       {/* <GoogleMap/> */}
-    </>
+    </motion.main>
   );
 };
 

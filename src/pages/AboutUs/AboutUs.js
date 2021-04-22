@@ -66,7 +66,15 @@ const CardList = [
 
 const AboutUs = () => {
   return (
-    <motion.main enter={{ opacity: 1 }} exit={{ opacity: 0 }}>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.2, type: 'tween' }
+      }}
+      enter={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
       <SubMainBanner
         bgImg="/assets/dummyImage.png"
         title="About Us"

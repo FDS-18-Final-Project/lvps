@@ -5,10 +5,19 @@ import IGLProtectionProducts from 'containers/IGLProtectionProducts/IGLProtectio
 import ServiceInfoType2 from 'containers/ServiceInfoType2/ServiceInfoType2';
 import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
+import { motion } from 'framer-motion';
 
 const IGLCoatings = () => {
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.2, type: 'tween' }
+      }}
+      enter={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
       <SubMainBanner
         bgImg="/assets/IGLCar.png"
         title="Ceramic Coating"
@@ -82,7 +91,7 @@ const IGLCoatings = () => {
         iconcolor="green"
       />
       {/* TODO: 구글맵 */}
-    </>
+    </motion.main>
   );
 };
 

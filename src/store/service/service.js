@@ -23,7 +23,7 @@ const serviceReducer = (state = initialState, action) => {
     case DELETE_SERVICE:
       return {
         ...state,
-        [action.key]: null
+        [action.key]: []
       };
     default:
       return state;

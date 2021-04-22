@@ -5,11 +5,20 @@ import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import { useViewSize } from 'hooks';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const MainService = () => {
   const { desktop } = useViewSize();
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.2, type: 'tween' }
+      }}
+      enter={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
       <SubMainBanner
         title="Services"
         desc="LVPS Services for your car"
@@ -98,7 +107,7 @@ const MainService = () => {
         styledmode="secondary"
         color="red_05"
       />
-    </>
+    </motion.main>
   );
 };
 

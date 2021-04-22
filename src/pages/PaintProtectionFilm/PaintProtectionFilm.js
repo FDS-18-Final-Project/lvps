@@ -9,6 +9,7 @@ import PaintProtectionFilmPackage from 'containers/PaintProtectionFilmPackage/Pa
 import PaintProtectionFilmOptions from 'containers/PaintProtectionFilmOptions/PaintProtectionFilmOptions';
 import OurWorks from 'containers/OurWorks/OurWorks';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
+import { motion } from 'framer-motion';
 
 const carouselImgs = [
   {
@@ -35,7 +36,15 @@ const carouselImgs = [
 
 const PaintProtectionFilm = () => {
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.2, type: 'tween' }
+      }}
+      enter={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
       <SubMainBanner
         title="Paint Protection Film"
         desc="LVPS for your car"
@@ -75,7 +84,7 @@ const PaintProtectionFilm = () => {
         styledmode="secondary"
         color="red_05"
       />
-    </>
+    </motion.main>
   );
 };
 

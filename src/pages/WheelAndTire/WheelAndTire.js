@@ -2,6 +2,7 @@ import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import BrandList from 'containers/BrandList/BrandList';
 import React from 'react';
 import ServiceInfoType2 from 'containers/ServiceInfoType2/ServiceInfoType2';
+import { motion } from 'framer-motion';
 const tireList = [
   {
     id: 'tire_01',
@@ -169,7 +170,15 @@ const wheelList = [
 ];
 const ContactUs = () => {
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.2, type: 'tween' }
+      }}
+      enter={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
       <SubMainBanner
         bgImg="/assets/wheel-and-tire.png"
         title="Wheel &amp; Tire"
@@ -204,7 +213,7 @@ const ContactUs = () => {
         type="tire"
         tireList={tireList}
       />
-    </>
+    </motion.main>
   );
 };
 
