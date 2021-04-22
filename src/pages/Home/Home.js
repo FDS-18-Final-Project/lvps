@@ -9,8 +9,6 @@ import SubBanner from 'containers/SubBanner/SubBanner';
 import Icon from 'components/Icon/Icon';
 import Reviews from 'containers/Reviews/Reviews';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
-import FeaturesBenefits from 'containers/FeaturesBenefits/FeaturesBenefits';
-import CarCareGuide from 'containers/CarCareGuide/CarCareGuide';
 import { motion } from 'framer-motion';
 
 const squareCardList = [
@@ -105,10 +103,12 @@ const Home = () => {
         title="Our Quality Protection Services"
         cardList={squareCardList}
       />
-      <SubBanner title="Our Works" description="Visit our Instagram.">
-        Visit Instagram
-        <Icon type="instagram" color={colors.white} width={calcRem(25)} />
-      </SubBanner>
+      <a href="https://www.instagram.com/lvps.ca/?hl=en">
+        <SubBanner title="Our Works" description="Visit our Instagram.">
+          Visit Instagram
+          <Icon type="instagram" color={colors.white} width={calcRem(25)} />
+        </SubBanner>
+      </a>
       <GetAQuoteBanner
         title="Get a Free Quote"
         color="red_05"

@@ -31,7 +31,7 @@ const TagText = styled.span`
 const Tag = ({ type, children, ...restProps }) => {
   return (
     <TagBlock {...restProps}>
-      <Icon type={type}>
+      <Icon type={type} title={type}>
         <TagText type={type}>{children}</TagText>
       </Icon>
     </TagBlock>

@@ -170,7 +170,7 @@ Button.defaultProps = {
   disabled: false,
   fullwidth: false,
   role: 'button',
-  //to: '/',
+  to: '#',
   children: 'Button',
   width: 200,
   height: 50,

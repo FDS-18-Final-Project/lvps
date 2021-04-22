@@ -385,7 +385,7 @@ const DetailModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
             </Button>
           </StyledButtonContainer>
           <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
-            <Icon type="close" />
+            <Icon type="close" title="close" />
           </Button>
         </StyledModalBodyContainer>
       </motion.div>

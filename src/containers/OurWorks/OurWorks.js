@@ -98,10 +98,12 @@ OurWorks.Title = ({ desktop }) => {
         Our works about Paint Protection Film
       </Paragraph>
       {desktop ? (
-        <Button width={270} fontSize={18} padding="10">
-          Visit Our Instagram
-          <Icon type="instagram" color={colors.white} />
-        </Button>
+        <a href="https://m.facebook.com/lvps.ca/">
+          <Button width={270} fontSize={18} padding="10">
+            Visit Our Instagram
+            <Icon title="instagram" type="instagram" color={colors.white} />
+          </Button>
+        </a>
       ) : null}
     </StyledOurWorksTitle>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, calcRem, device, fontSizes, calcInterval } from 'theme/theme';
+import { colors, calcRem, device, fontSizes } from 'theme/theme';
 import { useModalSelected, useViewSize } from 'hooks/';
 import { ppfMultiToggleActive, ppfSingleToggleActive } from 'store/modal/ppf';
 import { motion } from 'framer-motion';
@@ -372,7 +372,7 @@ const PPFModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
             </Button>
           </StyledButtonContainer>
           <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
-            <Icon type="close" />
+            <Icon title="close" type="close" />
           </Button>
         </StyledModalBodyContainer>
       </motion.div>

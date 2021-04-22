@@ -134,7 +134,7 @@ const ServiceInfo = ({
         <div className="gridBtn">
           <Button mode="link" to={to} fullwidth>
             {linkText}
-            <Icon type="rightArrow" color={colors.white} />
+            <Icon title="right arrow" type="rightArrow" color={colors.white} />
           </Button>
         </div>
       </ServiceInfoContainer>

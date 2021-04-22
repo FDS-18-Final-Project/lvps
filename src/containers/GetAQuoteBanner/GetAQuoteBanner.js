@@ -1,4 +1,4 @@
-import { string, number } from 'prop-types';
+import { string, number, object, oneOfType, func } from 'prop-types';
 import styled from 'styled-components';
 import { colors, calcInterval, calcRem, fontSizes, device } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
@@ -104,6 +104,7 @@ const GetAQuoteBanner = ({
         <Link to={to} className="getLink">
           {linkText}
           <Icon
+            title="right arrow"
             className="icon"
             type="rightArrow"
             color={colors.white}
@@ -141,14 +142,12 @@ GetAQuoteBanner.Link = ({ linkText, styledmode, width, to }) => {
       padding="10"
     >
       {linkText}
-      <Icon type="rightArrow" color={colors.white} />
+      <Icon title="right arrow" type="rightArrow" color={colors.white} />
     </Button>
   );
 };
 
 GetAQuoteBanner.propTypes = {
-  /** 배너 타이틀 */
-  title: string,
   /** 배너 설명 */
   desc: string,
   /** 배너 링크(버튼) 텍스트 */

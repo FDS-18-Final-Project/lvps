@@ -194,13 +194,20 @@ const StaffIntroduction = () => {
       <StaffIntroductionContainer>
         <h2 class="gridTitle">Staff Introduction</h2>
         <div className="gridBtn">
-          <Button mode="link" to="/" styledmode="primary" height={40}>
-            Visit Our Instagram
-            <Icon type="instagram" color={colors.white} width={calcRem(25)} />
-          </Button>
+          <a href="https://www.instagram.com/lvps.ca/?hl=en">
+            <Button styledmode="primary" height={40}>
+              Visit Our Instagram
+              <Icon
+                title="instagram"
+                type="instagram"
+                color={colors.white}
+                width={calcRem(25)}
+              />
+            </Button>
+          </a>
         </div>
         <div className="gridImage">
-          <img src="assets/staff.png" alt="staff" />
+          <img src="assets/staff.png" alt="owner profile" />
         </div>
         <p className="gridDescription">
           <h3>Maxim Malyshau</h3>
@@ -213,10 +220,17 @@ const StaffIntroduction = () => {
           </pre>
         </p>
         <blockquote className="gridSubDescription">
-          <Icon className="openQuote" type="openQuote" width={47} height={47} />
+          <Icon
+            title="open"
+            className="openQuote"
+            type="openQuote"
+            width={47}
+            height={47}
+          />
           Our goal is to provide our customers with the highest quality service,
           convenient automotive experience possible.
           <Icon
+            title="close"
             className="closeQuote"
             type="closeQuote"
             width={47}

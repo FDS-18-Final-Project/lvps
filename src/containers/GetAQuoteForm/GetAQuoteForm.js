@@ -221,7 +221,12 @@ const GetAQuoteForm = () => {
               type="submit"
               disabled={!(formik.isValid && formik.dirty)}
             >
-              Send Message <Icon type="rightArrow" color={colors.white} />
+              Send Message{' '}
+              <Icon
+                title="right arrow"
+                type="rightArrow"
+                color={colors.white}
+              />
             </Button>
           </StyledFieldset>
         </StyledForm>

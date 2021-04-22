@@ -209,6 +209,7 @@ const ServiceCeramic = () => {
         borderColor="pink"
         hoverColor="pink"
         iconcolor="pink"
+        to="/contact-us"
       />
     </motion.main>
   );

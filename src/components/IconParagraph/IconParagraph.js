@@ -55,7 +55,12 @@ const IconParagraph = ({
       contentWidth={contentWidth}
       {...restProps}
     >
-      <StyledIcon type={iconType} iconcolor={iconcolor} direction={direction} />
+      <StyledIcon
+        title={iconType}
+        type={iconType}
+        iconcolor={iconcolor}
+        direction={direction}
+      />
       <StyledParagraph
         title={content.title}
         headingNum={3}

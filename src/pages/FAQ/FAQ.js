@@ -15,7 +15,7 @@ const FAQPage = () => {
       enter={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
-      <A11yHidden as="h2">IGL Coating page</A11yHidden>
+      <A11yHidden as="h2">FAQ page</A11yHidden>
       <SubMainBanner
         bgImg="/assets/FAQBannerImg.png"
         title="FAQ"

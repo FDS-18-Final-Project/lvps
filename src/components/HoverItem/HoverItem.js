@@ -44,7 +44,7 @@ const HoverItem = ({ value, to, children }) => {
     <StyledButtonContainer>
       <StyledButton mode="link" to={to}>
         <p>{value}</p>
-        <Icon type="rightArrow" color="white" />
+        <Icon type="rightArrow" color="white" title="rightArrow" />
       </StyledButton>
       {children}
     </StyledButtonContainer>

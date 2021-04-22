@@ -11,8 +11,6 @@ const useModalSelected = (
 ) => {
   const modalData = useSelector(state => state[modalState]);
 
-  const selectedService = useSelector(state => state.service);
-
   const dispatch = useDispatch();
 
   const onlyOneSelected = e => {

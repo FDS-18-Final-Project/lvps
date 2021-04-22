@@ -96,7 +96,10 @@ PrimaryNormalLink.args = {
   styledmode: 'primary',
   fullwidth: false,
   to: '/get-a-quote',
-  children: ['Get a Free Quote', <Icon type="rightArrow" color="white" />]
+  children: [
+    'Get a Free Quote',
+    <Icon title="right arrow" type="rightArrow" color="white" />
+  ]
 };
 
 export const SecondaryNormalLink = Template.bind({});
@@ -106,5 +109,8 @@ SecondaryNormalLink.args = {
   styledmode: 'secondary',
   fullwidth: false,
   to: '/get-a-quote',
-  children: ['Get a Free Quote', <Icon type="rightArrow" color="red" />]
+  children: [
+    'Get a Free Quote',
+    <Icon title="right arrow" type="rightArrow" color="red" />
+  ]
 };

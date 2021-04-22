@@ -214,7 +214,10 @@ const FAQ = () => {
           title={
             mobile
               ? 'FAQ'
-              : ['FAQ (Frequently asked questions)', <Icon type="message" />]
+              : [
+                  'FAQ (Frequently asked questions)',
+                  <Icon title="message" key="icon" type="message" />
+                ]
           }
           headingNum={2}
           colors={{ main: colors.black, sub: colors.redMain }}
@@ -225,7 +228,9 @@ const FAQ = () => {
         </Paragraph>
 
         <div className="gridImage">
+
           <img src="assets/FAQImage.png" alt="wheelCeramic" />
+
         </div>
         <div className="gridAccordion">
           <AccordionList

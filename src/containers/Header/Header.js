@@ -173,6 +173,7 @@ const Header = () => {
           {mobile ? (
             <Icon
               button
+              title="mobile menu"
               type="mobileMenuIcon"
               color={colors.white}
               width={calcRem(40)}
@@ -183,6 +184,7 @@ const Header = () => {
             <>
               <Icon
                 button
+                title="search button"
                 className="searchBtn"
                 type="searchWhite"
                 color={colors.white}
@@ -195,20 +197,22 @@ const Header = () => {
               >
                 <Tooltip top="85px" right="-65px" />
               </Icon>
-              <Icon
-                to="/"
-                type="instagram"
-                color={colors.white}
-                width={calcRem(25)}
-                link
-              />
-              <Icon
-                type="facebook"
-                to="/home"
-                color={colors.white}
-                width={calcRem(25)}
-                link
-              />
+              <a href="https://www.instagram.com/lvps.ca/?hl=en">
+                <Icon
+                  type="instagram"
+                  title="instagram"
+                  color={colors.white}
+                  width={calcRem(25)}
+                />
+              </a>
+              <a href="https://m.facebook.com/lvps.ca/">
+                <Icon
+                  type="facebook"
+                  color={colors.white}
+                  width={calcRem(25)}
+                  title="facebook"
+                />
+              </a>
             </>
           )}
         </IconContainer>

@@ -92,6 +92,7 @@ const Paragraph = ({
                   <Link to={to}>
                     {icon && (
                       <Icon
+                        title={item}
                         type={icon}
                         color={iconcolor}
                         // stroke={stroke}
@@ -109,6 +110,7 @@ const Paragraph = ({
               <li key={`${item}-${idx}`}>
                 {icon && (
                   <Icon
+                    title={item}
                     type={icon}
                     color={iconcolor}
                     // stroke={stroke}
@@ -131,7 +133,7 @@ const Paragraph = ({
 
 Paragraph.propTypes = {
   /** 문단 제목 */
-  title: oneOfType([string, array]),
+  // title: oneOfType([string, array]),
   /** 문단 타입 */
   type: string,
   /** 헤드라인 넘버 */
