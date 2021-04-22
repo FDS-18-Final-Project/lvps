@@ -5,10 +5,12 @@ import Button from 'components/Button/Button';
 import Divider from 'components/Divider/Divider';
 import Icon from 'components/Icon/Icon';
 import Paragraph from 'components/Paragraph/Paragraph';
+import { useViewSize } from 'hooks';
 
-const StyledMainBannerContainer = styled.div`
+const StyledMainBannerContainer = styled.section`
+  position: relative;
   background: url(${props => props.bgImg}) center center / cover no-repeat;
-  padding: ${calcInterval([130, 100])};
+  padding: ${calcInterval([70, 100])};
 
   ${device.desktop} {
     padding: ${calcInterval([100, 50])};
@@ -20,15 +22,30 @@ const StyledMainBannerContainer = styled.div`
     h2 {
       font-weight: 800;
     }
-    li {
-    }
   }
+`;
+
+const StyledOverlay = styled.div`
+  display: ${({ mobile }) => (mobile ? 'block' : 'none')};
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: #2d2d2d;
+  opacity: 0.6;
 `;
 
 const FullContainer = styled.div`
   position: relative;
+  z-index: 1000;
   max-width: ${calcRem(1200)};
   margin: 0 auto;
+
+  div:nth-child(7) {
+    margin-bottom: ${calcRem(45)};
+  }
 
   ${device.tablet} {
     .divider {
@@ -52,8 +69,6 @@ const StyledHeading = styled.h2`
   .ourName {
     font-weight: 800;
     font-size: ${fontSizes.titleLarge};
-    font-family: 'Helvetica Neue LT Pro';
-    font-weight: 500;
   }
   .subTitle {
     font-weight: 400;
@@ -69,37 +84,52 @@ const StyledHeading = styled.h2`
 
 const StyledParagraph = styled(Paragraph)`
   li {
-    margin-bottom: ${calcRem(13)};
-  }
-  li:last-child {
-    margin-bottom: ${calcRem(34)};
+    color: ${colors.white};
+    margin-bottom: ${calcRem(20)};
   }
 `;
 
+const linkLists = [
+  { id: 1, keyword: 'Ceramic Coating', link: '/ceramic-coating' },
+  { id: 2, keyword: 'Paint Protection Film', link: '/paint-protection' },
+  { id: 3, keyword: 'Window Tinting', link: '/window-tinting' },
+  {
+    id: 4,
+    keyword: 'Detailing & Painting Correction',
+    link: '/detailing-and-correction'
+  },
+  { id: 5, keyword: 'Wheel & Tire', link: '/wheel-and-tire' }
+];
+
 const MainBanner = ({ bgImg }) => {
+  const { mobile } = useViewSize();
   return (
     <StyledMainBannerContainer bgImg={bgImg}>
+      <StyledOverlay mobile={mobile} />
       <FullContainer>
         <StyledHeading>
           <span className="ourName">LVPS</span>
           <span className="subTitle">For Your Car</span>
         </StyledHeading>
         <Divider width={150} className="divider" />
-        <StyledParagraph
-          type="list"
-          link
-          items={[
-            'Ceramic Coating',
-            'Paint Protection Film',
-            'Detailing & Painting Correction',
-            'Window Tinting',
-            'Wheel & Tire'
-          ]}
-          size={18}
-          colors={{ main: '', sub: colors.lightGray }}
-          to="/"
-        />
-        <Button mode="link" to="/" width={270} fontSize={18} padding="10">
+        {linkLists.map(linkList => (
+          <StyledParagraph
+            key={linkList.id}
+            type="list"
+            link
+            items={[linkList.keyword]}
+            size={18}
+            colors={{ main: '', sub: colors.lightGray }}
+            to={linkList.link}
+          />
+        ))}
+        <Button
+          mode="link"
+          to="/get-a-quote"
+          width={270}
+          fontSize={18}
+          padding="10"
+        >
           Get a Free Quote
           <Icon title="right arrow" type="rightArrow" color={colors.white} />
         </Button>

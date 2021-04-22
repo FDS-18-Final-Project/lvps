@@ -48,7 +48,7 @@ const carouselReview = {
 
 const carouselImg = {
   id: 1,
-  path: 'assets/dummy_background.png'
+  path: 'assets/Mainbanner.png'
 };
 
 const Template = args => (

@@ -58,7 +58,7 @@ const CardInfo = ({
           <Icon
             title="information"
             type="checked"
-            color={idx >= nonSelectedIdx ? colors.lightGray : colors[iconcolor]}
+            color={idx >= nonSelectedIdx ? 'lightGray' : colors[iconcolor]}
             width={calcRem(17)}
             className={idx >= nonSelectedIdx ? 'non-selected-icon' : ''}
           />

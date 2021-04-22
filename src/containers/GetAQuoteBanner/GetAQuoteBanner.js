@@ -1,4 +1,4 @@
-import { string } from 'prop-types';
+import { string, number, object, oneOfType, func } from 'prop-types';
 import styled from 'styled-components';
 import { colors, calcInterval, calcRem, fontSizes, device } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
@@ -77,7 +77,9 @@ const GetAQuoteBanner = ({
   styledmode,
   borderColor,
   hoverColor,
-  iconcolor
+  iconcolor,
+  width,
+  to
 }) => {
   const { desktop } = useViewSize();
   return (
@@ -94,10 +96,12 @@ const GetAQuoteBanner = ({
             styledmode={styledmode}
             linkText={linkText}
             desktop={desktop}
+            width={width}
+            to={to}
           />
         </FullContainer>
       ) : (
-        <Link to="/get-a-quote" className="getLink">
+        <Link to={to} className="getLink">
           {linkText}
           <Icon
             title="right arrow"
@@ -127,13 +131,13 @@ GetAQuoteBanner.Title = ({ title, desc }) => {
   );
 };
 
-GetAQuoteBanner.Link = ({ linkText, styledmode }) => {
+GetAQuoteBanner.Link = ({ linkText, styledmode, width, to }) => {
   return (
     <Button
       styledmode={styledmode}
       mode="link"
-      to="/get-a-quote"
-      width={220}
+      width={width}
+      to={to}
       fontSize={18}
       padding="10"
     >
@@ -144,8 +148,6 @@ GetAQuoteBanner.Link = ({ linkText, styledmode }) => {
 };
 
 GetAQuoteBanner.propTypes = {
-  /** 배너 타이틀 */
-  title: string,
   /** 배너 설명 */
   desc: string,
   /** 배너 링크(버튼) 텍스트 */
@@ -159,14 +161,18 @@ GetAQuoteBanner.propTypes = {
   /** 배너 링크(버튼) 호버시 색 */
   hoverColor: string,
   /** 배너 링크(버튼) 아이콘 색 */
-  iconcolor: string
+  iconcolor: string,
+  width: number,
+  to: string
 };
 
 GetAQuoteBanner.defaultProps = {
   title: 'Get a Free Quote',
   color: 'red_05',
   linkText: 'Get a Free Quote',
-  styledmode: 'secondary'
+  styledmode: 'secondary',
+  width: 220,
+  to: '/get-a-quote'
 };
 
 StyledGetAQuoteBannerContainer.displayName = 'StyledGetAQuoteBannerContainer';

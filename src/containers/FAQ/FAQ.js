@@ -216,7 +216,7 @@ const FAQ = () => {
               ? 'FAQ'
               : [
                   'FAQ (Frequently asked questions)',
-                  <Icon title="message" type="message" />
+                  <Icon title="message" key="icon" type="message" />
                 ]
           }
           headingNum={2}

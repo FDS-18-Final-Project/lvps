@@ -1,14 +1,19 @@
 import { useReducer, useCallback, useEffect } from 'react';
 
 const searchList = [
-  { keyWord: 'Get a Quote', link: '/GetAQuote' },
-  { keyWord: 'Ceramic Coating > Ceramic Pro', link: '/' },
-  { keyWord: 'Ceramic Coating > LVS for your car', link: '/' },
-  { keyWord: 'Paint Protection Film', link: '/' },
-  { keyWord: 'Detailing & Paint Correction', link: '/' },
-  { keyWord: 'Wheel & Tire', link: '/' },
-  { keyWord: 'About Us', link: '/' },
-  { keyWord: 'FAQ', link: '/' }
+  { keyWord: 'Get a Quote', link: '/get-a-quote' },
+  { keyWord: 'About Us', link: '/about-us' },
+  { keyWord: 'Ceramic Coating', link: '/ceramic-coating' },
+  { keyWord: 'Ceramic Coating > IGL Coatings', link: '/igl-coatings' },
+  { keyWord: 'Paint Protection Film', link: '/paint-protection' },
+  { keyWord: 'Window Tinting', link: '/window-tinting' },
+  {
+    keyWord: 'Detailing & Paint Correction',
+    link: '/detailing-and-correction'
+  },
+  { keyWord: 'Wheel & Tire', link: '/wheel-and-tire' },
+  { keyWord: 'FAQ', link: '/faq' },
+  { keyWord: 'Contact Us', link: '/contact-us' }
 ];
 
 const initialSearchState = {

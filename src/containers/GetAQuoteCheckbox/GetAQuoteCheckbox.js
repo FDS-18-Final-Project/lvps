@@ -99,7 +99,6 @@ const GetAQuoteCheckbox = () => {
   const selectedService = useSelector(state => state.service);
   const dispatch = useDispatch();
   const { desktop } = useViewSize();
-  console.log(selectedService);
 
   const handleReset = (actionFunc, key) => {
     return (reset, e) => {
