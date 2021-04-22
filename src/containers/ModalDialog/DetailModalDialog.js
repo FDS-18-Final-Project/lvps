@@ -263,7 +263,8 @@ const DetailModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
     onlyOneSelected,
     multiSelected,
     addServices,
-    checkActive
+    checkActive,
+    totalPrice
   } = useModalSelected(
     'detailModal',
     detailSingleToggleActive,
@@ -371,7 +372,7 @@ const DetailModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
 
           <StyledTotalPriceContainer>
             <p>Total Price</p>
-            <span>$1500</span>
+            <span>${totalPrice(firstPackage, secondPackage)}</span>
           </StyledTotalPriceContainer>
           <StyledButtonContainer>
             <Button

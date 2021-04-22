@@ -238,7 +238,8 @@ const WindowModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
     modalData,
     onlyOneSelected,
     addServices,
-    checkActive
+    checkActive,
+    totalPrice
   } = useModalSelected(
     'windowModal',
     windowSingleToggleActive,
@@ -309,7 +310,7 @@ const WindowModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
 
           <StyledTotalPriceContainer>
             <p>Total Price</p>
-            <span>$1500</span>
+            <span>${totalPrice(firstPackage)}</span>
           </StyledTotalPriceContainer>
           <StyledButtonContainer>
             <Button

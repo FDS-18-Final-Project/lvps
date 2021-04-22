@@ -5,8 +5,6 @@ import { fontSizes, colors, calcRem } from 'theme/theme';
 import Icon from 'components/Icon/Icon';
 import { AnimatePresence } from 'framer-motion';
 import Portal from 'utils/portal';
-import { useSelector } from 'react-redux';
-import isEmpty from 'utils/isEmpty';
 
 const CheckBoxContainer = styled.label`
   display: inline-block;
@@ -30,7 +28,7 @@ const CheckBoxContainer = styled.label`
   }
 
   &::after {
-    content: '${({ label }) => label}';
+    content: '${({ desc }) => desc}';
     width: 100%;
     position: absolute;
     text-align: center;
@@ -52,7 +50,7 @@ const CheckBoxContainer = styled.label`
     position: absolute;
     top: ${calcRem(5)};
     right: ${calcRem(5)};
-    z-index: ${({ confirm }) => (confirm ? 1000 : -1000)};
+    z-index: ${({ confirm }) => (confirm ? 98 : -1000)};
 
     svg {
       path {
@@ -70,10 +68,9 @@ const CheckBoxContainer = styled.label`
   }
 `;
 
-const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
+const CheckBox = ({ imagePath, desc, Modal, handleReset }) => {
   const [visible, isVisible] = useState(false);
   const [confirm, setConfirm] = useState(false);
-  const selectedItem = useSelector(state => state.service);
   const handleModalVisible = () => {
     isVisible(!visible);
   };
@@ -85,12 +82,12 @@ const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
   };
 
   useEffect(() => {
-    //  console.log(isEmpty(selectedItem));
+    document.body.style.overflow = visible ? 'hidden' : 'auto';
   });
 
   return (
     <>
-      <CheckBoxContainer imagePath={imagePath} label={label} confirm={confirm}>
+      <CheckBoxContainer imagePath={imagePath} desc={desc} confirm={confirm}>
         <input
           type="checkbox"
           checked={visible}
@@ -135,15 +132,19 @@ const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
 };
 
 CheckBox.propTypes = {
+  /** 이미지 경로 */
   imagePath: string,
-  label: string,
+  /** label 텍스트 */
+  desc: string,
+  /** 모달 */
   Modal: oneOfType([func, object, node]),
+  /** 초기화 함수 */
   handleReset: func
 };
 
 CheckBox.defaultProps = {
   imagePath: 'assets/dummyImage.png',
-  label: 'CERAMIC COATING'
+  desc: 'CERAMIC COATING'
 };
 
 CheckBoxContainer.displayName = 'CheckBoxContainer';

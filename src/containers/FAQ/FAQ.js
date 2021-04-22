@@ -189,7 +189,8 @@ const accordionState = [
       'Services'
     ],
     imagePath: 'assets/dummy_background.png',
-    active: false
+    active: false,
+    button: true
   },
   {
     id: 9,

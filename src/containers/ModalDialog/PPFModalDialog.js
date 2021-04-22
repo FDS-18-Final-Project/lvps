@@ -250,7 +250,8 @@ const PPFModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
     onlyOneSelected,
     multiSelected,
     addServices,
-    checkActive
+    checkActive,
+    totalPrice
   } = useModalSelected(
     'ppfModal',
     ppfSingleToggleActive,
@@ -358,7 +359,7 @@ const PPFModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
           )}
           <StyledTotalPriceContainer>
             <p>Total Price</p>
-            <span>$1500</span>
+            <span>${totalPrice(firstPackage, secondPackage)}</span>
           </StyledTotalPriceContainer>
           <StyledButtonContainer>
             <Button
