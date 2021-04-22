@@ -102,14 +102,14 @@ const Home = () => {
         for your auto care needs.
       </ServiceInfo>
       <OurBestServices />
-      <SubBanner title="Our Works" description="Visit our Instagram.">
-        Visit Instagram
-        <Icon type="instagram" color={colors.white} width={calcRem(25)} />
-      </SubBanner>
       <CardExplanation
         title="Our Quality Protection Services"
         cardList={squareCardList}
       />
+      <SubBanner title="Our Works" description="Visit our Instagram.">
+        Visit Instagram
+        <Icon type="instagram" color={colors.white} width={calcRem(25)} />
+      </SubBanner>
       <GetAQuoteBanner
         title="Get a Free Quote"
         color="red_05"

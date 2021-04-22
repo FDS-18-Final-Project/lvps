@@ -26,9 +26,12 @@ const FullContainer = styled.div`
   }
 
   ${device.tablet} {
-    padding: ${calcRem(13)} 0;
+    padding: ${calcRem(13)} ${calcRem(15)};
     p {
       margin-top: ${calcRem(5)};
+    }
+    img {
+      width: 100%;
     }
   }
 `;

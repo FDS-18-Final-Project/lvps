@@ -70,7 +70,7 @@ const AboutUs = () => {
       <SubMainBanner
         bgImg="/assets/dummyImage.png"
         title="About Us"
-        desc="MM Auto Care For Your Car"
+        desc="LVPS For Your Car"
       ></SubMainBanner>
       <CardExplanation
         cardList={CardList}

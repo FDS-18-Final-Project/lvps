@@ -65,7 +65,8 @@ const HeaderContainer = styled.header`
 const IconContainer = styled(Layout.FlexContainer)`
   flex: 0.7;
   justify-content: flex-end;
-  div {
+  div,
+  a {
     margin-left: 20%;
   }
 
@@ -175,20 +176,20 @@ const Header = () => {
                   animate: searchAcitve ? 'hidden' : 'visible'
                 }}
               />
-              <Icon
-                to="/"
-                type="instagram"
-                color={colors.white}
-                width={calcRem(25)}
-                link
-              />
-              <Icon
-                type="facebook"
-                to="/home"
-                color={colors.white}
-                width={calcRem(25)}
-                link
-              />
+              <a href="https://www.instagram.com/lvps.ca/?hl=en">
+                <Icon
+                  type="instagram"
+                  color={colors.white}
+                  width={calcRem(25)}
+                />
+              </a>
+              <a href="https://m.facebook.com/lvps.ca/">
+                <Icon
+                  type="facebook"
+                  color={colors.white}
+                  width={calcRem(25)}
+                />
+              </a>
             </>
           )}
         </IconContainer>

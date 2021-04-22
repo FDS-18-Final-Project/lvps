@@ -102,6 +102,7 @@ const ServiceCeramic = () => {
       <ServiceInfoType2
         imageLabel="Ceramic prop 9h"
         imagePath="./assets/ceramicpro9h.png"
+        mobileImagePath="./assets/mobile-ceramic-pro-9h.png"
         infoList={[
           'Scratch Resistance (Above 9H)',
           'Super Hydrophobic Effect',
@@ -125,6 +126,7 @@ const ServiceCeramic = () => {
       <ServiceInfoType4
         imageLabel="CERAMIC PRO TOP COAT"
         imagePath="./assets/ceramic-pro-top-coat.png"
+        mobileImagePath="./assets/mobile-ceramic-top-coat.png"
         infoList={[
           'Super Hydrophobic Effect',
           'Weather & UV Resistance',
@@ -147,6 +149,7 @@ const ServiceCeramic = () => {
       <ServiceInfoType2
         imageLabel="ceramic pro coating bottle"
         imagePath="./assets/how-to-care.png"
+        mobileImagePath="./assets/mobile-coated-vehicle.png"
         infoList={[]}
         mode="right"
         subTitle="AFTER CARE"
@@ -162,6 +165,9 @@ const ServiceCeramic = () => {
       <ServiceInfoType2
         imageLabel="Ceramic pro top coat"
         imagePath="./assets/service-info-image.png"
+        mobileImagePath="./assets/mobile-ppf-vinyl.png"
+        subTitle="CERAMIC PRO PPF &amp; VINYL"
+        title="PAINT PROTECTION FILM &amp; VINYL"
         infoList={[
           'Super Hydrophobic Effect',
           'Weather & UV Resistance',

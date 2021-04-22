@@ -97,7 +97,7 @@ const GetAQuoteBanner = ({
           />
         </FullContainer>
       ) : (
-        <Link to="/" className="getLink">
+        <Link to="/get-a-quote" className="getLink">
           {linkText}
           <Icon
             className="icon"
@@ -131,7 +131,7 @@ GetAQuoteBanner.Link = ({ linkText, styledmode }) => {
     <Button
       styledmode={styledmode}
       mode="link"
-      to="/"
+      to="/get-a-quote"
       width={220}
       fontSize={18}
       padding="10"

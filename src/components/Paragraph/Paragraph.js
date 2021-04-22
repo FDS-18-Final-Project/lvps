@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { string, number, array, object, bool } from 'prop-types';
+import { string, number, array, object, bool, oneOfType } from 'prop-types';
 import styled, { css } from 'styled-components';
 import { fontSizes, calcRem, colors } from 'theme/theme';
 import Icon from 'components/Icon/Icon';

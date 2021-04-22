@@ -38,7 +38,7 @@ const PaintProtectionFilm = () => {
     <>
       <SubMainBanner
         title="Paint Protection Film"
-        desc="LVS for your car"
+        desc="LVPS for your car"
         bgImg="assets/PaintProtectionBannerImage.png"
       />
       <SubPageTitle

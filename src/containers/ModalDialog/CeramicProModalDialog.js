@@ -243,6 +243,9 @@ const StyledCarouselContainer = styled.div`
   .firstCarousel ul li > div p {
     color: ${colors.white};
   }
+  .thirdCarousel ul li > div p {
+    text-align: start;
+  }
   h4 {
     margin-bottom: ${calcRem(0)};
   }
