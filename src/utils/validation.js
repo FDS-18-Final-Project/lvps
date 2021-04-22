@@ -7,7 +7,7 @@ export const validationSchema = Yup.object({
       2,
       <>
         <Icon type="alert" />
-        Please input your name with longer than 2 characters
+        Please input your name at least 2 letters
       </>
     )
     .required(
