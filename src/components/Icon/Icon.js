@@ -12,7 +12,7 @@ const StyledIconContainer = styled(motion.div)`
 
   path {
     fill: ${({ color }) => color && colors[color]};
-    stroke: ${({ stroke }) => stroke};
+    /* stroke: ${({ stroke }) => stroke}; */
   }
 `;
 
@@ -27,7 +27,7 @@ const StyledIconButton = styled.button`
 const Icon = ({
   type,
   color,
-  stroke,
+  // stroke,
   motionProps,
   button,
   link,
@@ -53,7 +53,7 @@ const Icon = ({
   return (
     <StyledIconContainer
       color={color}
-      stroke={stroke}
+      // stroke={stroke}
       className={className}
       {...motionProps}
       {...stylesForContainer}
@@ -65,20 +65,28 @@ const Icon = ({
 };
 
 Icon.propTypes = {
+  /** 아이콘 타입 */
   type: string.isRequired,
+  /** 아이콘 색 */
   color: string,
-  stroke: string,
+  /** 아이콘 스트로크 */
+  // stroke: string,
+  /** 아이콘 모션 객체 */
   motionProps: object,
+  /** 아이콘 컨테이너 스타일 객체 */
   stylesForContainer: object,
+  /** 버튼 여부 */
   button: bool,
+  /** 링크 여부 */
   link: bool,
+  /** 링크 href */
   to: string
 };
 
 Icon.defaultProps = {
   type: 'rightArrow',
   color: '',
-  stroke: '',
+  // stroke: '',
   button: false,
   link: false
 };

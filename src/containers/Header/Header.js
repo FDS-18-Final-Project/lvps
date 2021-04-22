@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { calcRem, calcInterval, colors, fontSizes } from 'theme/theme';
+import { calcRem, calcInterval, colors, fontSizes, device } from 'theme/theme';
 import { AnimatePresence } from 'framer-motion';
 import Layout from 'pages/Layout/Layout';
 import { useViewSize } from 'hooks/';
@@ -29,14 +29,14 @@ const HeaderContainer = styled.header`
   svg {
     height: 95px;
   }
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcInterval([0, 50])};
     a {
       font-size: ${fontSizes.small};
       font-weight: 600;
     }
   }
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     padding: ${calcInterval([15, 25])};
 
     input {
@@ -52,13 +52,13 @@ const IconContainer = styled(Layout.FlexContainer)`
     margin-left: 20%;
   }
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     svg {
       width: ${calcRem(18)};
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     flex: 0;
 
     svg {

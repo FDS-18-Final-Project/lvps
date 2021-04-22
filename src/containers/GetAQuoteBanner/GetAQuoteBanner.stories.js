@@ -29,8 +29,4 @@ const Template = args => (
 
 export const GetAQuoteBannerBlock = Template.bind({});
 
-GetAQuoteBannerBlock.args = {
-  children: [<GetAQuoteBanner.Title />, <GetAQuoteBanner.Link />]
-};
-
 GetAQuoteBannerBlock.storyName = 'Get a quote 배너';

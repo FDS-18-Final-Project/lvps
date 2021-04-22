@@ -94,9 +94,9 @@ const Carousel = ({ type, contents, ...restProps }) => {
 };
 
 Carousel.propTypes = {
-  /** 캐러셀 아이템 선택 */
+  /** 캐러셀 아이템 타입 */
   type: oneOf(['img', 'paragraph', 'card']).isRequired,
-  /** 캐러셀 배열  */
+  /** 캐러셀 컨텐츠 배열  */
   contents: array.isRequired
 };
 

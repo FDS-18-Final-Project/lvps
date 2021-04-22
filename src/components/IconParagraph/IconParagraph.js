@@ -1,6 +1,6 @@
 import { string, object } from 'prop-types';
 import styled from 'styled-components';
-import { calcRem, colors, device } from 'theme/theme';
+import { calcRem, device } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import Icon from 'components/Icon/Icon';
 import Paragraph from 'components/Paragraph/Paragraph';
@@ -14,15 +14,16 @@ const StyledIconExplanList = styled(Layout.FlexContainer)`
 `;
 
 const StyledIcon = styled(Icon)`
-  margin-bottom: ${calcRem(40)};
-  margin-right: ${({ direction }) => (direction === 'row' ? calcRem(40) : '0')};
+  /* margin-bottom: ${calcRem(40)}; */
+  /* margin-right: ${({ direction }) =>
+    direction === 'row' ? calcRem(40) : '0'}; */
 
-  path:first-child {
+  /* path:first-child {
     stroke: ${({ iconcolor }) => iconcolor};
   }
   path:last-child {
     fill: ${({ iconcolor }) => iconcolor};
-  }
+  } */
 `;
 
 const StyledParagraph = styled(Paragraph)`
@@ -69,12 +70,19 @@ const IconParagraph = ({
 };
 
 IconParagraph.propTypes = {
+  /** 정렬 선택(행, 열) */
   direction: string,
+  /** 문단 내용 객체 */
   content: object,
+  /** 아이콘 타입 */
   iconType: string,
+  /** 아이콘 색 */
   iconcolor: string,
+  /** 문단 정렬 */
   textAlign: object,
+  /** 컨텐츠 width */
   contentWidth: string,
+  /** paragraph width */
   paragraphWidth: string
 };
 

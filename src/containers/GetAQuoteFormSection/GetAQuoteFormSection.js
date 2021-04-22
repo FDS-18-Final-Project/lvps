@@ -1,6 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, fontSizes, calcRem, calcInterval } from '../../theme/theme';
+import {
+  colors,
+  fontSizes,
+  calcRem,
+  calcInterval,
+  device
+} from '../../theme/theme';
 import GetAQuoteForm from 'containers/GetAQuoteForm/GetAQuoteForm';
 import Paragraph from 'components/Paragraph/Paragraph';
 
@@ -41,7 +47,7 @@ const FullContainer = styled.section`
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     .paragraph {
       padding: ${calcInterval([40, 0])};
       h2 {

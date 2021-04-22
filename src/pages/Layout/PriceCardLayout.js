@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { useViewSize } from 'hooks/';
-import { calcInterval, calcRem, fontSizes } from 'theme/theme';
+import { calcInterval, calcRem, device, fontSizes } from 'theme/theme';
 
 const gridStyle = css`
   display: grid;
@@ -15,8 +15,11 @@ const flexStyle = css`
 `;
 
 const StyledPriceCardContainer = styled.section`
-  @media only screen and (max-width: 1200px) {
-    padding: ${calcInterval([0, 50])};
+  /* padding: ${calcInterval([0, 50])}; */
+  ${device.desktop} {
+    & > div > h2 {
+      margin-left: ${calcRem(50)};
+    }
   }
 `;
 
@@ -24,7 +27,7 @@ const StyledPriceCard = styled.div`
   padding: ${calcInterval([75, 0])};
   max-width: ${calcRem(1200)};
   margin: 0 auto;
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     li[type='card'] {
       text-align: center;
       padding: 10px;
@@ -33,17 +36,21 @@ const StyledPriceCard = styled.div`
       p {
         text-align: left;
       }
+
+      h3 + p {
+        text-align: center;
+      }
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     h2 {
       font-size: ${fontSizes.xl};
       text-align: center;
     }
   }
 
-  @media only screen and (max-width: 375px) {
+  ${device.mobile} {
     li > div {
       padding: ${({ mode }) => mode === 'desc' && '10px'};
     }
@@ -72,7 +79,7 @@ const PriceTableContainer = styled.div`
     margin-right: 0;
   }
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: 0;
 
     strong {

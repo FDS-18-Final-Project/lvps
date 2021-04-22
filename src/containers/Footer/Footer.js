@@ -1,142 +1,142 @@
 import styled from 'styled-components';
-import { colors, calcInterval, calcRem } from 'theme/theme';
-import Layout from 'pages/Layout/Layout';
+import { colors, calcInterval, calcRem, fontSizes, device } from 'theme/theme';
 import Paragraph from 'components/Paragraph/Paragraph';
 import Logo from 'components/Logo/Logo';
 
-const StyledFooterContainer = styled.div`
+const StyledFooterContainer = styled.footer`
   background-color: ${colors.black};
-  padding: ${calcInterval([95, 100])};
-
-  @media only screen and (max-width: 1200px) {
-    padding: ${calcRem(50)};
-  }
+  padding: ${calcInterval([95, 0, 0])};
 `;
 
-const FullContainer = styled(Layout.FlexContainer)`
+const StyledFooterContent = styled.div`
   max-width: 1200px;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: ${calcInterval([30, 100])};
   margin: 0 auto;
+  align-items: start;
+
+  div:nth-child(4) {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+
+  div:nth-child(5) {
+    grid-area: 2 / 3 / 3 / 4;
+  }
+
   a:hover {
     text-decoration: underline;
   }
 
-  @media only screen and (max-width: 768px) {
-    flex-flow: column;
-
-    h2 {
-      margin-bottom: ${calcRem(40)};
-    }
-    h3 {
-      font-size: 13px;
-    }
-    span,
-    p {
-      font-size: 12px;
-    }
+  p,
+  li {
+    font-size: ${fontSizes.small};
   }
-`;
 
-const StyledFooterContent = styled.div`
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(2, 1fr);
-  gap: ${calcInterval([36, 144])};
+  p {
+    max-width: ${calcRem(300)};
+  }
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     gap: ${calcInterval([36, 80])};
   }
 
-  @media only screen and (max-width: 768px) {
-    gap: ${calcInterval([36, 40])};
-  }
+  ${device.tablet} {
+    padding: ${calcInterval([50, 20, 0])};
+    grid-template-columns: repeat(2, 1fr);
+    position: relative;
 
-  span,
-  p {
-    width: 100%;
-  }
-`;
+    div:nth-child(4) {
+      grid-area: 2 / 1 / 3 / 2;
+    }
 
-const StyledParagraph = styled(Paragraph)`
-  /* width: ${calcRem(240)}; */
+    div:nth-child(5) {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+
+    & > h2 {
+      position: absolute;
+      top: -7%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h3 {
+      font-size: ${fontSizes.small};
+    }
+
+    span,
+    p,
+    li {
+      width: 100%;
+      font-size: ${calcRem(12)};
+    }
+  }
 `;
 
 const Footer = () => {
+  const { white, lightGray } = colors;
   return (
     <StyledFooterContainer>
-      <FullContainer tag="footer" justifyContent="space-around">
-        <Footer.Logo />
-        <Footer.Contents />
-      </FullContainer>
+      <StyledFooterContent>
+        <Logo tag="h2" />
+        <Paragraph
+          title="ABOUT"
+          type="normal"
+          headingNum={3}
+          colors={{ main: white, sub: white }}
+          size={12}
+        >
+          We are Luxury Vehicle Protection Services, providing vehicle
+          protection, repair, and detailing services based in North York,
+          Toronto, Ontario.
+        </Paragraph>
+
+        <Paragraph
+          title="SERVICES"
+          type="list"
+          link
+          to="/"
+          headingNum={3}
+          colors={{ main: white, sub: white }}
+          items={[
+            'Ceramic Pro',
+            'Paint Protection Film',
+            'Window Tinting',
+            'Detailing & Paint Correction',
+            'Wheel & Tire'
+          ]}
+          icon="map"
+          iconcolor={colors.white}
+          size={12}
+        />
+
+        <Paragraph
+          title="Working Hour"
+          type="list"
+          headingNum={3}
+          items={['Monday – Friday: 8 am – 6 pm', 'Saturday: 8 am – 3 pm']}
+          colors={{ main: white, sub: white }}
+          size={12}
+        />
+
+        <Paragraph
+          type="list"
+          colors={{ main: white, sub: lightGray }}
+          items={[
+            '9 Vanley Cres, North York, ON M3J 2B7',
+            '(647) 703 5857',
+            'info@lvps.ca'
+          ]}
+          icon="map"
+          size={12}
+        />
+      </StyledFooterContent>
     </StyledFooterContainer>
   );
 };
 
-Footer.Logo = () => {
-  return <Logo tag="h2" />;
-};
-
-Footer.Contents = () => {
-  const { white, lightGray } = colors;
-  return (
-    <StyledFooterContent>
-      <StyledParagraph
-        title="ABOUT"
-        type="normal"
-        headingNum={3}
-        colors={{ main: white, sub: white }}
-        size={12}
-      >
-        We are Luxury Vehicle Protection Services, providing vehicle protection,
-        repair, and detailing services based in North York, Toronto, Ontario.
-      </StyledParagraph>
-
-      <Paragraph
-        title="SERVICES"
-        type="list"
-        link
-        to="/"
-        headingNum={3}
-        colors={{ main: white, sub: white }}
-        items={[
-          'Ceramic Pro',
-          'Paint Protection Film',
-          'Window Tinting',
-          'Detailing & Paint Correction',
-          'Wheel & Tire'
-        ]}
-        icon="map"
-        iconcolor={colors.white}
-        size={12}
-      />
-
-      <Paragraph
-        title="Working Hour"
-        type="list"
-        headingNum={3}
-        items={['Monday – Friday: 8 am – 6 pm', 'Saturday: 8 am – 3 pm']}
-        colors={{ main: white, sub: white }}
-        size={12}
-      />
-
-      <Paragraph
-        type="list"
-        colors={{ main: white, sub: lightGray }}
-        items={[
-          '9 Vanley Cres, North York, ON M3J 2B7',
-          '(647) 703 5857',
-          'info@lvps.ca'
-        ]}
-        icon="map"
-        size={12}
-      />
-    </StyledFooterContent>
-  );
-};
-
 StyledFooterContent.displayName = 'StyledFooterContent';
-FullContainer.displayName = 'FullContainer';
-Footer.Logo.displayName = 'Footer-Logo';
-Footer.Contents.displayName = 'Footer-Contents';
-StyledParagraph.displayName = 'StyledParagraph';
 
 export default Footer;

@@ -19,7 +19,6 @@ export default {
   },
   argTypes: {
     type: {
-      description: '아이콘 타입',
       control: {
         type: 'select',
         options: [
@@ -28,12 +27,12 @@ export default {
           'rightArrow',
           'leftArrow',
           'map',
-          'checkedCar',
-          'clickHand',
+          // 'checkedCar',
+          // 'clickHand',
           'close',
           'searchWhite',
-          'searchGray',
-          'like',
+          // 'searchGray',
+          // 'like',
           'checked',
           'circle',
           'tagSilver',
@@ -43,18 +42,41 @@ export default {
           'tagRed',
           'tagGold',
           'mobileMenuIcon',
-          'goodWork',
+          // 'goodWork',
           'likeCircle',
           'message',
           'openQuote',
           'closeQuote',
           'star',
-          'circleCheck'
+          'circleCheck',
+          'marker',
+          'email',
+          'phone',
+          'iGL10H',
+          'iglSilica',
+          'iGLSoft',
+          'iGLWarranty',
+          'iGLWater',
+          'iGLSpot',
+          'iGLBus',
+          'iGLCar',
+          'iGLHand',
+          'ceramicDollar',
+          'ceramicLike',
+          'ceramicCar',
+          'ceramicCardPaint',
+          'ceramicCardWashCar',
+          'ceramicCardHand',
+          'paintProtectionCustom',
+          'paintProtectionDiscolouration',
+          'paintProtectionFinish',
+          'paintProtectionHealing',
+          'paintProtectionShield',
+          'paintProtectionWarranty'
         ]
       }
     },
     color: {
-      description: '아이콘 색',
       control: {
         type: 'select',
         options: [
@@ -79,14 +101,13 @@ export default {
           'red_06'
         ]
       }
-    },
-    stroke: {
-      description: '아이콘 스트로크',
-      control: {
-        type: 'select',
-        options: ['redMain', 'red_01', 'red_02', 'red_03']
-      }
     }
+    // stroke: {
+    //   control: {
+    //     type: 'select',
+    //     options: ['redMain', 'red_01', 'red_02', 'red_03']
+    //   }
+    // }
   }
 };
 

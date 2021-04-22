@@ -1,6 +1,6 @@
 import { string, array } from 'prop-types';
 import styled from 'styled-components';
-import { calcRem, calcInterval, colors } from 'theme/theme';
+import { calcRem, calcInterval, colors, device } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import Card from 'components/Card/Card';
 
@@ -9,7 +9,7 @@ const FullContainer = styled(Layout.FlexContainer)`
   margin: 0 auto;
   justify-content: initial;
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     width: 100%;
   }
 `;
@@ -33,7 +33,7 @@ const CardContainer = styled.div`
     line-height: 150%;
   }
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcInterval([0, 50])};
     svg {
       width: ${calcRem(100)};
@@ -42,7 +42,7 @@ const CardContainer = styled.div`
       font-size: ${calcRem(14)};
     }
   }
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     padding: 0 1.1rem ${calcRem(75)};
 
     h2 {
@@ -61,7 +61,7 @@ const CardListContainer = styled.div`
     `repeat(${type === 'arrow' ? 4 : 3}, 1fr)`};
   gap: 25px;
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     padding: ${calcRem(0)};
     margin: ${calcInterval([30, 0, 0])};
     grid-template-columns: repeat(1, 1fr);

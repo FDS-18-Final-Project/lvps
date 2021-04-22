@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled, { css } from 'styled-components';
-import { calcInterval, fontSizes, calcRem, colors } from 'theme/theme';
+import { calcInterval, fontSizes, calcRem, colors, device } from 'theme/theme';
 import CeramicProModalDialog from 'containers/ModalDialog/CeramicProModalDialog';
 import DetailModalDialog from 'containers/ModalDialog/DetailModalDialog';
 import PPFModalDialog from 'containers/ModalDialog/PPFModalDialog';
@@ -54,7 +54,7 @@ const FullContainer = styled.section`
     margin-top: 50px;
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     h2 {
       font-size: ${fontSizes.small};
       line-height: ${calcRem(21)};
@@ -80,7 +80,7 @@ const GetAQuoteCheckboxContainer = styled.div`
     margin: ${calcInterval([25, 37])};
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     padding: ${calcInterval([20, 10])};
 
     label {

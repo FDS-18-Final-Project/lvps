@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 import styled from 'styled-components';
-import { calcRem, colors, fontSizes } from 'theme/theme';
+import { calcRem, colors, fontSizes, device } from 'theme/theme';
 import Paragraph from 'components/Paragraph/Paragraph';
 import Icon from 'components/Icon/Icon';
 
@@ -23,7 +23,7 @@ const StyledInfoContentContainer = styled.div`
   text-align: center;
   justify-content: center;
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     flex-direction: column;
   }
 `;
@@ -54,7 +54,7 @@ const StyledContentContainer = styled.div`
   & + & {
     border-left: 2px solid ${colors.lightGray};
   }
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     & {
       border-top: 2px solid ${colors.lightGray};
     }
