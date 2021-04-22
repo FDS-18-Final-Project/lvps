@@ -69,6 +69,7 @@ const package_03 = [
 
 const package_group = [
   <TagPriceTable
+    key="1"
     mode="title"
     type="tagGold"
     typeText="GOLD"
@@ -79,6 +80,7 @@ const package_group = [
     minHeight={200}
   />,
   <TagPriceTable
+    key="2"
     mode="title"
     type="tagSilver"
     typeText="SILVER"
@@ -89,6 +91,7 @@ const package_group = [
     minHeight={200}
   />,
   <TagPriceTable
+    key="3"
     mode="title"
     type="tagBronze"
     typeText="BRONZE"

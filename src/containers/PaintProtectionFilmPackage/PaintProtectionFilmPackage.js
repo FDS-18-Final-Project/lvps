@@ -32,6 +32,7 @@ const paint_03 = [
 
 const paint_group = [
   <TagPriceTable
+    key="1"
     type="tagPlatinum"
     typeText="PLATINUM"
     title="From"
@@ -40,6 +41,7 @@ const paint_group = [
     minHeight={200}
   />,
   <TagPriceTable
+    key="2"
     type="tagGold"
     typeText="GOLD"
     title="From"
@@ -49,6 +51,7 @@ const paint_group = [
     nonSelectedIdx={4}
   />,
   <TagPriceTable
+    key="3"
     type="tagSilver"
     typeText="SILVER"
     title="From"
