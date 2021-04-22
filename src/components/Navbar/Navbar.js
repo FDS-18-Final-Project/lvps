@@ -20,7 +20,7 @@ const NavbarContainer = styled(motion.ul)`
     transition: 0.4s;
     color: inherit;
     white-space: nowrap;
-    padding: 30px ${calcRem(10)};
+    padding: 37px ${calcRem(10)};
     &:hover {
       color: rgba(235, 21, 39, 0.8);
     }
@@ -31,7 +31,7 @@ const NavbarContainer = styled(motion.ul)`
   }
 
   .serviceLink .hoverbox {
-    top: 90px;
+    top: 100px;
     opacity: 0;
     z-index: -1000;
     transition: 0.5s;
@@ -49,23 +49,23 @@ const Navbar = ({ ...restProps }) => {
   return (
     <NavbarContainer {...restProps}>
       <li>
-        <NavLink to="/home">HOME</NavLink>
+        <NavLink to="/">HOME</NavLink>
       </li>
       <li>
-        <NavLink to="/about">ABOUT</NavLink>
+        <NavLink to="/about-us">ABOUT</NavLink>
       </li>
       <li className="serviceLink">
-        <NavLink to="/mainService">SERVICES</NavLink>
+        <NavLink to="/main-service">SERVICES</NavLink>
         <HoverBox className="hoverbox" />
       </li>
       <li>
-        <NavLink to="/GetAQuote">GET A QUOUE</NavLink>
+        <NavLink to="/get-a-quote">GET A QUOUE</NavLink>
       </li>
       <li>
-        <NavLink to="/FAQ">FAQ</NavLink>
+        <NavLink to="/faq">FAQ</NavLink>
       </li>
       <li>
-        <NavLink to="/ContactUs">CONTACT US</NavLink>
+        <NavLink to="/contact-us">CONTACT US</NavLink>
       </li>
     </NavbarContainer>
   );

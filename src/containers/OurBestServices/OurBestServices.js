@@ -126,7 +126,7 @@ const accordionState = [
     `,
     imagePath: 'assets/OurBestServiceImage_01.png',
     active: true,
-    to: 'serviceCeramic'
+    to: '/ceramic-coating'
   },
   {
     id: 2,
@@ -134,7 +134,7 @@ const accordionState = [
     description: `It  protects your vehicle’s paint from everyday damages.`,
     imagePath: 'assets/OurBestServiceImage_02.png',
     active: false,
-    to: 'paintProtection'
+    to: '/paint-protection'
   },
   {
     id: 3,
@@ -142,7 +142,7 @@ const accordionState = [
     description: `Protect yourself from 99% harmful cancer causing UV rays & achieve the privacy you desire with window tinting.`,
     imagePath: 'assets/OurBestServiceImage_03.png',
     active: false,
-    to: 'windowTinting'
+    to: '/window-tinting'
   },
   {
     id: 4,
@@ -150,7 +150,7 @@ const accordionState = [
     description: `Get your car back to like when you bought it new with an interior/exterior packages we offer.`,
     imagePath: 'assets/OurBestServiceImage_04.png',
     active: false,
-    to: 'DetailingAndCorrection'
+    to: '/detailing-and-correction'
   },
   {
     id: 5,
@@ -158,7 +158,7 @@ const accordionState = [
     description: `We work with most wheel and tires distributors and can get you the wheels and tires you need.`,
     imagePath: 'assets/OurBestServiceImage_05.png',
     active: false,
-    to: 'WheelAndTire'
+    to: '/wheel-and-tire'
   }
 ];
 
