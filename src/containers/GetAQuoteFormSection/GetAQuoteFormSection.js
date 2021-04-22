@@ -12,8 +12,7 @@ import Paragraph from 'components/Paragraph/Paragraph';
 
 const FullContainer = styled.section`
   position: relative;
-  background-color: rgba(45, 45, 45, 0.8);
-  padding-bottom: ${calcRem(21)};
+  //background-color: rgba(45, 45, 45, 0.8);
   &::before {
     content: '';
     display: block;
@@ -23,7 +22,7 @@ const FullContainer = styled.section`
     right: 0;
     bottom: 0;
     z-index: -1;
-    background-image: url('assets/dummy_ourbestservice.png');
+    //background-image: url('assets/GetAQuoteBgImage.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -36,12 +35,12 @@ const FullContainer = styled.section`
     h2 {
       font-size: ${fontSizes.titleLarge};
       font-weight: 800;
-      color: ${colors.white};
+      color: ${colors.black};
       line-height: ${calcRem(75)};
     }
 
     p {
-      color: ${colors.white};
+      color: ${colors.black};
       font-size: ${fontSizes.xl};
       font-weight: 700;
     }
@@ -68,7 +67,7 @@ const GetAQuoteFormSection = () => {
       <Paragraph
         id="paragraph"
         className="paragraph"
-        title="Get a quote"
+        title="Get a Quote"
         size={24}
         headingNum={2}
       >

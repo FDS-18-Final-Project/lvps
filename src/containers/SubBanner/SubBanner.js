@@ -98,13 +98,13 @@ const SubBanner = ({ title, description, imagePath, children }) => {
         </LayoutContainer>
         <LayoutContainer className="gridBtn">
           <a href="https://www.instagram.com/lvps.ca/?hl=en">
-            <Button styledmode="secondary" height={55}>
+            <Button styledmode="secondary" width={235} height={55}>
               {children}
             </Button>
           </a>
         </LayoutContainer>
         <LayoutContainer className="gridImg">
-          <img src={imagePath} alt="dummyImage" />
+          <img src={imagePath} alt="ceramic car" />
         </LayoutContainer>
       </SubBannerContainer>
     </FullContainer>
@@ -121,7 +121,7 @@ SubBanner.propTypes = {
 SubBanner.defaultProps = {
   title: 'About us',
   description: 'More About us',
-  imagePath: 'assets/dummyImage.png',
+  imagePath: 'assets/homeOurWorks.png',
   children: 'More About us'
 };
 

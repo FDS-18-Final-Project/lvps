@@ -225,7 +225,7 @@ const FAQ = () => {
         </Paragraph>
 
         <div className="gridImage">
-          <img src="assets/dummy_ceramic.png" alt="더미이미지" />
+          <img src="assets/FAQImage.png" alt="wheelCeramic" />
         </div>
         <div className="gridAccordion">
           <AccordionList

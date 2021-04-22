@@ -1,5 +1,13 @@
 import { Link } from 'react-router-dom';
-import { string, bool, number, array, oneOf, oneOfType } from 'prop-types';
+import {
+  string,
+  bool,
+  number,
+  array,
+  oneOf,
+  oneOfType,
+  object
+} from 'prop-types';
 import styled, { css } from 'styled-components';
 import { colors, calcRem, calcInterval } from 'theme/theme';
 import { motion } from 'framer-motion';
@@ -146,7 +154,7 @@ Button.propTypes = {
   fullwidth: bool,
   role: string,
   to: string,
-  children: oneOfType([array, string]),
+  children: oneOfType([array, string, object]),
   width: number,
   height: number,
   fontSize: number,
