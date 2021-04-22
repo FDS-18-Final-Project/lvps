@@ -38,7 +38,6 @@ const Routes = () => (
             />
 
             <Route path="/contact-us" component={ContactUs} />
-            <Route path="/faq" component={FAQ} />
             <Route path="/igl-coatings" component={IGLCoatings} />
             <Route path="/faq" component={FAQPage} />
             <Route path="/get-a-quote" component={GetAQuote} />

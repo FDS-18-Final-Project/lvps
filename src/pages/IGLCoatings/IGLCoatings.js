@@ -8,6 +8,7 @@ import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import { motion } from 'framer-motion';
 import GoogleMap from 'containers/GoogleMap/GoogleMap';
+import Video from 'containers/Video/Video';
 
 const IGLCoatings = () => {
   return (
@@ -63,7 +64,7 @@ const IGLCoatings = () => {
           'Scratch resistance. IGL Coatings have been independently tested at "Greater than 9H" hardness  levels'
         ]}
       />
-      {/* TODO: 비디오 */}
+      <Video videoId="Eg4hRA60YpI" videoTitle="igl ceramic coating product" />
       <IGLProtectionProducts />
       <CarCareGuide />
       <ServiceInfoType2

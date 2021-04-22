@@ -10,7 +10,7 @@ import { useViewSize } from 'hooks';
 const StyledMainBannerContainer = styled.section`
   position: relative;
   background: url(${props => props.bgImg}) center center / cover no-repeat;
-  padding: ${calcInterval([130, 100])};
+  padding: ${calcInterval([70, 100])};
 
   ${device.desktop} {
     padding: ${calcInterval([100, 50])};
@@ -21,8 +21,6 @@ const StyledMainBannerContainer = styled.section`
     margin: 0 auto;
     h2 {
       font-weight: 800;
-    }
-    li {
     }
   }
 `;
@@ -44,6 +42,10 @@ const FullContainer = styled.div`
   z-index: 1000;
   max-width: ${calcRem(1200)};
   margin: 0 auto;
+
+  div:nth-child(7) {
+    margin-bottom: ${calcRem(45)};
+  }
 
   ${device.tablet} {
     .divider {
@@ -83,12 +85,21 @@ const StyledHeading = styled.h2`
 const StyledParagraph = styled(Paragraph)`
   li {
     color: ${colors.white};
-    margin-bottom: ${calcRem(13)};
-  }
-  li:last-child {
-    margin-bottom: ${calcRem(34)};
+    margin-bottom: ${calcRem(20)};
   }
 `;
+
+const linkLists = [
+  { id: 1, keyword: 'Ceramic Coating', link: '/ceramic-coating' },
+  { id: 2, keyword: 'Paint Protection Film', link: '/paint-protection' },
+  { id: 3, keyword: 'Window Tinting', link: '/window-tinting' },
+  {
+    id: 4,
+    keyword: 'Detailing & Painting Correction',
+    link: '/detailing-and-correction'
+  },
+  { id: 5, keyword: 'Wheel & Tire', link: '/wheel-and-tire' }
+];
 
 const MainBanner = ({ bgImg }) => {
   const { mobile } = useViewSize();
@@ -101,21 +112,24 @@ const MainBanner = ({ bgImg }) => {
           <span className="subTitle">For Your Car</span>
         </StyledHeading>
         <Divider width={150} className="divider" />
-        <StyledParagraph
-          type="list"
-          link
-          items={[
-            'Ceramic Coating',
-            'Paint Protection Film',
-            'Detailing & Painting Correction',
-            'Window Tinting',
-            'Wheel & Tire'
-          ]}
-          size={18}
-          colors={{ main: '', sub: colors.lightGray }}
-          to="/"
-        />
-        <Button mode="link" to="/" width={270} fontSize={18} padding="10">
+        {linkLists.map(linkList => (
+          <StyledParagraph
+            key={linkList.id}
+            type="list"
+            link
+            items={[linkList.keyword]}
+            size={18}
+            colors={{ main: '', sub: colors.lightGray }}
+            to={linkList.link}
+          />
+        ))}
+        <Button
+          mode="link"
+          to="/get-a-quote"
+          width={270}
+          fontSize={18}
+          padding="10"
+        >
           Get a Free Quote
           <Icon type="rightArrow" color={colors.white} />
         </Button>

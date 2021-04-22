@@ -38,6 +38,7 @@ const product_04 = [
 
 const product_group = [
   <TitlePriceTable
+    key="1"
     heading="IGL POLY"
     title="Starting from"
     price={400}
@@ -46,6 +47,7 @@ const product_group = [
     padding={[78, 10, 81]}
   />,
   <TitlePriceTable
+    key="2"
     heading="IGL QUARTZ"
     title="Starting from"
     price={600}
@@ -54,6 +56,7 @@ const product_group = [
     padding={[78, 10, 81]}
   />,
   <TitlePriceTable
+    key="3"
     heading="IGL QUARTZ+"
     title="Starting from"
     price={800}
@@ -62,6 +65,7 @@ const product_group = [
     padding={[78, 10, 81]}
   />,
   <TitlePriceTable
+    key="4"
     heading="IGL KENZO"
     title="Starting from"
     price={1200}

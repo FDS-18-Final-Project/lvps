@@ -3,7 +3,6 @@ const POST_FORM_DATA_URL =
 
 const Apis = {
   postData: async values => {
-    console.log(values);
     try {
       await fetch(POST_FORM_DATA_URL, {
         method: 'POST',

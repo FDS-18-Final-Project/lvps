@@ -76,6 +76,18 @@ const StyledFooterContent = styled.div`
   }
 `;
 
+const linkLists = [
+  { id: 1, keyword: 'Ceramic Coating', link: '/ceramic-coating' },
+  { id: 2, keyword: 'Paint Protection Film', link: '/paint-protection' },
+  { id: 3, keyword: 'Window Tinting', link: '/window-tinting' },
+  {
+    id: 4,
+    keyword: 'Detailing & Painting Correction',
+    link: '/detailing-and-correction'
+  },
+  { id: 5, keyword: 'Wheel & Tire', link: '/wheel-and-tire' }
+];
+
 const Footer = () => {
   const { white, lightGray } = colors;
   return (
@@ -94,24 +106,23 @@ const Footer = () => {
           Toronto, Ontario.
         </Paragraph>
 
-        <Paragraph
-          title="SERVICES"
-          type="list"
-          link
-          to="/"
-          headingNum={3}
-          colors={{ main: white, sub: white }}
-          items={[
-            'Ceramic Pro',
-            'Paint Protection Film',
-            'Window Tinting',
-            'Detailing & Paint Correction',
-            'Wheel & Tire'
-          ]}
-          icon="map"
-          iconcolor={colors.white}
-          size={12}
-        />
+        <div>
+          {linkLists.map((linkList, idx) => (
+            <Paragraph
+              key={linkList.id}
+              title={!idx ? 'SERVICES' : ''}
+              type="list"
+              link
+              to={linkList.link}
+              headingNum={3}
+              colors={{ main: white, sub: white }}
+              items={[linkList.keyword]}
+              icon="map"
+              iconcolor={colors.white}
+              size={12}
+            />
+          ))}
+        </div>
 
         <Paragraph
           title="Working Hour"
