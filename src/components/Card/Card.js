@@ -1,7 +1,7 @@
 import React from 'react';
 import { string, array, oneOfType, object } from 'prop-types';
 import styled from 'styled-components';
-import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
+import { calcInterval, calcRem, colors, fontSizes, device } from 'theme/theme';
 import { motion } from 'framer-motion';
 import IconParagraph from 'components/IconParagraph/IconParagraph';
 
@@ -57,11 +57,11 @@ const StyledCard = styled(motion('div'))`
 
   ${({ type }) => typeStyle[type]}
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcInterval([50, 30])};
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     max-width: initial;
     height: initial;
     align-items: flex-start;

@@ -1,13 +1,13 @@
 import React from 'react';
 import { node, string } from 'prop-types';
 import styled from 'styled-components';
-import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
+import { calcInterval, calcRem, colors, device, fontSizes } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import Paragraph from 'components/Paragraph/Paragraph';
 import Button from 'components/Button/Button';
 
 const FullContainer = styled.section`
-  @media only screen and (max-width: 375px) {
+  ${device.mobile} {
     padding: ${calcInterval([0, 15])};
   }
 `;
@@ -41,7 +41,7 @@ const SubBannerContainer = styled.div`
     height: 100%;
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     padding: ${calcInterval([50, 0])};
 
     grid-template: repeat(3, 0.3fr) / repeat(1, 1fr);

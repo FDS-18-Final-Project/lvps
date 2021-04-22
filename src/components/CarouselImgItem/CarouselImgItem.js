@@ -11,6 +11,7 @@ const CarouselImgItem = ({ content }) => {
 };
 
 CarouselImgItem.propTypes = {
+  /** 캐러셀 이미지 아이템 컨텐츠 객체 */
   content: object.isRequired
 };
 

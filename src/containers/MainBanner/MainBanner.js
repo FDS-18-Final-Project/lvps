@@ -1,21 +1,20 @@
 import { string } from 'prop-types';
 import styled from 'styled-components';
-import { colors, fontSizes, calcRem, calcInterval } from 'theme/theme';
+import { colors, fontSizes, calcRem, calcInterval, device } from 'theme/theme';
 import Button from 'components/Button/Button';
 import Divider from 'components/Divider/Divider';
 import Icon from 'components/Icon/Icon';
 import Paragraph from 'components/Paragraph/Paragraph';
-import { useViewSize } from 'hooks';
 
 const StyledMainBannerContainer = styled.div`
   background: url(${props => props.bgImg}) center center / cover no-repeat;
   padding: ${calcInterval([130, 100])};
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcInterval([100, 50])};
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     text-align: center;
     margin: 0 auto;
     h2 {
@@ -31,7 +30,7 @@ const FullContainer = styled.div`
   max-width: ${calcRem(1200)};
   margin: 0 auto;
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     .divider {
       width: 80px;
       margin: 30px auto;
@@ -61,7 +60,7 @@ const StyledHeading = styled.h2`
     font-size: ${calcRem(42)};
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     .subTitle {
       display: none;
     }
@@ -78,7 +77,6 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 const MainBanner = ({ bgImg }) => {
-  const { mobile } = useViewSize();
   return (
     <StyledMainBannerContainer bgImg={bgImg}>
       <FullContainer>
@@ -111,6 +109,7 @@ const MainBanner = ({ bgImg }) => {
 };
 
 MainBanner.propTypes = {
+  /** 메인 배너 이미지 URL */
   bgImg: string
 };
 

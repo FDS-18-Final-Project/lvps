@@ -20,44 +20,40 @@ export default {
   },
   argTypes: {
     title: {
-      description: '타이틀'
+      control: {
+        type: 'string'
+      }
     },
     type: {
-      description: '문단 종류',
       control: {
         type: 'select',
         options: ['normal', 'list', 'title']
       }
     },
     headingNum: {
-      description: '해딩 타입',
       control: {
         type: 'select',
         options: [1, 2, 3]
       }
     },
     icon: {
-      description: '아이콘 타입',
       control: {
         type: 'select',
         options: ['facebook', 'instagram', 'map']
       }
     },
     iconcolor: {
-      description: '아이콘 색',
       control: {
         type: 'select',
         options: ['red_01', 'red_05', 'green']
       }
     },
     size: {
-      description: '사이즈',
       control: {
         type: 'number'
       }
     },
     link: {
-      description: '아이콘 링크',
       control: {
         type: 'boolean'
       }

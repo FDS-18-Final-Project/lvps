@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { func, bool } from 'prop-types';
 import styled from 'styled-components';
-import { calcRem, colors, calcInterval, fontSizes } from 'theme/theme';
+import { calcRem, colors, calcInterval, fontSizes, device } from 'theme/theme';
 import Icon from 'components/Icon/Icon';
 import Input from 'components/Input/Input';
 import { motion } from 'framer-motion';
@@ -35,7 +35,7 @@ const StyledFieldset = styled.fieldset`
 const StyledAutoCompleteContainer = styled.ul`
   position: absolute;
   z-index: 100;
-  top: 100%;
+  top: 70%;
   background-color: ${colors.white};
   color: ${colors.black};
   margin-top: ${calcRem(8)};
@@ -50,7 +50,7 @@ const StyledAutoCompleteContainer = styled.ul`
     /* border-radius: ${calcRem(10)}; */
   }
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     left: 8%;
     min-width: 84%;
     li > a {
@@ -58,12 +58,12 @@ const StyledAutoCompleteContainer = styled.ul`
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     left: 6%;
     min-width: 84%;
   }
 
-  @media only screen and (max-width: 375px) {
+  ${device.mobile} {
     left: 15%;
     min-width: 100%;
   }

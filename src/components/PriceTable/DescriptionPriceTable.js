@@ -1,14 +1,14 @@
 import React from 'react';
 import { string } from 'prop-types';
 import styled from 'styled-components';
-import { calcInterval, calcRem, fontSizes } from 'theme/theme';
+import { calcInterval, calcRem, fontSizes, device } from 'theme/theme';
 import PriceTable from './PriceTable';
 import Tag from 'components/Tag/Tag';
 
 const DescriptionPriceTableContainer = styled(PriceTable)`
   padding: ${calcInterval([130, 80, 114])};
 
-  @media only screen and (max-width: 375px) {
+  ${device.mobile} {
     padding: ${({ padding }) => calcInterval(padding)};
   }
 
