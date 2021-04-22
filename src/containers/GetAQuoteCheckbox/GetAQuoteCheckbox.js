@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { calcInterval, fontSizes, calcRem, colors, device } from 'theme/theme';
@@ -165,6 +165,7 @@ const GetAQuoteCheckbox = () => {
           <Button disabled={isEmpty(selectedService)} onClick={handleVisible}>
             Next
             <Icon
+              title="right arrow"
               className="icon"
               type="rightArrow"
               color={colors.white}

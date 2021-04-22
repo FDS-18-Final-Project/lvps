@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Home from 'pages/Home/Home';
 import AboutUs from 'pages/AboutUs/AboutUs';
 import WheelAndTire from 'pages/WheelAndTire/WheelAndTire';

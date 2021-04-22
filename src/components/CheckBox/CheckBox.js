@@ -96,10 +96,13 @@ const CheckBox = ({ imagePath, desc, Modal, handleReset }) => {
         <Icon
           className="resetBtn"
           type="close"
+          title="reset button"
           button
           onClick={e => handleReset(resetConfirm, e)}
         />
-        {confirm && <Icon className="icon" type="circleCheck" />}
+        {confirm && (
+          <Icon title="confirm" className="icon" type="circleCheck" />
+        )}
       </CheckBoxContainer>
 
       <AnimatePresence>

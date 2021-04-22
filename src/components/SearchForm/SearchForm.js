@@ -94,6 +94,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
           label={
             mobile ? null : (
               <Icon
+                title="search"
                 type="searchWhite"
                 color={colors.lightGray}
                 width={calcRem(20)}
@@ -120,6 +121,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
         </StyledAutoCompleteContainer>
 
         <Icon
+          title={mobile ? 'search' : 'close'}
           button={!mobile}
           type={mobile ? 'searchWhite' : 'close'}
           color={colors.lightGray}

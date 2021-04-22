@@ -72,12 +72,14 @@ const Carousel = ({ type, contents, ...restProps }) => {
         onClick={moveNext}
         width={desktop ? '40' : '20'}
         desktop={desktop ? 1 : 0}
+        title="right arrow"
         className="iconButton"
       />
       <StyledCarouselButton
         button
         type="leftArrow"
         direction="left"
+        title="left arrow"
         color={colors.lightGray}
         onClick={movePrev}
         width={desktop ? '40' : '20'}

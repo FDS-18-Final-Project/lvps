@@ -101,7 +101,7 @@ const MainBanner = ({ bgImg }) => {
         />
         <Button mode="link" to="/" width={270} fontSize={18} padding="10">
           Get a Free Quote
-          <Icon type="rightArrow" color={colors.white} />
+          <Icon title="right arrow" type="rightArrow" color={colors.white} />
         </Button>
       </FullContainer>
     </StyledMainBannerContainer>

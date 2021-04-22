@@ -24,7 +24,7 @@ const PageNotFound = () => {
       <ErrorMessage />
       <StyledButton styledmode="secondary" mode="link" to="/">
         Go Home
-        <Icon type="rightArrow" path={colors.black} />
+        <Icon title="right arrow" type="rightArrow" path={colors.black} />
       </StyledButton>
     </StyledPage>
   );

@@ -100,6 +100,7 @@ const GetAQuoteBanner = ({
         <Link to="/get-a-quote" className="getLink">
           {linkText}
           <Icon
+            title="right arrow"
             className="icon"
             type="rightArrow"
             color={colors.white}
@@ -137,7 +138,7 @@ GetAQuoteBanner.Link = ({ linkText, styledmode }) => {
       padding="10"
     >
       {linkText}
-      <Icon type="rightArrow" color={colors.white} />
+      <Icon title="right arrow" type="rightArrow" color={colors.white} />
     </Button>
   );
 };

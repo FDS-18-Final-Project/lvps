@@ -56,6 +56,7 @@ const CardInfo = ({
       {infoList.map((info, idx) => (
         <li key={idx}>
           <Icon
+            title="information"
             type="checked"
             color={idx >= nonSelectedIdx ? colors.lightGray : colors[iconcolor]}
             width={calcRem(17)}

@@ -92,6 +92,7 @@ const Paragraph = ({
                   <Link to={to}>
                     {icon && (
                       <Icon
+                        title={item}
                         type={icon}
                         color={iconcolor}
                         // stroke={stroke}
@@ -109,6 +110,7 @@ const Paragraph = ({
               <li key={`${item}-${idx}`}>
                 {icon && (
                   <Icon
+                    title={item}
                     type={icon}
                     color={iconcolor}
                     // stroke={stroke}

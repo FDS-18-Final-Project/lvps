@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { colors, calcRem, device, calcInterval } from 'theme/theme';
+import { colors, calcRem, device } from 'theme/theme';
 import { motion } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 import { addService } from 'store/service/service';
@@ -192,7 +192,7 @@ const WheelModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
             </Button>
           </StyledButtonContainer>
           <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
-            <Icon type="close" />
+            <Icon type="close" title="close" />
           </Button>
         </StyledModalBodyContainer>
       </motion.div>

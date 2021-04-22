@@ -87,7 +87,7 @@ const ChooseUs = ({ title, children }) => {
         <StyledInfoContentContainer>
           <StyledContentContainer>
             <StyledIconContainer>
-              <Icon type="marker"></Icon>
+              <Icon title="marker" type="marker"></Icon>
               <span>Address</span>
             </StyledIconContainer>
             <address>
@@ -96,7 +96,7 @@ const ChooseUs = ({ title, children }) => {
           </StyledContentContainer>
           <StyledContentContainer>
             <StyledIconContainer>
-              <Icon type="email"></Icon>
+              <Icon title="email" type="email"></Icon>
               <span>E-MAIL</span>
             </StyledIconContainer>
             <address>
@@ -107,7 +107,7 @@ const ChooseUs = ({ title, children }) => {
           </StyledContentContainer>
           <StyledContentContainer>
             <StyledIconContainer>
-              <Icon type="phone"></Icon>
+              <Icon title="phone" type="phone"></Icon>
               <span>CALL US AT</span>
             </StyledIconContainer>
             <address>
@@ -139,4 +139,5 @@ StyledInfoContentContainer.displayName = 'InfoContentContainer';
 StyedParagraph.displayName = 'Paragraph';
 StyledContentContainer.displayName = 'ContentContainer';
 StyledIconContainer.displayName = 'IconContainer';
+
 export default ChooseUs;

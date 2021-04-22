@@ -104,7 +104,7 @@ const SubBanner = ({ title, description, imagePath, children }) => {
           </a>
         </LayoutContainer>
         <LayoutContainer className="gridImg">
-          <img src={imagePath} alt="dummyImage" />
+          <img src={imagePath} alt={title} />
         </LayoutContainer>
       </SubBannerContainer>
     </FullContainer>

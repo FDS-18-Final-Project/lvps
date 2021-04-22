@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import YouTube from 'react-youtube';
 
 /* -------------------------------------------------------------------------- */
