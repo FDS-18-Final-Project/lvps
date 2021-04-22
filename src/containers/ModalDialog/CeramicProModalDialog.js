@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, calcRem, calcInterval, device, fontSizes } from 'theme/theme';
+import { colors, calcRem, device, fontSizes } from 'theme/theme';
 import { useModalSelected, useViewSize } from 'hooks/';
 import {
   ceramicMultiToggleActive,
@@ -98,6 +98,16 @@ const StyledModalBodyContainer = styled.div`
       fill: black;
     }
   }
+  ${device.tablet} {
+    & > button {
+      top: ${calcRem(40)};
+      right: ${calcRem(40)};
+    }
+    h4 {
+      padding: 0 ${calcRem(20)};
+      font-size: ${fontSizes.xl};
+    }
+  }
 `;
 const StyledPackageContainer = styled.div`
   border-bottom: ${calcRem(2.4)} solid ${colors.lightGray};
@@ -176,8 +186,7 @@ const StyledButtonContainer = styled.div`
   }
   ${device.tablet} {
     button {
-      width: 100%;
-      margin: ${calcInterval([0, 15])};
+      min-width: ${calcRem(320)};
     }
   }
 `;
@@ -207,6 +216,7 @@ const StyledTotalPriceContainer = styled.div`
   }
 
   ${device.tablet} {
+    margin-right: ${calcRem(50)};
     p {
       top: 5px;
       font-size: ${calcRem(20)};
@@ -221,13 +231,20 @@ const StyledTotalPriceContainer = styled.div`
 const StyledCarouselContainer = styled.div`
   overflow-x: hidden;
 
-  & > div:nth-child(1) {
+  & > div:nth-child(1),
+  & > div:nth-child(2) {
     text-align: center;
-    margin-top: ${calcRem(100)};
+    max-width: ${calcRem(350)};
+    margin-top: ${calcRem(50)};
   }
-
   .firstCarousel ul li > div {
     height: ${calcRem(563)};
+  }
+  .firstCarousel ul li > div p {
+    color: ${colors.white};
+  }
+  h4 {
+    margin-bottom: ${calcRem(0)};
   }
 `;
 
@@ -357,6 +374,7 @@ const CeramicProModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
           ) : (
             <>
               <StyledCarouselContainer>
+                <h4>{firstPackage.title}</h4>
                 <Carousel
                   type="card"
                   className="firstCarousel"
@@ -364,6 +382,7 @@ const CeramicProModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
                 />
               </StyledCarouselContainer>
               <StyledCarouselContainer>
+                <h4>{secondPackage.title}</h4>
                 <Carousel
                   type="card"
                   className="secondCarousel"
@@ -371,6 +390,7 @@ const CeramicProModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
                 />
               </StyledCarouselContainer>
               <StyledCarouselContainer>
+                <h4>{thirdPackage.title}</h4>
                 <Carousel
                   type="card"
                   className="thirdCarousel"

@@ -86,6 +86,12 @@ const StyledModalBodyContainer = styled.div`
       fill: black;
     }
   }
+  ${device.tablet} {
+    & > button {
+      top: ${calcRem(40)};
+      right: ${calcRem(40)};
+    }
+  }
 `;
 const StyledPackageContainer = styled.div`
   border-bottom: ${calcRem(2.4)} solid ${colors.lightGray};
@@ -111,8 +117,7 @@ const StyledButtonContainer = styled.div`
   }
   ${device.tablet} {
     button {
-      width: 100%;
-      margin: ${calcInterval([0, 15])};
+      min-width: ${calcRem(320)};
     }
   }
 `;

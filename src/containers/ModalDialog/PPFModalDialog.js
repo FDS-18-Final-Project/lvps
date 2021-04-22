@@ -102,6 +102,16 @@ const StyledModalBodyContainer = styled.div`
       width: 100%;
     }
   }
+  ${device.tablet} {
+    & > button {
+      top: ${calcRem(40)};
+      right: ${calcRem(40)};
+    }
+    h4 {
+      padding: 0 ${calcRem(20)};
+      font-size: ${fontSizes.xl};
+    }
+  }
 `;
 const StyledPackageContainer = styled.div`
   border-bottom: ${calcRem(2.4)} solid ${colors.lightGray};
@@ -154,8 +164,7 @@ const StyledButtonContainer = styled.div`
   }
   ${device.tablet} {
     button {
-      width: 100%;
-      margin: ${calcInterval([0, 15])};
+      min-width: ${calcRem(320)};
     }
   }
 `;
@@ -185,7 +194,6 @@ const StyledTotalPriceContainer = styled.div`
   }
 
   ${device.tablet} {
-    width: initial !important;
     p {
       top: 5px;
       font-size: ${calcRem(20)};
@@ -193,6 +201,7 @@ const StyledTotalPriceContainer = styled.div`
     span {
       min-width: ${calcRem(150)};
       font-size: ${fontSizes.xl};
+      margin-right: ${calcRem(50)};
     }
   }
 `;
@@ -200,9 +209,12 @@ const StyledTotalPriceContainer = styled.div`
 const StyledCarouselContainer = styled.div`
   overflow-x: hidden;
 
-  & > div:nth-child(1) {
+  & > div:nth-child(1),
+  & > div:nth-child(2) {
     text-align: center;
+
     margin-top: ${calcRem(100)};
+    margin-top: ${calcRem(50)};
   }
 
   &:nth-child(1) > div p {
@@ -210,8 +222,10 @@ const StyledCarouselContainer = styled.div`
   }
 
   .firstCarousel ul li > div {
-    width: ${calcRem(300)};
-    height: ${calcRem(500)};
+    width: 320px;
+    height: 556px;
+    box-sizing: border-box;
+    justify-content: flex-start;
   }
   .secondCarousel ul li > div {
     width: ${calcRem(320)};
@@ -225,6 +239,9 @@ const StyledCarouselContainer = styled.div`
         text-align: start;
       }
     }
+  }
+  h4 {
+    margin-bottom: ${calcRem(0)};
   }
 `;
 const PPFModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
@@ -322,6 +339,7 @@ const PPFModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
           ) : (
             <>
               <StyledCarouselContainer>
+                <h4>{firstPackage.title}</h4>
                 <Carousel
                   type="card"
                   className="firstCarousel"
@@ -329,6 +347,7 @@ const PPFModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
                 />
               </StyledCarouselContainer>
               <StyledCarouselContainer>
+                <h4>{secondPackage.title}</h4>
                 <Carousel
                   type="card"
                   className="secondCarousel"

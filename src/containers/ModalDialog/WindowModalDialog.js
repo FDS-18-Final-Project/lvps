@@ -94,6 +94,16 @@ const StyledModalBodyContainer = styled.div`
       fill: black;
     }
   }
+  ${device.tablet} {
+    & > button {
+      top: ${calcRem(40)};
+      right: ${calcRem(40)};
+    }
+    h4 {
+      padding: 0 ${calcRem(20)};
+      font-size: ${fontSizes.xl};
+    }
+  }
 `;
 const StyledPackageContainer = styled.div`
   border-bottom: ${calcRem(2.4)} solid ${colors.lightGray};
@@ -106,8 +116,6 @@ const StyledPackageContainer = styled.div`
     text-align: center;
     margin: 1.5rem 0rem 4rem;
   }
-  &:nth-child(1) strong {
-  }
 `;
 const StyledPackageListContainer = styled.div`
   display: grid;
@@ -118,7 +126,6 @@ const StyledPackageListContainer = styled.div`
 
   & div {
     cursor: pointer;
-
     margin: ${({ numOfProd }) => numOfProd === 1 && '0 auto'};
   }
   & em {
@@ -134,8 +141,15 @@ const StyledPackageListContainer = styled.div`
   ${device.desktop} {
     grid-template-columns: ${({ numOfProd }) =>
       numOfProd === 8 ? `repeat(2, 1fr)` : `repeat(${numOfProd / 2}, 1fr)`};
-
+    justify-items: center;
     padding: ${calcInterval([0, 50])};
+
+    & > div {
+      max-width: ${calcRem(320)};
+    }
+    & em {
+      margin: 2.5rem 0rem 4rem;
+    }
   }
 `;
 
@@ -153,8 +167,7 @@ const StyledButtonContainer = styled.div`
   }
   ${device.tablet} {
     button {
-      width: 100%;
-      margin: ${calcInterval([0, 15])};
+      min-width: ${calcRem(320)};
     }
   }
 `;
@@ -163,6 +176,7 @@ const StyledTotalPriceContainer = styled.div`
   justify-content: flex-end;
   margin-top: ${calcRem(60)};
   margin-right: ${calcRem(100)};
+
   p {
     font-size: ${calcRem(30)};
     line-height: 150%;
@@ -182,6 +196,7 @@ const StyledTotalPriceContainer = styled.div`
   }
 
   ${device.tablet} {
+    margin-right: ${calcRem(50)};
     p {
       top: 5px;
       font-size: ${calcRem(20)};
@@ -196,13 +211,26 @@ const StyledTotalPriceContainer = styled.div`
 const StyledCarouselContainer = styled.div`
   overflow-x: hidden;
 
-  & > div:nth-child(1) {
+  & > div:nth-child(1),
+  & > div:nth-child(2) {
     text-align: center;
-    margin-top: ${calcRem(100)};
+    margin-top: ${calcRem(50)};
   }
 
   .firstCarousel ul li > div {
-    height: ${calcRem(563)};
+    max-width: 320px;
+    em {
+      margin: 2.5rem 0rem 4rem;
+    }
+    strong {
+      margin-top: 2rem;
+    }
+    p {
+      text-align: start;
+    }
+  }
+  h4 {
+    margin-bottom: ${calcRem(0)};
   }
 `;
 const WindowModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
@@ -270,6 +298,7 @@ const WindowModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
             </>
           ) : (
             <StyledCarouselContainer>
+              <h4>{firstPackage.title}</h4>
               <Carousel
                 type="card"
                 className="firstCarousel"
