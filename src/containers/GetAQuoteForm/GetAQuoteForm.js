@@ -1,7 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { calcInterval, calcRem, colors, fontSizes } from '../../theme/theme';
+import {
+  calcInterval,
+  calcRem,
+  colors,
+  device,
+  fontSizes
+} from '../../theme/theme';
 import { useFormik } from 'formik';
 import Layout from 'pages/Layout/Layout';
 import { updateForm } from 'store/form/form';
@@ -35,7 +41,7 @@ const FullContainer = styled.section`
 const FormContainer = styled.div`
   padding: ${calcInterval([40, 50])};
 
-  @media only screen and (max-width: 376px) {
+  ${device.mobile} {
     padding: ${calcInterval([40, 15])};
   }
 `;
@@ -48,11 +54,11 @@ const StyledForm = styled.form`
   margin: 0 auto;
   border: 2px solid ${colors.lightGray};
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcInterval([50, 50])};
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     padding: ${calcInterval([40, 30])};
   }
 `;
@@ -112,7 +118,7 @@ const StyledFieldset = styled.fieldset`
   textarea {
     width: 73%;
   }
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     & > div {
       flex-direction: column;
       align-items: flex-start;

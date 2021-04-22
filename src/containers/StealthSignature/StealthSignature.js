@@ -13,7 +13,7 @@ const stealths = [
   },
   {
     id: 2,
-    iconType: 'ceramicLike',
+    iconType: 'likeCircle2',
     title: 'Easy Maintenance',
     content:
       'Flat finishes are notoriously difficult to maintain and even harder to repair. STEALTH enables you to easily wash and dry your car without damaging its sheen.'

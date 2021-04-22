@@ -22,7 +22,6 @@ export default {
       }
     },
     contents: {
-      description: '캐러셀 배열',
       control: {
         type: 'string'
       }

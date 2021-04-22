@@ -19,7 +19,13 @@ export default {
     }
   },
   argTypes: {
-    bgImg: { type: 'text' }
+    bgImg: {
+      content: {
+        control: {
+          type: 'string'
+        }
+      }
+    }
   }
 };
 

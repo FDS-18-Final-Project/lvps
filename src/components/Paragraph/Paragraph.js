@@ -62,7 +62,7 @@ const Paragraph = ({
   items,
   icon,
   iconcolor,
-  stroke,
+  // stroke,
   children,
   colors,
   size,
@@ -94,7 +94,7 @@ const Paragraph = ({
                       <Icon
                         type={icon}
                         color={iconcolor}
-                        stroke={stroke}
+                        // stroke={stroke}
                         width="20"
                         height="20"
                       >
@@ -111,7 +111,7 @@ const Paragraph = ({
                   <Icon
                     type={icon}
                     color={iconcolor}
-                    stroke={stroke}
+                    // stroke={stroke}
                     width="20"
                     height="20"
                   >
@@ -130,16 +130,27 @@ const Paragraph = ({
 };
 
 Paragraph.propTypes = {
-  //title: oneOfType([string, array]),
+  /** 문단 제목 */
+  title: oneOfType([string, array]),
+  /** 문단 타입 */
   type: string,
+  /** 헤드라인 넘버 */
   headingNum: number,
+  /** 문단 아이템 배열 */
   items: array,
+  /** 아이콘 여부와 타입 */
   icon: string,
-  stroke: string,
+  /** 아이콘 스트로크 색 */
+  // stroke: string,
+  /** 아이콘 색 */
   iconcolor: string,
+  /** 문단 색 */
   colors: object,
+  /** 문단 사이즈 */
   size: number,
+  /** 링크 여부 */
   link: bool,
+  /** 링크 href */
   to: string
 };
 

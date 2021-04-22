@@ -30,9 +30,13 @@ const CarouselItem = ({ content, colors, active, type, ...restProps }) => {
 };
 
 CarouselItem.propTypes = {
+  /** 캐러셀 아이템 컨텐츠 객체 */
   content: object.isRequired,
+  /** 캐러셀 아이템 타입 */
   type: string.isRequired,
+  /** 캐러셀 아이템 중 review color */
   colors: object,
+  /** active 여부 */
   active: bool
 };
 

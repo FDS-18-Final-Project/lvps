@@ -2,7 +2,7 @@ import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
 import React from 'react';
 import styled from 'styled-components';
-import { calcRem, colors, calcInterval, fontSizes } from 'theme/theme';
+import { calcRem, colors, calcInterval, fontSizes, device } from 'theme/theme';
 
 const FullContainer = styled.section`
   position: relative;
@@ -22,10 +22,10 @@ const FullContainer = styled.section`
     background-size: cover;
     background-position: center;
   }
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcInterval([0, 50])};
   }
-  @media only screen and (max-width: 375px) {
+  ${device.mobile} {
     padding: ${calcInterval([0, 15])};
   }
 `;
@@ -119,7 +119,7 @@ const StaffIntroductionContainer = styled.div`
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     grid-template: repeat(1, 0.2fr 0.5fr 0.5fr 0.5fr) / repeat(1, 1fr);
     padding: ${calcInterval([75, 0, 0])};
 

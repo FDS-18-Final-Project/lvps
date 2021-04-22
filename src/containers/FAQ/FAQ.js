@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
+import { calcInterval, calcRem, colors, fontSizes, device } from 'theme/theme';
 import { useAccordionState } from 'hooks/';
 import { useViewSize } from 'hooks/';
 import Paragraph from 'components/Paragraph/Paragraph';
@@ -46,7 +46,7 @@ const FAQContainer = styled.div`
       margin-left: ${calcRem(10)};
     }
   }
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcInterval([50, 15, 70])};
 
     .gridTitle {
@@ -61,7 +61,7 @@ const FAQContainer = styled.div`
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     grid-template: repeat(1, 1fr) / repeat(1, 1fr);
     padding: ${calcInterval([50, 15])};
     .gridTitle {

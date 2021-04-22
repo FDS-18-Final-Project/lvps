@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import { colors, calcRem, calcInterval, fontSizes } from 'theme/theme';
+import { colors, calcRem, calcInterval, fontSizes, device } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import { useViewSize } from 'hooks/';
 import IconParagraph from 'components/IconParagraph/IconParagraph';
 
 const StyledIconExplanCardContainer = styled.section`
   padding: ${calcRem(75)};
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcRem(50)};
   }
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     padding: ${calcInterval([75, 15])};
   }
 `;
@@ -22,7 +22,7 @@ const FullContainer = styled.div`
     padding: 2%;
     box-sizing: border-box;
   }
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     h3 {
       height: ${calcRem(50)};
       font-size: ${fontSizes.base};
@@ -35,7 +35,7 @@ const FullContainer = styled.div`
       }
     }
   }
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     h2 {
       text-align: center;
       font-size: ${fontSizes.xl};
@@ -74,12 +74,12 @@ const StyledIconExplanListContainer = styled(Layout.FlexContainer)`
     margin: 0 auto;
     margin-right: ${calcRem(40)};
 
-    path {
-      /* fill: none; */
-      /* stroke: none; */
-    }
+    /* path {
+      fill: none;
+      stroke: none;
+    } */
   }
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     flex-flow: column;
   }
 `;

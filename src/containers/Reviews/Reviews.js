@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors, calcRem, calcInterval, fontSizes } from 'theme/theme';
+import { colors, calcRem, calcInterval, fontSizes, device } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import Paragraph from 'components/Paragraph/Paragraph';
 import Carousel from 'components/Carousel/Carousel';
@@ -53,7 +53,7 @@ const StyledReviewContainer = styled.section`
   background-position: center;
   padding: ${calcInterval([75, 100])};
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcInterval([70, 50])};
   }
 `;
@@ -63,7 +63,7 @@ const FullContainer = styled.div`
   margin: 0 auto;
   position: relative;
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     .review {
       margin: 0 auto;
 
@@ -85,7 +85,7 @@ const FullContainer = styled.div`
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     h2 {
       font-size: ${fontSizes.xl}
     }
@@ -95,7 +95,7 @@ const FullContainer = styled.div`
 const StyledReviewTitleContainer = styled(Layout.FlexContainer)`
   margin-bottom: ${calcRem(100)};
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     margin-bottom: ${calcRem(0)};
   }
 

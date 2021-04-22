@@ -55,7 +55,7 @@ const cardList = [
     id: 4,
     type: 'arrow',
     content: [{ id: 1, content: 'Ceramic Coating applicationl' }],
-    iconType: 'ceramicCar',
+    iconType: 'ceramicCar2',
     background: '#2D2D2D',
     fontColor: '#FFFFFF'
   }
@@ -182,10 +182,17 @@ const ServiceCeramic = () => {
         <OurWorks.Contents />
       </OurWorks>
       <GetAQuoteBanner
-        title={`Didn’t find what you are looking for? <br /> Contact us!`}
+        title={
+          <>
+            Didn’t find what you are looking for? <br /> Contact us!
+          </>
+        }
         linkText="Contact Us"
         styledmode="secondary"
         color="pink"
+        borderColor="pink"
+        hoverColor="pink"
+        iconcolor="pink"
       />
     </>
   );
