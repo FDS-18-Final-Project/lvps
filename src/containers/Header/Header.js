@@ -9,6 +9,7 @@ import SearchForm from 'components/SearchForm/SearchForm';
 import Navbar from 'components/Navbar/Navbar';
 import Icon from 'components/Icon/Icon';
 import NavbarMobile from 'components/NavbarMobile/NavbarMobile';
+import Tooltip from 'components/ToolTip/Tooltip';
 
 const HeaderContainer = styled.header`
   background: ${colors.black};
@@ -70,6 +71,19 @@ const IconContainer = styled(Layout.FlexContainer)`
 
   svg {
     width: 25px;
+  }
+  .searchBtn {
+    position: relative;
+
+    div {
+      opacity: 0;
+      z-index: -1000;
+      transition: 0.3s;
+    }
+  }
+  .searchBtn:hover div {
+    opacity: 1;
+    z-index: 1000;
   }
 
   @media only screen and (max-width: 1200px) {
@@ -169,6 +183,7 @@ const Header = () => {
             <>
               <Icon
                 button
+                className="searchBtn"
                 type="searchWhite"
                 color={colors.white}
                 width={calcRem(25)}
@@ -177,7 +192,9 @@ const Header = () => {
                   variants: iconVariants,
                   animate: searchAcitve ? 'hidden' : 'visible'
                 }}
-              />
+              >
+                <Tooltip top="85px" right="-65px" />
+              </Icon>
               <Icon
                 to="/"
                 type="instagram"

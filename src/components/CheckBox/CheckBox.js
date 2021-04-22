@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { string, node, func, object, oneOfType } from 'prop-types';
 import styled from 'styled-components';
-import { fontSizes, colors, calcRem } from 'theme/theme';
+import { fontSizes, colors, calcRem, calcInterval } from 'theme/theme';
 import Icon from 'components/Icon/Icon';
 import { AnimatePresence } from 'framer-motion';
 import Portal from 'utils/portal';
 
-const CheckBoxContainer = styled.label`
+const CheckBoxContainer = styled.div`
   display: inline-block;
   border: 1px solid lightgray;
   position: relative;
   border: ${({ confirm }) =>
     confirm ? `4px solid ${colors.redMain}` : '4px solid #c9c9c9'};
   background-color: white;
+
+  width: 300px;
+  height: 380px;
+  cursor: pointer;
+  margin:${calcInterval([10, 30])};
 
   &::before {
     position: absolute;
@@ -39,12 +44,6 @@ const CheckBoxContainer = styled.label`
     transform: translateX(50%);
   }
 
-  input {
-    width: 300px;
-    height: 380px;
-    opacity: 0;
-    cursor: pointer;
-  }
 
   .resetBtn {
     position: absolute;
@@ -77,7 +76,8 @@ const CheckBox = ({ imagePath, desc, Modal, handleReset }) => {
 
   const handleConfirmCheck = () => setConfirm(true);
 
-  const resetConfirm = () => {
+  const resetConfirm = e => {
+    e.stopPropagation();
     setConfirm(false);
   };
 
@@ -87,17 +87,17 @@ const CheckBox = ({ imagePath, desc, Modal, handleReset }) => {
 
   return (
     <>
-      <CheckBoxContainer imagePath={imagePath} desc={desc} confirm={confirm}>
-        <input
-          type="checkbox"
-          checked={visible}
-          onChange={handleModalVisible}
-        />
+      <CheckBoxContainer
+        imagePath={imagePath}
+        desc={desc}
+        confirm={confirm}
+        onClick={handleModalVisible}
+      >
         <Icon
           className="resetBtn"
           type="close"
           button
-          onClick={() => handleReset(resetConfirm)}
+          onClick={e => handleReset(resetConfirm, e)}
         />
         {confirm && <Icon className="icon" type="circleCheck" />}
       </CheckBoxContainer>

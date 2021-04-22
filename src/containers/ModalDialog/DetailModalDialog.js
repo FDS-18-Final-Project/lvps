@@ -22,6 +22,7 @@ const StyledModalContainer = styled.section`
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
   z-index: 100;
+  backdrop-filter: blur(4px);
 
   & > div {
     width: ${calcRem(1350)};

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { colors, calcRem, device, calcInterval } from 'theme/theme';
 import { motion } from 'framer-motion';
@@ -17,6 +17,7 @@ const StyledModalContainer = styled.section`
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
   z-index: 100;
+  backdrop-filter: blur(4px);
 
   & > div {
     width: ${calcRem(1350)};
@@ -135,6 +136,18 @@ const WheelModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
     onChange();
     confirmCheck();
   };
+
+  useEffect(() => {
+    const closeModal = e => {
+      if (!e.target.matches('.dim')) return;
+      onChange();
+    };
+    document.body.addEventListener('click', closeModal);
+
+    return () => {
+      document.body.removeEventListener('click', closeModal);
+    };
+  }, [onChange]);
 
   return (
     // <Portal id="modal-root">

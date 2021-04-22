@@ -15,12 +15,12 @@ const FAQContainer = styled.div`
   display: grid;
   grid-template: repeat(1, 0.2fr 1fr) / repeat(1, 0.7fr 1fr);
 
-  padding: ${calcInterval([75, 0, 191])};
+  padding: ${calcInterval([75, 0, 150])};
   grid-gap: 0 10px;
 
   .gridTitle {
     grid-area: 1 / 1 / 2 / 3;
-    margin-bottom: ${calcRem(104)};
+    margin-bottom: ${calcRem(60)};
   }
 
   .gridImage {
@@ -96,6 +96,7 @@ const FAQContainer = styled.div`
       }
       p {
         margin: 10px;
+        font-size: ${calcRem(14)};
       }
     }
   }
@@ -105,127 +106,83 @@ const accordionState = [
   {
     id: 1,
     title: 'How much does your services cost?',
-    description: `It depends on the service you are looking to get. Every car is different and depending on the services the price varies. Contact us for more information.
-    `,
-    imagePath: 'assets/dummy_ourbestservice.png',
+    description: `It depends on the service you are looking to get. Every car is different and depending on the services the price varies. Contact us for more information.`,
     active: true
   },
   {
     id: 2,
     title: 'What is your guarantee?',
-    description: `It can be described as an additional clear coat,
-    with 3 times the hardness and self cleaning properties.
-    `,
-    imagePath: 'assets/dummyCar.png',
+    description: `We guarantee that the job will be done with the highest quality standards. If for some reason you are not happy with the results lets us know and we will fix it.`,
     active: false
   },
   {
     id: 3,
     title: 'How long do you need my car for the work to be completed?',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummyImage.png',
+    description:
+      'Most of the time we need your car for 1-2 full days depending on the services you get. Protection products like ceramic coating, paint protection film, paint correction, require time for the product to be installed and after waiting time for curing.. We want to make sure the job is done right and not rushed.     ',
     active: false
   },
   {
     id: 4,
     title: 'Where are you located?',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummy_background.png',
+    description:
+      'We are located on 9 Vanley Cres, North York. We also offer some mobile services. We come to you. Contact us for more information.     ',
     active: false
   },
   {
     id: 5,
     title: 'How long do I wait before washing my car?',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummy_car1.png',
+    description:
+      'We recommend not to wash your car within the first two weeks. It is the curing period for ceramic coatings, paint protection film. The first wash is on us. Book a time with us after the 2 weeks for the inspection wash. We make sure that everything is installed and working.      ',
     active: false
   },
   {
     id: 6,
     title: 'What car window tint percentage is legal in Ontario??',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummy_background.png',
+    description:
+      'In Ontario the legal limit for front side windows is 35%, the back and rear windows can be dark as you wish as there is no limit. You have to choose a shade of darkness that is comfortable and safe to you.     ',
     active: false
   },
   {
     id: 7,
     title: 'What Is Paint Protection Film?',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummy_background.png',
+    description:
+      'Paint protection film is a transparent film that adheres to the smooth surfaces of your vehicle. It does not affect the appearance or the aerodynamics of your vehicle. With minimal maintenance, paint protection film can last for many years with minimal maintenance. It looks great while keeping your paint protected. ',
     active: false
   },
   {
     id: 8,
     title: 'Do I Have to Wash My Car Prior To Receiving services?',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummy_background.png',
-    active: false,
-    button: true
+    description:
+      'It is always recommended that your car is as clean as possible before application. This will allow your installer to assess the aesthetic condition of your car before installation.',
+    active: false
   },
   {
     id: 9,
     title: 'How Long Should I Wait Before Washing My Car?',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummy_background.png',
+    description:
+      'It is recommended that you wait approximately 48 hours before washing your car so that the film can adhere to the surface of your car. Because the installation is applied wet, it will require some drying time.',
     active: false
   },
   {
     id: 10,
     title: 'Is Paint Protection Film Effective?',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummy_background.png',
+    description:
+      'Absolutely! The goal of the film is to not only prevent environmental damage but paint abrasions and scratches.',
     active: false
   },
   {
     id: 11,
     title: 'How Do I Maintain The Film?',
-    description: [
-      'Quality Protection',
-      'ServicesQuality Protection',
-      'ServicesQuality Protection',
-      'Services'
-    ],
-    imagePath: 'assets/dummy_background.png',
+    description:
+      'You should do regular washes and annual waxing in order to maintain the lustrous appearance. Ultimately, you should care for it the same way you would care for other painted surfaces.',
+    active: false
+  },
+  {
+    id: 12,
+    title: 'Can I Have My Whole Vehicle Wrapped In Paint Protection Film?',
+    description:
+      'Yes. Your car can be fully wrapped on all smooth surfaces, both inside and outside.',
     active: false
   }
 ];
@@ -234,7 +191,7 @@ const variants = mobile => ({
   visible: {
     color: colors.white,
     backgroundColor: colors.black,
-    height: mobile ? 'auto' : calcRem(200),
+    height: mobile ? 'auto' : calcRem(230),
     opacity: 0.8,
     transition: { duration: 0.5, type: 'tween' }
   },
