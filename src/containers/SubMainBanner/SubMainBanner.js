@@ -55,6 +55,7 @@ const MainBannerTitle = styled.h2`
 
   ${device.tablet} {
     font-size: ${fontSizes.xl};
+    text-align: center;
   }
 `;
 const StyledDim = styled.div`

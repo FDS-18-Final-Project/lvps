@@ -38,7 +38,7 @@ const Routes = () => (
             <Route path="/igl-coatings" component={IGLCoatings} />
             <Route path="/get-a-quote" component={GetAQuote} />
             <Route path="/get-a-quote-form" component={GetAQuotePage} />
-            <Route path="/page-not-found" component={PageNotFound} />
+            <Route path="*" component={PageNotFound} />
           </Switch>
         </AnimatePresence>
       </>

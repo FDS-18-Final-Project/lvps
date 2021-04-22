@@ -8,7 +8,6 @@ import OurBestServices from 'containers/OurBestServices/OurBestServices';
 import SubBanner from 'containers/SubBanner/SubBanner';
 import Icon from 'components/Icon/Icon';
 import Reviews from 'containers/Reviews/Reviews';
-
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import FeaturesBenefits from 'containers/FeaturesBenefits/FeaturesBenefits';
 import CarCareGuide from 'containers/CarCareGuide/CarCareGuide';
@@ -25,7 +24,7 @@ const squareCardList = [
           'Professional services & products offered to exceed your expectations'
       }
     ],
-    iconType: 'likeCircle',
+    iconType: 'mainGoodLuck',
     background: colors.black,
     fontColor: colors.white
   },
@@ -35,7 +34,7 @@ const squareCardList = [
     content: [
       { id: 1, content: 'Certified Professional & Trained Installers' }
     ],
-    iconType: 'likeCircle',
+    iconType: 'mainShield',
     background: colors.black,
     fontColor: colors.white
   },
@@ -43,7 +42,7 @@ const squareCardList = [
     id: 3,
     type: 'square',
     content: [{ id: 1, content: '100% Satisfaction Guaranteed' }],
-    iconType: 'likeCircle',
+    iconType: 'mainSmile',
     background: colors.black,
     fontColor: colors.white
   },
@@ -51,7 +50,7 @@ const squareCardList = [
     id: 4,
     type: 'square',
     content: [{ id: 1, content: 'We work with every make & model' }],
-    iconType: 'likeCircle',
+    iconType: 'mainPerson',
     background: colors.black,
     fontColor: colors.white
   },
@@ -59,7 +58,7 @@ const squareCardList = [
     id: 5,
     type: 'square',
     content: [{ id: 1, content: 'Pick up & delivery service available' }],
-    iconType: 'likeCircle',
+    iconType: 'mainTruck',
     background: colors.black,
     fontColor: colors.black
   },
@@ -67,7 +66,7 @@ const squareCardList = [
     id: 6,
     type: 'square',
     content: [{ id: 1, content: 'Mobile services on request' }],
-    iconType: 'likeCircle',
+    iconType: 'mainCheck',
     background: colors.black,
     fontColor: colors.white
   }

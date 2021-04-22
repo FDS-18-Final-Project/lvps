@@ -86,7 +86,8 @@ const ServiceCeramic = () => {
       />
       <ServiceInfoType2
         imageLabel="ceramic pro coating bottle"
-        imagePath="./assets/ceramicInfoImage.png"
+        imagePath="/assets/ceramicInfoImage.png"
+        mobileImagePath="/assets/ServiceInfo_01.png"
         infoList={[]}
         mode="right"
         subTitle=" "

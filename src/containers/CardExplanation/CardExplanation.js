@@ -22,6 +22,7 @@ const CardContainer = styled.div`
     font-size: ${calcRem(45)};
     margin-bottom: ${calcRem(15)};
     font-family: Montserrat;
+    font-weight: 800;
   }
 
   h2 + p {

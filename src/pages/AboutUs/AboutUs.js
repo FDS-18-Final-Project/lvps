@@ -13,10 +13,10 @@ const CardList = [
       {
         id: 1,
         content:
-          'Professional services & products offered to exceed your expectations.'
+          'Professional services & products offered to exceed your expectations'
       }
     ],
-    iconType: 'likeCircle',
+    iconType: 'mainGoodLuck',
     background: colors.black,
     fontColor: colors.white
   },
@@ -26,7 +26,7 @@ const CardList = [
     content: [
       { id: 1, content: 'Certified Professional & Trained Installers' }
     ],
-    iconType: 'likeCircle',
+    iconType: 'mainShield',
     background: colors.black,
     fontColor: colors.white
   },
@@ -34,7 +34,7 @@ const CardList = [
     id: 3,
     type: 'square',
     content: [{ id: 1, content: '100% Satisfaction Guaranteed' }],
-    iconType: 'likeCircle',
+    iconType: 'mainSmile',
     background: colors.black,
     fontColor: colors.white
   },
@@ -42,7 +42,7 @@ const CardList = [
     id: 4,
     type: 'square',
     content: [{ id: 1, content: 'We work with every make & model' }],
-    iconType: 'likeCircle',
+    iconType: 'mainPerson',
     background: colors.black,
     fontColor: colors.white
   },
@@ -50,7 +50,7 @@ const CardList = [
     id: 5,
     type: 'square',
     content: [{ id: 1, content: 'Pick up & delivery service available' }],
-    iconType: 'likeCircle',
+    iconType: 'mainTruck',
     background: colors.black,
     fontColor: colors.black
   },
@@ -58,7 +58,7 @@ const CardList = [
     id: 6,
     type: 'square',
     content: [{ id: 1, content: 'Mobile services on request' }],
-    iconType: 'likeCircle',
+    iconType: 'mainCheck',
     background: colors.black,
     fontColor: colors.white
   }

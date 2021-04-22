@@ -98,8 +98,9 @@ const ServicesContainer = styled.div`
         padding-top: 12px;
       }
       p {
-        font-size: ${calcRem(10)};
+        font-size: ${calcRem(14)};
         margin-top: ${calcRem(10)};
+        color: ${colors.white};
         line-height: ${calcRem(17)};
       }
     }

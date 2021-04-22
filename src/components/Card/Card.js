@@ -8,7 +8,7 @@ import IconParagraph from 'components/IconParagraph/IconParagraph';
 const typeStyle = {
   arrow: {
     'clip-path': 'polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%)',
-    'max-width': calcRem(300)
+    'min-width': calcRem(300)
   },
   square: {
     'clip-path': 'initial',
@@ -59,6 +59,8 @@ const StyledCard = styled(motion('div'))`
 
   ${device.desktop} {
     padding: ${calcInterval([50, 30])};
+    min-width: initial;
+    max-width: 300px;
   }
 
   ${device.tablet} {

@@ -68,6 +68,10 @@ const SubBannerContainer = styled.div`
         font-size: ${fontSizes.lg};
         line-height: ${calcRem(27)};
       }
+
+      & button {
+        width: 100%;
+      }
     }
     .gridImg {
       grid-area: 2 / 1 / 3 /1;

@@ -57,6 +57,7 @@ const PaintProtectionFilm = () => {
       <ServiceInfoType2
         imageLabel="ceramic pro coating bottle"
         imagePath="./assets/paintProtectionServiceInfo.png"
+        mobileImagePath="./assets/ServiceInfo_02.png"
         infoList={[]}
         mode="right"
         subTitle=" "

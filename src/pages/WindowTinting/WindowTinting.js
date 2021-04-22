@@ -57,6 +57,7 @@ const WindowTinting = () => {
       <ServiceInfoType2
         imageLabel="A Car with Carbon Film applied"
         imagePath="./assets/carbon-film.png"
+        mobileImagePath="./assets/mobile-carbon-film.png"
         infoList={[
           '5 Year Warranty',
           'Great solar performance with advanced UV protection',
@@ -69,6 +70,7 @@ const WindowTinting = () => {
       <ServiceInfoType2
         imageLabel="A Car with Ceramic Film applied"
         imagePath="./assets/ceramic-film.png"
+        mobileImagePath="./assets/mobile-ceramic-film.png"
         infoList={[
           'Lifetime Warranty',
           'Proprietary non-metallized, nonconductive nano-ceramic technology maximizes heat and ultraviolet rejection, keeping you and your vehicle cool and helping to protect from the damaging effects of the sun.'

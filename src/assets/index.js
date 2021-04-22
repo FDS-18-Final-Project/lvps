@@ -52,6 +52,12 @@ import { ReactComponent as PaintProtectionHealing } from './svg/paintProtectionH
 import { ReactComponent as PaintProtectionShield } from './svg/paintProtectionShield.svg';
 import { ReactComponent as PaintProtectionWarranty } from './svg/paintProtectionWarranty.svg';
 import { ReactComponent as Alert } from './svg/Alert.svg';
+import { ReactComponent as MainCheck } from './svg/mainCheck.svg';
+import { ReactComponent as MainGoodLuck } from './svg/mainGoodLuck.svg';
+import { ReactComponent as MainPerson } from './svg/mainPerson.svg';
+import { ReactComponent as MainShield } from './svg/mainShield.svg';
+import { ReactComponent as MainSmile } from './svg/mainSmile.svg';
+import { ReactComponent as MainTruck } from './svg/mainTruck.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -75,6 +81,12 @@ export default {
   tagWhite: TagWhite,
   tagRed: TagRed,
   tagGold: TagGold,
+  mainCheck: MainCheck,
+  mainGoodLuck: MainGoodLuck,
+  mainPerson: MainPerson,
+  mainShield: MainShield,
+  mainSmile: MainSmile,
+  mainTruck: MainTruck,
   mobileMenuIcon: MobileMenuIcon,
   // goodWork: GoodWork,
   likeCircle: LikeCircle,

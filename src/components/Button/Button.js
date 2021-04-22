@@ -85,13 +85,17 @@ const compDesign = css`
     outline: none;
   }
 
-  &:hover {
-    ${({ disabled, styledmode }) => !disabled && hoverEffect[styledmode]};
+  ${({ disabled }) =>
+    !disabled &&
+    css`
+      &:hover {
+        ${({ disabled, styledmode }) => !disabled && hoverEffect[styledmode]};
 
-    path {
-      ${props => styleHoverIcon[props.styledmode]};
-    }
-  }
+        path {
+          ${props => styleHoverIcon[props.styledmode]};
+        }
+      }
+    `};
 
   & div {
     width: ${calcRem(20)};
