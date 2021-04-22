@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, calcRem } from 'theme/theme';
+import { colors, calcRem, device, fontSizes } from 'theme/theme';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
-
-import { useModalSelected } from 'hooks/';
+import { useModalSelected, useViewSize } from 'hooks/';
 import { motion } from 'framer-motion';
 import {
   detailMultiToggleActive,
@@ -13,6 +12,7 @@ import HelmetPriceTable from 'components/PriceTable/HelmetPriceTable';
 import PrimiumPriceTable from 'components/PriceTable/PrimiumPriceTable';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import Carousel from 'components/Carousel/Carousel';
 
 const StyledModalContainer = styled.section`
   position: fixed;
@@ -24,10 +24,9 @@ const StyledModalContainer = styled.section`
   z-index: 100;
 
   & > div {
-    margin-top: ${calcRem(170)};
     width: ${calcRem(1350)};
-    height: 100vh;
-    margin: 170px auto 0;
+    height: 90vh;
+    margin: ${calcRem(50)} auto 0;
     background: ${colors.gray_02};
     overflow: auto;
     display: flex;
@@ -37,24 +36,29 @@ const StyledModalContainer = styled.section`
   }
   /* 스크롤바 스타일  */
   & > div::-webkit-scrollbar {
-    width: 10px;
+    width: ${calcRem(10)};
   }
   & > div::-webkit-scrollbar-thumb {
     background-color: #2f3542;
-    border-radius: 10px;
+    border-radius: ${calcRem(10)};
     background-clip: padding-box;
-    border: 2px solid transparent;
+    border: ${calcRem(2)} solid transparent;
   }
   & > div::-webkit-scrollbar-track {
     background-color: grey;
-    border-radius: 10px;
-    box-shadow: inset 0px 0px 5px white;
+    border-radius: ${calcRem(10)};
+    box-shadow: inset 0px 0px ${calcRem(5)} white;
+  }
+  @media only screen and (max-width: 1350px) {
+    & > div {
+      width: 100%;
+    }
   }
 `;
 
 const StyledModalBodyContainer = styled.div`
   width: 100%;
-  padding-top: ${calcRem(180)};
+  padding-top: ${calcRem(30)};
 
   h4 {
     font-size: ${calcRem(45)};
@@ -87,14 +91,23 @@ const StyledModalBodyContainer = styled.div`
       fill: black;
     }
   }
+  ${device.tablet} {
+    & > button {
+      top: ${calcRem(40)};
+      right: ${calcRem(40)};
+    }
+    h4 {
+      padding: 0 ${calcRem(20)};
+      font-size: ${fontSizes.xl};
+    }
+  }
 `;
 const StyledPackageContainer = styled.div`
   border-bottom: ${calcRem(2.4)} solid ${colors.lightGray};
 
-  &:nth-last-child(3) {
-    border-bottom: 0;
+  &:nth-child(1) strong {
+    margin-bottom: ${calcRem(105)};
   }
-
   &:nth-child(2) em {
     text-align: center;
     margin: 3rem 0rem 6.5rem;
@@ -105,20 +118,33 @@ const StyledPackageContainer = styled.div`
   &:nth-child(2) ul {
     margin-top: ${calcRem(30)};
   }
-  &:nth-child(1) strong {
-    margin-bottom: ${calcRem(105)};
+  &:nth-last-child(4) {
+    border-bottom: 0;
   }
   .firstPackage > div {
     justify-content: initial;
     padding: 1.4375rem 1.875rem ${calcRem(38)};
     background-size: ${calcRem(480)};
     position: relative;
-
+    &:nth-child(1) strong {
+      margin-bottom: ${calcRem(50)};
+    }
     &:nth-child(2) strong {
-      margin-bottom: 200px;
+      margin-bottom: 100px;
     }
     &:nth-child(3) strong {
-      margin-bottom: 250px;
+      margin-bottom: 150px;
+    }
+  }
+  ${device.tablet} {
+    &:nth-child(1) strong {
+      margin-bottom: ${calcRem(50)};
+    }
+    &:nth-child(2) strong {
+      margin-bottom: 100px;
+    }
+    &:nth-child(3) strong {
+      margin-bottom: 150px;
     }
   }
 `;
@@ -137,6 +163,21 @@ const StyledPackageListContainer = styled.div`
   &.firstPackage ul li p {
     color: ${colors.white};
   }
+
+  ${device.desktop} {
+    padding: 0 ${({ numOfProd }) => (numOfProd <= 3 ? calcRem(8) : 0)} 3.75rem;
+    justify-items: center;
+
+    &.firstPackage ul li p {
+      font-size: ${calcRem(14)};
+    }
+    &.firstPackage strong {
+      font-size: 2rem;
+    }
+    &.secondPackage > div em {
+      font-size: ${fontSizes.lg};
+    }
+  }
 `;
 
 const StyledButtonContainer = styled.div`
@@ -149,8 +190,73 @@ const StyledButtonContainer = styled.div`
     left: 50%;
     transform: translate(-50%, -30%);
   }
+  ${device.tablet} {
+    button {
+      min-width: ${calcRem(320)};
+    }
+  }
 `;
 
+const StyledTotalPriceContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: ${calcRem(60)};
+  margin-right: ${calcRem(100)};
+  p {
+    font-size: ${calcRem(30)};
+    line-height: 150%;
+    position: relative;
+    top: 15px;
+    margin-right: ${calcRem(20)};
+  }
+
+  span {
+    color: ${colors.red_05};
+    font-weight: 700;
+    font-size: ${fontSizes.titleBase};
+    min-width: ${calcRem(220)};
+    text-align: center;
+    line-height: 150%;
+    border-bottom: ${calcRem(2)} solid ${colors.black};
+  }
+
+  ${device.tablet} {
+    margin-right: ${calcRem(50)};
+    p {
+      top: 5px;
+      font-size: ${calcRem(20)};
+    }
+    span {
+      min-width: ${calcRem(150)};
+      font-size: ${fontSizes.xl};
+    }
+  }
+`;
+
+const StyledCarouselContainer = styled.div`
+  overflow-x: hidden;
+
+  & > div:nth-child(1),
+  & > div:nth-child(2) {
+    text-align: center;
+
+    max-width: ${calcRem(350)};
+    margin-top: ${calcRem(50)};
+    background-size: ${calcRem(500)};
+  }
+
+  .firstCarousel ul li > div {
+    justify-content: flex-start;
+    background-size: 500px;
+    min-height: 700px;
+  }
+  .firstCarousel ul li > div p {
+    color: ${colors.white};
+  }
+  h4 {
+    margin-bottom: ${calcRem(0)};
+  }
+`;
 const DetailModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
   const {
     modalData,
@@ -166,6 +272,18 @@ const DetailModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
     confirmCheck
   );
   const { label, title, firstPackage, secondPackage } = modalData;
+  const { desktop } = useViewSize();
+
+  const firstPackageContents = firstPackage.contents?.map(content => (
+    <PrimiumPriceTable
+      key={content.id}
+      id={content.id}
+      data-name="firstPackage"
+      active={content.active}
+      onClick={onlyOneSelected}
+      {...content}
+    />
+  ));
 
   return (
     // <Portal id="modal-root">
@@ -183,41 +301,78 @@ const DetailModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
         </header>
         <StyledModalBodyContainer>
           {/* 카드 컨텐츠  */}
-          <StyledPackageContainer>
-            <h4>{firstPackage.title}</h4>
-            <StyledPackageListContainer
-              className="firstPackage"
-              numOfProd={firstPackage.contents?.length}
-            >
-              {firstPackage.contents?.map(content => (
-                <PrimiumPriceTable
-                  key={content.id}
-                  id={content.id}
-                  data-name="firstPackage"
-                  active={content.active}
-                  onClick={onlyOneSelected}
-                  {...content}
+          {desktop ? (
+            <>
+              <StyledPackageContainer>
+                <h4>{firstPackage.title}</h4>
+                <StyledPackageListContainer
+                  className="firstPackage"
+                  numOfProd={firstPackage.contents?.length}
+                >
+                  {firstPackage.contents?.map(content => (
+                    <PrimiumPriceTable
+                      key={content.id}
+                      id={content.id}
+                      data-name="firstPackage"
+                      active={content.active}
+                      onClick={onlyOneSelected}
+                      {...content}
+                    />
+                  ))}
+                </StyledPackageListContainer>
+              </StyledPackageContainer>
+              <StyledPackageContainer>
+                <h4>{secondPackage.title}</h4>
+                <StyledPackageListContainer
+                  numOfProd={secondPackage.contents?.length}
+                >
+                  {secondPackage.contents?.map(content => (
+                    <HelmetPriceTable
+                      key={content.id}
+                      id={content.id}
+                      data-name="secondPackage"
+                      active={content.active}
+                      onClick={multiSelected}
+                      {...content}
+                    />
+                  ))}
+                </StyledPackageListContainer>
+              </StyledPackageContainer>
+            </>
+          ) : (
+            <>
+              <StyledCarouselContainer>
+                <h4>{firstPackage.title}</h4>
+                <Carousel
+                  type="card"
+                  className="firstCarousel"
+                  contents={firstPackageContents}
                 />
-              ))}
-            </StyledPackageListContainer>
-          </StyledPackageContainer>
-          <StyledPackageContainer>
-            <h4>{secondPackage.title}</h4>
-            <StyledPackageListContainer
-              numOfProd={secondPackage.contents?.length}
-            >
-              {secondPackage.contents?.map(content => (
-                <HelmetPriceTable
-                  key={content.id}
-                  id={content.id}
-                  data-name="secondPackage"
-                  active={content.active}
-                  onClick={multiSelected}
-                  {...content}
-                />
-              ))}
-            </StyledPackageListContainer>
-          </StyledPackageContainer>
+              </StyledCarouselContainer>
+              <StyledPackageContainer>
+                <h4>{secondPackage.title}</h4>
+                <StyledPackageListContainer
+                  numOfProd={secondPackage.contents?.length}
+                >
+                  {secondPackage.contents?.map(content => (
+                    <HelmetPriceTable
+                      key={content.id}
+                      id={content.id}
+                      data-name="secondPackage"
+                      active={content.active}
+                      onClick={multiSelected}
+                      {...content}
+                    />
+                  ))}
+                </StyledPackageListContainer>
+              </StyledPackageContainer>
+            </>
+          )}
+
+          <StyledTotalPriceContainer>
+            <p>Total Price</p>
+            <span>$1500</span>
+          </StyledTotalPriceContainer>
           <StyledButtonContainer>
             <Button
               disabled={checkActive(firstPackage, secondPackage)}

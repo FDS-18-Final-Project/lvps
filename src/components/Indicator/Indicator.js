@@ -36,8 +36,11 @@ const Indicator = ({ contents, current, onChange, ...restProps }) => {
 };
 
 Indicator.propTypes = {
+  /** 인디케이터 길이를 위한 컨텐츠 */
   contents: array.isRequired,
+  /** 현재 active */
   current: number,
+  /** onChange 메서드 */
   onChange: func
 };
 

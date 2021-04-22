@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, calcRem } from 'theme/theme';
+import { colors, calcRem, device, calcInterval } from 'theme/theme';
 import { motion } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 import { addService } from 'store/service/service';
@@ -19,10 +19,9 @@ const StyledModalContainer = styled.section`
   z-index: 100;
 
   & > div {
-    margin-top: ${calcRem(170)};
     width: ${calcRem(1350)};
-    height: 100vh;
-    margin: ${calcRem(170)} auto 0;
+    height: 90vh;
+    margin: ${calcRem(50)} auto 0;
     background: ${colors.gray_02};
     overflow: auto;
     display: flex;
@@ -32,24 +31,29 @@ const StyledModalContainer = styled.section`
   }
   /* 스크롤바 스타일  */
   & > div::-webkit-scrollbar {
-    width: 10px;
+    width: ${calcRem(10)};
   }
   & > div::-webkit-scrollbar-thumb {
     background-color: #2f3542;
-    border-radius: 10px;
+    border-radius: ${calcRem(10)};
     background-clip: padding-box;
-    border: 2px solid transparent;
+    border: ${calcRem(2)} solid transparent;
   }
   & > div::-webkit-scrollbar-track {
     background-color: grey;
-    border-radius: 10px;
-    box-shadow: inset 0px 0px 5px white;
+    border-radius: ${calcRem(10)};
+    box-shadow: inset 0px 0px ${calcRem(5)} white;
+  }
+  @media only screen and (max-width: 1350px) {
+    & > div {
+      width: 100%;
+    }
   }
 `;
 
 const StyledModalBodyContainer = styled.div`
   width: 100%;
-  padding-top: ${calcRem(180)};
+  padding-top: ${calcRem(30)};
 
   h4 {
     font-size: ${calcRem(45)};
@@ -82,6 +86,12 @@ const StyledModalBodyContainer = styled.div`
       fill: black;
     }
   }
+  ${device.tablet} {
+    & > button {
+      top: ${calcRem(40)};
+      right: ${calcRem(40)};
+    }
+  }
 `;
 const StyledPackageContainer = styled.div`
   border-bottom: ${calcRem(2.4)} solid ${colors.lightGray};
@@ -104,6 +114,11 @@ const StyledButtonContainer = styled.div`
     top: 30%;
     left: 50%;
     transform: translate(-50%, -30%);
+  }
+  ${device.tablet} {
+    button {
+      min-width: ${calcRem(320)};
+    }
   }
 `;
 

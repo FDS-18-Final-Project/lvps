@@ -26,7 +26,6 @@ const StyledList = styled.ul`
   justify-content: center;
   max-width: ${calcRem(1200)};
   margin: auto;
-  padding-left: ${calcRem(20)};
 `;
 
 const BrandList = ({ title, type, wheelList, tireList, ...restProps }) => {

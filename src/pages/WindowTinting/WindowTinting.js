@@ -45,7 +45,7 @@ const WindowTinting = () => {
     >
       <SubMainBanner
         title="Window Tinting"
-        desc="LVS for your car"
+        desc="LVPS for your car"
         bgImg="assets/WindowTintingBannerImage.png"
       />
       <SubPageTitle

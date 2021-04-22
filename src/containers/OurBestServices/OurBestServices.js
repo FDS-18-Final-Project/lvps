@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 import styled from 'styled-components';
-import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
+import { calcInterval, calcRem, colors, device, fontSizes } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAccordionState } from 'hooks/';
@@ -26,14 +26,14 @@ const FullContainer = styled.section`
     background-position: center;
     transition: 0.3s;
   }
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcInterval([0, 50])};
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     padding: ${calcInterval([0, 20])};
   }
-  @media only screen and (max-width: 375px) {
+  ${device.mobile} {
     padding: ${calcInterval([0, 15])};
   }
 `;
@@ -64,7 +64,7 @@ const ServicesContainer = styled.div`
     margin-left: ${calcRem(45)};
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -110,7 +110,7 @@ const ServicesContainer = styled.div`
     }
   }
 
-  @media only screen and (max-width: 375px) {
+  ${device.mobile} {
     .imageContainer {
       display: none;
     }

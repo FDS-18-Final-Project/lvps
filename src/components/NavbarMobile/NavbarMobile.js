@@ -36,7 +36,7 @@ NavbarMobile.defaultProps = {
       id: 'nav_1',
       value: 'HOME',
       type: 'nav',
-      to: '/'
+      to: '/home'
     },
     {
       id: 'nav_2',

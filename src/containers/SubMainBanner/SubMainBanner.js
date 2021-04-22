@@ -26,7 +26,6 @@ const FullContainer = styled.div`
   margin: 0 auto;
   padding: 90px ${calcRem(50)} 0;
   position: relative;
-  z-index: 100;
 
   & > div {
     margin: ${calcRem(30)} 0;

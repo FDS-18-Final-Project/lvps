@@ -2,8 +2,8 @@ import React from 'react';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 
 import styled from 'styled-components';
-import { colors, calcRem } from 'theme/theme';
-import { useModalSelected } from 'hooks/';
+import { colors, calcRem, device, fontSizes, calcInterval } from 'theme/theme';
+import { useModalSelected, useViewSize } from 'hooks/';
 import {
   windowMultiToggleActive,
   windowSingleToggleActive
@@ -12,6 +12,7 @@ import { motion } from 'framer-motion';
 import HelmetPriceTable from 'components/PriceTable/HelmetPriceTable';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import Carousel from 'components/Carousel/Carousel';
 
 const StyledModalContainer = styled.section`
   position: fixed;
@@ -23,10 +24,9 @@ const StyledModalContainer = styled.section`
   z-index: 100;
 
   & > div {
-    margin-top: ${calcRem(170)};
     width: ${calcRem(1350)};
-    height: 100vh;
-    margin: 170px auto 0;
+    height: 90vh;
+    margin: ${calcRem(50)} auto 0;
     background: ${colors.gray_02};
     overflow: auto;
     display: flex;
@@ -52,11 +52,16 @@ const StyledModalContainer = styled.section`
   .firstPackage > div {
     justify-content: initial;
   }
+  @media only screen and (max-width: 1350px) {
+    & > div {
+      width: 100%;
+    }
+  }
 `;
 
 const StyledModalBodyContainer = styled.div`
   width: 100%;
-  padding-top: ${calcRem(180)};
+  padding-top: ${calcRem(30)};
 
   h4 {
     font-size: ${calcRem(45)};
@@ -89,19 +94,27 @@ const StyledModalBodyContainer = styled.div`
       fill: black;
     }
   }
+  ${device.tablet} {
+    & > button {
+      top: ${calcRem(40)};
+      right: ${calcRem(40)};
+    }
+    h4 {
+      padding: 0 ${calcRem(20)};
+      font-size: ${fontSizes.xl};
+    }
+  }
 `;
 const StyledPackageContainer = styled.div`
   border-bottom: ${calcRem(2.4)} solid ${colors.lightGray};
 
-  &:nth-last-child(3) {
+  &:nth-last-child(4) {
     border-bottom: 0;
   }
 
   &:nth-child(2) em {
     text-align: center;
     margin: 1.5rem 0rem 4rem;
-  }
-  &:nth-child(1) strong {
   }
 `;
 const StyledPackageListContainer = styled.div`
@@ -113,7 +126,6 @@ const StyledPackageListContainer = styled.div`
 
   & div {
     cursor: pointer;
-
     margin: ${({ numOfProd }) => numOfProd === 1 && '0 auto'};
   }
   & em {
@@ -125,6 +137,19 @@ const StyledPackageListContainer = styled.div`
 
   & ul li p {
     line-height: 130%;
+  }
+  ${device.desktop} {
+    grid-template-columns: ${({ numOfProd }) =>
+      numOfProd === 8 ? `repeat(2, 1fr)` : `repeat(${numOfProd / 2}, 1fr)`};
+    justify-items: center;
+    padding: ${calcInterval([0, 50])};
+
+    & > div {
+      max-width: ${calcRem(320)};
+    }
+    & em {
+      margin: 2.5rem 0rem 4rem;
+    }
   }
 `;
 
@@ -140,8 +165,74 @@ const StyledButtonContainer = styled.div`
     font-weight: 700;
     font-size: ${calcRem(18)};
   }
+  ${device.tablet} {
+    button {
+      min-width: ${calcRem(320)};
+    }
+  }
+`;
+const StyledTotalPriceContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: ${calcRem(60)};
+  margin-right: ${calcRem(100)};
+
+  p {
+    font-size: ${calcRem(30)};
+    line-height: 150%;
+    position: relative;
+    top: 15px;
+    margin-right: ${calcRem(20)};
+  }
+
+  span {
+    color: ${colors.red_05};
+    font-weight: 700;
+    font-size: ${fontSizes.titleBase};
+    min-width: ${calcRem(220)};
+    text-align: center;
+    line-height: 150%;
+    border-bottom: ${calcRem(2)} solid ${colors.black};
+  }
+
+  ${device.tablet} {
+    margin-right: ${calcRem(50)};
+    p {
+      top: 5px;
+      font-size: ${calcRem(20)};
+    }
+    span {
+      min-width: ${calcRem(150)};
+      font-size: ${fontSizes.xl};
+    }
+  }
 `;
 
+const StyledCarouselContainer = styled.div`
+  overflow-x: hidden;
+
+  & > div:nth-child(1),
+  & > div:nth-child(2) {
+    text-align: center;
+    margin-top: ${calcRem(50)};
+  }
+
+  .firstCarousel ul li > div {
+    max-width: 320px;
+    em {
+      margin: 2.5rem 0rem 4rem;
+    }
+    strong {
+      margin-top: 2rem;
+    }
+    p {
+      text-align: start;
+    }
+  }
+  h4 {
+    margin-bottom: ${calcRem(0)};
+  }
+`;
 const WindowModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
   const {
     modalData,
@@ -156,7 +247,18 @@ const WindowModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
     confirmCheck
   );
   const { label, title, firstPackage } = modalData;
+  const { desktop } = useViewSize();
 
+  const firstPackageContents = firstPackage.contents?.map(content => (
+    <HelmetPriceTable
+      key={content.id}
+      id={content.id}
+      data-name="firstPackage"
+      active={content.active}
+      onClick={onlyOneSelected}
+      {...content}
+    />
+  ));
   return (
     // <Portal id="modal-root">
     <StyledModalContainer className="dim">
@@ -173,24 +275,42 @@ const WindowModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
         </header>
         <StyledModalBodyContainer>
           {/* 카드 컨텐츠  */}
-          <StyledPackageContainer>
-            <h4>{firstPackage.title}</h4>
-            <StyledPackageListContainer
-              className="firstPackage"
-              numOfProd={firstPackage.contents?.length}
-            >
-              {firstPackage.contents?.map(content => (
-                <HelmetPriceTable
-                  key={content.id}
-                  id={content.id}
-                  data-name="firstPackage"
-                  active={content.active}
-                  onClick={onlyOneSelected}
-                  {...content}
-                />
-              ))}
-            </StyledPackageListContainer>
-          </StyledPackageContainer>
+          {desktop ? (
+            <>
+              <StyledPackageContainer>
+                <h4>{firstPackage.title}</h4>
+                <StyledPackageListContainer
+                  className="firstPackage"
+                  numOfProd={firstPackage.contents?.length}
+                >
+                  {firstPackage.contents?.map(content => (
+                    <HelmetPriceTable
+                      key={content.id}
+                      id={content.id}
+                      data-name="firstPackage"
+                      active={content.active}
+                      onClick={onlyOneSelected}
+                      {...content}
+                    />
+                  ))}
+                </StyledPackageListContainer>
+              </StyledPackageContainer>
+            </>
+          ) : (
+            <StyledCarouselContainer>
+              <h4>{firstPackage.title}</h4>
+              <Carousel
+                type="card"
+                className="firstCarousel"
+                contents={firstPackageContents}
+              />
+            </StyledCarouselContainer>
+          )}
+
+          <StyledTotalPriceContainer>
+            <p>Total Price</p>
+            <span>$1500</span>
+          </StyledTotalPriceContainer>
           <StyledButtonContainer>
             <Button
               disabled={checkActive(firstPackage)}

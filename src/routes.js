@@ -1,10 +1,10 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from 'pages/Home/Home';
 import AboutUs from 'pages/AboutUs/AboutUs';
-import WheelAndTire from 'pages/Services/WheelAndTire';
+import WheelAndTire from 'pages/WheelAndTire/WheelAndTire';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
-import DetailingAndCorrection from 'pages/Services/DetailingAndCorrection';
+import DetailingAndCorrection from 'pages/DetailingAndCorrection/DetailingAndCorrection';
 import MainService from 'pages/MainService/MainService';
 import ServiceCeramic from 'pages/ServiceCeramic/ServiceCeramic';
 import PaintProtectionFilm from 'pages/PaintProtectionFilm/PaintProtectionFilm';

@@ -1,5 +1,6 @@
+import { string } from 'prop-types';
 import styled from 'styled-components';
-import { colors, calcInterval, calcRem, fontSizes } from 'theme/theme';
+import { colors, calcInterval, calcRem, fontSizes, device } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import { useViewSize } from 'hooks/';
 import { Link } from 'react-router-dom';
@@ -10,11 +11,11 @@ import Button from 'components/Button/Button';
 const StyledGetAQuoteBannerContainer = styled.section`
   padding: ${calcInterval([75, 100])};
   background-color: ${({ color }) => colors[color]};
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcRem(50)};
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     padding: 0;
     .getLink {
       margin: 0 auto;
@@ -22,7 +23,7 @@ const StyledGetAQuoteBannerContainer = styled.section`
       align-items: center;
       justify-content: center;
       color: ${colors.white};
-      font-size: ${fontSizes.xxxl};
+      font-size: ${fontSizes.xxl};
       padding: 30px;
     }
 
@@ -38,6 +39,7 @@ const FullContainer = styled(Layout.FlexContainer)`
 
   a {
     border: ${({ borderColor }) => colors[borderColor]};
+    font-size: ${fontSizes.base};
 
     &:hover {
       background-color: ${({ hoverColor }) => colors[hoverColor]};
@@ -48,7 +50,7 @@ const FullContainer = styled(Layout.FlexContainer)`
     }
   }
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     width: 100%;
 
     h2 {
@@ -60,7 +62,7 @@ const FullContainer = styled(Layout.FlexContainer)`
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     .title {
       display: none;
     }
@@ -95,7 +97,7 @@ const GetAQuoteBanner = ({
           />
         </FullContainer>
       ) : (
-        <Link to="/" className="getLink">
+        <Link to="/get-a-quote" className="getLink">
           {linkText}
           <Icon
             className="icon"
@@ -129,7 +131,7 @@ GetAQuoteBanner.Link = ({ linkText, styledmode }) => {
     <Button
       styledmode={styledmode}
       mode="link"
-      to="/"
+      to="/get-a-quote"
       width={220}
       fontSize={18}
       padding="10"
@@ -138,6 +140,32 @@ GetAQuoteBanner.Link = ({ linkText, styledmode }) => {
       <Icon type="rightArrow" color={colors.white} />
     </Button>
   );
+};
+
+GetAQuoteBanner.propTypes = {
+  /** 배너 타이틀 */
+  title: string,
+  /** 배너 설명 */
+  desc: string,
+  /** 배너 링크(버튼) 텍스트 */
+  linkText: string,
+  /** 배너 배경색 */
+  color: string,
+  /** 배너 링크(버튼) 모드 */
+  styledmode: string,
+  /** 배너 링크(버튼) border 색 */
+  borderColor: string,
+  /** 배너 링크(버튼) 호버시 색 */
+  hoverColor: string,
+  /** 배너 링크(버튼) 아이콘 색 */
+  iconcolor: string
+};
+
+GetAQuoteBanner.defaultProps = {
+  title: 'Get a Free Quote',
+  color: 'red_05',
+  linkText: 'Get a Free Quote',
+  styledmode: 'secondary'
 };
 
 StyledGetAQuoteBannerContainer.displayName = 'StyledGetAQuoteBannerContainer';

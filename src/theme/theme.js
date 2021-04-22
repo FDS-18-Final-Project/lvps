@@ -55,14 +55,3 @@ export const device = {
   tablet: `@media only screen and (max-width: ${deviceSizes.tablet})`,
   desktop: `@media only screen and (max-width: ${deviceSizes.desktop})`
 };
-
-const theme = {
-  colors,
-  fontSizes,
-  deviceSizes,
-  device,
-  calcRem,
-  calcInterval
-};
-
-export default theme;

@@ -11,7 +11,7 @@ const StyledReviewContainer = styled.div`
     display: inline;
   }
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     p {
       font-size: ${fontSizes.xl};
       max-width: ${calcRem(500)};
@@ -23,7 +23,7 @@ const StyledReviewContainer = styled.div`
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     p {
       font-size: ${fontSizes.base};
       max-width: ${calcRem(500)};
@@ -41,7 +41,6 @@ const StyledReviewContent = styled.p`
   margin: auto;
   color: ${({ colors }) => colors.main};
   line-height: ${calcRem(45)};
-  /* margin-bottom: ${calcRem(50)}; */
   height: ${calcRem(350)};
 
   @media only screen and (max-width: 488px) {
@@ -51,7 +50,6 @@ const StyledReviewContent = styled.p`
 
 const StyledReviewInfo = styled.span`
   display: block;
-  /* margin-bottom: ${calcRem(5)}; */
   line-height: ${calcRem(40)};
   color: ${({ colors }) => colors.sub};
   font-size: ${fontSizes.lg};
@@ -82,7 +80,9 @@ const Review = ({ content, colors }) => {
 };
 
 Review.propTypes = {
+  /** 리뷰 컨텐츠 객체 */
   content: object.isRequired,
+  /** 리뷰 색 */
   colors: object
 };
 

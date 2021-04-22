@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
+import { calcInterval, calcRem, colors, device, fontSizes } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import { useViewSize } from 'hooks/';
 import Paragraph from 'components/Paragraph/Paragraph';
@@ -34,11 +34,11 @@ const StyledOurWorksContainer = styled.section`
   padding: ${calcInterval([75, 100])};
   background-color: ${colors.black};
 
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcRem(50)};
   }
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     padding: ${calcInterval([30, 15])};
   }
 `;
@@ -56,7 +56,7 @@ const StyledOurWorksTitle = styled(Layout.FlexContainer)`
   width: 100%;
   margin-bottom: ${calcRem(70)};
 
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     text-align: center;
     margin-bottom: ${calcRem(40)};
     div {
@@ -98,7 +98,7 @@ OurWorks.Title = ({ desktop }) => {
         Our works about Paint Protection Film
       </Paragraph>
       {desktop ? (
-        <Button mode="link" to="/" width={270} fontSize={18} padding="10">
+        <Button width={270} fontSize={18} padding="10">
           Visit Our Instagram
           <Icon type="instagram" color={colors.white} />
         </Button>

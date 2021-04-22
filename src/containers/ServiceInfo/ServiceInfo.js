@@ -1,7 +1,7 @@
 import React from 'react';
 import { oneOf, string } from 'prop-types';
 import styled, { css } from 'styled-components';
-import { calcInterval, calcRem, colors, fontSizes } from 'theme/theme';
+import { calcInterval, calcRem, colors, device, fontSizes } from 'theme/theme';
 import Paragraph from 'components/Paragraph/Paragraph';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
@@ -59,10 +59,10 @@ const ServiceInfoContainer = styled.div`
         justify-self: flex-end;
       }
     `}
-  @media only screen and (max-width: 1200px) {
+  ${device.desktop} {
     padding: ${calcInterval([40, 50, 40])};
   }
-  @media only screen and (max-width: 768px) {
+  ${device.tablet} {
     padding: ${calcInterval([38, 27, 58])};
     grid-template: repeat(1, 0.2fr 0.2fr 0.25fr 0.2fr) / repeat(1, 1fr);
     align-items: center;
@@ -98,7 +98,7 @@ const ServiceInfoContainer = styled.div`
     }
   }
 
-  @media only screen and (max-width: 375px) {
+  ${device.mobile} {
     padding: ${calcInterval([70, 15, 55])};
   }
 `;
@@ -109,6 +109,7 @@ const ServiceInfo = ({
   imagePath,
   linkText,
   mode,
+  to,
   children
 }) => {
   return (
@@ -130,7 +131,7 @@ const ServiceInfo = ({
 
         <div className="gridParagraph">{children}</div>
         <div className="gridBtn">
-          <Button mode="link" to="/get-a-quote" fullwidth>
+          <Button mode="link" to={to} fullwidth>
             {linkText}
             <Icon type="rightArrow" color={colors.white} />
           </Button>
@@ -145,6 +146,7 @@ ServiceInfo.propTypes = {
   subTitle: string.isRequired,
   imagePath: string.isRequired,
   linkText: string.isRequired,
+  to: string.isRequired,
   mode: oneOf(['left', 'right'])
 };
 
@@ -152,6 +154,7 @@ ServiceInfo.defaultProps = {
   title: 'Ceramic Pro',
   subTitle: 'Meet Our Skilled Crew.',
   imagePath: 'assets/dummyCar.png',
+  to: '/main-service',
   linkText: 'See more about this service',
   mode: 'right'
 };
