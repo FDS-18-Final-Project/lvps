@@ -8,6 +8,7 @@ import Logo from 'components/Logo/Logo';
 import SearchForm from 'components/SearchForm/SearchForm';
 import Navbar from 'components/Navbar/Navbar';
 import Icon from 'components/Icon/Icon';
+import NavbarMobile from 'components/NavbarMobile/NavbarMobile';
 
 const HeaderContainer = styled.header`
   background: ${colors.black};
@@ -37,10 +38,25 @@ const HeaderContainer = styled.header`
     }
   }
   @media only screen and (max-width: 768px) {
-    padding: ${calcInterval([15, 25])};
+    padding: ${calcInterval([0, 25])};
 
+    svg {
+      height: ${calcRem(60)};
+    }
+    .logo {
+      min-width: ${calcRem(75)};
+    }
     input {
       margin-right: ${calcRem(12)};
+      margin-left: ${calcRem(12)};
+    }
+
+    .MobileNav {
+      position: absolute;
+      width: ${calcRem(350)};
+      z-index: 1000;
+      top: ${calcRem(65)};
+      right: ${calcRem(-10)};
     }
   }
 `;
@@ -54,23 +70,18 @@ const IconContainer = styled(Layout.FlexContainer)`
 
   @media only screen and (max-width: 1200px) {
     svg {
-      width: ${calcRem(18)};
+      width: ${calcRem(20)};
     }
   }
 
   @media only screen and (max-width: 768px) {
     flex: 0;
-
-    svg {
-      width: 18px;
-    }
   }
 `;
 
 const variants = {
   visible: { y: 0, transition: { duration: 0.4 } },
   hidden: { y: -100 }
-  //exit: { y: -100, opacity: 0, transition: { duration: 0.4 } }
 };
 
 const iconVariants = {
@@ -82,17 +93,41 @@ const iconVariants = {
   visible: { opacity: 1, transition: { duration: 0.4 } }
 };
 
+const mobileMenuVariants = {
+  hidden: {
+    x: 300,
+    opacity: 0,
+    transition: { duration: 0.4 }
+  },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.4 } },
+  exit: {
+    x: 300,
+    opacity: 0,
+
+    transition: { duration: 0.2 }
+  }
+};
+
 const Header = () => {
-  const [isShow, setIsShow] = useState(false);
+  const [searchAcitve, searchActive] = useState(false);
+  const [menuActive, setMenuActive] = useState(false);
   const { desktop, mobile } = useViewSize();
 
-  const handleClick = () => {
-    setIsShow(!isShow);
+  const handleNavActive = () => {
+    searchActive(!searchAcitve);
+  };
+
+  const handleMenuActive = () => {
+    setMenuActive(!menuActive);
   };
 
   useEffect(() => {
-    mobile && setIsShow(true);
-    desktop && setIsShow(false);
+    if (desktop) {
+      searchActive(false);
+      setMenuActive(false);
+    } else {
+      mobile && searchActive(true);
+    }
   }, [desktop, mobile]);
 
   return (
@@ -103,22 +138,16 @@ const Header = () => {
         </Layout.FlexContainer>
         <Layout.FlexContainer tag="nav">
           <AnimatePresence initial={false}>
-            {isShow ? (
+            {searchAcitve ? (
               <SearchForm
                 mobile={mobile}
-                onClick={handleClick}
+                onClick={handleNavActive}
                 variants={variants}
                 initial="hidden"
                 animate="visible"
-                exit="exit"
               />
             ) : (
-              <Navbar
-                variants={variants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-              />
+              <Navbar variants={variants} initial="hidden" animate="visible" />
             )}
           </AnimatePresence>
         </Layout.FlexContainer>
@@ -130,6 +159,7 @@ const Header = () => {
               color={colors.white}
               width={calcRem(40)}
               height={calcRem(30)}
+              onClick={handleMenuActive}
             />
           ) : (
             <>
@@ -138,10 +168,10 @@ const Header = () => {
                 type="searchWhite"
                 color={colors.white}
                 width={calcRem(25)}
-                onClick={handleClick}
+                onClick={handleNavActive}
                 motionProps={{
                   variants: iconVariants,
-                  animate: isShow ? 'hidden' : 'visible'
+                  animate: searchAcitve ? 'hidden' : 'visible'
                 }}
               />
               <Icon
@@ -162,6 +192,17 @@ const Header = () => {
           )}
         </IconContainer>
       </Layout>
+      <AnimatePresence initial={false} exitBeforeEnter>
+        {menuActive && mobile && (
+          <NavbarMobile
+            variants={mobileMenuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="MobileNav"
+          />
+        )}
+      </AnimatePresence>
     </HeaderContainer>
   );
 };

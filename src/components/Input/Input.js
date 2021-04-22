@@ -22,7 +22,8 @@ const InputContainer = styled.div`
   input {
     width: ${({ width }) => (width ? calcRem(width) : '100%')};
     height: ${({ height }) => calcRem(height)};
-    font-size: ${fontSizes.base};
+    font-size: ${fontSizes.lg};
+    outline: none;
     border: none;
     border-bottom: ${({ error, touch }) =>
       touch && error

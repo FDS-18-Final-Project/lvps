@@ -1,6 +1,6 @@
 import { string, object } from 'prop-types';
 import styled from 'styled-components';
-import { calcRem, colors, device } from 'theme/theme';
+import { calcRem, device } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import Icon from 'components/Icon/Icon';
 import Paragraph from 'components/Paragraph/Paragraph';
