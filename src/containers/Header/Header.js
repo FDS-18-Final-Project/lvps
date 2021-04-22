@@ -29,7 +29,7 @@ const HeaderContainer = styled.header`
   }
 
   svg {
-    height: 95px;
+    height: ${calcRem(95)};
   }
   @media only screen and (max-width: 1200px) {
     padding: ${calcInterval([0, 50])};
@@ -65,16 +65,13 @@ const HeaderContainer = styled.header`
 const IconContainer = styled(Layout.FlexContainer)`
   flex: 0.7;
   justify-content: flex-end;
-  div {
+  a {
     margin-left: 20%;
   }
 
-  svg {
-    width: 25px;
-  }
   .searchBtn {
     position: relative;
-
+    height: ${calcRem(60)};
     div {
       opacity: 0;
       z-index: -1000;
@@ -195,7 +192,7 @@ const Header = () => {
                   animate: searchAcitve ? 'hidden' : 'visible'
                 }}
               >
-                <Tooltip top="85px" right="-65px" />
+                <Tooltip top="75px" right="-65px" />
               </Icon>
               <a href="https://www.instagram.com/lvps.ca/?hl=en">
                 <Icon

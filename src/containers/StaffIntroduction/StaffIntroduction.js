@@ -48,7 +48,7 @@ const StaffIntroductionContainer = styled.div`
   .gridBtn {
     grid-area: 1 / 3 / 2 / 4;
     min-width: ${calcRem(222)};
-    a {
+    button {
       width: 100%;
       padding: 0;
     }
@@ -147,7 +147,7 @@ const StaffIntroductionContainer = styled.div`
       margin-top: ${calcRem(80)};
       min-height: ${calcRem(130)};
       margin-left: ${calcRem(-50)};
-      a {
+      button {
         border-top: 1px solid ${colors.lightGray};
         font-size: ${fontSizes.xl};
         line-height: ${calcRem(36)};
@@ -192,7 +192,7 @@ const StaffIntroduction = () => {
   return (
     <FullContainer>
       <StaffIntroductionContainer>
-        <h2 class="gridTitle">Staff Introduction</h2>
+        <h2 className="gridTitle">Staff Introduction</h2>
         <div className="gridBtn">
           <a href="https://www.instagram.com/lvps.ca/?hl=en">
             <Button styledmode="primary" height={40}>
@@ -209,7 +209,7 @@ const StaffIntroduction = () => {
         <div className="gridImage">
           <img src="assets/staff.png" alt="owner profile" />
         </div>
-        <p className="gridDescription">
+        <div className="gridDescription">
           <h3>Maxim Malyshau</h3>
           <span>General Manager at LVPS</span>
           <pre>
@@ -218,7 +218,7 @@ const StaffIntroduction = () => {
 - Certified Ceramic Pro Installer 
 - Professional at detailing, polishing, and paint correcting.`}
           </pre>
-        </p>
+        </div>
         <blockquote className="gridSubDescription">
           <Icon
             title="open"

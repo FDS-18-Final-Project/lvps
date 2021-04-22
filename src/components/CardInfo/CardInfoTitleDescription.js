@@ -50,8 +50,8 @@ const infoList = [
 const CardInfoTitleDescription = ({ infoList, minHeight, ...restProps }) => {
   return (
     <CardInfoTitleDescriptionContainer minHeight={minHeight} {...restProps}>
-      {infoList.map(info => (
-        <li key={info.id}>
+      {infoList.map((info, idx) => (
+        <li key={idx}>
           <h3>{info.title}</h3>
           <p>{info.description}</p>
         </li>

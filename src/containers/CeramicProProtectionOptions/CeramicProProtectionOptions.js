@@ -29,6 +29,7 @@ const option_03 = [
 
 const option_group = [
   <TitlePriceTable
+    key="1"
     heading="Glass"
     title="Starting from"
     price={199}
@@ -37,6 +38,7 @@ const option_group = [
     hover
   />,
   <TitlePriceTable
+    key="2"
     heading="Wheels &amp; Calipers
     Protection"
     title="Starting from"
@@ -46,6 +48,7 @@ const option_group = [
     hover
   />,
   <TitlePriceTable
+    key="3"
     heading="Interior Protection"
     title="Starting from"
     price={599}
