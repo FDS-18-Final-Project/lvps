@@ -67,7 +67,6 @@ const useModalSelected = (
     document.body.addEventListener('click', closeModal);
 
     return () => {
-      console.log('clean');
       document.body.removeEventListener('click', closeModal);
     };
   });

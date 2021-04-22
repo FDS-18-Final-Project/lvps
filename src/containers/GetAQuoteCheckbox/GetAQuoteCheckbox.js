@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { calcInterval, fontSizes, calcRem, colors } from 'theme/theme';
@@ -19,6 +19,7 @@ import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
 import { useViewSize } from 'hooks';
 import GetAQuoteFormSection from 'containers/GetAQuoteFormSection/GetAQuoteFormSection';
+import isEmpty from 'utils/isEmpty';
 
 const FullContainer = styled.section`
   position: relative;
@@ -98,6 +99,7 @@ const GetAQuoteCheckbox = () => {
   const selectedService = useSelector(state => state.service);
   const dispatch = useDispatch();
   const { desktop } = useViewSize();
+  console.log(selectedService);
 
   const handleReset = (actionFunc, key) => {
     return reset => {
@@ -160,7 +162,7 @@ const GetAQuoteCheckbox = () => {
           />
         </GetAQuoteCheckboxContainer>
         <Layout.FlexContainer className="btnContainer">
-          <Button onClick={handleVisible}>
+          <Button disabled={isEmpty(selectedService)} onClick={handleVisible}>
             Next
             <Icon
               className="icon"

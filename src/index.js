@@ -29,7 +29,6 @@ ReactDOM.render(
     <Provider store={store}>
       <GlobalStyle />
       <Router>
-        <ScrollToTop />
         <App />
       </Router>
     </Provider>

@@ -5,6 +5,8 @@ import { fontSizes, colors, calcRem } from 'theme/theme';
 import Icon from 'components/Icon/Icon';
 import { AnimatePresence } from 'framer-motion';
 import Portal from 'utils/portal';
+import { useSelector } from 'react-redux';
+import isEmpty from 'utils/isEmpty';
 
 const CheckBoxContainer = styled.label`
   display: inline-block;
@@ -71,6 +73,7 @@ const CheckBoxContainer = styled.label`
 const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
   const [visible, isVisible] = useState(false);
   const [confirm, setConfirm] = useState(false);
+  const selectedItem = useSelector(state => state.service);
   const handleModalVisible = () => {
     isVisible(!visible);
   };
@@ -81,9 +84,9 @@ const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
     setConfirm(false);
   };
 
-  // useEffect(() => {
-  //   document.body.style.overflow = visible && 'hidden';
-  // });
+  useEffect(() => {
+    //  console.log(isEmpty(selectedItem));
+  });
 
   return (
     <>

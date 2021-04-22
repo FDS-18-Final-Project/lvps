@@ -49,7 +49,9 @@ const Navbar = ({ ...restProps }) => {
   return (
     <NavbarContainer {...restProps}>
       <li>
-        <NavLink to="/">HOME</NavLink>
+        <NavLink to="/" exact>
+          HOME
+        </NavLink>
       </li>
       <li>
         <NavLink to="/about-us">ABOUT</NavLink>

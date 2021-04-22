@@ -10,6 +10,7 @@ import ServiceInfoType4 from 'containers/ServiceInfoType4/ServiceInfoType4';
 import OurWorks from 'containers/OurWorks/OurWorks';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import CeramicCoating from 'containers/CeramicCoating/CeramicCoating';
+import { motion } from 'framer-motion';
 
 const cardList = [
   {
@@ -63,7 +64,15 @@ const cardList = [
 
 const ServiceCeramic = () => {
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.2, type: 'tween' }
+      }}
+      enter={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
       <SubMainBanner
         title="Ceramic Coating"
         desc="Ceramic Pro"
@@ -187,7 +196,7 @@ const ServiceCeramic = () => {
         styledmode="secondary"
         color="pink"
       />
-    </>
+    </motion.main>
   );
 };
 

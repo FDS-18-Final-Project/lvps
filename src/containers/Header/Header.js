@@ -113,7 +113,7 @@ const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
   const { desktop, mobile } = useViewSize();
 
-  const handleNavActive = () => {
+  const handleSearchActive = () => {
     searchActive(!searchAcitve);
   };
 
@@ -141,7 +141,7 @@ const Header = () => {
             {searchAcitve ? (
               <SearchForm
                 mobile={mobile}
-                onClick={handleNavActive}
+                onClick={handleSearchActive}
                 variants={variants}
                 initial="hidden"
                 animate="visible"
@@ -168,7 +168,7 @@ const Header = () => {
                 type="searchWhite"
                 color={colors.white}
                 width={calcRem(25)}
-                onClick={handleNavActive}
+                onClick={handleSearchActive}
                 motionProps={{
                   variants: iconVariants,
                   animate: searchAcitve ? 'hidden' : 'visible'
@@ -200,6 +200,7 @@ const Header = () => {
             animate="visible"
             exit="exit"
             className="MobileNav"
+            onClick={handleMenuActive}
           />
         )}
       </AnimatePresence>
