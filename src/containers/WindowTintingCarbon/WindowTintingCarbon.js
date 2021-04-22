@@ -21,6 +21,7 @@ const carbon_02 = [
 
 const carbon_group = [
   <DescriptionPriceTable
+    key="1"
     heading="PRIME CS™"
     subject="Signature Features"
     description=""
@@ -32,6 +33,7 @@ const carbon_group = [
     padding={[130, 80, 114]}
   />,
   <DescriptionPriceTable
+    key="2"
     heading="Hybrid Film"
     subject="Signature Features"
     description=""

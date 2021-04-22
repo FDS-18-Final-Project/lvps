@@ -87,6 +87,7 @@ const Home = () => {
         mode="left"
         imagePath="assets/AboutUsCar.png"
         title="About Us"
+        to="/about-us"
         linkText="More About Us"
       >
         Luxury Vehicle Protection Services is your ultimate one-stop-shop for

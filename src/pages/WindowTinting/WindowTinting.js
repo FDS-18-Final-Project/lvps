@@ -52,8 +52,7 @@ const WindowTinting = () => {
         title="Window Tinting"
         desc="PRIVACY, UV PROTECTION, HEAT REJECTION"
       />
-      <Video />
-
+      <Video videoId="BS5vMf381iQ" videoTitle="window tinting products" />
       <ServiceInfoType2
         imageLabel="A Car with Carbon Film applied"
         imagePath="./assets/carbon-film.png"

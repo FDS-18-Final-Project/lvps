@@ -6,16 +6,14 @@ import WheelAndTire from 'pages/WheelAndTire/WheelAndTire';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
 import DetailingAndCorrection from 'pages/DetailingAndCorrection/DetailingAndCorrection';
 import MainService from 'pages/MainService/MainService';
-import ServiceCeramic from 'pages/ServiceCeramic/ServiceCeramic';
+import ServiceCeramic from 'pages/Ceramic/Ceramic';
 import PaintProtectionFilm from 'pages/PaintProtectionFilm/PaintProtectionFilm';
 import ContactUs from 'pages/ContactUs/ContactUs';
 import IGLCoatings from 'pages/IGLCoatings/IGLCoatings';
 import WindowTinting from './pages/WindowTinting/WindowTinting';
 import GetAQuote from 'pages/GetAQuote/GetAQuote';
-import GetAQuotePage from 'pages/GetAQuotePage/GetAQuotePage';
 import FAQPage from 'pages/FAQ/FAQ';
 import { AnimatePresence } from 'framer-motion';
-import FAQ from 'containers/FAQ/FAQ';
 
 const Routes = () => (
   <Route
@@ -36,7 +34,6 @@ const Routes = () => (
               path="/detailing-and-correction"
               component={DetailingAndCorrection}
             />
-
             <Route path="/contact-us" component={ContactUs} />
             <Route path="/igl-coatings" component={IGLCoatings} />
             <Route path="/faq" component={FAQPage} />

@@ -81,7 +81,7 @@ const ChooseUs = ({ title, children }) => {
   return (
     <ChooseUsContainer>
       <FullContainer>
-        <StyedParagraph type="normal" title={title} headingNum="2">
+        <StyedParagraph type="normal" title={title} headingNum={2}>
           {children}
         </StyedParagraph>
         <StyledInfoContentContainer>

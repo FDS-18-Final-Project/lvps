@@ -1,5 +1,5 @@
 import React from 'react';
-import { array, string, oneOf, number } from 'prop-types';
+import { array, string, oneOf, number, oneOfType } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, colors, fontSizes, device, calcInterval } from 'theme/theme';
 import CardInfo from 'components/CardInfo/CardInfo';
@@ -182,7 +182,7 @@ ServiceInfoType2.propTypes = {
   mode: oneOf(['left', 'right']),
   title: string,
   subTitle: string,
-  children: string,
+  children: oneOfType([string, array]),
   imagePath: string,
   showSubTitle: bool,
   mobileImagePath: string,

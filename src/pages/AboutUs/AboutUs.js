@@ -76,7 +76,7 @@ const AboutUs = () => {
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
       <SubMainBanner
-        bgImg="/assets/dummyImage.png"
+        bgImg="/assets/about-us-bg.png"
         title="About Us"
         desc="LVPS For Your Car"
       ></SubMainBanner>
