@@ -27,6 +27,18 @@ const TagPriceTableContainer = styled(PriceTable)`
           color: ${colors.white};
         }
 
+        ${({ nonSelectedIdx }) =>
+          nonSelectedIdx &&
+          css`
+            li:nth-child(n + ${nonSelectedIdx + 1}) p {
+              color: ${colors.gray};
+            }
+            li:nth-child(n + ${nonSelectedIdx + 1}) svg > path {
+              fill: ${colors.gray};
+              stroke: ${colors.gray};
+            }
+          `};
+
         svg {
           path:first-child {
             stroke: ${colors.white};
@@ -49,12 +61,20 @@ const TagPriceTableContainer = styled(PriceTable)`
   }
 `;
 
-const TagPriceTable = ({ type, typeText, priceColor, ...restProps }) => {
+const TagPriceTable = ({
+  type,
+  typeText,
+  priceColor,
+  info,
+  nonSelectedIdx,
+  ...restProps
+}) => {
   const { mobile } = useViewSize();
 
   return (
     <TagPriceTableContainer
       priceColor={priceColor}
+      nonSelectedIdx={nonSelectedIdx}
       hover={mobile ? false : true}
       {...restProps}
     >

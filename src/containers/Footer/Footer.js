@@ -40,6 +40,7 @@ const StyledFooterContent = styled.div`
 
   ${device.desktop} {
     gap: ${calcInterval([36, 80])};
+    padding-left: ${calcRem(50)};
   }
 
   ${device.tablet} {

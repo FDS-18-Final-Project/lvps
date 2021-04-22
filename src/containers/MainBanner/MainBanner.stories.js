@@ -39,7 +39,7 @@ const Template = args => (
 export const MainBannerBlock = Template.bind({});
 
 MainBannerBlock.args = {
-  bgImg: 'assets/dummy_background_02.png'
+  bgImg: 'assets/Mainbanner.png'
 };
 
 MainBannerBlock.storyName = '메인 배너';

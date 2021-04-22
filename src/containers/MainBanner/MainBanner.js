@@ -5,8 +5,10 @@ import Button from 'components/Button/Button';
 import Divider from 'components/Divider/Divider';
 import Icon from 'components/Icon/Icon';
 import Paragraph from 'components/Paragraph/Paragraph';
+import { useViewSize } from 'hooks';
 
-const StyledMainBannerContainer = styled.div`
+const StyledMainBannerContainer = styled.section`
+  position: relative;
   background: url(${props => props.bgImg}) center center / cover no-repeat;
   padding: ${calcInterval([130, 100])};
 
@@ -25,8 +27,21 @@ const StyledMainBannerContainer = styled.div`
   }
 `;
 
+const StyledOverlay = styled.div`
+  display: ${({ mobile }) => (mobile ? 'block' : 'none')};
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: #2d2d2d;
+  opacity: 0.6;
+`;
+
 const FullContainer = styled.div`
   position: relative;
+  z-index: 1000;
   max-width: ${calcRem(1200)};
   margin: 0 auto;
 
@@ -52,8 +67,6 @@ const StyledHeading = styled.h2`
   .ourName {
     font-weight: 800;
     font-size: ${fontSizes.titleLarge};
-    font-family: 'Helvetica Neue LT Pro';
-    font-weight: 500;
   }
   .subTitle {
     font-weight: 400;
@@ -69,6 +82,7 @@ const StyledHeading = styled.h2`
 
 const StyledParagraph = styled(Paragraph)`
   li {
+    color: ${colors.white};
     margin-bottom: ${calcRem(13)};
   }
   li:last-child {
@@ -77,8 +91,10 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 const MainBanner = ({ bgImg }) => {
+  const { mobile } = useViewSize();
   return (
     <StyledMainBannerContainer bgImg={bgImg}>
+      <StyledOverlay mobile={mobile} />
       <FullContainer>
         <StyledHeading>
           <span className="ourName">LVPS</span>

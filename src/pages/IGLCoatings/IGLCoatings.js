@@ -5,7 +5,9 @@ import IGLProtectionProducts from 'containers/IGLProtectionProducts/IGLProtectio
 import ServiceInfoType2 from 'containers/ServiceInfoType2/ServiceInfoType2';
 import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
+import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import { motion } from 'framer-motion';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const IGLCoatings = () => {
   return (
@@ -18,6 +20,7 @@ const IGLCoatings = () => {
       enter={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
+      <A11yHidden as="h2">IGL Coating page</A11yHidden>
       <SubMainBanner
         bgImg="/assets/IGLCar.png"
         title="Ceramic Coating"
@@ -89,8 +92,11 @@ const IGLCoatings = () => {
         borderColor="green"
         hoverColor="green"
         iconcolor="green"
+        width={273}
+        to="/contact-us"
       />
       {/* TODO: 구글맵 */}
+      {/* <GoogleMap /> */}
     </motion.main>
   );
 };
