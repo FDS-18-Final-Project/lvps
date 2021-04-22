@@ -35,6 +35,7 @@ const Icon = ({
   stylesForContainer,
   className,
   children,
+  onClick,
   ...restProps
 }) => {
   let Comp = null;
@@ -45,7 +46,7 @@ const Icon = ({
     );
   else if (button)
     Comp = (
-      <StyledIconButton>
+      <StyledIconButton onClick={onClick}>
         {React.createElement(svg[type], { ...restProps })}
       </StyledIconButton>
     );

@@ -22,7 +22,7 @@ const StyledFieldset = styled.fieldset`
     border: none;
     border-bottom: 1px solid ${colors.lightGray};
     padding-left: ${calcRem(10)};
-    margin: ${calcInterval([0, 25])};
+    margin: ${calcInterval([0, 20])};
     color: ${colors.white};
     font-size: ${fontSizes.xl};
   }
@@ -95,7 +95,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
               <Icon
                 type="searchWhite"
                 color={colors.lightGray}
-                width={calcRem(25)}
+                width={calcRem(20)}
               />
             )
           }
@@ -122,7 +122,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
           button={!mobile}
           type={mobile ? 'searchWhite' : 'close'}
           color={colors.lightGray}
-          width={mobile ? calcRem(18) : calcRem(25)}
+          width={mobile ? calcRem(18) : calcRem(20)}
           onClick={mobile ? null : onClick}
         />
       </StyledFieldset>

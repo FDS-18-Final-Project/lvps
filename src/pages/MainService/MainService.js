@@ -5,14 +5,23 @@ import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import { useViewSize } from 'hooks';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const MainService = () => {
   const { desktop } = useViewSize();
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.2, type: 'tween' }
+      }}
+      enter={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
       <SubMainBanner
         title="Services"
-        desc="LVS Services for your car"
+        desc="LVPS Services for your car"
         bgImg="assets/mainServiceBannerImage.png"
       />
       <SubPageTitle title="Our Services" desc="Meet Our Quality Services" />
@@ -22,8 +31,10 @@ const MainService = () => {
             mode="right"
             imagePath="assets/desktopMainService_01.png"
             title="Ceramic Pro"
+            imageLabel="Ceramic Pro"
             subTitle="Ceramic Pro / IGL Coatings"
-            linkText="Read More"
+            linkText="See more about this service"
+            to="/ceramic-coating"
           >
             Ceramic Pro is a multi-layerable, clear, liquid nano-ceramic
             coating. When cured, this technology will transform itself on the
@@ -36,8 +47,10 @@ const MainService = () => {
             mode="left"
             imagePath="assets/desktopMainService_02.png"
             title="Paint Protection FIlm"
-            subTitle="Ceramic Coating"
-            linkText="Read More"
+            subTitle="Meet Our Skilled Crew."
+            imageLabel="Paint Protection FIlm"
+            to="/paint-protection"
+            linkText="See more about this service"
           >
             Paint Protection Film is a virtually invisible urethane layer that
             protects your vehicle’s paint from everyday damages including
@@ -48,8 +61,10 @@ const MainService = () => {
             mode="right"
             imagePath="assets/desktopMainService_03.png"
             title="Window Tinting"
-            subTitle="Ceramic Coating"
-            linkText="Read More"
+            subTitle="Meet Our Skilled Crew."
+            imageLabel="Window Tinting"
+            to="/window-tinting"
+            linkText="See more about this service"
           >
             Make your car look better with black tinted windows. Protect
             yourself from 99% harmful cancer causing UV rays & achieve the
@@ -59,9 +74,11 @@ const MainService = () => {
           <ServiceInfo
             mode="left"
             imagePath="assets/desktopMainService_04.png"
-            title="Detailing & Paint Correction"
+            title="Detailing &amp; Paint Correction"
+            imageLabel="Detailing &amp; Paint Correction"
             subTitle="Meet Our Skilled Crew."
-            linkText="Read More"
+            to="/detailing-and-correction"
+            linkText="See more about this service"
           >
             Get your car back to like when you bought it new with an
             interior/exterior packages we offer. From basic clean up to full
@@ -71,9 +88,11 @@ const MainService = () => {
           <ServiceInfo
             mode="right"
             imagePath="assets/desktopMainService_05.png"
-            title="Wheel & Tire"
-            subTitle="Ceramic Coating"
-            linkText="Read More"
+            title="Wheel &amp; Tire"
+            imageLabel="Wheel &amp; Tire"
+            subTitle="Meet Our Skilled Crew."
+            to="/wheel-and-tire"
+            linkText="See more about this service"
           >
             We work with most wheel and tires distributors and can get you the
             wheels and tires you need. If you're on a budget, we can get you an
@@ -93,7 +112,7 @@ const MainService = () => {
         styledmode="secondary"
         color="red_05"
       />
-    </>
+    </motion.main>
   );
 };
 

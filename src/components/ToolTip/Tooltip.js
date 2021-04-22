@@ -30,7 +30,7 @@ const TooltipStyleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  z-index: 100;
   span {
     margin: 0;
     font-size: ${({ fontSize }) => calcRem(fontSize)};

@@ -78,7 +78,8 @@ const GetAQuoteBanner = ({
   borderColor,
   hoverColor,
   iconcolor,
-  width
+  width,
+  to
 }) => {
   const { desktop } = useViewSize();
   return (
@@ -96,10 +97,11 @@ const GetAQuoteBanner = ({
             linkText={linkText}
             desktop={desktop}
             width={width}
+            to={to}
           />
         </FullContainer>
       ) : (
-        <Link to="/" className="getLink">
+        <Link to={to} className="getLink">
           {linkText}
           <Icon
             className="icon"
@@ -128,13 +130,13 @@ GetAQuoteBanner.Title = ({ title, desc }) => {
   );
 };
 
-GetAQuoteBanner.Link = ({ linkText, styledmode, width }) => {
+GetAQuoteBanner.Link = ({ linkText, styledmode, width, to }) => {
   return (
     <Button
       styledmode={styledmode}
       mode="link"
-      to="/"
       width={width}
+      to={to}
       fontSize={18}
       padding="10"
     >
@@ -161,7 +163,8 @@ GetAQuoteBanner.propTypes = {
   hoverColor: string,
   /** 배너 링크(버튼) 아이콘 색 */
   iconcolor: string,
-  width: number
+  width: number,
+  to: string
 };
 
 GetAQuoteBanner.defaultProps = {
@@ -169,7 +172,8 @@ GetAQuoteBanner.defaultProps = {
   color: 'red_05',
   linkText: 'Get a Free Quote',
   styledmode: 'secondary',
-  width: 220
+  width: 220,
+  to: '/get-a-quote'
 };
 
 StyledGetAQuoteBannerContainer.displayName = 'StyledGetAQuoteBannerContainer';

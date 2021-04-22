@@ -11,6 +11,8 @@ const useModalSelected = (
 ) => {
   const modalData = useSelector(state => state[modalState]);
 
+  const selectedService = useSelector(state => state.service);
+
   const dispatch = useDispatch();
 
   const onlyOneSelected = e => {
@@ -59,6 +61,16 @@ const useModalSelected = (
     return !selectedItem.length;
   };
 
+  const totalPrice = (firstPackage, secondPackage, thirdPackage) => {
+    const selectedItem = [
+      ...firstPackage.contents.filter(content => content.active),
+      ...(secondPackage?.contents?.filter(content => content.active) || []),
+      ...(thirdPackage?.contents?.filter(content => content.active) || [])
+    ];
+
+    return selectedItem.reduce((acc, cur) => acc + cur.price, 0);
+  };
+
   useEffect(() => {
     const closeModal = e => {
       if (!e.target.matches('.dim')) return;
@@ -67,7 +79,6 @@ const useModalSelected = (
     document.body.addEventListener('click', closeModal);
 
     return () => {
-      console.log('clean');
       document.body.removeEventListener('click', closeModal);
     };
   });
@@ -77,7 +88,8 @@ const useModalSelected = (
     onlyOneSelected,
     multiSelected,
     addServices,
-    checkActive
+    checkActive,
+    totalPrice
   };
 };
 

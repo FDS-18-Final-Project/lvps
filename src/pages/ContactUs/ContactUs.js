@@ -2,14 +2,23 @@ import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import ChooseUs from 'containers/ChooseUs/ChooseUs';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const ContactUs = () => {
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.2, type: 'tween' }
+      }}
+      enter={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
       <SubMainBanner
         bgImg="/assets/dummyImage.png"
         title="Contact Us"
-        desc="MM Auto Care For Your Car"
+        desc="LVPS For Your Car"
       ></SubMainBanner>
       <SubPageTitle
         type="word"
@@ -18,7 +27,7 @@ const ContactUs = () => {
       ></SubPageTitle>
       <ChooseUs></ChooseUs>
       {/* <GoogleMap></GoogleMap> */}
-    </>
+    </motion.main>
   );
 };
 

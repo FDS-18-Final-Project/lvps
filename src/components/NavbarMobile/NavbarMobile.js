@@ -9,11 +9,12 @@ const StyledContainer = styled(motion.ul)`
   margin: 0 ${calcRem(15)};
 `;
 
-const NavbarMobile = ({ NavItems, ...restProps }) => {
+const NavbarMobile = ({ NavItems, onClick, ...restProps }) => {
   return (
     <StyledContainer {...restProps}>
       {NavItems.map((item, i) => (
         <NavbarMobileItem
+          onClick={onClick}
           idx={i}
           id={item.id}
           value={item.value}
@@ -35,7 +36,7 @@ NavbarMobile.defaultProps = {
       id: 'nav_1',
       value: 'HOME',
       type: 'nav',
-      to: '/'
+      to: '/home'
     },
     {
       id: 'nav_2',

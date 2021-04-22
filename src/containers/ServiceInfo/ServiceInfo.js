@@ -108,7 +108,9 @@ const ServiceInfo = ({
   subTitle,
   imagePath,
   linkText,
+  imageLabel,
   mode,
+  to,
   children
 }) => {
   return (
@@ -125,12 +127,12 @@ const ServiceInfo = ({
         </Paragraph>
 
         <div className="gridImage">
-          <img src={imagePath} alt="dummyimage" />
+          <img src={imagePath} alt={imageLabel} />
         </div>
 
         <div className="gridParagraph">{children}</div>
         <div className="gridBtn">
-          <Button mode="link" to="/get-a-quote" fullwidth>
+          <Button mode="link" to={to} fullwidth>
             {linkText}
             <Icon type="rightArrow" color={colors.white} />
           </Button>
@@ -144,7 +146,9 @@ ServiceInfo.propTypes = {
   title: string.isRequired,
   subTitle: string.isRequired,
   imagePath: string.isRequired,
+  imageLabel: string,
   linkText: string.isRequired,
+  to: string.isRequired,
   mode: oneOf(['left', 'right'])
 };
 
@@ -152,6 +156,8 @@ ServiceInfo.defaultProps = {
   title: 'Ceramic Pro',
   subTitle: 'Meet Our Skilled Crew.',
   imagePath: 'assets/dummyCar.png',
+  imageLabel: '',
+  to: '/main-service',
   linkText: 'See more about this service',
   mode: 'right'
 };

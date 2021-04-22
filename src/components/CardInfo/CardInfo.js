@@ -75,8 +75,11 @@ const CardInfo = ({
 };
 
 CardInfo.propTypes = {
+  /** 아이콘 색깔 */
   iconcolor: string,
+  /** 폰트 색깔 */
   fgColor: string,
+  /** 컨텐츠 */
   infoList: array
 };
 

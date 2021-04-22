@@ -41,8 +41,10 @@ const contents = [
   <ServiceInfo
     mode="left"
     imagePath="assets/ServiceInfo_01.png"
+    imageLabel="Ceramic Pro"
     title="Ceramic Pro"
     subTitle="Ceramic Pro / IGL Coatings"
+    to="/igl-coatings"
     linkText="Read More"
   >
     Ceramic Pro is a multi-layerable, clear, liquid nano-ceramic coating. When
@@ -55,7 +57,9 @@ const contents = [
     mode="left"
     imagePath="assets/ServiceInfo_02.png"
     title="Paint Protection FIlm"
+    imageLabel="Paint Protection FIlm"
     subTitle="Ceramic Coating"
+    to="/paint-protection"
     linkText="Read More"
   >
     Paint Protection Film is a virtually invisible urethane layer that protects
@@ -66,7 +70,9 @@ const contents = [
     mode="left"
     imagePath="assets/ServiceInfo_03.png"
     title="Window Tinting"
+    imageLabel="Window Tinting"
     subTitle="Ceramic Coating"
+    to="/window-tinting"
     linkText="Read More"
   >
     Make your car look better with black tinted windows. Protect yourself from
@@ -76,8 +82,10 @@ const contents = [
   <ServiceInfo
     mode="left"
     imagePath="assets/ServiceInfo_04.png"
-    title="Detailing & Paint Correction"
+    title="Detailing &amp; Paint Correction"
+    imageLabel="Detailing &amp; Paint Correction"
     subTitle="Detailing"
+    to="/detailing-and-correction"
     linkText="Read More"
   >
     Get your car back to like when you bought it new with an interior/exterior
@@ -86,8 +94,10 @@ const contents = [
   <ServiceInfo
     mode="left"
     imagePath="assets/ServiceInfo_05.png"
-    title="Wheel & Tire"
+    imageLabel="Wheel &amp; Tire"
+    title="Wheel &amp; Tire"
     subTitle="Ceramic Coating"
+    to="wheel-and-tire"
     linkText="Read More"
   >
     We work with most wheel and tires distributors and can get you the wheels

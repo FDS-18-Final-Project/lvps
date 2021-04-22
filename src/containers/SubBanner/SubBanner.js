@@ -68,6 +68,10 @@ const SubBannerContainer = styled.div`
         font-size: ${fontSizes.lg};
         line-height: ${calcRem(27)};
       }
+
+      & button {
+        width: 100%;
+      }
     }
     .gridImg {
       grid-area: 2 / 1 / 3 /1;
@@ -93,14 +97,11 @@ const SubBanner = ({ title, description, imagePath, children }) => {
           </Paragraph>
         </LayoutContainer>
         <LayoutContainer className="gridBtn">
-          <Button
-            mode="link"
-            to="/get-a-quote"
-            styledmode="secondary"
-            height={55}
-          >
-            {children}
-          </Button>
+          <a href="https://www.instagram.com/lvps.ca/?hl=en">
+            <Button styledmode="secondary" height={55}>
+              {children}
+            </Button>
+          </a>
         </LayoutContainer>
         <LayoutContainer className="gridImg">
           <img src={imagePath} alt="dummyImage" />

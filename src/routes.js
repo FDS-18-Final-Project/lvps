@@ -1,10 +1,10 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from 'pages/Home/Home';
 import AboutUs from 'pages/AboutUs/AboutUs';
-import WheelAndTire from 'pages/Services/WheelAndTire';
+import WheelAndTire from 'pages/WheelAndTire/WheelAndTire';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
-import DetailingAndCorrection from 'pages/Services/DetailingAndCorrection';
+import DetailingAndCorrection from 'pages/DetailingAndCorrection/DetailingAndCorrection';
 import MainService from 'pages/MainService/MainService';
 import ServiceCeramic from 'pages/ServiceCeramic/ServiceCeramic';
 import PaintProtectionFilm from 'pages/PaintProtectionFilm/PaintProtectionFilm';
@@ -15,6 +15,7 @@ import GetAQuote from 'pages/GetAQuote/GetAQuote';
 import GetAQuotePage from 'pages/GetAQuotePage/GetAQuotePage';
 import FAQPage from 'pages/FAQ/FAQ';
 import { AnimatePresence } from 'framer-motion';
+import FAQ from 'containers/FAQ/FAQ';
 
 const Routes = () => (
   <Route
@@ -35,11 +36,13 @@ const Routes = () => (
               path="/detailing-and-correction"
               component={DetailingAndCorrection}
             />
+
             <Route path="/contact-us" component={ContactUs} />
+            <Route path="/faq" component={FAQ} />
             <Route path="/igl-coatings" component={IGLCoatings} />
             <Route path="/faq" component={FAQPage} />
             <Route path="/get-a-quote" component={GetAQuote} />
-            <Route path="/page-not-found" component={PageNotFound} />
+            <Route path="*" component={PageNotFound} />
           </Switch>
         </AnimatePresence>
       </>

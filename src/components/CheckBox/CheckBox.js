@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { string, node, func, object, oneOfType } from 'prop-types';
 import styled from 'styled-components';
-import { fontSizes, colors, calcRem } from 'theme/theme';
+import { fontSizes, colors, calcRem, calcInterval } from 'theme/theme';
 import Icon from 'components/Icon/Icon';
 import { AnimatePresence } from 'framer-motion';
 import Portal from 'utils/portal';
 
-const CheckBoxContainer = styled.label`
+const CheckBoxContainer = styled.div`
   display: inline-block;
   border: 1px solid lightgray;
   position: relative;
   border: ${({ confirm }) =>
     confirm ? `4px solid ${colors.redMain}` : '4px solid #c9c9c9'};
   background-color: white;
+
+  width: 300px;
+  height: 380px;
+  cursor: pointer;
+  margin:${calcInterval([10, 30])};
 
   &::before {
     position: absolute;
@@ -28,7 +33,7 @@ const CheckBoxContainer = styled.label`
   }
 
   &::after {
-    content: '${({ label }) => label}';
+    content: '${({ desc }) => desc}';
     width: 100%;
     position: absolute;
     text-align: center;
@@ -39,18 +44,12 @@ const CheckBoxContainer = styled.label`
     transform: translateX(50%);
   }
 
-  input {
-    width: 300px;
-    height: 380px;
-    opacity: 0;
-    cursor: pointer;
-  }
 
   .resetBtn {
     position: absolute;
     top: ${calcRem(5)};
     right: ${calcRem(5)};
-    z-index: ${({ confirm }) => (confirm ? 1000 : -1000)};
+    z-index: ${({ confirm }) => (confirm ? 98 : -1000)};
 
     svg {
       path {
@@ -68,7 +67,7 @@ const CheckBoxContainer = styled.label`
   }
 `;
 
-const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
+const CheckBox = ({ imagePath, desc, Modal, handleReset }) => {
   const [visible, isVisible] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const handleModalVisible = () => {
@@ -77,27 +76,28 @@ const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
 
   const handleConfirmCheck = () => setConfirm(true);
 
-  const resetConfirm = () => {
+  const resetConfirm = e => {
+    e.stopPropagation();
     setConfirm(false);
   };
 
-  // useEffect(() => {
-  //   document.body.style.overflow = visible && 'hidden';
-  // });
+  useEffect(() => {
+    document.body.style.overflow = visible ? 'hidden' : 'auto';
+  });
 
   return (
     <>
-      <CheckBoxContainer imagePath={imagePath} label={label} confirm={confirm}>
-        <input
-          type="checkbox"
-          checked={visible}
-          onChange={handleModalVisible}
-        />
+      <CheckBoxContainer
+        imagePath={imagePath}
+        desc={desc}
+        confirm={confirm}
+        onClick={handleModalVisible}
+      >
         <Icon
           className="resetBtn"
           type="close"
           button
-          onClick={() => handleReset(resetConfirm)}
+          onClick={e => handleReset(resetConfirm, e)}
         />
         {confirm && <Icon className="icon" type="circleCheck" />}
       </CheckBoxContainer>
@@ -132,15 +132,19 @@ const CheckBox = ({ imagePath, label, Modal, handleReset }) => {
 };
 
 CheckBox.propTypes = {
+  /** 이미지 경로 */
   imagePath: string,
-  label: string,
+  /** label 텍스트 */
+  desc: string,
+  /** 모달 */
   Modal: oneOfType([func, object, node]),
+  /** 초기화 함수 */
   handleReset: func
 };
 
 CheckBox.defaultProps = {
   imagePath: 'assets/dummyImage.png',
-  label: 'CERAMIC COATING'
+  desc: 'CERAMIC COATING'
 };
 
 CheckBoxContainer.displayName = 'CheckBoxContainer';

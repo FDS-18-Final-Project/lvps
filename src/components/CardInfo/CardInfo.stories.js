@@ -20,7 +20,6 @@ export default {
   },
   argTypes: {
     iconcolor: {
-      description: '아이콘 색깔',
       control: {
         type: 'select',
         options: [
@@ -39,7 +38,6 @@ export default {
       }
     },
     fgColor: {
-      description: '폰트 색깔',
       control: {
         type: 'select',
         options: [

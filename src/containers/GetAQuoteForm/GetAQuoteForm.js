@@ -59,7 +59,7 @@ const StyledForm = styled.form`
   }
 
   ${device.tablet} {
-    padding: ${calcInterval([40, 30])};
+    padding: ${calcInterval([40, 20])};
   }
 `;
 
@@ -107,6 +107,12 @@ const StyledFieldset = styled.fieldset`
     position: absolute;
     bottom: -30px;
     left: 27%;
+    display: flex;
+    align-items: center;
+
+    & > div {
+      margin-right: ${calcRem(10)};
+    }
   }
 
   textarea {
@@ -126,6 +132,7 @@ const StyledFieldset = styled.fieldset`
     }
     input {
       padding: 0;
+      font-size: ${calcRem(13)};
     }
     span {
       font-size: ${calcRem(12)};

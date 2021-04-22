@@ -24,7 +24,7 @@ const IGLCoatings = () => {
       <SubMainBanner
         bgImg="/assets/IGLCar.png"
         title="Ceramic Coating"
-        desc="LVS for your car"
+        desc="LVPS for your car"
       />
       <SubPageTitle
         type="img"
@@ -93,6 +93,7 @@ const IGLCoatings = () => {
         hoverColor="green"
         iconcolor="green"
         width={273}
+        to="/contact-us"
       />
       {/* TODO: 구글맵 */}
       {/* <GoogleMap /> */}

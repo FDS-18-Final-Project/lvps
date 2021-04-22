@@ -22,6 +22,7 @@ const CardContainer = styled.div`
     font-size: ${calcRem(45)};
     margin-bottom: ${calcRem(15)};
     font-family: Montserrat;
+    font-weight: 800;
   }
 
   h2 + p {
@@ -75,7 +76,7 @@ const CardListContainer = styled.div`
 const CardExplanation = ({ title, cardList, children }) => {
   return (
     <section style={{ borderTop: 0 }}>
-      <FullContainer justifyContent="space-around">
+      <FullContainer>
         <CardContainer>
           <h2>{title}</h2>
           <CardListContainer title={title} type={cardList[0].type}>

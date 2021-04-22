@@ -61,7 +61,7 @@ export const Delay = ({ children, delay }) => {
   return done && <>{children}</>;
 };
 
-const NavbarMobileItem = ({ value, type, to, idx }) => {
+const NavbarMobileItem = ({ value, type, to, idx, onClick }) => {
   return (
     <Delay delay={70 * idx}>
       <StyledButtonContainer
@@ -70,7 +70,7 @@ const NavbarMobileItem = ({ value, type, to, idx }) => {
         animate="visible"
         exit="exit"
       >
-        <StyledButton mode="link" to={to}>
+        <StyledButton mode="link" to={to} onClick={onClick}>
           <StyledText type={type}>{value}</StyledText>
         </StyledButton>
       </StyledButtonContainer>

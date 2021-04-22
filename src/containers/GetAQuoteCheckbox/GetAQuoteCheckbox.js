@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { calcInterval, fontSizes, calcRem, colors, device } from 'theme/theme';
@@ -19,6 +19,7 @@ import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
 import { useViewSize } from 'hooks';
 import GetAQuoteFormSection from 'containers/GetAQuoteFormSection/GetAQuoteFormSection';
+import isEmpty from 'utils/isEmpty';
 
 const FullContainer = styled.section`
   position: relative;
@@ -98,12 +99,13 @@ const GetAQuoteCheckbox = () => {
   const selectedService = useSelector(state => state.service);
   const dispatch = useDispatch();
   const { desktop } = useViewSize();
+  console.log(selectedService);
 
   const handleReset = (actionFunc, key) => {
-    return reset => {
+    return (reset, e) => {
       dispatch(actionFunc());
       dispatch(deleteService(key));
-      reset();
+      reset(e);
     };
   };
 
@@ -134,33 +136,33 @@ const GetAQuoteCheckbox = () => {
         <h2>You Can Choose Multiple Services</h2>
         <GetAQuoteCheckboxContainer desktop={desktop ? 1 : 0}>
           <CheckBox
-            label="CERAMIC COATING"
+            desc="CERAMIC COATING"
             Modal={CeramicProModalDialog}
             handleReset={handleReset(ceramicReset, 'ceramicpro')}
           />
           <CheckBox
-            label="PAINT PROTECTION FILM"
+            desc="PAINT PROTECTION FILM"
             Modal={PPFModalDialog}
             handleReset={handleReset(ppfReset, 'ppf')}
           />
           <CheckBox
-            label="WINDOW TINTING"
+            desc="WINDOW TINTING"
             Modal={WindowModalDialog}
             handleReset={handleReset(windowReset, 'window')}
           />
           <CheckBox
-            label="PROFESSIONAL DETAILING & PAINT CORRECTION"
+            desc="PROFESSIONAL DETAILING & PAINT CORRECTION"
             Modal={DetailModalDialog}
             handleReset={handleReset(detailReset, 'detail')}
           />
           <CheckBox
-            label="WHEELS & TIRES"
+            desc="WHEELS & TIRES"
             Modal={WheelModalDialog}
             handleReset={handleReset(wheelAndTireReset, 'wheelAndTire')}
           />
         </GetAQuoteCheckboxContainer>
         <Layout.FlexContainer className="btnContainer">
-          <Button onClick={handleVisible}>
+          <Button disabled={isEmpty(selectedService)} onClick={handleVisible}>
             Next
             <Icon
               className="icon"

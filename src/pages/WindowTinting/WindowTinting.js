@@ -6,6 +6,7 @@ import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import Video from 'containers/Video/Video';
 import WindowTintingCarbon from 'containers/WindowTintingCarbon/WindowTintingCarbon';
 import WindowTintingCeramic from 'containers/WindowTintingCeramic/WindowTintingCeramic';
+import { motion } from 'framer-motion';
 import React from 'react';
 
 const carouselImgs = [
@@ -33,10 +34,18 @@ const carouselImgs = [
 
 const WindowTinting = () => {
   return (
-    <>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.2, type: 'tween' }
+      }}
+      enter={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
+    >
       <SubMainBanner
         title="Window Tinting"
-        desc="LVS for your car"
+        desc="LVPS for your car"
         bgImg="assets/WindowTintingBannerImage.png"
       />
       <SubPageTitle
@@ -48,6 +57,7 @@ const WindowTinting = () => {
       <ServiceInfoType2
         imageLabel="A Car with Carbon Film applied"
         imagePath="./assets/carbon-film.png"
+        mobileImagePath="./assets/mobile-carbon-film.png"
         infoList={[
           '5 Year Warranty',
           'Great solar performance with advanced UV protection',
@@ -60,6 +70,7 @@ const WindowTinting = () => {
       <ServiceInfoType2
         imageLabel="A Car with Ceramic Film applied"
         imagePath="./assets/ceramic-film.png"
+        mobileImagePath="./assets/mobile-ceramic-film.png"
         infoList={[
           'Lifetime Warranty',
           'Proprietary non-metallized, nonconductive nano-ceramic technology maximizes heat and ultraviolet rejection, keeping you and your vehicle cool and helping to protect from the damaging effects of the sun.'
@@ -76,7 +87,7 @@ const WindowTinting = () => {
         styledmode="secondary"
         color="red_05"
       />
-    </>
+    </motion.main>
   );
 };
 

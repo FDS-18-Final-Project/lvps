@@ -7,11 +7,11 @@ import Carousel from 'components/Carousel/Carousel';
 const reviews = [
   {
     id: 1,
-    name: 'Randy Cho',
-    model: '2021 Tesla Model 3',
+    name: 'Eavan',
+    model: 'Chevrolet',
     star: 5,
     review:
-      'Amazing job on my Tesla model 3! Did a ceramic coat and it turned out so nice! Recommend going to see Max at LVP for all your vehicle needs !'
+      'Incidunt facilis dolorum commodi consequatur quia iste? Fuga minima consectetur odit doloribus temporibus tempora quidem modi quaerat perferendis praesentium magnam, impedit dolorem velit qui nostrum! Quis asperiores consectetur tempora temporibus, similique assumenda exercitationem architecto quod ipsum!'
   },
   {
     id: 2,
@@ -39,11 +39,11 @@ const reviews = [
   },
   {
     id: 5,
-    name: 'Eavan',
-    model: 'Chevrolet',
+    name: 'Randy Cho',
+    model: '2021 Tesla Model 3',
     star: 5,
     review:
-      'Incidunt facilis dolorum commodi consequatur quia iste? Fuga minima consectetur odit doloribus temporibus tempora quidem modi quaerat perferendis praesentium magnam, impedit dolorem velit qui nostrum! Quis asperiores consectetur tempora temporibus, similique assumenda exercitationem architecto quod ipsum!'
+      'Amazing job on my Tesla model 3! Did a ceramic coat and it turned out so nice! Recommend going to see Max at LVP for all your vehicle needs !'
   }
 ];
 

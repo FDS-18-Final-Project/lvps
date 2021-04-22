@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { fontSizes, calcRem, device } from 'theme/theme';
+import { fontSizes, calcRem, device, colors } from 'theme/theme';
 
 const StyledSubPageContainer = styled.section``;
 
@@ -26,9 +26,19 @@ const FullContainer = styled.div`
   }
 
   ${device.tablet} {
-    padding: ${calcRem(13)} 0;
+    padding: ${calcRem(13)} ${calcRem(15)};
+    h1 {
+      font-size: ${fontSizes.xl};
+      font-weight: 700;
+    }
     p {
       margin-top: ${calcRem(5)};
+      font-size: ${fontSizes.small};
+      color: ${colors.gray};
+      text-align: center;
+    }
+    img {
+      width: 100%;
     }
   }
 `;

@@ -98,7 +98,7 @@ OurWorks.Title = ({ desktop }) => {
         Our works about Paint Protection Film
       </Paragraph>
       {desktop ? (
-        <Button mode="link" to="/" width={270} fontSize={18} padding="10">
+        <Button width={270} fontSize={18} padding="10">
           Visit Our Instagram
           <Icon type="instagram" color={colors.white} />
         </Button>
