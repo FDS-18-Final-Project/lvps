@@ -1,4 +1,4 @@
-import { string, number } from 'prop-types';
+import { string, number, object, oneOfType, func } from 'prop-types';
 import styled from 'styled-components';
 import { colors, calcInterval, calcRem, fontSizes, device } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
@@ -147,8 +147,6 @@ GetAQuoteBanner.Link = ({ linkText, styledmode, width, to }) => {
 };
 
 GetAQuoteBanner.propTypes = {
-  /** 배너 타이틀 */
-  title: string,
   /** 배너 설명 */
   desc: string,
   /** 배너 링크(버튼) 텍스트 */

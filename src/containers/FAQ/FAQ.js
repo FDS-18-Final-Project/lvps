@@ -214,7 +214,10 @@ const FAQ = () => {
           title={
             mobile
               ? 'FAQ'
-              : ['FAQ (Frequently asked questions)', <Icon type="message" />]
+              : [
+                  'FAQ (Frequently asked questions)',
+                  <Icon key="icon" type="message" />
+                ]
           }
           headingNum={2}
           colors={{ main: colors.black, sub: colors.redMain }}
