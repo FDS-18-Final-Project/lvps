@@ -102,10 +102,10 @@ const GetAQuoteCheckbox = () => {
   console.log(selectedService);
 
   const handleReset = (actionFunc, key) => {
-    return reset => {
+    return (reset, e) => {
       dispatch(actionFunc());
       dispatch(deleteService(key));
-      reset();
+      reset(e);
     };
   };
 
@@ -136,27 +136,27 @@ const GetAQuoteCheckbox = () => {
         <h2>You Can Choose Multiple Services</h2>
         <GetAQuoteCheckboxContainer desktop={desktop ? 1 : 0}>
           <CheckBox
-            label="CERAMIC COATING"
+            desc="CERAMIC COATING"
             Modal={CeramicProModalDialog}
             handleReset={handleReset(ceramicReset, 'ceramicpro')}
           />
           <CheckBox
-            label="PAINT PROTECTION FILM"
+            desc="PAINT PROTECTION FILM"
             Modal={PPFModalDialog}
             handleReset={handleReset(ppfReset, 'ppf')}
           />
           <CheckBox
-            label="WINDOW TINTING"
+            desc="WINDOW TINTING"
             Modal={WindowModalDialog}
             handleReset={handleReset(windowReset, 'window')}
           />
           <CheckBox
-            label="PROFESSIONAL DETAILING & PAINT CORRECTION"
+            desc="PROFESSIONAL DETAILING & PAINT CORRECTION"
             Modal={DetailModalDialog}
             handleReset={handleReset(detailReset, 'detail')}
           />
           <CheckBox
-            label="WHEELS & TIRES"
+            desc="WHEELS & TIRES"
             Modal={WheelModalDialog}
             handleReset={handleReset(wheelAndTireReset, 'wheelAndTire')}
           />

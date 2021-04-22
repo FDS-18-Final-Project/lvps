@@ -3,6 +3,7 @@ import { oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, colors, calcRem, fontSizes } from 'theme/theme';
 import PriceTable from './PriceTable';
+import { useViewSize } from 'hooks';
 
 const PrimiumPriceTableContainer = styled(PriceTable)`
   position: relative;
@@ -16,7 +17,7 @@ const PrimiumPriceTableContainer = styled(PriceTable)`
     active ? 'none' : '0px 5px 10px rgba(94, 94, 94, 0.4)'};
   background-size: cover;
   padding: ${calcInterval([23, 30, 58])};
-  transform: ${({ active }) => active && 'scale(1.05)'};
+  transform: ${({ active, desktop }) => active && desktop && 'scale(1.05)'};
   transition: 0.3s;
 
   em {
@@ -40,6 +41,7 @@ const PrimiumPriceTableContainer = styled(PriceTable)`
 `;
 
 const PrimiumPriceTable = ({ id, option, active, onClick, ...restProps }) => {
+  const { desktop } = useViewSize();
   return (
     <PrimiumPriceTableContainer
       id={id}
@@ -48,6 +50,7 @@ const PrimiumPriceTable = ({ id, option, active, onClick, ...restProps }) => {
       option={option}
       onClick={e => onClick(e)}
       active={active}
+      desktop={desktop ? 1 : 0}
       {...restProps}
     >
       <em>{option.toUpperCase()}</em>

@@ -27,9 +27,14 @@ const AccordionList = ({ accordion, handleClick, maxWidth, variant }) => {
 };
 
 AccordionList.propTypes = {
+  /** 아코디언 아이템 배열 */
   accordion: array,
+  /** 클릭이벤트 함수 */
   handleClick: func,
-  maxWidth: number
+  /** 최대 넓이 지정 */
+  maxWidth: number,
+  /** framer motion 애니메이션 함수 */
+  variant: func
 };
 
 AccordionContainer.displayName = 'AccordionContainer';

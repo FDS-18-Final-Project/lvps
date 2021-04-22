@@ -12,7 +12,7 @@ const HelmetPriceTableContainer = styled(PriceTable)`
   border: 3px solid
     ${({ active, color }) => (active ? colors[color] : colors.lightGray)};
   box-shadow: ${({ active }) =>
-    active ? 'none' : '0 3px 5px rgba(94, 94, 94, 0.4)'};
+    active ? 'none' : '0 0 15px rgba(94, 94, 94, 0.8)'};
   background-size: 100%;
   transition: 0.3s;
 

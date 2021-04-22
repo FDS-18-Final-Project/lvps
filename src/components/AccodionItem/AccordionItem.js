@@ -82,7 +82,7 @@ const AccordionItem = ({ item, onClick, maxWidth, variant }) => {
         fullwidth={mobile}
         mode="link"
         onClick={() => onClick(item.id)}
-        to={item.active ? item.to : ''}
+        {...(item.to && { to: item.active ? item.to : '' })}
         variants={variant(mobile)}
         animate={item.active ? 'visible' : 'hidden'}
       >
@@ -104,9 +104,14 @@ const AccordionItem = ({ item, onClick, maxWidth, variant }) => {
 };
 
 AccordionItem.propTypes = {
+  /** 객체 타입 요소 */
   item: object.isRequired,
+  /** 클릭 이벤트 함수 */
   onClick: func,
-  maxWidth: number
+  /** 최대 크기 */
+  maxWidth: number,
+  /** framer motion 이벤트함수 */
+  variant: func
 };
 
 AccordionItem.defaultProps = {

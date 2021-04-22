@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { calcRem, calcInterval, colors, fontSizes, device } from 'theme/theme';
+import { calcRem, calcInterval, colors, fontSizes } from 'theme/theme';
 import { AnimatePresence } from 'framer-motion';
 import Layout from 'pages/Layout/Layout';
 import { useViewSize } from 'hooks/';
@@ -9,6 +9,7 @@ import SearchForm from 'components/SearchForm/SearchForm';
 import Navbar from 'components/Navbar/Navbar';
 import Icon from 'components/Icon/Icon';
 import NavbarMobile from 'components/NavbarMobile/NavbarMobile';
+import Tooltip from 'components/ToolTip/Tooltip';
 
 const HeaderContainer = styled.header`
   background: ${colors.black};
@@ -30,16 +31,15 @@ const HeaderContainer = styled.header`
   svg {
     height: 95px;
   }
-  ${device.desktop} {
+  @media only screen and (max-width: 1200px) {
     padding: ${calcInterval([0, 50])};
     a {
       font-size: ${fontSizes.small};
       font-weight: 600;
     }
   }
-
-  ${device.tablet} {
-    padding: ${calcInterval([15, 25])};
+  @media only screen and (max-width: 768px) {
+    padding: ${calcInterval([0, 25])};
 
     svg {
       height: ${calcRem(60)};
@@ -65,18 +65,34 @@ const HeaderContainer = styled.header`
 const IconContainer = styled(Layout.FlexContainer)`
   flex: 0.7;
   justify-content: flex-end;
-  div,
-  a {
+  div {
     margin-left: 20%;
   }
 
-  ${device.desktop} {
+  svg {
+    width: 25px;
+  }
+  .searchBtn {
+    position: relative;
+
+    div {
+      opacity: 0;
+      z-index: -1000;
+      transition: 0.3s;
+    }
+  }
+  .searchBtn:hover div {
+    opacity: 1;
+    z-index: 1000;
+  }
+
+  @media only screen and (max-width: 1200px) {
     svg {
       width: ${calcRem(20)};
     }
   }
 
-  ${device.tablet} {
+  @media only screen and (max-width: 768px) {
     flex: 0;
   }
 `;
@@ -167,6 +183,7 @@ const Header = () => {
             <>
               <Icon
                 button
+                className="searchBtn"
                 type="searchWhite"
                 color={colors.white}
                 width={calcRem(25)}
@@ -175,21 +192,23 @@ const Header = () => {
                   variants: iconVariants,
                   animate: searchAcitve ? 'hidden' : 'visible'
                 }}
+              >
+                <Tooltip top="85px" right="-65px" />
+              </Icon>
+              <Icon
+                to="/"
+                type="instagram"
+                color={colors.white}
+                width={calcRem(25)}
+                link
               />
-              <a href="https://www.instagram.com/lvps.ca/?hl=en">
-                <Icon
-                  type="instagram"
-                  color={colors.white}
-                  width={calcRem(25)}
-                />
-              </a>
-              <a href="https://m.facebook.com/lvps.ca/">
-                <Icon
-                  type="facebook"
-                  color={colors.white}
-                  width={calcRem(25)}
-                />
-              </a>
+              <Icon
+                type="facebook"
+                to="/home"
+                color={colors.white}
+                width={calcRem(25)}
+                link
+              />
             </>
           )}
         </IconContainer>
