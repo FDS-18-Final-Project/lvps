@@ -257,7 +257,8 @@ const CeramicProModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
     onlyOneSelected,
     multiSelected,
     addServices,
-    checkActive
+    checkActive,
+    totalPrice
   } = useModalSelected(
     'ceramicModal',
     ceramicSingleToggleActive,
@@ -405,7 +406,9 @@ const CeramicProModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
 
           <StyledTotalPriceContainer>
             <p>Total Price</p>
-            <span>$1500</span>
+            <span>
+              ${totalPrice(firstPackage, secondPackage, thirdPackage)}
+            </span>
           </StyledTotalPriceContainer>
           <StyledButtonContainer>
             <Button
