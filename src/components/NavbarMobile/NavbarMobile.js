@@ -14,6 +14,7 @@ const NavbarMobile = ({ NavItems, onClick, ...restProps }) => {
     <StyledContainer {...restProps}>
       {NavItems.map((item, i) => (
         <NavbarMobileItem
+          key={i}
           onClick={onClick}
           idx={i}
           id={item.id}

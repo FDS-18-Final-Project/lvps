@@ -228,7 +228,9 @@ const FAQ = () => {
         </Paragraph>
 
         <div className="gridImage">
-          <img src="assets/dummy_ceramic.png" alt="FAQ accordion" />
+
+          <img src="assets/FAQImage.png" alt="wheelCeramic" />
+
         </div>
         <div className="gridAccordion">
           <AccordionList

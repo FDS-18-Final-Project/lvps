@@ -39,7 +39,7 @@ const FullContainer = styled.section`
         right: 0;
         bottom: 0;
         z-index: -1;
-        background-image: url('assets/dummy_staff.png');
+        background-image: url('assets/GetAQuoteCheckboxBgImage.png');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -78,17 +78,17 @@ const GetAQuoteCheckboxContainer = styled.div`
   justify-content: center;
   padding: ${calcInterval([20, 200, 50])};
 
-  label {
+  .checkboxContainer {
     margin: ${calcInterval([25, 37])};
   }
 
   ${device.tablet} {
     padding: ${calcInterval([20, 10])};
 
-    label {
+    .checkboxContainer {
       margin: ${calcInterval([10, 10])};
     }
-    label::after {
+    .checkboxContainer::after {
       font-size: ${fontSizes.small};
     }
   }
