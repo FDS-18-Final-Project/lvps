@@ -3,28 +3,12 @@ import PriceCardLayout from 'pages/Layout/PriceCardLayout';
 import TitlePriceTable from 'components/PriceTable/TitlePriceTable';
 import Carousel from 'components/Carousel/Carousel';
 
-const option_01 = [
-  'Premium high solids silica coating',
-  '8H hardness',
-  'Ultimate gloss & shine',
-  'Repels water, oil & dirt',
-  'Extremely durable lasting up to 1 year'
-];
+const option_01 = ['2 Layers of "Glass" on all glass and mirrors.'];
 
-const option_02 = [
-  'Premium high solids silica coating',
-  '9H hardness',
-  'Ultimate gloss & shine',
-  'Repels water, oil & dirt',
-  'Extremely durable lasting up to 2 years'
-];
+const option_02 = ['1 Layer of “Wheel & Caliper” on Wheels & Calipers.'];
 
 const option_03 = [
-  'Premium high solids silica coating',
-  '9H hardness with improved chemical resistance',
-  'Ultimate gloss & shine',
-  'Repels water, oil & dirt',
-  'Extremely durable lasting up to 3 years'
+  '1 Coat of "Leather" on the high traffic area and "Textile" on the carpet floor.'
 ];
 
 const option_group = [

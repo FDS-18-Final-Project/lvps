@@ -19,7 +19,7 @@ const ContactUs = () => {
       <SubMainBanner
         bgImg="/assets/contact-us-bg.png"
         title="Contact Us"
-        desc="LVPS For Your Car"
+        desc="Luxury Vehicle Protection Services For Your Car"
       ></SubMainBanner>
       <SubPageTitle
         type="word"

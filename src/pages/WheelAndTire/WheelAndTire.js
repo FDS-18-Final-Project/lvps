@@ -184,8 +184,8 @@ const ContactUs = () => {
     >
       <SubMainBanner
         bgImg="/assets/wheel-and-tire.png"
-        title="Wheel &amp; Tire"
-        desc="MM Auto Care For Your Car"
+        title="Wheels &amp; Tires"
+        desc="Luxury Vehicle Protection Services For Your Car"
       ></SubMainBanner>
       <ServiceInfoType2
         title="We offer only Wheels and Tires brands you can trust."

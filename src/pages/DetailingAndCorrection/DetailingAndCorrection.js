@@ -33,7 +33,7 @@ const DetailingAndCorrection = () => {
       <SubMainBanner
         bgImg="/assets/wheel-and-tire.png"
         title="Detailing &amp; Paint Correction"
-        desc="LVPS for your car"
+        desc="Luxury Vehicle Protection Services For Your Car"
       ></SubMainBanner>
       <SubPageTitle
         type="word"
