@@ -39,7 +39,7 @@ const FullContainer = styled.section`
         right: 0;
         bottom: 0;
         z-index: -1;
-        background-image: url('assets/GetAQuoteCheckboxBgImage.png');
+        background-image: url('assets/get-a-quote-bg2.png');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -76,12 +76,12 @@ const GetAQuoteCheckboxContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  position: relative;
   padding: ${calcInterval([20, 200, 50])};
 
   .checkboxContainer {
     margin: ${calcInterval([25, 37])};
   }
-
   ${device.tablet} {
     padding: ${calcInterval([20, 10])};
 
@@ -136,27 +136,32 @@ const GetAQuoteCheckbox = () => {
         <GetAQuoteCheckboxContainer desktop={desktop ? 1 : 0}>
           <CheckBox
             desc="CERAMIC COATING"
+            imagePath="./assets/get1.png"
             Modal={CeramicProModalDialog}
             handleReset={handleReset(ceramicReset, 'ceramicpro')}
           />
           <CheckBox
             desc="PAINT PROTECTION FILM"
             Modal={PPFModalDialog}
+            imagePath="./assets/get2.png"
             handleReset={handleReset(ppfReset, 'ppf')}
           />
           <CheckBox
             desc="WINDOW TINTING"
             Modal={WindowModalDialog}
+            imagePath="./assets/get3.png"
             handleReset={handleReset(windowReset, 'window')}
           />
           <CheckBox
             desc="PROFESSIONAL DETAILING & PAINT CORRECTION"
             Modal={DetailModalDialog}
+            imagePath="./assets/get4.png"
             handleReset={handleReset(detailReset, 'detail')}
           />
           <CheckBox
             desc="WHEELS & TIRES"
             Modal={WheelModalDialog}
+            imagePath="./assets/get5.png"
             handleReset={handleReset(wheelAndTireReset, 'wheelAndTire')}
           />
         </GetAQuoteCheckboxContainer>

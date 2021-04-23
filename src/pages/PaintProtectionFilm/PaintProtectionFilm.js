@@ -19,7 +19,7 @@ const carouselImgs = [
   },
   {
     id: 2,
-    path: 'assets/paintOurWorks_02.png'
+    path: 'assets/paintOurWorks_02.jpg'
   },
   {
     id: 3,

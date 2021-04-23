@@ -22,7 +22,7 @@ const carouselImgs = [
   },
   {
     id: 4,
-    path: 'assets/ceramicOurWorks_04.png'
+    path: 'assets/ceramicOurWorks_04.jpg'
   },
   {
     id: 5,

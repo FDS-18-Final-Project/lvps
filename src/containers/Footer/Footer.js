@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { colors, calcInterval, calcRem, fontSizes, device } from 'theme/theme';
 import Paragraph from 'components/Paragraph/Paragraph';
 import Logo from 'components/Logo/Logo';
+import Icon from 'components/Icon/Icon';
 
 const StyledFooterContainer = styled.footer`
   background-color: ${colors.black};
@@ -41,7 +42,16 @@ const StyledFooterContent = styled.div`
   p {
     max-width: ${calcRem(300)};
   }
+  .list-content {
+    margin: 0;
+  }
 
+  svg {
+    margin-right: ${calcRem(10)};
+  }
+  .white-text {
+    color: ${colors.white};
+  }
   ${device.desktop} {
     gap: ${calcInterval([36, 80])};
     padding-left: ${calcRem(50)};
@@ -82,15 +92,36 @@ const StyledFooterContent = styled.div`
 `;
 
 const linkLists = [
-  { id: 1, keyword: 'Ceramic Coating', link: '/ceramic-coating' },
-  { id: 2, keyword: 'Paint Protection Film', link: '/paint-protection' },
-  { id: 3, keyword: 'Window Tinting', link: '/window-tinting' },
+  {
+    id: 1,
+    keyword: 'Ceramic Coating',
+    link: '/ceramic-coating',
+    icon: 'footerCeramicPro'
+  },
+  {
+    id: 2,
+    keyword: 'Paint Protection Film',
+    link: '/paint-protection',
+    icon: 'footerDetailingCorrection'
+  },
+  {
+    id: 3,
+    keyword: 'Window Tinting',
+    link: '/window-tinting',
+    icon: 'footerWindowTinting'
+  },
   {
     id: 4,
     keyword: 'Detailing & Painting Correction',
-    link: '/detailing-and-correction'
+    link: '/detailing-and-correction',
+    icon: 'footerDetailingCorrection'
   },
-  { id: 5, keyword: 'Wheels & Tires', link: '/wheel-and-tire' }
+  {
+    id: 5,
+    keyword: 'Wheels & Tires',
+    link: '/wheel-and-tire',
+    icon: 'footerWheelTire'
+  }
 ];
 
 const Footer = () => {
@@ -122,7 +153,7 @@ const Footer = () => {
               headingNum={3}
               colors={{ main: white, sub: white }}
               items={[linkList.keyword]}
-              icon="map"
+              icon={[linkList.icon]}
               iconcolor={colors.white}
               size={12}
             />
@@ -147,11 +178,18 @@ const Footer = () => {
           type="list"
           colors={{ main: white, sub: lightGray }}
           items={[
-            '9 Vanley Cres, North York, ON M3J 2B7',
-            '(647) 703 5857',
-            'info@lvps.ca'
+            <Icon type="footerLocationOnBlack">
+              <span className="white-text">
+                9 Vanley Cres, North York, ON M3J 2B7
+              </span>
+            </Icon>,
+            <Icon type="footerMail">
+              <span className="white-text">info@lvps.ca</span>
+            </Icon>,
+            <Icon type="footerPhone">
+              <span className="white-text">(647) 703 5857</span>
+            </Icon>
           ]}
-          icon="map"
           size={12}
         />
       </StyledFooterContent>

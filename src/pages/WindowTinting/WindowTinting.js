@@ -21,7 +21,7 @@ const carouselImgs = [
   },
   {
     id: 3,
-    path: 'assets/windowOurWorks_03.png'
+    path: 'assets/windowOurWorks_03.jpg'
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const carouselImgs = [
   },
   {
     id: 5,
-    path: 'assets/windowOurWorks_05.png'
+    path: 'assets/windowOurWorks_05.jpg'
   }
 ];
 

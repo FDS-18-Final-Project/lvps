@@ -92,7 +92,7 @@ const Home = () => {
       <MainBanner bgImg="assets/Mainbanner.png"></MainBanner>
       <ServiceInfo
         mode="left"
-        imagePath="assets/AboutUsCar.png"
+        imagePath="assets/AboutUsCar.jpg"
         title="About Us"
         to="/about-us"
         linkText="More About Us"

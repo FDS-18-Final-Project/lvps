@@ -19,6 +19,28 @@ const paintCorrectionInfoList = [
   'Automatic Carwash scratches'
 ];
 
+const carouselImgs = [
+  {
+    id: 1,
+    path: 'assets/ourWorks-1.png'
+  },
+  {
+    id: 2,
+    path: 'assets/ourWorks-2.png'
+  },
+  {
+    id: 3,
+    path: 'assets/ourWorks-3.png'
+  },
+  {
+    id: 4,
+    path: 'assets/ourWorks-4.png'
+  },
+  {
+    id: 5,
+    path: 'assets/ourWorks-5.png'
+  }
+];
 const DetailingAndCorrection = () => {
   return (
     <motion.main
@@ -66,10 +88,7 @@ const DetailingAndCorrection = () => {
         imageLabel="Paint Correction And Polishing"
         infoList={paintCorrectionInfoList}
       ></ServiceInfoType3>
-      <OurWorks>
-        <OurWorks.Title />
-        <OurWorks.Contents />
-      </OurWorks>
+      <OurWorks contents={carouselImgs}></OurWorks>
       <GetAQuoteBanner>
         <GetAQuoteBanner.Title />
         <GetAQuoteBanner.Link />
