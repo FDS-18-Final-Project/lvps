@@ -89,7 +89,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
         <A11yHidden as="legend">검색 폼</A11yHidden>
         <Input
           errorMessage={false}
-          height={30}
+          height={25}
           label={
             mobile ? null : (
               <Icon

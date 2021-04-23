@@ -18,6 +18,7 @@ const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
   z-index: 10000;
+  height: 92px;
 
   .logo {
     min-width: ${calcRem(100)};
@@ -32,7 +33,7 @@ const HeaderContainer = styled.header`
   }
 
   svg {
-    height: ${calcRem(95)};
+    height: ${calcRem(92)};
   }
   @media only screen and (max-width: 1200px) {
     padding: ${calcInterval([0, 50])};
