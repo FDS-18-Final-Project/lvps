@@ -20,7 +20,7 @@ const FAQPage = () => {
       <SubMainBanner
         bgImg="/assets/FAQBannerImg.png"
         title="FAQ"
-        desc="LVS for your car"
+        desc="LVPS for your car"
       />
       <FAQ />
       <GetAQuoteBanner
@@ -28,6 +28,7 @@ const FAQPage = () => {
         color="red_05"
         linkText="Press here to contact us!"
         styledmode="secondary"
+        to="/get-a-quote"
         width={300}
         to="/contact-us"
       />

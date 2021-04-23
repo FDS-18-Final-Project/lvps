@@ -75,7 +75,10 @@ const PaintProtectionFilm = () => {
       </ServiceInfoType2>
       <IconKeyFeature />
       <StealthSignature />
-      <Video />
+      <Video
+        videoId="hI4lW8uNRqY"
+        videoTitle="paint protection film products"
+      />
       <PaintProtectionFilmPackage />
       <PaintProtectionFilmOptions />
       <OurWorks contents={carouselImgs} />

@@ -11,6 +11,7 @@ const StyledTitlePriceTable = styled(TitlePriceTable)`
 
 const film_group = [
   <StyledTitlePriceTable
+    key="1"
     heading="18'' Hood
     and Fenders"
     title="Starting from"
@@ -21,6 +22,7 @@ const film_group = [
     hover
   />,
   <StyledTitlePriceTable
+    key="2"
     heading="24'' Hood
     and Fenders"
     title="Starting from"
@@ -31,6 +33,7 @@ const film_group = [
     hover
   />,
   <StyledTitlePriceTable
+    key="3"
     heading="Trunk Strip
     Paint protection"
     title="Starting from"
@@ -41,6 +44,7 @@ const film_group = [
     hover
   />,
   <StyledTitlePriceTable
+    key="4"
     heading="Rocker Panel
     Paint Protection"
     title="Starting from"
@@ -51,6 +55,7 @@ const film_group = [
     hover
   />,
   <StyledTitlePriceTable
+    key="5"
     heading="Front Headlight
     Paint Protection"
     title="Starting from"
@@ -61,6 +66,7 @@ const film_group = [
     hover
   />,
   <StyledTitlePriceTable
+    key="6"
     heading="Full Bumper
     Paint Protection"
     title="Starting from"
@@ -71,6 +77,7 @@ const film_group = [
     hover
   />,
   <StyledTitlePriceTable
+    key="7"
     heading="Full Hood
     Paint Protection"
     title="Starting from"
@@ -81,6 +88,7 @@ const film_group = [
     hover
   />,
   <StyledTitlePriceTable
+    key="8"
     heading="Pillars
     Paint Protection"
     title="Starting from"

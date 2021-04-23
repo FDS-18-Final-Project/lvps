@@ -80,7 +80,14 @@ Input.propTypes = {
 Input.defaultProps = {
   id: 'searchInput',
   type: 'text',
-  label: <Icon type="searchWhite" color={colors.white} width={calcRem(30)} />,
+  label: (
+    <Icon
+      title="search input"
+      type="searchWhite"
+      color={colors.white}
+      width={calcRem(30)}
+    />
+  ),
   children: 'Service Search',
   errorMessage: true
 };

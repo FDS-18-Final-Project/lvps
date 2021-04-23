@@ -42,12 +42,10 @@ const DetailingAndCorrection = () => {
       ></SubPageTitle>
 
       <ServiceInfoType2
-        title="Professional Detailing
-        &amp; Paint Correction Services
-        In North York"
+        title="Professional Detailing &amp; Paint Correction Services In North York"
         mode="right"
-        imagePath="./assets/detail-paint-correction.png"
-        mobileImagePath="./assets/mobile-detailing-paint-correction.png"
+        imagePath="/assets/detail-paint-correction.png"
+        mobileImagePath="/assets/mobile-detailing-paint-correction.png"
         imageLabel="a car with Detailing and Paint Correction applied"
       >
         Professional detailing &amp; paint correction services are guaranteed to
@@ -56,8 +54,7 @@ const DetailingAndCorrection = () => {
         from any of our detailing and paint correction packages. In addition, we
         treat every vehicle like it's our own as we know that your vehicle is
         very important to you. In conclusion, do not hesitate to contact us
-        todayimport {motion} from 'framer-motion'; and let us do our magic touch
-        on your car.
+        today and let us do our magic touch on your car.
       </ServiceInfoType2>
       <DetailingPaintPackage />
       <ServiceInfoType3

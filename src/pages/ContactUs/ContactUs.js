@@ -17,7 +17,7 @@ const ContactUs = () => {
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
       <SubMainBanner
-        bgImg="/assets/dummyImage.png"
+        bgImg="/assets/contact-us-bg.png"
         title="Contact Us"
         desc="LVPS For Your Car"
       ></SubMainBanner>

@@ -1,9 +1,11 @@
+import React from 'react';
 import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import BrandList from 'containers/BrandList/BrandList';
-import React from 'react';
 import ServiceInfoType2 from 'containers/ServiceInfoType2/ServiceInfoType2';
+import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import { motion } from 'framer-motion';
 import GoogleMap from 'containers/GoogleMap/GoogleMap';
+
 const tireList = [
   {
     id: 'tire_01',
@@ -215,6 +217,13 @@ const ContactUs = () => {
         tireList={tireList}
       />
       <GoogleMap />
+      <GetAQuoteBanner
+        title="Get a Free Quote"
+        desc="Book Youar Service button link to contact form."
+        linkText="Get a Free Quote"
+        styledmode="secondary"
+        color="red_05"
+      />
     </motion.main>
   );
 };

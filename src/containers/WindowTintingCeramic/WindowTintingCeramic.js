@@ -21,6 +21,7 @@ const carbon_02 = [
 
 const carbon_group = [
   <DescriptionPriceTable
+    key="1"
     heading="PRIME XR"
     subject="Signature Features"
     description="Utilizing a nano-ceramic construction, PRIME XR ™ maintains the same flawless appearance and clarity throughout the years. Blocking up to 88% infrared heat rejection, PRIME XR will provide you with the level of performance you expect from a top-of-the line film without breaking the bank."
@@ -32,6 +33,7 @@ const carbon_group = [
     padding={[130, 80, 114]}
   />,
   <DescriptionPriceTable
+    key="2"
     heading="PRIME XR PLUS ™"
     subject="Signature Features"
     description="The Pinnacle Of High Performance Tint. Period.

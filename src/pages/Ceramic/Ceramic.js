@@ -107,7 +107,7 @@ const ServiceCeramic = () => {
         title="The process of installing Ceramic Pro"
         cardList={cardList}
       ></CardExplanation>
-      <Video />
+      <Video videoId="dEHu-STjB-Q" videoTitle="ceramic pro products" />
       <CeramicProProtectionPackage />
       <CeramicProProtectionOptions />
       <ServiceInfoType2

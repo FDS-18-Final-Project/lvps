@@ -13,7 +13,10 @@ const CardInfoContainer = styled.ul`
     align-items: center;
 
     div {
-      margin-right: ${calcRem(5)};
+      margin-right: ${calcRem(10)};
+    }
+    p {
+      line-height: 130%;
     }
   }
 

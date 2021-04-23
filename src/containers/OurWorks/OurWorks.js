@@ -98,7 +98,7 @@ OurWorks.Title = ({ desktop }) => {
         Our works about Paint Protection Film
       </Paragraph>
       {desktop ? (
-        <a href="https://m.facebook.com/lvps.ca/">
+        <a href="https://www.instagram.com/lvps.ca/?hl=en">
           <Button width={270} fontSize={18} padding="10">
             Visit Our Instagram
             <Icon title="instagram" type="instagram" color={colors.white} />

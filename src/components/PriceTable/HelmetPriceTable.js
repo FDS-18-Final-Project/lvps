@@ -1,5 +1,5 @@
 import React from 'react';
-import { oneOf, string } from 'prop-types';
+import { oneOf, string, oneOfType, object } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, colors, calcRem, fontSizes } from 'theme/theme';
 import PriceTable from './PriceTable';
@@ -64,7 +64,7 @@ const HelmetPriceTable = ({
 HelmetPriceTable.propTypes = {
   color: oneOf(['black', 'green', 'red_05']),
   heading: string,
-  title: string,
+  title: oneOfType([string, object]),
   priceColor: string
 };
 
