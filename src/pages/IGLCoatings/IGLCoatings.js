@@ -9,6 +9,7 @@ import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import { motion } from 'framer-motion';
 // import GoogleMap from 'containers/GoogleMap/GoogleMap';
 import Video from 'containers/Video/Video';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const IGLCoatings = () => {
   return (
