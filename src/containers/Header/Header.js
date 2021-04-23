@@ -85,7 +85,7 @@ const IconContainer = styled(Layout.FlexContainer)`
 
   @media only screen and (max-width: 1200px) {
     svg {
-      width: ${calcRem(20)};
+      width: ${calcRem(30)};
     }
   }
 

@@ -96,7 +96,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
                 title="search"
                 type="searchWhite"
                 color={colors.lightGray}
-                width={calcRem(20)}
+                width={calcRem(22)}
               />
             )
           }
@@ -124,7 +124,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
           button={!mobile}
           type={mobile ? 'searchWhite' : 'close'}
           color={colors.lightGray}
-          width={mobile ? calcRem(18) : calcRem(20)}
+          width={mobile ? calcRem(25) : calcRem(20)}
           onClick={mobile ? null : onClick}
         />
       </StyledFieldset>

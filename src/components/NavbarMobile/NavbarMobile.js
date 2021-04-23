@@ -96,6 +96,12 @@ NavbarMobile.defaultProps = {
     },
     {
       id: 'nav_5',
+      value: 'FAQ',
+      type: 'nav',
+      to: '/faq'
+    },
+    {
+      id: 'nav_6',
       value: 'CONTACT US',
       type: 'nav',
       to: '/contact-us'
