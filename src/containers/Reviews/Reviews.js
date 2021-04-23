@@ -7,11 +7,11 @@ import Carousel from 'components/Carousel/Carousel';
 const reviews = [
   {
     id: 1,
-    name: 'Eavan',
-    model: 'Chevrolet',
+    name: 'Aleksandra',
+    model: 'SQ5',
     star: 5,
     review:
-      'Incidunt facilis dolorum commodi consequatur quia iste? Fuga minima consectetur odit doloribus temporibus tempora quidem modi quaerat perferendis praesentium magnam, impedit dolorem velit qui nostrum! Quis asperiores consectetur tempora temporibus, similique assumenda exercitationem architecto quod ipsum!'
+      'My Audi SQ5 got windows tinted with Xpel XR Ceramic film. The car looks so much better and the heat rejection is great! Would come back for other car services. Would recommend to all my friends and family!'
   },
   {
     id: 2,

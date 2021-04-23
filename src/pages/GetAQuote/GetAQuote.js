@@ -3,7 +3,6 @@ import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import React from 'react';
 import { motion } from 'framer-motion';
-import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const GetAQuote = () => {
   return (

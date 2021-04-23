@@ -84,7 +84,7 @@ NavbarMobile.defaultProps = {
     },
     {
       id: 'service_5',
-      value: 'Wheel & Tire',
+      value: 'Wheels & Tires',
       type: 'service',
       to: '/wheel-and-tire'
     },

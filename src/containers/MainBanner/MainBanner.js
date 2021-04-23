@@ -98,7 +98,7 @@ const linkLists = [
     keyword: 'Detailing & Painting Correction',
     link: '/detailing-and-correction'
   },
-  { id: 5, keyword: 'Wheel & Tire', link: '/wheel-and-tire' }
+  { id: 5, keyword: 'Wheels & Tires', link: '/wheel-and-tire' }
 ];
 
 const MainBanner = ({ bgImg }) => {

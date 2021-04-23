@@ -214,9 +214,9 @@ const StaffIntroduction = () => {
           <span>General Manager at LVPS</span>
           <pre>
             {` 
-- 10+ Years of Experience in Automotive industry 
+- 10+ Years of Experience in Automotive Industry 
 - Certified Ceramic Pro Installer 
-- Professional at detailing, polishing, and paint correcting.`}
+- Professional at detailing, polishing, and paint correction.`}
           </pre>
         </div>
         <blockquote className="gridSubDescription">
@@ -227,8 +227,8 @@ const StaffIntroduction = () => {
             width={47}
             height={47}
           />
-          Our goal is to provide our customers with the highest quality service,
-          convenient automotive experience possible.
+          Our goal is to provide our customers with the highest quality services
+          that lead to exceptional customer satisfaction.
           <Icon
             title="close"
             className="closeQuote"

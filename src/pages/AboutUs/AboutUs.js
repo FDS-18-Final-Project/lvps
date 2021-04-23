@@ -1,10 +1,10 @@
 import CardExplanation from 'containers/CardExplanation/CardExplanation';
 import StaffIntroduction from 'containers/StaffIntroduction/StaffIntroduction';
 import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 import React from 'react';
 import { colors } from 'theme/theme';
 import { motion } from 'framer-motion';
-import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const CardList = [
   {
@@ -14,7 +14,7 @@ const CardList = [
       {
         id: 1,
         content:
-          'Professional services & products offered to exceed your expectations'
+          'We value the quality of the product and services we offer to our clients.'
       }
     ],
     iconType: 'mainGoodLuck',
@@ -25,7 +25,10 @@ const CardList = [
     id: 2,
     type: 'square',
     content: [
-      { id: 1, content: 'Certified Professional & Trained Installers' }
+      {
+        id: 1,
+        content: 'Professional installation with the highest quality products.'
+      }
     ],
     iconType: 'mainShield',
     background: colors.black,
@@ -34,7 +37,12 @@ const CardList = [
   {
     id: 3,
     type: 'square',
-    content: [{ id: 1, content: '100% Satisfaction Guaranteed' }],
+    content: [
+      {
+        id: 1,
+        content: 'Installation of products and services for any make and model.'
+      }
+    ],
     iconType: 'mainSmile',
     background: colors.black,
     fontColor: colors.white
@@ -42,7 +50,9 @@ const CardList = [
   {
     id: 4,
     type: 'square',
-    content: [{ id: 1, content: 'We work with every make & model' }],
+    content: [
+      { id: 1, content: 'Installation guarantee on products and services.' }
+    ],
     iconType: 'mainPerson',
     background: colors.black,
     fontColor: colors.white
@@ -50,7 +60,7 @@ const CardList = [
   {
     id: 5,
     type: 'square',
-    content: [{ id: 1, content: 'Pick up & delivery service available' }],
+    content: [{ id: 1, content: 'Pick up & delivery services available.' }],
     iconType: 'mainTruck',
     background: colors.black,
     fontColor: colors.black
@@ -58,7 +68,13 @@ const CardList = [
   {
     id: 6,
     type: 'square',
-    content: [{ id: 1, content: 'Mobile services on request' }],
+    content: [
+      {
+        id: 1,
+        content:
+          'When requested, certain mobile services available at your location.'
+      }
+    ],
     iconType: 'mainCheck',
     background: colors.black,
     fontColor: colors.white
@@ -79,11 +95,11 @@ const AboutUs = () => {
       <SubMainBanner
         bgImg="/assets/about-us-bg.png"
         title="About Us"
-        desc="LVPS For Your Car"
+        desc="Luxury Vehicle Protection Services For Your Car"
       ></SubMainBanner>
       <CardExplanation
         cardList={CardList}
-        title="Luxury Vehicle Protection Services"
+        title="Why Choose Us"
       ></CardExplanation>
       <StaffIntroduction />
       <GoogleMap />

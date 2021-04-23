@@ -1,5 +1,5 @@
 import React from 'react';
-import { node, string } from 'prop-types';
+import { node, string, oneOfType, object } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, calcRem, colors, device, fontSizes } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
@@ -104,9 +104,7 @@ const SubBanner = ({ title, description, imagePath, children }) => {
           </a>
         </LayoutContainer>
         <LayoutContainer className="gridImg">
-
           <img src={imagePath} alt={title} />
-
         </LayoutContainer>
       </SubBannerContainer>
     </FullContainer>
@@ -116,7 +114,7 @@ const SubBanner = ({ title, description, imagePath, children }) => {
 SubBanner.propTypes = {
   title: string.isRequired,
   imagePath: string.isRequired,
-  description: string,
+  description: oneOfType([string, object]),
   children: node
 };
 

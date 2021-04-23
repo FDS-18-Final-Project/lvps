@@ -138,7 +138,7 @@ const accordionState = [
   },
   {
     id: 6,
-    title: 'What car window tint percentage is legal in Ontario??',
+    title: 'What car window tint percentage is legal in Ontario?',
     description:
       'In Ontario the legal limit for front side windows is 35%, the back and rear windows can be dark as you wish as there is no limit. You have to choose a shade of darkness that is comfortable and safe to you.     ',
     active: false
@@ -215,7 +215,7 @@ const FAQ = () => {
             mobile
               ? 'FAQ'
               : [
-                  'FAQ (Frequently asked questions)',
+                  'FAQ (Frequently Asked Questions)',
                   <Icon title="message" key="icon" type="message" />
                 ]
           }
@@ -228,9 +228,7 @@ const FAQ = () => {
         </Paragraph>
 
         <div className="gridImage">
-
           <img src="assets/FAQImage.png" alt="wheelCeramic" />
-
         </div>
         <div className="gridAccordion">
           <AccordionList

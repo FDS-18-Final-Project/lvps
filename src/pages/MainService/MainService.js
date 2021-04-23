@@ -22,10 +22,10 @@ const MainService = () => {
     >
       <SubMainBanner
         title="Services"
-        desc="LVPS Services for your car"
+        desc="Luxury Vehicle Protection Services For Your Car"
         bgImg="assets/mainServiceBannerImage.png"
       />
-      <SubPageTitle title="Our Services" desc="Meet Our Quality Services" />
+      <SubPageTitle title="Services" desc="Our Professional Services" />
       {desktop ? (
         <>
           <ServiceInfo
@@ -34,7 +34,7 @@ const MainService = () => {
             title="Ceramic Pro"
             imageLabel="Ceramic Pro"
             subTitle="Ceramic Pro / IGL Coatings"
-            linkText="See more about this service"
+            linkText="Learn More"
             to="/ceramic-coating"
           >
             Ceramic Pro is a multi-layerable, clear, liquid nano-ceramic
@@ -47,11 +47,11 @@ const MainService = () => {
           <ServiceInfo
             mode="left"
             imagePath="assets/desktopMainService_02.png"
-            title="Paint Protection FIlm"
-            subTitle="Meet Our Skilled Crew."
+            title="Paint Protection Film"
+            subTitle="Xpel Ultimate Plus &amp; Stealth"
             imageLabel="Paint Protection FIlm"
             to="/paint-protection"
-            linkText="See more about this service"
+            linkText="Learn More"
           >
             Paint Protection Film is a virtually invisible urethane layer that
             protects your vehicle’s paint from everyday damages including
@@ -62,10 +62,10 @@ const MainService = () => {
             mode="right"
             imagePath="assets/desktopMainService_03.png"
             title="Window Tinting"
-            subTitle="Meet Our Skilled Crew."
+            subTitle="Xpel Carbon &amp; Ceramic Films"
             imageLabel="Window Tinting"
             to="/window-tinting"
-            linkText="See more about this service"
+            linkText="Learn More"
           >
             Make your car look better with black tinted windows. Protect
             yourself from 99% harmful cancer causing UV rays & achieve the
@@ -77,30 +77,29 @@ const MainService = () => {
             imagePath="assets/desktopMainService_04.png"
             title="Detailing &amp; Paint Correction"
             imageLabel="Detailing &amp; Paint Correction"
-            subTitle="Meet Our Skilled Crew."
+            subTitle="Professional Detailing and Paint Correction"
             to="/detailing-and-correction"
-            linkText="See more about this service"
+            linkText="Learn More"
           >
-            Get your car back to like when you bought it new with an
-            interior/exterior packages we offer. From basic clean up to full
-            detailing.
+            Get your car looking like new again with the interior/exterior
+            packages we offer. From basic clean up to full detailing.
           </ServiceInfo>
 
           <ServiceInfo
             mode="right"
             imagePath="assets/desktopMainService_05.png"
-            title="Wheel &amp; Tire"
-            imageLabel="Wheel &amp; Tire"
-            subTitle="Meet Our Skilled Crew."
+            title="Wheels &amp; Tires"
+            imageLabel="Wheels &amp; Tires"
+            subTitle="From basic to stylish and performing tires and wheels"
             to="/wheel-and-tire"
-            linkText="See more about this service"
+            linkText="Learn More"
           >
-            We work with most wheel and tires distributors and can get you the
-            wheels and tires you need. If you're on a budget, we can get you an
-            alternative to the leading brand tire. We also offer all major
-            leading brands like Michelin, Bridgestone, Firestone, Pirelli,
-            Yokohama, Continental and many more. Contact us today to get your
-            wheels and tires package pricing.
+            We work with most brands and can get you the wheels and tires you
+            need and want. If you're on a budget, we can get you an alternative
+            to the leading brand tire. We also offer all major leading brands
+            like Michelin, Bridgestone, Firestone, Pirelli, Yokohama,
+            Continental and many more. Contact us today to get your wheels and
+            tires package pricing.
           </ServiceInfo>
         </>
       ) : (

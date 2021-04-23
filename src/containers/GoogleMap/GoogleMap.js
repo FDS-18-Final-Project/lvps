@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import Icon from 'components/Icon/Icon';
 
-const AnyReactComponent = () => (
+require('dotenv').config();
+
+const AnyReactComponent = ({ text }) => (
   <div
     style={{
-      width: '35px',
-      height: '40px',
-      position: 'relative'
+      width: '50px',
+      height: '20px',
+      borderRadius: '5px',
+      boxShadow: '0 1px 3px #FFBF00',
+      backgroundColor: '#FFBF00',
+      position: 'relative',
+      border: '5px solid #FFBF00',
+      fontSize: '18px',
+      textAlign: 'center'
     }}
   >
-    <Icon type="pin" />
+    {text}
   </div>
 );
 
@@ -20,7 +27,8 @@ class GoogleMap extends Component {
       lat: 43.75982215186903,
       lng: -79.47634137563207
     },
-    zoom: 15
+    zoom: 15,
+    lang: 'en'
   };
 
   render() {
@@ -31,7 +39,11 @@ class GoogleMap extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <AnyReactComponent lat={43.75982215186903} lng={-79.47634137563207} />
+          <AnyReactComponent
+            lat={43.75982215186903}
+            lng={-79.47634137563207}
+            text="Here!"
+          />
         </GoogleMapReact>
       </div>
     );
