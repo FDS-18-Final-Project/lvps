@@ -1,6 +1,7 @@
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import FAQ from 'containers/FAQ/FAQ';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import { motion } from 'framer-motion';
 
@@ -29,7 +30,9 @@ const FAQPage = () => {
         styledmode="secondary"
         to="/get-a-quote"
         width={300}
+        to="/contact-us"
       />
+      <GoogleMap />
     </motion.main>
   );
 };

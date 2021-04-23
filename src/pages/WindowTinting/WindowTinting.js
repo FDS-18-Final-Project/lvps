@@ -1,4 +1,5 @@
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 import OurWorks from 'containers/OurWorks/OurWorks';
 import ServiceInfoType2 from 'containers/ServiceInfoType2/ServiceInfoType2';
 import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
@@ -86,6 +87,7 @@ const WindowTinting = () => {
         styledmode="secondary"
         color="red_05"
       />
+      <GoogleMap />
     </motion.main>
   );
 };

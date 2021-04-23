@@ -8,7 +8,7 @@ const opts = {
   width: '100%',
   height: '680px',
   playerVars: {
-    autoplay: 1,
+    autoplay: 0,
     modestbranding: 1,
     showinfo: 0,
     controls: 0,

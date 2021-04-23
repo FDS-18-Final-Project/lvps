@@ -10,6 +10,7 @@ import Icon from 'components/Icon/Icon';
 import Reviews from 'containers/Reviews/Reviews';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import { motion } from 'framer-motion';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const squareCardList = [
   {
@@ -118,6 +119,7 @@ const Home = () => {
       />
 
       <Reviews />
+      <GoogleMap />
     </motion.main>
   );
 };

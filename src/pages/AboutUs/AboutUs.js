@@ -4,6 +4,7 @@ import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import React from 'react';
 import { colors } from 'theme/theme';
 import { motion } from 'framer-motion';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const CardList = [
   {
@@ -85,7 +86,7 @@ const AboutUs = () => {
         title="Luxury Vehicle Protection Services"
       ></CardExplanation>
       <StaffIntroduction />
-      {/* <GoogleMap /> */}
+      <GoogleMap />
     </motion.main>
   );
 };
