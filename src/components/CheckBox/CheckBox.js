@@ -24,7 +24,7 @@ const CheckBoxContainer = styled.div`
     content: '';
     width: 100%;
     height: 60%;
-    opacity: ${({ confirm }) => (confirm ? 0.8 : 1)};
+    opacity: ${({ confirm }) => (confirm ? 0.6 : 1)};
     background-color: black;
     background-image: url(${({ imagePath }) => imagePath});
     background-repeat: no-repeat;

@@ -59,9 +59,25 @@ import { ReactComponent as MainShield } from './svg/mainShield.svg';
 import { ReactComponent as MainSmile } from './svg/mainSmile.svg';
 import { ReactComponent as MainTruck } from './svg/mainTruck.svg';
 import { ReactComponent as Pin } from './svg/pin.svg';
+import { ReactComponent as FooterCeramicPro } from './svg/footer-ceramic-coating.svg';
+import { ReactComponent as FooterDetailingCorrection } from './svg/footer-detailing-paint-correction.svg';
+import { ReactComponent as FooterLocationOnBlack } from './svg/footer-location-on-black.svg';
+import { ReactComponent as FooterMail } from './svg/footer-mail.svg';
+import { ReactComponent as FooterPaintProtectionFilm } from './svg/footer-paint-protection-film.svg';
+import { ReactComponent as FooterPhone } from './svg/footer-phone.svg';
+import { ReactComponent as FooterWheelTire } from './svg/footer-wheel-tire.svg';
+import { ReactComponent as FooterWindowTinting } from './svg/footer-window-tinting.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
+  footerCeramicPro: FooterCeramicPro,
+  footerDetailingCorrection: FooterDetailingCorrection,
+  footerLocationOnBlack: FooterLocationOnBlack,
+  footerMail: FooterMail,
+  footerPaintProtectionFilm: FooterPaintProtectionFilm,
+  footerPhone: FooterPhone,
+  footerWheelTire: FooterWheelTire,
+  footerWindowTinting: FooterWindowTinting,
   facebook: Facebook,
   instagram: Instagram,
   leftArrow: LeftArrow,

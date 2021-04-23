@@ -174,7 +174,7 @@ const ServiceCeramic = () => {
         Care.
       </ServiceInfoType2>
       <ServiceInfoType2
-        imageLabel="Ceramic pro top coat"
+        imageLabel="CERAMIC PRO PPF &amp; VINYL"
         imagePath="./assets/service-info-image.png"
         mobileImagePath="./assets/mobile-ppf-vinyl.png"
         subTitle="CERAMIC PRO PPF &amp; VINYL"
@@ -193,6 +193,27 @@ const ServiceCeramic = () => {
         weathering resulting in film that is much easier to clean. It also helps
         reduce vinyl’s orange peel look. The complete protection program
         involves a base coat and top coat application.
+      </ServiceInfoType2>
+      <ServiceInfoType2
+        mode="right"
+        imageLabel="Ceramic Pro Glass"
+        imagePath="./assets/service-info-image.png"
+        mobileImagePath="./assets/mobile-ppf-vinyl.png"
+        title="Ceramic Pro Glass"
+        infoList={[
+          'Excellent Durability',
+          'Hydrophobic Effect – 115°',
+          'Fills Scratches and Swirl Marks',
+          'Excellent Wear Resistance',
+          'Keeps Glass Cleaner',
+          'Allows Water to Roll off Glass',
+          'Anti-Icing'
+        ]}
+      >
+        Ceramic Pro Glass is a coating specifically designed for glass. It has
+        excellent durability with a Super hydrophobic effect that allows water
+        to simply bead up and flow off the glass while you are driving. Ceramic
+        Pro Rain lasts for up to 12 month in automotive use
       </ServiceInfoType2>
       <OurWorks>
         <OurWorks.Title />

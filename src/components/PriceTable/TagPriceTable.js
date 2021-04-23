@@ -65,7 +65,6 @@ const TagPriceTable = ({
   type,
   typeText,
   priceColor,
-  info,
   nonSelectedIdx,
   ...restProps
 }) => {

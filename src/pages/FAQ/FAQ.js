@@ -20,7 +20,7 @@ const FAQPage = () => {
       <SubMainBanner
         bgImg="/assets/FAQBannerImg.png"
         title="FAQ"
-        desc="LVPS for your car"
+        desc="Luxury Vehicle Protection Services For Your Car"
       />
       <FAQ />
       <GetAQuoteBanner

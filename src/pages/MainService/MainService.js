@@ -30,7 +30,7 @@ const MainService = () => {
         <>
           <ServiceInfo
             mode="right"
-            imagePath="assets/desktopMainService_01.png"
+            imagePath="assets/desktopMainService_01.jpg"
             title="Ceramic Pro"
             imageLabel="Ceramic Pro"
             subTitle="Ceramic Pro / IGL Coatings"

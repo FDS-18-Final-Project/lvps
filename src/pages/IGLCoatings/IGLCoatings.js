@@ -25,7 +25,7 @@ const IGLCoatings = () => {
       <SubMainBanner
         bgImg="/assets/IGLCar.png"
         title="Ceramic Coating"
-        desc="LVPS for your car"
+        desc="Luxury Vehicle Protection Services For Your Car"
       />
       <SubPageTitle
         type="img"

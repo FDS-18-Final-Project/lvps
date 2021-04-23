@@ -17,8 +17,8 @@ const GetAQuote = () => {
     >
       <SubMainBanner
         title="GET A QUOTE"
-        desc="LVPS for your car"
-        bgImg="assets/CeramicCoatingBannerImage.png"
+        desc="Luxury Vehicle Protection Services For Your Car"
+        bgImg="assets/get-a-quote-bg.png"
       />
       <SubPageTitle title="Get a Quote" desc="Meet Our Quality Services" />
       <GetAQuoteCheckbox />
