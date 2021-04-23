@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem, fontSizes } from 'theme/theme';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import HoverBox from 'components/HoverBox/HoverBox';
 
 const NavbarContainer = styled(motion.ul)`
@@ -32,20 +32,25 @@ const NavbarContainer = styled(motion.ul)`
 
   .serviceLink .hoverbox {
     top: 100px;
-    opacity: 0;
-    z-index: -1000;
-    transition: 0.5s;
+    transition: 0.2s;
     a {
       padding: 0 30px;
     }
   }
-  .serviceLink:hover .hoverbox {
-    opacity: 1;
-    z-index: 1000;
-  }
 `;
 
 const Navbar = ({ ...restProps }) => {
+  const [isHover, setHover] = useState(false);
+
+  const handleFocus = () => {
+    setHover(true);
+  };
+
+  const handleBlur = () => {
+    setHover(false);
+  };
+  console.log(isHover);
+
   return (
     <NavbarContainer {...restProps}>
       <li>
@@ -56,9 +61,22 @@ const Navbar = ({ ...restProps }) => {
       <li>
         <NavLink to="/about-us">ABOUT</NavLink>
       </li>
-      <li className="serviceLink">
+      <li
+        className="serviceLink"
+        onMouseEnter={handleFocus}
+        onMouseLeave={handleBlur}
+      >
         <NavLink to="/main-service">SERVICES</NavLink>
-        <HoverBox className="hoverbox" />
+        <AnimatePresence>
+          {isHover && (
+            <HoverBox
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              className="hoverbox"
+            />
+          )}
+        </AnimatePresence>
       </li>
       <li>
         <NavLink to="/get-a-quote">GET A QUOTE</NavLink>

@@ -2,9 +2,10 @@ import { array } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem } from 'theme/theme';
 import HoverItem from 'components/HoverItem/HoverItem';
+import { motion } from 'framer-motion';
 
 // HoverBox 컴포넌트 스타일링
-const StyledContainer = styled.ul`
+const StyledContainer = styled(motion.ul)`
   position: absolute;
 `;
 

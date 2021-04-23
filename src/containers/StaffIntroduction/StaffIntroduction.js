@@ -151,8 +151,19 @@ const StaffIntroductionContainer = styled.div`
         border-top: 1px solid ${colors.lightGray};
         font-size: ${fontSizes.xl};
         line-height: ${calcRem(36)};
-        width: 116%;
+        background-color: ${colors.red_05};
+
+        width: 111%;
         height: 100%;
+
+        &:hover {
+          background-color: ${colors.red_05};
+          color: ${colors.white};
+
+          path {
+            fill: ${colors.white};
+          }
+        }
       }
     }
 
