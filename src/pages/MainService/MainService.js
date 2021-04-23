@@ -6,6 +6,7 @@ import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import { useViewSize } from 'hooks';
 import React from 'react';
 import { motion } from 'framer-motion';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const MainService = () => {
   const { desktop } = useViewSize();
@@ -112,6 +113,7 @@ const MainService = () => {
         styledmode="secondary"
         color="red_05"
       />
+      <GoogleMap />
     </motion.main>
   );
 };

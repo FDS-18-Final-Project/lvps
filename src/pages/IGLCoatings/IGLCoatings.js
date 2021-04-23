@@ -96,8 +96,7 @@ const IGLCoatings = () => {
         width={273}
         to="/contact-us"
       />
-      {/* TODO: 구글맵 */}
-      {/* <GoogleMap /> */}
+      <GoogleMap />
     </motion.main>
   );
 };

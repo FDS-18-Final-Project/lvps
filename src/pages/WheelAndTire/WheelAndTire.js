@@ -3,6 +3,7 @@ import BrandList from 'containers/BrandList/BrandList';
 import React from 'react';
 import ServiceInfoType2 from 'containers/ServiceInfoType2/ServiceInfoType2';
 import { motion } from 'framer-motion';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 const tireList = [
   {
     id: 'tire_01',
@@ -213,6 +214,7 @@ const ContactUs = () => {
         type="tire"
         tireList={tireList}
       />
+      <GoogleMap />
     </motion.main>
   );
 };

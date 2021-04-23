@@ -58,6 +58,7 @@ import { ReactComponent as MainPerson } from './svg/mainPerson.svg';
 import { ReactComponent as MainShield } from './svg/mainShield.svg';
 import { ReactComponent as MainSmile } from './svg/mainSmile.svg';
 import { ReactComponent as MainTruck } from './svg/mainTruck.svg';
+import { ReactComponent as Pin } from './svg/pin.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -120,5 +121,6 @@ export default {
   paintProtectionFinish: PaintProtectionFinish,
   paintProtectionHealing: PaintProtectionHealing,
   paintProtectionShield: PaintProtectionShield,
-  paintProtectionWarranty: PaintProtectionWarranty
+  paintProtectionWarranty: PaintProtectionWarranty,
+  pin: Pin
 };

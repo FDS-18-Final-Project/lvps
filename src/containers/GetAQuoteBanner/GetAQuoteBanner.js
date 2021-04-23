@@ -1,4 +1,4 @@
-import { string, number, object, oneOfType, func } from 'prop-types';
+import { string, number } from 'prop-types';
 import styled from 'styled-components';
 import { colors, calcInterval, calcRem, fontSizes, device } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';

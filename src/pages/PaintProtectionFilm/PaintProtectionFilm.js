@@ -10,6 +10,7 @@ import PaintProtectionFilmOptions from 'containers/PaintProtectionFilmOptions/Pa
 import OurWorks from 'containers/OurWorks/OurWorks';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import { motion } from 'framer-motion';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const carouselImgs = [
   {
@@ -85,6 +86,7 @@ const PaintProtectionFilm = () => {
         styledmode="secondary"
         color="red_05"
       />
+      <GoogleMap />
     </motion.main>
   );
 };

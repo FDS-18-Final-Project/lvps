@@ -12,10 +12,8 @@ import ContactUs from 'pages/ContactUs/ContactUs';
 import IGLCoatings from 'pages/IGLCoatings/IGLCoatings';
 import WindowTinting from './pages/WindowTinting/WindowTinting';
 import GetAQuote from 'pages/GetAQuote/GetAQuote';
-import GetAQuotePage from 'pages/GetAQuotePage/GetAQuotePage';
 import FAQPage from 'pages/FAQ/FAQ';
 import { AnimatePresence } from 'framer-motion';
-import FAQ from 'containers/FAQ/FAQ';
 
 const Routes = () => (
   <Route

@@ -34,6 +34,10 @@ const StyledFooterContent = styled.div`
     font-size: ${fontSizes.small};
   }
 
+  span {
+    max-width: 200px;
+  }
+
   p {
     max-width: ${calcRem(300)};
   }
@@ -41,6 +45,7 @@ const StyledFooterContent = styled.div`
   ${device.desktop} {
     gap: ${calcInterval([36, 80])};
     padding-left: ${calcRem(50)};
+    gap: ${calcInterval([30, 0])};
   }
 
   ${device.tablet} {

@@ -1,4 +1,5 @@
 import { useReducer, useCallback, useEffect } from 'react';
+import { useLocation } from 'react-router';
 
 const searchList = [
   { keyWord: 'Get a Quote', link: '/get-a-quote' },
@@ -36,6 +37,7 @@ const serachReducer = (state, action) => {
 const useSearch = inputRef => {
   const [state, dispatch] = useReducer(serachReducer, initialSearchState);
   const { results, focusIdx } = state;
+  const { pathname } = useLocation();
 
   const matchKeyWord = (keyword, value) =>
     keyword.toLowerCase().substring(0, value.length) === value.toLowerCase();
@@ -85,6 +87,11 @@ const useSearch = inputRef => {
   useEffect(() => {
     inputRef.current.focus();
   }, [inputRef]);
+
+  useEffect(() => {
+    inputRef.current.value = '';
+    dispatch({ type: 'CHANGE', value: '', results: [] });
+  }, [inputRef, pathname]);
 
   return { state, handleChange, handleKeydown };
 };

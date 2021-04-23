@@ -11,6 +11,7 @@ import OurWorks from 'containers/OurWorks/OurWorks';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import CeramicCoating from 'containers/CeramicCoating/CeramicCoating';
 import { motion } from 'framer-motion';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const cardList = [
   {
@@ -211,6 +212,7 @@ const ServiceCeramic = () => {
         iconcolor="pink"
         to="/contact-us"
       />
+      <GoogleMap />
     </motion.main>
   );
 };
