@@ -3,6 +3,7 @@ import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import ChooseUs from 'containers/ChooseUs/ChooseUs';
 import React from 'react';
 import { motion } from 'framer-motion';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const ContactUs = () => {
   return (
@@ -26,7 +27,7 @@ const ContactUs = () => {
         desc="For Your Vehicle Protection Services in North York"
       ></SubPageTitle>
       <ChooseUs></ChooseUs>
-      {/* <GoogleMap></GoogleMap> */}
+      <GoogleMap />
     </motion.main>
   );
 };

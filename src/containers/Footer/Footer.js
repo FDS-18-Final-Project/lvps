@@ -5,7 +5,7 @@ import Logo from 'components/Logo/Logo';
 
 const StyledFooterContainer = styled.footer`
   background-color: ${colors.black};
-  padding: ${calcInterval([95, 0, 0])};
+  padding: ${calcInterval([65, 0, 35])};
 `;
 
 const StyledFooterContent = styled.div`
@@ -34,6 +34,10 @@ const StyledFooterContent = styled.div`
     font-size: ${fontSizes.small};
   }
 
+  span {
+    max-width: 200px;
+  }
+
   p {
     max-width: ${calcRem(300)};
   }
@@ -41,6 +45,7 @@ const StyledFooterContent = styled.div`
   ${device.desktop} {
     gap: ${calcInterval([36, 80])};
     padding-left: ${calcRem(50)};
+    gap: ${calcInterval([30, 0])};
   }
 
   ${device.tablet} {
@@ -85,7 +90,7 @@ const linkLists = [
     keyword: 'Detailing & Painting Correction',
     link: '/detailing-and-correction'
   },
-  { id: 5, keyword: 'Wheel & Tire', link: '/wheel-and-tire' }
+  { id: 5, keyword: 'Wheels & Tires', link: '/wheel-and-tire' }
 ];
 
 const Footer = () => {
@@ -101,9 +106,9 @@ const Footer = () => {
           colors={{ main: white, sub: white }}
           size={12}
         >
-          We are Luxury Vehicle Protection Services, providing vehicle
-          protection, repair, and detailing services based in North York,
-          Toronto, Ontario.
+          Luxury Vehicle Protection Services is your ultimate one-stop-shop for
+          auto care where you will receive the best quality of services and
+          products.
         </Paragraph>
 
         <div>
@@ -125,10 +130,15 @@ const Footer = () => {
         </div>
 
         <Paragraph
-          title="Working Hour"
+          title="Working Hours"
           type="list"
           headingNum={3}
-          items={['Monday – Friday: 8 am – 6 pm', 'Saturday: 8 am – 3 pm']}
+          items={[
+            'Mondays - Fridays: 8 am – 6 pm',
+            'Saturdays: 8 am – 3 pm',
+            'Sundays: Closed',
+            'Due to COVID-19, by appointment only.'
+          ]}
           colors={{ main: white, sub: white }}
           size={12}
         />

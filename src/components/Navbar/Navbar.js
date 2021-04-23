@@ -61,7 +61,7 @@ const Navbar = ({ ...restProps }) => {
         <HoverBox className="hoverbox" />
       </li>
       <li>
-        <NavLink to="/get-a-quote">GET A QUOUE</NavLink>
+        <NavLink to="/get-a-quote">GET A QUOTE</NavLink>
       </li>
       <li>
         <NavLink to="/faq">FAQ</NavLink>

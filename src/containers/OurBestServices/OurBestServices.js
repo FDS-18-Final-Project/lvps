@@ -122,9 +122,7 @@ const accordionState = [
   {
     id: 1,
     title: 'Ceramic Coating',
-    description: `It can be described as an additional clear coat,
-    with 3 times the hardness and self cleaning properties.
-    `,
+    description: `Can be described as an additional clear coat, with three times the hardness and self-cleaning properties.`,
     imagePath: 'assets/OurBestServiceImage_01.png',
     active: true,
     to: '/ceramic-coating'
@@ -132,7 +130,7 @@ const accordionState = [
   {
     id: 2,
     title: 'Paint Protection Film',
-    description: `It  protects your vehicle’s paint from everyday damages.`,
+    description: `Perfect for protecting high impact areas or full car wraps coverage from chips, scratches and road debris.`,
     imagePath: 'assets/OurBestServiceImage_02.png',
     active: false,
     to: '/paint-protection'
@@ -140,7 +138,7 @@ const accordionState = [
   {
     id: 3,
     title: 'Window Tinting',
-    description: `Protect yourself from 99% harmful cancer causing UV rays & achieve the privacy you desire with window tinting.`,
+    description: `Enhances privacy, reduces infra-red heat, as well as keeps your skin and eyes safe from harmful UV rays.`,
     imagePath: 'assets/OurBestServiceImage_03.png',
     active: false,
     to: '/window-tinting'
@@ -148,15 +146,15 @@ const accordionState = [
   {
     id: 4,
     title: 'Detailing & Paint Correction',
-    description: `Get your car back to like when you bought it new with an interior/exterior packages we offer.`,
+    description: `Get your car looking like new again with the interior/exterior packages we offer.`,
     imagePath: 'assets/OurBestServiceImage_04.png',
     active: false,
     to: '/detailing-and-correction'
   },
   {
     id: 5,
-    title: 'Wheel & Tire',
-    description: `We work with most wheel and tires distributors and can get you the wheels and tires you need.`,
+    title: 'Wheels & Tires',
+    description: `We work with most brands and can get you the wheels and tires you need and want.`,
     imagePath: 'assets/OurBestServiceImage_05.png',
     active: false,
     to: '/wheel-and-tire'
@@ -208,7 +206,7 @@ OurBestServices.propTypes = {
 };
 
 OurBestServices.defaultProps = {
-  title: 'Our Best Services',
+  title: 'Our Quality Services',
   imagePath: 'assets/dummy_ourbestservice.png'
 };
 

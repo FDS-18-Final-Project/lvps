@@ -50,7 +50,7 @@ const windowData = {
         id: 3,
         active: false,
         color: 'black',
-        option: 'CARBON FILM',
+        option: 'CERAMIC FILM',
         title: <FromText title="PRIME XR" />,
         price: 400,
         info: [
@@ -63,7 +63,7 @@ const windowData = {
         id: 4,
         active: false,
         color: 'black',
-        option: 'CARBON FILM',
+        option: 'CERAMIC FILM',
         title: <FromText title="PRIME XR PLUS™" />,
         price: 600,
         info: [

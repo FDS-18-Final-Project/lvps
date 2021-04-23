@@ -182,10 +182,10 @@ const GetAQuoteForm = () => {
           <StyledFieldset>
             <A11yHidden as="legend">GetAQuote Form</A11yHidden>
             <Input label="FULL NAME *" name="name" id="name" formik={formik}>
-              YOUR FULL NAME(At least 2 characters)
+              YOUR FULL NAME (At least 2 characters)
             </Input>
             <Input label="E-MAIL *" name="email" id="email" formik={formik}>
-              YOUR MAIL ADDRESS
+              YOUR E-MAIL ADDRESS
             </Input>
             <Input
               label="PHONE NUMBER *"
@@ -193,7 +193,7 @@ const GetAQuoteForm = () => {
               id="phoneNumber"
               formik={formik}
             >
-              YOUR PHONE NUMBER(At least 10 numbers)
+              YOUR PHONE NUMBER (xxx-xxx-xxxx)
             </Input>
             <Layout.FlexContainer className="yearMakeContainer">
               <Input label="YEAR *" name="year" id="year" formik={formik}>
@@ -207,7 +207,7 @@ const GetAQuoteForm = () => {
               {' '}
             </Input>
             <Layout.FlexContainer alignItems="flex-start">
-              <label htmlFor="message">MESSAGE(Option)</label>
+              <label htmlFor="message">MESSAGE (Optional)</label>
               <textarea
                 name="message"
                 id="message"

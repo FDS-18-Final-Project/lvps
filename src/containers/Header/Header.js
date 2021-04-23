@@ -15,6 +15,9 @@ const HeaderContainer = styled.header`
   background: ${colors.black};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: ${colors.white};
+  position: sticky;
+  top: 0;
+  z-index: 10000;
 
   .logo {
     min-width: ${calcRem(100)};

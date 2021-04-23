@@ -10,6 +10,7 @@ import Icon from 'components/Icon/Icon';
 import Reviews from 'containers/Reviews/Reviews';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import { motion } from 'framer-motion';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const squareCardList = [
   {
@@ -47,7 +48,7 @@ const squareCardList = [
   {
     id: 4,
     type: 'square',
-    content: [{ id: 1, content: 'We work with every make & model' }],
+    content: [{ id: 1, content: 'Work with every make & model' }],
     iconType: 'mainPerson',
     background: colors.black,
     fontColor: colors.white
@@ -55,7 +56,7 @@ const squareCardList = [
   {
     id: 5,
     type: 'square',
-    content: [{ id: 1, content: 'Pick up & delivery service available' }],
+    content: [{ id: 1, content: 'Pick up & delivery services available' }],
     iconType: 'mainTruck',
     background: colors.black,
     fontColor: colors.black
@@ -63,7 +64,13 @@ const squareCardList = [
   {
     id: 6,
     type: 'square',
-    content: [{ id: 1, content: 'Mobile services on request' }],
+    content: [
+      {
+        id: 1,
+        content:
+          'When requested, certain mobile services available at your location '
+      }
+    ],
     iconType: 'mainCheck',
     background: colors.black,
     fontColor: colors.white
@@ -100,11 +107,15 @@ const Home = () => {
         for your auto care needs.
       </ServiceInfo>
       <OurBestServices />
-      <CardExplanation
-        title="Our Quality Protection Services"
-        cardList={squareCardList}
-      />
-      <SubBanner title="Our Works" description="Visit our Instagram.">
+      <CardExplanation title="Why Choose Us" cardList={squareCardList} />
+      <SubBanner
+        title="Our Work"
+        description={
+          <span>
+            Check out our Instagram page {<br />} to see our recent projects.
+          </span>
+        }
+      >
         Visit Instagram
         <Icon type="instagram" color={colors.white} width={calcRem(25)} />
       </SubBanner>
@@ -116,6 +127,7 @@ const Home = () => {
       />
 
       <Reviews />
+      <GoogleMap />
     </motion.main>
   );
 };

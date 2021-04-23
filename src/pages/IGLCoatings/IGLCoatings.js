@@ -7,7 +7,7 @@ import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import { motion } from 'framer-motion';
-// import GoogleMap from 'containers/GoogleMap/GoogleMap';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 import Video from 'containers/Video/Video';
 
 const IGLCoatings = () => {
@@ -96,8 +96,7 @@ const IGLCoatings = () => {
         width={273}
         to="/contact-us"
       />
-      {/* TODO: 구글맵 */}
-      {/* <GoogleMap /> */}
+      <GoogleMap />
     </motion.main>
   );
 };

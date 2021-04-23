@@ -7,6 +7,7 @@ import DetailingPaintPackage from 'containers/DetailingPaintPackage/DetailingPai
 import OurWorks from 'containers/OurWorks/OurWorks';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import { motion } from 'framer-motion';
+import GoogleMap from 'containers/GoogleMap/GoogleMap';
 // import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
 const paintCorrectionInfoList = [
@@ -73,7 +74,7 @@ const DetailingAndCorrection = () => {
         <GetAQuoteBanner.Title />
         <GetAQuoteBanner.Link />
       </GetAQuoteBanner>
-      {/* <GoogleMap/> */}
+      <GoogleMap />
     </motion.main>
   );
 };
