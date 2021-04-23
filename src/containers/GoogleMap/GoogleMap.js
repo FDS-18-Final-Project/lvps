@@ -1,27 +1,3 @@
-// import React, { Component } from 'react';
-// import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-
-// class GoogleMap extends Component {
-//   render() {
-//     return (
-//       <Map
-//         google={this.props.google}
-//         zoom={15}
-//         style={{ width: '100%', height: '300px' }}
-//         initialCenter={{ lat: 43.75982215186903, lng: -79.47634137563207 }}
-//       >
-//         <Marker
-//           position={{ lat: 43.75982215186903, lng: -79.47634137563207 }}
-//         />
-//       </Map>
-//     );
-//   }
-// }
-
-// export default GoogleApiWrapper({
-//   apiKey: process.env.REACT_APP_GOOGLE_MAP_KEY
-// })(GoogleMap);
-
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Icon from 'components/Icon/Icon';

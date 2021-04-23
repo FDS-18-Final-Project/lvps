@@ -105,12 +105,12 @@ const Home = () => {
         title="Our Quality Protection Services"
         cardList={squareCardList}
       />
-      <a href="https://www.instagram.com/lvps.ca/?hl=en">
-        <SubBanner title="Our Works" description="Visit our Instagram.">
-          Visit Instagram
-          <Icon type="instagram" color={colors.white} width={calcRem(25)} />
-        </SubBanner>
-      </a>
+
+      <SubBanner title="Our Works" description="Visit our Instagram.">
+        Visit Instagram
+        <Icon type="instagram" color={colors.white} width={calcRem(25)} />
+      </SubBanner>
+
       <GetAQuoteBanner
         title="Get a Free Quote"
         color="red_05"
