@@ -15,7 +15,7 @@ const film_group = [
     heading="18'' Hood
     and Fenders"
     title="Starting from"
-    price={199}
+    price={250}
     info={[]}
     priceColor="red_05"
     padding={[78, 20, 81]}
@@ -26,7 +26,7 @@ const film_group = [
     heading="24'' Hood
     and Fenders"
     title="Starting from"
-    price={399}
+    price={300}
     info={[]}
     priceColor="red_05"
     padding={[78, 20, 81]}
@@ -37,7 +37,7 @@ const film_group = [
     heading="Trunk Strip
     Paint protection"
     title="Starting from"
-    price={599}
+    price={80}
     info={[]}
     priceColor="red_05"
     padding={[78, 20, 81]}
@@ -48,7 +48,7 @@ const film_group = [
     heading="Rocker Panel
     Paint Protection"
     title="Starting from"
-    price={199}
+    price={250}
     info={[]}
     priceColor="red_05"
     padding={[78, 20, 81]}
@@ -59,7 +59,7 @@ const film_group = [
     heading="Front Headlight
     Paint Protection"
     title="Starting from"
-    price={399}
+    price={150}
     info={[]}
     priceColor="red_05"
     padding={[78, 20, 81]}
@@ -70,7 +70,7 @@ const film_group = [
     heading="Full Bumper
     Paint Protection"
     title="Starting from"
-    price={599}
+    price={600}
     info={[]}
     priceColor="red_05"
     padding={[78, 20, 81]}
@@ -81,7 +81,7 @@ const film_group = [
     heading="Full Hood
     Paint Protection"
     title="Starting from"
-    price={199}
+    price={600}
     info={[]}
     priceColor="red_05"
     padding={[78, 20, 81]}
@@ -92,7 +92,7 @@ const film_group = [
     heading="Pillars
     Paint Protection"
     title="Starting from"
-    price={399}
+    price={300}
     info={[]}
     priceColor="red_05"
     padding={[78, 20, 81]}
