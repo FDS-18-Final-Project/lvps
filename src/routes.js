@@ -13,6 +13,7 @@ import IGLCoatings from 'pages/IGLCoatings/IGLCoatings';
 import WindowTinting from './pages/WindowTinting/WindowTinting';
 import GetAQuote from 'pages/GetAQuote/GetAQuote';
 import FAQPage from 'pages/FAQ/FAQ';
+import SuccessfullySent from 'pages/SuccessfullySent/SuccessfullySent';
 import { AnimatePresence } from 'framer-motion';
 
 const Routes = () => (
@@ -24,20 +25,30 @@ const Routes = () => (
             <Route path="/" exact>
               <Home />
             </Route>
-            <Route path="/main-service" component={MainService} />
-            <Route path="/ceramic-coating" component={ServiceCeramic} />
-            <Route path="/paint-protection" component={PaintProtectionFilm} />
-            <Route path="/window-tinting" component={WindowTinting} />
-            <Route path="/about-us" component={AboutUs} />
-            <Route path="/wheel-and-tire" component={WheelAndTire} />
+            <Route path="/main-service" exact component={MainService} />
+            <Route path="/ceramic-coating" exact component={ServiceCeramic} />
+            <Route
+              path="/paint-protection"
+              exact
+              component={PaintProtectionFilm}
+            />
+            <Route path="/window-tinting" exact component={WindowTinting} />
+            <Route path="/about-us" exact component={AboutUs} />
+            <Route path="/wheel-and-tire" exact component={WheelAndTire} />
             <Route
               path="/detailing-and-correction"
+              exact
               component={DetailingAndCorrection}
             />
-            <Route path="/contact-us" component={ContactUs} />
-            <Route path="/igl-coatings" component={IGLCoatings} />
-            <Route path="/faq" component={FAQPage} />
-            <Route path="/get-a-quote" component={GetAQuote} />
+            <Route path="/contact-us" exact component={ContactUs} />
+            <Route path="/igl-coatings" exact component={IGLCoatings} />
+            <Route path="/faq" exact component={FAQPage} />
+            <Route path="/get-a-quote" exact component={GetAQuote} />
+            <Route
+              path="/successfully-sent"
+              exact
+              component={SuccessfullySent}
+            />
             <Route path="*" component={PageNotFound} />
           </Switch>
         </AnimatePresence>

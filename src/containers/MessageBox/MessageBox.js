@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors, calcRem, fontSizes } from 'theme/theme';
+import { colors, calcRem, fontSizes, device } from 'theme/theme';
 
 const MessageContainer = styled.div`
   background-color: rgba(17, 17, 17, 0.6);
@@ -9,6 +9,7 @@ const MessageContainer = styled.div`
   justify-content: center;
   margin: auto ${calcRem(20)} ${calcRem(42)} ${calcRem(20)};
   padding: ${calcRem(125)} 20%;
+  border: 2px solid ${colors.lightGray};
 
   h2 {
     color: ${colors.red_04};
@@ -21,21 +22,30 @@ const MessageContainer = styled.div`
     color: ${colors.white};
     font-size: ${fontSizes.xl};
     line-height: 150%;
+    white-space: pre-wrap;
+  }
+
+  ${device.tablet} {
+    padding: ${calcRem(50)};
+    h2 {
+      font-size: ${fontSizes.xl};
+    }
+
+    p {
+      font-size: ${fontSizes.lg};
+    }
   }
 `;
 
-const ErrorMessage = () => {
+const MessageBox = ({ title, message, ...restProps }) => {
   return (
-    <MessageContainer>
-      <h2>404 Page Not Found</h2>
-      <p>
-        Sorry, the requested URL is not found. <br />
-        Please go back to the homepage.
-      </p>
+    <MessageContainer {...restProps}>
+      <h2>{title}</h2>
+      <p>{message}</p>
     </MessageContainer>
   );
 };
 
-ErrorMessage.displayName = 'ErrorMessage';
+MessageBox.displayName = 'MessageBox';
 
-export default ErrorMessage;
+export default MessageBox;

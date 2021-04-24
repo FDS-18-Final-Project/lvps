@@ -29,7 +29,7 @@ import { ReactComponent as CircleCheck } from './svg/circleCheck.svg';
 import { ReactComponent as Marker } from './svg/marker.svg';
 import { ReactComponent as Email } from './svg/email.svg';
 import { ReactComponent as Phone } from './svg/phone.svg';
-import { ReactComponent as IGL10H } from './svg/IGL10H.svg';
+import { ReactComponent as igl10H } from './svg/igl10H.svg';
 import { ReactComponent as IglSilica } from './svg/IGLSilica.svg';
 import { ReactComponent as IGLSoft } from './svg/IGLSoft.svg';
 import { ReactComponent as IGLWarranty } from './svg/IGLWarranty.svg';
@@ -37,7 +37,7 @@ import { ReactComponent as IGLWater } from './svg/IGLWater.svg';
 import { ReactComponent as IGLSpot } from './svg/IGLSpot.svg';
 import { ReactComponent as IGLBus } from './svg/IGLBus.svg';
 import { ReactComponent as IGLCar } from './svg/IGLCar.svg';
-import { ReactComponent as IGLHand } from './svg/IGLHand.svg';
+import { ReactComponent as iglHand } from './svg/iglHand.svg';
 import { ReactComponent as CeramicDollar } from './svg/ceramicDollar.svg';
 import { ReactComponent as CeramicLike } from './svg/ceramicLike.svg';
 import { ReactComponent as CeramicCar } from './svg/ceramicCar.svg';
@@ -116,7 +116,7 @@ export default {
   marker: Marker,
   email: Email,
   phone: Phone,
-  iGL10H: IGL10H,
+  iGL10H: igl10H,
   iglSilica: IglSilica,
   iGLSoft: IGLSoft,
   iGLWarranty: IGLWarranty,
@@ -124,7 +124,7 @@ export default {
   iGLSpot: IGLSpot,
   iGLBus: IGLBus,
   iGLCar: IGLCar,
-  iGLHand: IGLHand,
+  iGLHand: iglHand,
   ceramicDollar: CeramicDollar,
   ceramicLike: CeramicLike,
   ceramicCar: CeramicCar,
