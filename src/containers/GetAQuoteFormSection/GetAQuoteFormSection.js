@@ -9,6 +9,7 @@ import {
 } from '../../theme/theme';
 import GetAQuoteForm from 'containers/GetAQuoteForm/GetAQuoteForm';
 import Paragraph from 'components/Paragraph/Paragraph';
+import { useSelector } from 'react-redux';
 
 const FullContainer = styled.section`
   position: relative;
@@ -62,6 +63,12 @@ const FullContainer = styled.section`
 `;
 
 const GetAQuoteFormSection = () => {
+  const selectedService = useSelector(state => state.service);
+
+  const servicesTotalPrice = Object.values(selectedService)
+    .flat(Infinity)
+    .reduce((acc, cur) => acc + cur.price, 0);
+
   return (
     <FullContainer>
       <Paragraph
@@ -71,7 +78,7 @@ const GetAQuoteFormSection = () => {
         size={24}
         headingNum={2}
       >
-        LVS for your car
+        ${servicesTotalPrice}
       </Paragraph>
       <GetAQuoteForm />
     </FullContainer>
