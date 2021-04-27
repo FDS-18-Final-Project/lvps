@@ -52,6 +52,7 @@ const IGLCoatings = () => {
       <FeaturesBenefits />
       <ServiceInfoType2
         mode="left"
+        iconcolor="green"
         title="Benefits of having a KENZO IGL Coating include"
         imagePath="/assets/KENZO.png"
         mobileImagePath="/assets/IGLMobileCard2.png"

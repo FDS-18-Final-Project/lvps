@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   calcInterval,
   calcRem,
@@ -158,7 +158,61 @@ const StyledFieldset = styled.fieldset`
   }
 `;
 
+const postForm = async values => {
+  try {
+    const URL =
+      'http://ec2-3-36-241-163.ap-northeast-2.compute.amazonaws.com:8080/quotations';
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(values)
+    });
+    const resId = await response.json();
+    return resId.id;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+const sendId = async id => {
+  const URL = `http://ec2-3-36-241-163.ap-northeast-2.compute.amazonaws.com:8080/quotations/${id}/send-mails`;
+  await fetch(URL);
+};
+
+const sendMail = async (values, services) => {
+  try {
+    const id = await postForm({
+      ...values,
+      services: CreateServiceForm(services)
+    });
+    sendId(id);
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+const CreateServiceForm = services => {
+  let servicesInfo = '';
+
+  for (const [key, value] of Object.entries(services)) {
+    servicesInfo += `\n- service name: ${key}`;
+    for (let i = 0; i < value.length; i++) {
+      if (key === 'wheelAndTire') {
+        servicesInfo += `\n(option: ${value[i].value})`;
+      } else {
+        servicesInfo += `\n(option: ${value[i].name}, price: ${value[i].price})`;
+      }
+    }
+    servicesInfo += '\n';
+  }
+
+  return servicesInfo;
+};
+
 const GetAQuoteForm = () => {
+  const services = useSelector(state => state.service);
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -173,6 +227,7 @@ const GetAQuoteForm = () => {
     validationSchema,
     onSubmit: values => {
       dispatch(updateForm(values));
+      sendMail(values, services);
     }
   });
   return (
