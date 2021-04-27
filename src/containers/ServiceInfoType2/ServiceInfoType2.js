@@ -157,13 +157,14 @@ const ServiceInfoType2 = ({
             )}
             <Paragraph
               type="normal"
-              // TODO: warning 해결
               title={(desktop || (mobile && showSubTitle)) && subTitle}
               headingNum={4}
             >
               {children}
             </Paragraph>
-            {infoList && <CardInfo infoList={infoList}></CardInfo>}
+            {infoList && (
+              <CardInfo infoList={infoList} iconcolor={iconcolor}></CardInfo>
+            )}
           </StyledContentContainer>
         </ContentSideContainer>
         {mode === 'right' && desktop && (
