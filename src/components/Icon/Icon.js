@@ -21,6 +21,10 @@ const StyledIconButton = styled.button`
   outline: none;
   background: transparent;
   cursor: pointer;
+
+  &:focus-visible {
+    outline 1px solid blue;
+  }
 `;
 
 const Icon = ({

@@ -24,6 +24,7 @@ import isEmpty from 'utils/isEmpty';
 const FullContainer = styled.section`
   position: relative;
   padding: ${calcInterval([30, 0])};
+
   ${({ desktop }) =>
     desktop &&
     css`

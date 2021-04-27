@@ -89,6 +89,7 @@ const CheckBox = ({ imagePath, desc, Modal, handleReset }) => {
     <>
       <CheckBoxContainer
         className="checkboxContainer"
+        tabIndex="0"
         imagePath={imagePath}
         desc={desc}
         confirm={confirm}
