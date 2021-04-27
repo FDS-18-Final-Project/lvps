@@ -9,6 +9,7 @@ import PaintProtectionFilmPackage from 'containers/PaintProtectionFilmPackage/Pa
 import PaintProtectionFilmOptions from 'containers/PaintProtectionFilmOptions/PaintProtectionFilmOptions';
 import OurWorks from 'containers/OurWorks/OurWorks';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
+import PaintProtectionFilmPackageOption from 'containers/PaintProtectionFilmPackageOption/PaintProtectionFilmPackageOption';
 import { motion } from 'framer-motion';
 import GoogleMap from 'containers/GoogleMap/GoogleMap';
 
@@ -80,6 +81,7 @@ const PaintProtectionFilm = () => {
         videoTitle="paint protection film products"
       />
       <PaintProtectionFilmPackage />
+      <PaintProtectionFilmPackageOption />
       <PaintProtectionFilmOptions />
       <OurWorks contents={carouselImgs} />
       <GetAQuoteBanner
