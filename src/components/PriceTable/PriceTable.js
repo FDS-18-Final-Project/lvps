@@ -87,15 +87,8 @@ const PriceTable = ({
   nonSelectedIdx,
   ...restProps
 }) => {
-  const [isActive, setIsActive] = useState(false);
-  const handleClick = () => setIsActive(!isActive);
   return (
-    <PriceTableContainer
-      maxWidth={maxWidth}
-      active={isActive}
-      onClick={handleClick}
-      {...restProps}
-    >
+    <PriceTableContainer maxWidth={maxWidth} {...restProps}>
       {children}
 
       <div className="title">{title}</div>

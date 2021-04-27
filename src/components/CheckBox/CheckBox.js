@@ -74,6 +74,12 @@ const CheckBox = ({ imagePath, desc, Modal, handleReset }) => {
     isVisible(!visible);
   };
 
+  const keyDownModalVisible = e => {
+    if ([' ', 'Enter'].includes(e.key)) {
+      isVisible(!visible);
+    }
+  };
+
   const handleConfirmCheck = () => setConfirm(true);
 
   const resetConfirm = e => {
@@ -93,6 +99,8 @@ const CheckBox = ({ imagePath, desc, Modal, handleReset }) => {
         desc={desc}
         confirm={confirm}
         onClick={handleModalVisible}
+        onKeyDown={keyDownModalVisible}
+        tabIndex={0}
       >
         <Icon
           className="resetBtn"
