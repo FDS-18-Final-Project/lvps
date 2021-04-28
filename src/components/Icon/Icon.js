@@ -37,7 +37,6 @@ const Icon = ({
   ...restProps
 }) => {
   let Comp = null;
-
   if (link)
     Comp = (
       <Link to={to}>{React.createElement(svg[type], { ...restProps })}</Link>

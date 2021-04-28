@@ -153,7 +153,7 @@ const Footer = () => {
               headingNum={3}
               colors={{ main: white, sub: white }}
               items={[linkList.keyword]}
-              icon={[linkList.icon]}
+              icon={linkList.icon}
               iconcolor={colors.white}
               size={12}
             />

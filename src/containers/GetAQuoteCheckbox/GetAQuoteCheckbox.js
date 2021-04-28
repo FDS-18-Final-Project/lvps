@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { calcInterval, fontSizes, calcRem, colors, device } from 'theme/theme';
@@ -153,13 +153,13 @@ const GetAQuoteCheckbox = () => {
             handleReset={handleReset(windowReset, 'window')}
           />
           <CheckBox
-            desc="PROFESSIONAL DETAILING & PAINT CORRECTION"
+            desc="PROFESSIONAL DETAILING &amp; PAINT CORRECTION"
             Modal={DetailModalDialog}
             imagePath="./assets/get4.png"
             handleReset={handleReset(detailReset, 'detail')}
           />
           <CheckBox
-            desc="WHEELS & TIRES"
+            desc="WHEELS &amp; TIRES"
             Modal={WheelModalDialog}
             imagePath="./assets/get5.png"
             handleReset={handleReset(wheelAndTireReset, 'wheelAndTire')}
