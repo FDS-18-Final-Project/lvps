@@ -33,6 +33,12 @@ const GlobalStyle = createGlobalStyle`
   img {
     user-drag: none; 
   }
+  button:focus-visible {
+    outline: 1px solid blue;
+  }
+  a:focus-visible {
+    outline: 3px solid blue;
+  }
 `;
 
 export default GlobalStyle;
