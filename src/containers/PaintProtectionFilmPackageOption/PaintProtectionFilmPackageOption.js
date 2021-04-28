@@ -57,10 +57,7 @@ const OptionContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: ${({ type }) => {
-    console.log(type);
-    return type === 'card' ? 0 : calcRem(60);
-  }};
+  margin-bottom: ${({ type }) => (type === 'card' ? 0 : calcRem(60))};
 `;
 
 const StyledContainer = styled.section`
@@ -82,8 +79,8 @@ const CarouselContainer = styled(Carousel)`
 `;
 
 const paint_group = [
-  <OptionContainer>
-    <ImageContainer>
+  <OptionContainer key="opt_3">
+    <ImageContainer key="img_3">
       <img
         src="assets/ppf_silver.png"
         alt="Paint Protection Film Silver Package"
@@ -100,8 +97,8 @@ const paint_group = [
       nonSelectedIdx={4}
     />
   </OptionContainer>,
-  <OptionContainer>
-    <ImageContainer>
+  <OptionContainer key="opt_2">
+    <ImageContainer key="img_2">
       <img src="assets/ppf_gold.png" alt="Paint Protection Film Gold Package" />
     </ImageContainer>
     <TagPriceTable
@@ -115,8 +112,8 @@ const paint_group = [
       nonSelectedIdx={4}
     />
   </OptionContainer>,
-  <OptionContainer>
-    <ImageContainer>
+  <OptionContainer key="opt_1">
+    <ImageContainer key="img_1">
       <img
         src="assets/ppf_platinum.png"
         alt="Paint Protection Film Platinum Package"

@@ -71,7 +71,6 @@ const Paragraph = ({
   ...restProps
 }) => {
   let Comp = `h${headingNum}`;
-
   return (
     <StyledParagraphContainer
       headingNum={headingNum}
