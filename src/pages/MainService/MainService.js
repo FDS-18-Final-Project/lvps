@@ -68,7 +68,7 @@ const MainService = () => {
             linkText="Learn More"
           >
             Make your car look better with black tinted windows. Protect
-            yourself from 99% harmful cancer causing UV rays & achieve the
+            yourself from 99% harmful cancer causing UV rays &amp; achieve the
             privacy you desire with window tinting.
           </ServiceInfo>
 
