@@ -4,7 +4,6 @@ import { calcRem, colors, device } from 'theme/theme';
 import MessageBox from 'containers/MessageBox/MessageBox';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
-import SuccessfullySent from 'pages/SuccessfullySent/SuccessfullySent';
 
 const StyledPage = styled.section`
   display: flex;
@@ -42,7 +41,6 @@ const PageNotFound = ({ ...restProps }) => {
           <Icon title="right arrow" type="rightArrow" path={colors.black} />
         </StyledButton>
       </StyledPage>
-      <SuccessfullySent />
     </>
   );
 };

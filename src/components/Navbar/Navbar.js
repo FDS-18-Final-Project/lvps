@@ -49,7 +49,6 @@ const Navbar = ({ ...restProps }) => {
   const handleBlur = () => {
     setHover(false);
   };
-  console.log(isHover);
 
   return (
     <NavbarContainer {...restProps}>
