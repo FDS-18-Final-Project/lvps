@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { colors, calcRem, device } from 'theme/theme';
+import { colors, calcRem, device, fontSizes } from 'theme/theme';
 import { motion } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 import { addService } from 'store/service/service';
@@ -105,6 +105,16 @@ const StyledPackageContainer = styled.div`
     border-bottom: 0;
   }
 `;
+const StyledNotification = styled.p`
+  display: inline-block;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  margin: auto;
+  font-size: ${fontSizes.xl};
+  color: ${colors.black};
+  font-weight: 700;
+`;
 
 const StyledButtonContainer = styled.div`
   width: 100%;
@@ -182,6 +192,7 @@ const WheelModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
               title="Tire Brands We Offer"
             />
           </StyledPackageContainer>
+          <StyledNotification>*Contact Us for Pricing.</StyledNotification>
           <StyledButtonContainer>
             <Button
               disabled={!selectedItem.length}
