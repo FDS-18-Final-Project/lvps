@@ -46,7 +46,6 @@ const StyledAutoCompleteContainer = styled.ul`
   li {
     padding: ${calcInterval([10, 20])};
     font-size: ${fontSizes.base};
-    /* border-radius: ${calcRem(10)}; */
   }
 
   ${device.desktop} {
