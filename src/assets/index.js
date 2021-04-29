@@ -67,6 +67,8 @@ import { ReactComponent as FooterPaintProtectionFilm } from './svg/footer-paint-
 import { ReactComponent as FooterPhone } from './svg/footer-phone.svg';
 import { ReactComponent as FooterWheelTire } from './svg/footer-wheel-tire.svg';
 import { ReactComponent as FooterWindowTinting } from './svg/footer-window-tinting.svg';
+import { ReactComponent as Logo } from './svg/logo.svg';
+import { ReactComponent as HeaderLogo } from './svg/LVPS_logo.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -90,6 +92,8 @@ export default {
   alert: Alert,
   // searchGray: SearchGray,
   // like: Like,
+  logo: Logo,
+  headerLogo: HeaderLogo,
   checked: Checked,
   circle: Circle,
   tagSilver: TagSilver,

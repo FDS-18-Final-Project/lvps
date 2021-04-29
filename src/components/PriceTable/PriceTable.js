@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import {
   number,
   string,
@@ -70,56 +70,66 @@ const contents = [
   { id: 3, title: 'Dyed' }
 ];
 
-const PriceTable = ({
-  mode,
-  title,
-  price,
-  maxWidth,
-  fgColor,
-  iconcolor,
-  icon,
-  children,
-  heading,
-  info,
-  iconContents,
-  descriptionContainer,
-  minHeight,
-  nonSelectedIdx,
-  ...restProps
-}) => {
-  return (
-    <PriceTableContainer maxWidth={maxWidth} {...restProps}>
-      {children}
+const PriceTable = forwardRef(
+  (
+    {
+      mode,
+      title,
+      price,
+      maxWidth,
+      fgColor,
+      iconcolor,
+      icon,
+      children,
+      heading,
+      info,
+      iconContents,
+      descriptionContainer,
+      minHeight,
+      nonSelectedIdx,
+      ...restProps
+    },
+    ref
+  ) => {
+    return (
+      <PriceTableContainer
+        tabIndex={0}
+        ref={ref}
+        maxWidth={maxWidth}
+        {...restProps}
+      >
+        {children}
 
-      <div className="title">{title}</div>
-      <strong>${price}</strong>
-      <Divider className="divider" width={55} height={1} margin="33 0" />
-      <IconContainer>
-        {icon &&
-          iconContents.map(content => (
-            <IconParagraph
-              className="IconPargraph"
-              key={content.id}
-              content={content}
-              iconType="likeCircle"
-            />
-          ))}
-      </IconContainer>
-      {descriptionContainer}
-      {mode === 'list' ? (
-        <CardInfo
-          infoList={info}
-          minHeight={minHeight}
-          nonSelectedIdx={nonSelectedIdx}
-          fgColor={fgColor}
-          iconcolor={iconcolor}
-        />
-      ) : (
-        <CardInfoTitleDescription minHeight={minHeight} infoList={info} />
-      )}
-    </PriceTableContainer>
-  );
-};
+        <div className="title">{title}</div>
+        <strong>${price}</strong>
+        <Divider className="divider" width={55} height={1} margin="33 0" />
+        <IconContainer>
+          {icon &&
+            iconContents.map(content => (
+              <IconParagraph
+                className="IconPargraph"
+                key={content.id}
+                content={content}
+                iconType="likeCircle"
+              />
+            ))}
+        </IconContainer>
+        {descriptionContainer}
+        {mode === 'list' ? (
+          <CardInfo
+            infoList={info}
+            minHeight={minHeight}
+            nonSelectedIdx={nonSelectedIdx}
+            fgColor={fgColor}
+            iconcolor={iconcolor}
+          />
+        ) : (
+          <CardInfoTitleDescription minHeight={minHeight} infoList={info} />
+        )}
+      </PriceTableContainer>
+    );
+  }
+);
 
 PriceTable.propTypes = {
   mode: oneOf(['list', 'title']),

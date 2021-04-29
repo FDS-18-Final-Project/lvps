@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { calcInterval, colors, calcRem, fontSizes } from 'theme/theme';
@@ -40,23 +40,26 @@ const PrimiumPriceTableContainer = styled(PriceTable)`
   }
 `;
 
-const PrimiumPriceTable = ({ id, option, active, onClick, ...restProps }) => {
-  const { desktop } = useViewSize();
-  return (
-    <PrimiumPriceTableContainer
-      id={id}
-      mode="title"
-      title="Starting At"
-      option={option}
-      onClick={e => onClick(e)}
-      active={active}
-      desktop={desktop ? 1 : 0}
-      {...restProps}
-    >
-      <em>{option.toUpperCase()}</em>
-    </PrimiumPriceTableContainer>
-  );
-};
+const PrimiumPriceTable = forwardRef(
+  ({ id, option, active, onClick, ...restProps }, ref) => {
+    const { desktop } = useViewSize();
+    return (
+      <PrimiumPriceTableContainer
+        id={id}
+        mode="title"
+        title="Starting At"
+        option={option}
+        ref={ref}
+        onClick={e => onClick(e)}
+        active={active}
+        desktop={desktop ? 1 : 0}
+        {...restProps}
+      >
+        <em>{option.toUpperCase()}</em>
+      </PrimiumPriceTableContainer>
+    );
+  }
+);
 
 PrimiumPriceTable.propTypes = {
   option: oneOf(['Gold', 'Silver', 'Platinum', 'Bronze'])

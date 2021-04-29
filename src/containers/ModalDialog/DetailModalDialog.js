@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { colors, calcRem, device, fontSizes } from 'theme/theme';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
@@ -258,141 +258,144 @@ const StyledCarouselContainer = styled.div`
     margin-bottom: ${calcRem(0)};
   }
 `;
-const DetailModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
-  const {
-    modalData,
-    onlyOneSelected,
-    multiSelected,
-    addServices,
-    checkActive,
-    totalPrice
-  } = useModalSelected(
-    'detailModal',
-    detailSingleToggleActive,
-    detailMultiToggleActive,
-    onChange,
-    confirmCheck
-  );
-  const { label, title, firstPackage, secondPackage } = modalData;
-  const { desktop } = useViewSize();
+const DetailModalDialog = forwardRef(
+  ({ onChange, confirmCheck, ...restProps }, ref) => {
+    const {
+      modalData,
+      onlyOneSelected,
+      multiSelected,
+      addServices,
+      checkActive,
+      totalPrice
+    } = useModalSelected(
+      'detailModal',
+      detailSingleToggleActive,
+      detailMultiToggleActive,
+      onChange,
+      confirmCheck
+    );
+    const { label, title, firstPackage, secondPackage } = modalData;
+    const { desktop } = useViewSize();
 
-  const firstPackageContents = firstPackage.contents?.map(content => (
-    <PrimiumPriceTable
-      key={content.id}
-      id={content.id}
-      data-name="firstPackage"
-      active={content.active}
-      onClick={onlyOneSelected}
-      {...content}
-    />
-  ));
+    const firstPackageContents = firstPackage.contents?.map(content => (
+      <PrimiumPriceTable
+        key={content.id}
+        id={content.id}
+        data-name="firstPackage"
+        active={content.active}
+        onClick={onlyOneSelected}
+        {...content}
+      />
+    ));
 
-  return (
-    // <Portal id="modal-root">
-    <StyledModalContainer className="dim">
-      <motion.div
-        role="dialog"
-        aria-modal="true"
-        aria-label={label}
-        aria-describedby={label}
-        tabIndex="0"
-        {...restProps}
-      >
-        <header id={label}>
-          <A11yHidden as="h3">{title}</A11yHidden>
-        </header>
-        <StyledModalBodyContainer>
-          {/* 카드 컨텐츠  */}
-          {desktop ? (
-            <>
-              <StyledPackageContainer>
-                <h4>{firstPackage.title}</h4>
-                <StyledPackageListContainer
-                  className="firstPackage"
-                  numOfProd={firstPackage.contents?.length}
-                >
-                  {firstPackage.contents?.map(content => (
-                    <PrimiumPriceTable
-                      key={content.id}
-                      id={content.id}
-                      data-name="firstPackage"
-                      active={content.active}
-                      onClick={onlyOneSelected}
-                      {...content}
-                    />
-                  ))}
-                </StyledPackageListContainer>
-              </StyledPackageContainer>
-              <StyledPackageContainer>
-                <h4>{secondPackage.title}</h4>
-                <StyledPackageListContainer
-                  numOfProd={secondPackage.contents?.length}
-                >
-                  {secondPackage.contents?.map(content => (
-                    <HelmetPriceTable
-                      key={content.id}
-                      id={content.id}
-                      data-name="secondPackage"
-                      active={content.active}
-                      onClick={multiSelected}
-                      {...content}
-                    />
-                  ))}
-                </StyledPackageListContainer>
-              </StyledPackageContainer>
-            </>
-          ) : (
-            <>
-              <StyledCarouselContainer>
-                <h4>{firstPackage.title}</h4>
-                <Carousel
-                  type="card"
-                  className="firstCarousel"
-                  contents={firstPackageContents}
-                />
-              </StyledCarouselContainer>
-              <StyledPackageContainer>
-                <h4>{secondPackage.title}</h4>
-                <StyledPackageListContainer
-                  numOfProd={secondPackage.contents?.length}
-                >
-                  {secondPackage.contents?.map(content => (
-                    <HelmetPriceTable
-                      key={content.id}
-                      id={content.id}
-                      data-name="secondPackage"
-                      active={content.active}
-                      onClick={multiSelected}
-                      {...content}
-                    />
-                  ))}
-                </StyledPackageListContainer>
-              </StyledPackageContainer>
-            </>
-          )}
+    return (
+      // <Portal id="modal-root">
+      <StyledModalContainer className="dim">
+        <motion.div
+          role="dialog"
+          aria-modal="true"
+          aria-label={label}
+          aria-describedby={label}
+          tabIndex={0}
+          ref={ref}
+          {...restProps}
+        >
+          <header id={label}>
+            <A11yHidden as="h3">{title}</A11yHidden>
+          </header>
+          <StyledModalBodyContainer>
+            {/* 카드 컨텐츠  */}
+            {desktop ? (
+              <>
+                <StyledPackageContainer>
+                  <h4>{firstPackage.title}</h4>
+                  <StyledPackageListContainer
+                    className="firstPackage"
+                    numOfProd={firstPackage.contents?.length}
+                  >
+                    {firstPackage.contents?.map(content => (
+                      <PrimiumPriceTable
+                        key={content.id}
+                        id={content.id}
+                        data-name="firstPackage"
+                        active={content.active}
+                        onClick={onlyOneSelected}
+                        {...content}
+                      />
+                    ))}
+                  </StyledPackageListContainer>
+                </StyledPackageContainer>
+                <StyledPackageContainer>
+                  <h4>{secondPackage.title}</h4>
+                  <StyledPackageListContainer
+                    numOfProd={secondPackage.contents?.length}
+                  >
+                    {secondPackage.contents?.map(content => (
+                      <HelmetPriceTable
+                        key={content.id}
+                        id={content.id}
+                        data-name="secondPackage"
+                        active={content.active}
+                        onClick={multiSelected}
+                        {...content}
+                      />
+                    ))}
+                  </StyledPackageListContainer>
+                </StyledPackageContainer>
+              </>
+            ) : (
+              <>
+                <StyledCarouselContainer>
+                  <h4>{firstPackage.title}</h4>
+                  <Carousel
+                    type="card"
+                    className="firstCarousel"
+                    contents={firstPackageContents}
+                  />
+                </StyledCarouselContainer>
+                <StyledPackageContainer>
+                  <h4>{secondPackage.title}</h4>
+                  <StyledPackageListContainer
+                    numOfProd={secondPackage.contents?.length}
+                  >
+                    {secondPackage.contents?.map(content => (
+                      <HelmetPriceTable
+                        key={content.id}
+                        id={content.id}
+                        data-name="secondPackage"
+                        active={content.active}
+                        onClick={multiSelected}
+                        {...content}
+                      />
+                    ))}
+                  </StyledPackageListContainer>
+                </StyledPackageContainer>
+              </>
+            )}
 
-          <StyledTotalPriceContainer>
-            <p>Total Price</p>
-            <span>${totalPrice(firstPackage, secondPackage)}</span>
-          </StyledTotalPriceContainer>
-          <StyledButtonContainer>
-            <Button
-              disabled={checkActive(firstPackage, secondPackage)}
-              mode="button"
-              onClick={addServices('detail', firstPackage, secondPackage)}
-            >
-              Confirm
+            <StyledTotalPriceContainer>
+              <p>Total Price</p>
+              <span>${totalPrice(firstPackage, secondPackage)}</span>
+            </StyledTotalPriceContainer>
+            <StyledButtonContainer>
+              <Button
+                disabled={checkActive(firstPackage, secondPackage)}
+                mode="button"
+                onClick={addServices('detail', firstPackage, secondPackage)}
+              >
+                Confirm
+              </Button>
+            </StyledButtonContainer>
+            <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
+              <Icon type="close" title="close" />
             </Button>
-          </StyledButtonContainer>
-          <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
-            <Icon type="close" title="close" />
-          </Button>
-        </StyledModalBodyContainer>
-      </motion.div>
-    </StyledModalContainer>
-    // </Portal>
-  );
-};
+          </StyledModalBodyContainer>
+        </motion.div>
+      </StyledModalContainer>
+      // </Portal>
+    );
+  }
+);
 
 A11yHidden.displayName = 'Modal Title';
 StyledModalContainer.displayName = 'Modal Container';

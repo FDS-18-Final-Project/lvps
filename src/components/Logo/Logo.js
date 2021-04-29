@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { oneOf, number } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem } from 'theme/theme';
-import { ReactComponent as Image } from '../../assets/Logo.svg';
+import Icon from 'components/Icon/Icon';
 
 const StyledHeading = styled.h1`
   display: flex;
@@ -30,7 +30,7 @@ const Logo = ({ tag, ...restProps }) => {
   return (
     <StyledHeading as={tag} {...restProps}>
       <Link to="/">
-        <Image title="Logo" />
+        <Icon type="headerLogo" title="LVPS Logo" />
       </Link>
     </StyledHeading>
   );

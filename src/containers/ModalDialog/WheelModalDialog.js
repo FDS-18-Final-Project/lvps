@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, forwardRef } from 'react';
 import styled from 'styled-components';
 import { colors, calcRem, device, fontSizes } from 'theme/theme';
 import { motion } from 'framer-motion';
@@ -133,84 +133,89 @@ const StyledButtonContainer = styled.div`
   }
 `;
 
-const WheelModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
-  const { wheelList, tireList } = useSelector(state => state.wheelAndTireModal);
-  const dispatch = useDispatch();
+const WheelModalDialog = forwardRef(
+  ({ onChange, confirmCheck, ...restProps }, ref) => {
+    const { wheelList, tireList } = useSelector(
+      state => state.wheelAndTireModal
+    );
+    const dispatch = useDispatch();
 
-  const selectedItem = [
-    ...wheelList.filter(wheel => wheel.active),
-    ...tireList.filter(wheel => wheel.active)
-  ];
-  const handleConfirmActive = () => {
-    dispatch(addService(selectedItem, 'wheelAndTire'));
-    onChange();
-    confirmCheck();
-  };
-
-  useEffect(() => {
-    const closeModal = e => {
-      if (!e.target.matches('.dim')) return;
+    const selectedItem = [
+      ...wheelList.filter(wheel => wheel.active),
+      ...tireList.filter(wheel => wheel.active)
+    ];
+    const handleConfirmActive = () => {
+      dispatch(addService(selectedItem, 'wheelAndTire'));
       onChange();
+      confirmCheck();
     };
-    document.body.addEventListener('click', closeModal);
 
-    return () => {
-      document.body.removeEventListener('click', closeModal);
-    };
-  }, [onChange]);
+    useEffect(() => {
+      const closeModal = e => {
+        if (!e.target.matches('.dim')) return;
+        onChange();
+      };
+      document.body.addEventListener('click', closeModal);
 
-  return (
-    // <Portal id="modal-root">
-    <StyledModalContainer className="dim">
-      <motion.div
-        role="dialog"
-        aria-modal="true"
-        aria-label="Wheels and Tires Product Options"
-        aria-describedby="Wheels and Tires Product Options"
-        tabIndex="0"
-        {...restProps}
-      >
-        <header id="Wheels and Tires Product Options">
-          <A11yHidden as="h3">Ceramic Pro Product ModalDialog</A11yHidden>
-        </header>
-        <StyledModalBodyContainer>
-          <StyledPackageContainer>
-            <BrandList
-              wheelList={wheelList}
-              type="wheel"
-              mode="checkbox"
-              size="wheel"
-              title="Tire Brands We Offer"
-            />
-          </StyledPackageContainer>
-          <StyledPackageContainer>
-            <BrandList
-              tireList={tireList}
-              type="tire"
-              mode="checkbox"
-              size="tire"
-              title="Tire Brands We Offer"
-            />
-          </StyledPackageContainer>
-          <StyledNotification>*Contact Us for Pricing.</StyledNotification>
-          <StyledButtonContainer>
-            <Button
-              disabled={!selectedItem.length}
-              mode="button"
-              onClick={handleConfirmActive}
-            >
-              Confirm
+      return () => {
+        document.body.removeEventListener('click', closeModal);
+      };
+    }, [onChange]);
+
+    return (
+      // <Portal id="modal-root">
+      <StyledModalContainer className="dim">
+        <motion.div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Wheels and Tires Product Options"
+          aria-describedby="Wheels and Tires Product Options"
+          tabIndex={0}
+          ref={ref}
+          {...restProps}
+        >
+          <header id="Wheels and Tires Product Options">
+            <A11yHidden as="h3">Ceramic Pro Product ModalDialog</A11yHidden>
+          </header>
+          <StyledModalBodyContainer>
+            <StyledPackageContainer>
+              <BrandList
+                wheelList={wheelList}
+                type="wheel"
+                mode="checkbox"
+                size="wheel"
+                title="Tire Brands We Offer"
+              />
+            </StyledPackageContainer>
+            <StyledPackageContainer>
+              <BrandList
+                tireList={tireList}
+                type="tire"
+                mode="checkbox"
+                size="tire"
+                title="Tire Brands We Offer"
+              />
+            </StyledPackageContainer>
+            <StyledNotification>*Contact Us for Pricing.</StyledNotification>
+            <StyledButtonContainer>
+              <Button
+                disabled={!selectedItem.length}
+                mode="button"
+                onClick={handleConfirmActive}
+              >
+                Confirm
+              </Button>
+            </StyledButtonContainer>
+            <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
+              <Icon type="close" title="close" />
             </Button>
-          </StyledButtonContainer>
-          <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
-            <Icon type="close" title="close" />
-          </Button>
-        </StyledModalBodyContainer>
-      </motion.div>
-    </StyledModalContainer>
-    // </Portal>
-  );
-};
+          </StyledModalBodyContainer>
+        </motion.div>
+      </StyledModalContainer>
+      // </Portal>
+    );
+  }
+);
 
 A11yHidden.displayName = 'Modal Title';
 StyledModalContainer.displayName = 'Modal Container';
