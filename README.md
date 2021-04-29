@@ -1,11 +1,11 @@
 # 🚕LVPS🚗
 
-<img src="src/assets/logo_readme.png" />
+<img src="https://github.com/FDS-18-Final-Project/lvps/blob/develop/src/assets/logo_readme.PNG?raw=true" />
 
 ## 🗽Preview
 
-<img src="src/assets/readme_01.png" />
-<img src="src/assets/readme_02.png" />
+<img src="https://github.com/FDS-18-Final-Project/lvps/blob/develop/src/assets/readme_01.PNG?raw=true" />
+<img src="https://github.com/FDS-18-Final-Project/lvps/blob/develop/src/assets/readme_02.PNG?raw=true" />
 
 ## :wave: Links
 
@@ -37,7 +37,7 @@
 
 ## 🌏 기술스택
 
-<img src="src/assets/readme_03.png" />
+<img src="https://github.com/FDS-18-Final-Project/lvps/blob/develop/src/assets/readme_03.PNG?raw=true" />
 
 <div style="width:500px;height:10px"></div>
 
