@@ -12,56 +12,7 @@ import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import CeramicCoating from 'containers/CeramicCoating/CeramicCoating';
 import { motion } from 'framer-motion';
 import GoogleMap from 'containers/GoogleMap/GoogleMap';
-
-const cardList = [
-  {
-    id: 1,
-    type: 'arrow',
-    content: [
-      {
-        id: 1,
-        content: 'Wash and decontamination of complete car.'
-      }
-    ],
-    iconType: 'ceramicCardWashCar',
-    background: '#2D2D2D',
-    fontColor: '#FFFFFF'
-  },
-  {
-    id: 2,
-    type: 'arrow',
-    content: [
-      {
-        id: 1,
-        content: 'Paint correction to remove scratches, swirls, imperfections'
-      }
-    ],
-    iconType: 'ceramicCardPaint',
-    background: '#2D2D2D',
-    fontColor: '#FFFFFF'
-  },
-  {
-    id: 3,
-    type: 'arrow',
-    content: [
-      {
-        id: 1,
-        content: `Completely dry & complete solvent & alcohol wipe down to remove waxes, oils on the painted surfaces`
-      }
-    ],
-    iconType: 'ceramicCardHand',
-    background: '#2D2D2D',
-    fontColor: '#FFFFFF'
-  },
-  {
-    id: 4,
-    type: 'arrow',
-    content: [{ id: 1, content: 'Ceramic Coating applicationl' }],
-    iconType: 'ceramicCar2',
-    background: '#2D2D2D',
-    fontColor: '#FFFFFF'
-  }
-];
+import { ceramicCardList } from 'data/Data';
 
 const ServiceCeramic = () => {
   return (
@@ -105,7 +56,7 @@ const ServiceCeramic = () => {
 
       <CardExplanation
         title="The process of installing Ceramic Pro"
-        cardList={cardList}
+        cardList={ceramicCardList}
       ></CardExplanation>
       <Video videoId="dEHu-STjB-Q" videoTitle="ceramic pro products" />
       <CeramicProProtectionPackage />
@@ -188,7 +139,7 @@ const ServiceCeramic = () => {
           'Oxidation & Corrosion Resistance'
         ]}
       >
-        Ceramic Pro PPF & Vinyl was designed as a protective coating for
+        Ceramic Pro PPF &amp; Vinyl was designed as a protective coating for
         polyurethane film and vinyl. It protects from contamination and
         weathering resulting in film that is much easier to clean. It also helps
         reduce vinyl’s orange peel look. The complete protection program

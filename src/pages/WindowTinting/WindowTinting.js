@@ -9,29 +9,7 @@ import WindowTintingCarbon from 'containers/WindowTintingCarbon/WindowTintingCar
 import WindowTintingCeramic from 'containers/WindowTintingCeramic/WindowTintingCeramic';
 import { motion } from 'framer-motion';
 import React from 'react';
-
-const carouselImgs = [
-  {
-    id: 1,
-    path: 'assets/windowOurWorks_01.png'
-  },
-  {
-    id: 2,
-    path: 'assets/windowOurWorks_02.png'
-  },
-  {
-    id: 3,
-    path: 'assets/windowOurWorks_03.jpg'
-  },
-  {
-    id: 4,
-    path: 'assets/windowOurWorks_04.png'
-  },
-  {
-    id: 5,
-    path: 'assets/windowOurWorks_05.jpg'
-  }
-];
+import { windowTintingCarouselImgs } from 'data/Data';
 
 const WindowTinting = () => {
   return (
@@ -79,7 +57,7 @@ const WindowTinting = () => {
         title="Ceramic Film"
       />
       <WindowTintingCeramic />
-      <OurWorks contents={carouselImgs} />
+      <OurWorks contents={windowTintingCarouselImgs} />
       <GetAQuoteBanner
         title="Get a Free Quote"
         desc="Book Youar Service button link to contact form."

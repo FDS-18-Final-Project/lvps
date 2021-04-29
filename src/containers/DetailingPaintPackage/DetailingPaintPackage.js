@@ -2,22 +2,7 @@ import styled from 'styled-components';
 import PriceCardLayout from 'pages/Layout/PriceCardLayout';
 import TagPriceTable from 'components/PriceTable/TagPriceTable';
 import Carousel from 'components/Carousel/Carousel';
-
-const detailing = [
-  'Complete exterior hand wash',
-  'Complete interior vaccum',
-  'Leather cleaning and conditioning',
-  'Cleaning windows and mirrors',
-  'Salt removal',
-  'Cleaning door jams',
-  'Wheel cleaning and tire dressing',
-  'Removing bugs, tar, tree sap',
-  'Claybar & iron paint decontamination',
-  'Polish to add gloss to paint',
-  'Paint sealant',
-  'Engine cleaning and dressing',
-  'Headlights polish'
-];
+import { DPCcardInfolist } from 'data/Data';
 
 const paint_group = [
   <TagPriceTable
@@ -26,7 +11,7 @@ const paint_group = [
     typeText="GOLD"
     title="From"
     price={499.99}
-    info={detailing}
+    info={DPCcardInfolist}
     minHeight={200}
   />,
   <TagPriceTable
@@ -35,7 +20,7 @@ const paint_group = [
     typeText="SILVER"
     title="From"
     price={299.99}
-    info={detailing}
+    info={DPCcardInfolist}
     minHeight={200}
     nonSelectedIdx={10}
   />,
@@ -45,7 +30,7 @@ const paint_group = [
     typeText="BRONZE"
     title="From"
     price={199.99}
-    info={detailing}
+    info={DPCcardInfolist}
     minHeight={200}
     nonSelectedIdx={8}
   />

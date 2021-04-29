@@ -3,49 +3,7 @@ import { colors, calcRem, calcInterval, fontSizes, device } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import Paragraph from 'components/Paragraph/Paragraph';
 import Carousel from 'components/Carousel/Carousel';
-
-const reviews = [
-  {
-    id: 1,
-    name: 'Aleksandra',
-    model: 'SQ5',
-    star: 5,
-    review:
-      'My Audi SQ5 got windows tinted with Xpel XR Ceramic film. The car looks so much better and the heat rejection is great! Would come back for other car services. Would recommend to all my friends and family!'
-  },
-  {
-    id: 2,
-    name: 'Tesla Parts',
-    model: '2019 Tesla Model S',
-    star: 4,
-    review:
-      'Got my Tesla tinted and ceramic coated with Lvps Great service, quality and price! Got complimentary interior clean up and sanitization because of covid. Thanks guys! Would  definitely recommend to friends and family!'
-  },
-  {
-    id: 3,
-    name: 'Daniel Guarino',
-    model: '2018 Tesla Model 3',
-    star: 5,
-    review:
-      "Got my Tesla model 3 ceramic coated by Max @ LVPS.... did a fantastic job..the car looks cleaner, shines brighter, has a deep finish look.  I couldn't be more happier!"
-  },
-  {
-    id: 4,
-    name: 'Natasha Bayarskaya',
-    model: '2016 Honda Pilot',
-    star: 5,
-    review:
-      'Amazing service! Thanks to Max and LVPS. Got my 2016 Honda Pilot all detailed and paint corrected with Ceramic Coating package. My car looks like brand new again. Would recommend to all my friends and family.'
-  },
-  {
-    id: 5,
-    name: 'Randy Cho',
-    model: '2021 Tesla Model 3',
-    star: 5,
-    review:
-      'Amazing job on my Tesla model 3! Did a ceramic coat and it turned out so nice! Recommend going to see Max at LVP for all your vehicle needs !'
-  }
-];
+import { reviews } from 'data/Data';
 
 const StyledReviewContainer = styled.section`
   position: relative;

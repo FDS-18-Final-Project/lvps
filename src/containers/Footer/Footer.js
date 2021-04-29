@@ -3,6 +3,7 @@ import { colors, calcInterval, calcRem, fontSizes, device } from 'theme/theme';
 import Paragraph from 'components/Paragraph/Paragraph';
 import Logo from 'components/Logo/Logo';
 import Icon from 'components/Icon/Icon';
+import { linkLists } from 'data/Data';
 
 const StyledFooterContainer = styled.footer`
   background-color: ${colors.black};
@@ -90,39 +91,6 @@ const StyledFooterContent = styled.div`
     }
   }
 `;
-
-const linkLists = [
-  {
-    id: 1,
-    keyword: 'Ceramic Coating',
-    link: '/ceramic-coating',
-    icon: 'footerCeramicPro'
-  },
-  {
-    id: 2,
-    keyword: 'Paint Protection Film',
-    link: '/paint-protection',
-    icon: 'footerDetailingCorrection'
-  },
-  {
-    id: 3,
-    keyword: 'Window Tinting',
-    link: '/window-tinting',
-    icon: 'footerWindowTinting'
-  },
-  {
-    id: 4,
-    keyword: 'Detailing & Painting Correction',
-    link: '/detailing-and-correction',
-    icon: 'footerDetailingCorrection'
-  },
-  {
-    id: 5,
-    keyword: 'Wheels & Tires',
-    link: '/wheel-and-tire',
-    icon: 'footerWheelTire'
-  }
-];
 
 const Footer = () => {
   const { white, lightGray } = colors;

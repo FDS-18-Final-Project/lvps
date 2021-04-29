@@ -7,23 +7,7 @@ import ExplainCard from 'components/ExplainCard/ExplainCard';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import Paragraph from 'components/Paragraph/Paragraph';
 import useViewSize from 'hooks/useViewSize';
-
-const explainCardType1InfoList = [
-  'Excellent Durability',
-  'Easy to Clean',
-  'Super Hydrophobic Effect',
-  'Superior Wear Resistance',
-  'Keeps Leather Soft',
-  'Preserves Factory Look & Feel'
-];
-
-const explainCardType2InfoList = [
-  'Excellent Durability',
-  'Super Hydrophobic Effect – 140⁰ of water beads',
-  'Excellent Wear Resistance',
-  'Repels Spills & Stains',
-  'Keeps Fibers Clean'
-];
+import { ceramicLeatherInfo, ceramicTextileInfo } from 'data/Data';
 
 const ServiceInfoType4Container = styled.section`
   border-top: 2px solid ${colors.lightGray};
@@ -205,12 +189,12 @@ const ServiceInfoType4 = ({
           <ExplainCard
             title="CERAMIC PRO LEATHER"
             desc="Ceramic Pro Leather will preserve the factory look and feel as it slows down the aging process. The coating will prevent contaminants from staining the substrate."
-            infoList={explainCardType1InfoList}
+            infoList={ceramicLeatherInfo}
           />
           <ExplainCard
             title="CERAMIC PRO TEXTILE"
             desc="Ceramic Pro Textile is designed for the fabric materials inside your vehicle's interior. It’s designed to bond to textile and suede to protect it. Ceramic Pro Textile modifies the surface of real textile or suede so that when liquids come in contact, it forms beads that simply roll off keeping the textile completely dry."
-            infoList={explainCardType2InfoList}
+            infoList={ceramicTextileInfo}
           />
         </ExplainCardContainer>
       </FullContainer>
