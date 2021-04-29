@@ -2,10 +2,14 @@
 
 <img src="https://github.com/FDS-18-Final-Project/lvps/blob/develop/src/assets/logo_readme.PNG?raw=true" />
 
+<div style="margin-bottom:30px"></div>
+
 ## 🗽Preview
 
 <img src="https://github.com/FDS-18-Final-Project/lvps/blob/develop/src/assets/readme_01.PNG?raw=true" />
 <img src="https://github.com/FDS-18-Final-Project/lvps/blob/develop/src/assets/readme_02.PNG?raw=true" />
+
+<div style="margin-bottom:30px"></div>
 
 ## :wave: Links
 
@@ -17,13 +21,13 @@
 
 ### [✨ 시연영상(모바일)](https://www.loom.com/share/1de6593ea320467c82a4a0a66dbedeee)
 
-<div style="width:500px;height:10px"></div>
+<div style="margin-bottom:30px"></div>
 
 ## ✏️ Description
 
 - 자동차 관련 사업을 위한 웹 사이트 제작
 
-<div style="width:500px;height:10px"></div>
+<div style="margin-bottom:30px"></div>
 
 ## 👍 구현 기능
 
@@ -33,13 +37,13 @@
 - [x] 서비스와 옵션 선택 후 관련 정보 입력 후 Client 에게 문의 메일 발송
 - [x] 구글 맵 api 를 활용한 위치정보 전달기능
 
-<div style="width:500px;height:10px"></div>
+<div style="margin-bottom:30px"></div>
 
 ## 🌏 기술스택
 
 <img src="https://github.com/FDS-18-Final-Project/lvps/blob/develop/src/assets/readme_03.PNG?raw=true" />
 
-<div style="width:500px;height:10px"></div>
+<div style="margin-bottom:30px"></div>
 
 ### 📘 Usage for dev
 
@@ -52,7 +56,7 @@ npm start
 npm run storybook
 ```
 
-<div style="width:500px;height:10px"></div>
+<div style="margin-bottom:30px"></div>
 
 ## 🤔 Who?
 
