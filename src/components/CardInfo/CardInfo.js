@@ -3,6 +3,7 @@ import { array, string } from 'prop-types';
 import styled from 'styled-components';
 import { colors, calcRem } from 'theme/theme';
 import Icon from 'components/Icon/Icon';
+import { DPCcardInfolist } from 'data/Data';
 
 const CardInfoContainer = styled.ul`
   display: inline-block;
@@ -29,23 +30,6 @@ const StyledCardContent = styled.p`
   color: ${({ nonSelected, fgColor }) =>
     nonSelected ? colors.lightGray : colors[fgColor]};
 `;
-
-const cardInfolist = [
-  'Complete exterior hand wash',
-  'Complete interior vaccum',
-  'Leather cleaning and conditioning',
-  'Cleaning windows and mirrors',
-  'Salt removal',
-  'Cleaning door jams',
-  'Wheel cleaning and tire dressing',
-  'Removing bugs, tar, tree sap',
-  'Claybar & iron paint decontamination',
-  'Polish to add gloss to paint',
-  'Compound and polish to remove scratches',
-  'Paint sealant',
-  'Engine cleaning and dressing',
-  'Headlights polish'
-];
 
 const CardInfo = ({
   iconcolor,
@@ -90,7 +74,7 @@ CardInfo.propTypes = {
 CardInfo.defaultProps = {
   iconcolor: 'redMain',
   fgColor: 'black',
-  infoList: cardInfolist,
+  infoList: DPCcardInfolist,
   padding: [0]
 };
 

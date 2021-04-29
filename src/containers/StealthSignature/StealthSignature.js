@@ -2,44 +2,7 @@ import { useViewSize } from 'hooks';
 import IconParagraphLayout from 'pages/Layout/IconParagraphLayout';
 import styled, { css } from 'styled-components';
 import { calcRem } from 'theme/theme';
-
-const stealths = [
-  {
-    id: 1,
-    iconType: 'paintProtectionHealing',
-    title: 'Self Healing',
-    content:
-      'When exposed to heat, the enhanced clear coat properties eliminate fine scratches and swirl marks over time'
-  },
-  {
-    id: 2,
-    iconType: 'likeCircle2',
-    title: 'Easy Maintenance',
-    content:
-      'Flat finishes are notoriously difficult to maintain and even harder to repair. STEALTH enables you to easily wash and dry your car without damaging its sheen.'
-  },
-  {
-    id: 3,
-    iconType: 'paintProtectionCustom',
-    title: 'Custom Applications',
-    content:
-      'Utilize STEALTH to accentuate gloss aero or carbon fiber, and protect factory flares, splitters, and trim pieces.'
-  },
-  {
-    id: 4,
-    iconType: 'paintProtectionFinish',
-    title: 'Sleek Satin Finish',
-    content:
-      'With an unique satin finish, STEALTH helps match most factory flat paint jobs and virtually disappears on most surfaces. With a finish that’s uniformly smooth, you can add STEALTH to your matte or gloss paint job for a unique satin finish.'
-  },
-  {
-    id: 5,
-    iconType: 'paintProtectionWarranty',
-    title: 'Warranty & Durability',
-    content:
-      'STEALTH features the same superior impact protection as ULTIMATE PLUS back by our industry-leading 10 year warranty.'
-  }
-];
+import { PPFStealthFeatures } from 'data/Data';
 
 const styledDesktop = css`
   display: grid;
@@ -81,7 +44,7 @@ const StealthSignature = () => {
   return (
     <StyledIconParagraphLayout
       title="STEALTH ™ SIGNATURE FEATURES"
-      contents={stealths}
+      contents={PPFStealthFeatures}
       className="stealths"
       desktop={desktop}
       direction="row"

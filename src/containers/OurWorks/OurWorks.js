@@ -6,29 +6,7 @@ import Paragraph from 'components/Paragraph/Paragraph';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
 import Carousel from 'components/Carousel/Carousel';
-
-const carouselImgs = [
-  {
-    id: 1,
-    path: 'assets/ceramicOurWorks_01.png'
-  },
-  {
-    id: 2,
-    path: 'assets/ceramicOurWorks_02.png'
-  },
-  {
-    id: 3,
-    path: 'assets/ceramicOurWorks_03.png'
-  },
-  {
-    id: 4,
-    path: 'assets/ceramicOurWorks_04.jpg'
-  },
-  {
-    id: 5,
-    path: 'assets/ceramicOurWorks_05.png'
-  }
-];
+import { ourWorkCarouselImgs } from 'data/Data';
 
 const StyledOurWorksContainer = styled.section`
   padding: ${calcInterval([75, 100])};
@@ -109,7 +87,7 @@ OurWorks.Title = ({ desktop }) => {
   );
 };
 
-OurWorks.Contents = ({ contents = carouselImgs }) => {
+OurWorks.Contents = ({ contents = ourWorkCarouselImgs }) => {
   return <Carousel type="img" contents={contents}></Carousel>;
 };
 

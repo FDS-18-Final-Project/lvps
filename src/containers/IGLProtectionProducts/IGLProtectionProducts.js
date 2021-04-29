@@ -3,38 +3,12 @@ import PriceCardLayout from 'pages/Layout/PriceCardLayout';
 import TitlePriceTable from 'components/PriceTable/TitlePriceTable';
 import Carousel from 'components/Carousel/Carousel';
 import { calcRem } from 'theme/theme';
-
-const product_01 = [
-  'Premium high solids silica coating',
-  '8H hardness',
-  'Ultimate gloss & shine',
-  'Repels water, oil & dirt',
-  'Extremely durable lasting up to 1 year'
-];
-
-const product_02 = [
-  'Premium high solids silica coating',
-  '9H hardness',
-  'Ultimate gloss & shine',
-  'Repels water, oil & dirt',
-  'Extremely durable lasting up to 2 years'
-];
-
-const product_03 = [
-  'Premium high solids silica coating',
-  '9H hardness with improved chemical resistance',
-  'Ultimate gloss & shine',
-  'Repels water, oil & dirt',
-  'Extremely durable lasting up to 3 years'
-];
-
-const product_04 = [
-  'Premium 100% solid hybrid silica coating',
-  '10H hardness with extreme silk like slick',
-  'Ultimate gloss & shine',
-  'Repels water, oil & dirt',
-  'Extremely durable lasting up to 5 years'
-];
+import {
+  iGLProtectionproduct_01,
+  iGLProtectionproduct_02,
+  iGLProtectionproduct_03,
+  iGLProtectionproduct_04
+} from 'data/Data';
 
 const product_group = [
   <TitlePriceTable
@@ -42,7 +16,7 @@ const product_group = [
     heading="IGL POLY"
     title="Starting from"
     price={400}
-    info={product_01}
+    info={iGLProtectionproduct_01}
     priceColor="green"
     padding={[78, 10, 81]}
   />,
@@ -51,7 +25,7 @@ const product_group = [
     heading="IGL QUARTZ"
     title="Starting from"
     price={600}
-    info={product_02}
+    info={iGLProtectionproduct_02}
     priceColor="green"
     padding={[78, 10, 81]}
   />,
@@ -60,7 +34,7 @@ const product_group = [
     heading="IGL QUARTZ+"
     title="Starting from"
     price={800}
-    info={product_03}
+    info={iGLProtectionproduct_03}
     priceColor="green"
     padding={[78, 10, 81]}
   />,
@@ -69,7 +43,7 @@ const product_group = [
     heading="IGL KENZO"
     title="Starting from"
     price={1200}
-    info={product_04}
+    info={iGLProtectionproduct_04}
     priceColor="green"
     padding={[78, 10, 81]}
   />
