@@ -1,6 +1,6 @@
 # 🚕LVPS🚗
 
-<img src="src/assets/logo_readme.png" />
+<img src="https://github.com/FDS-18-Final-Project/lvps/blob/develop/src/assets/logo_readme.PNG?raw=true" />
 
 ## 🗽Preview
 
