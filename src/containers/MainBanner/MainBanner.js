@@ -6,6 +6,7 @@ import Divider from 'components/Divider/Divider';
 import Icon from 'components/Icon/Icon';
 import Paragraph from 'components/Paragraph/Paragraph';
 import { useViewSize } from 'hooks';
+import { linkLists } from 'data/Data';
 
 const StyledMainBannerContainer = styled.section`
   position: relative;
@@ -88,18 +89,6 @@ const StyledParagraph = styled(Paragraph)`
     margin-bottom: ${calcRem(20)};
   }
 `;
-
-const linkLists = [
-  { id: 1, keyword: 'Ceramic Coating', link: '/ceramic-coating' },
-  { id: 2, keyword: 'Paint Protection Film', link: '/paint-protection' },
-  { id: 3, keyword: 'Window Tinting', link: '/window-tinting' },
-  {
-    id: 4,
-    keyword: 'Detailing & Painting Correction',
-    link: '/detailing-and-correction'
-  },
-  { id: 5, keyword: 'Wheels & Tires', link: '/wheel-and-tire' }
-];
 
 const MainBanner = ({ bgImg }) => {
   const { mobile } = useViewSize();

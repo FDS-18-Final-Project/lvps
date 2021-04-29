@@ -2,35 +2,8 @@ import styled from 'styled-components';
 import { calcRem, colors, device, fontSizes } from 'theme/theme';
 import TagPriceTable from 'components/PriceTable/TagPriceTable';
 import Carousel from 'components/Carousel/Carousel';
-
 import { useViewSize } from 'hooks';
-
-const paint_01 = [
-  'Full Front & Rear Bumpers',
-  'Hood & Fenders 18″',
-  'Mirror Covers',
-  'Headlights & Fog Lights',
-  'Full Door Panels',
-  'Full Quater & Pillar Panels'
-];
-
-const paint_02 = [
-  'Full Front Bumper',
-  'Full Hood & Fenders',
-  'Mirror Covers',
-  'Headlights & Fog Lights',
-  'Full Door Panels',
-  'Full Quater & Pillar Panels'
-];
-
-const paint_03 = [
-  'Full Front Bumper',
-  'Hood & Fenders 18″',
-  'Mirror Covers',
-  'Headlights & Fog Lights',
-  'Full Door Panels',
-  'Full Quater & Pillar Panels'
-];
+import { PPFPackage_01, PPFPackage_02, PPFPackage_03 } from 'data/Data';
 
 const StyledTitle = styled.h2`
   margin-bottom: ${calcRem(60)};
@@ -92,7 +65,7 @@ const paint_group = [
       typeText="SILVER"
       title="From"
       price={1200}
-      info={paint_03}
+      info={PPFPackage_03}
       minHeight={200}
       nonSelectedIdx={4}
     />
@@ -107,7 +80,7 @@ const paint_group = [
       typeText="GOLD"
       title="From"
       price={1800}
-      info={paint_02}
+      info={PPFPackage_02}
       minHeight={200}
       nonSelectedIdx={4}
     />
@@ -125,7 +98,7 @@ const paint_group = [
       typeText="PLATINUM"
       title="From"
       price={5000}
-      info={paint_01}
+      info={PPFPackage_01}
       minHeight={200}
     />
   </OptionContainer>

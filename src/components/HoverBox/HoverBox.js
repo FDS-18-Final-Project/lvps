@@ -1,4 +1,3 @@
-import { array } from 'prop-types';
 import styled from 'styled-components';
 import { calcRem } from 'theme/theme';
 import HoverItem from 'components/HoverItem/HoverItem';
@@ -22,7 +21,7 @@ const StyledSubContainer = styled.ul`
   }
 `;
 
-const HoverBox = ({ HoverItems, ...restProps }) => {
+const HoverBox = ({ ...restProps }) => {
   return (
     <StyledContainer {...restProps}>
       <HoverItem id="hover_1" value="Ceramic Coating" to="/ceramic-coating">
@@ -44,52 +43,6 @@ const HoverBox = ({ HoverItems, ...restProps }) => {
       <HoverItem id="hover_7" value="Wheel &amp; Tire" to="/wheel-and-tire" />
     </StyledContainer>
   );
-};
-
-HoverBox.propTypes = {
-  HoverItems: array.isRequired
-};
-
-HoverBox.defaultProps = {
-  HoverItems: [
-    {
-      id: 1,
-      value: 'Ceramic Pro',
-      to: '/'
-    },
-    {
-      id: 2,
-      value: 'Paint Protection Film',
-      to: '/'
-    },
-    {
-      id: 3,
-      value: 'Window Tinting',
-      to: '/'
-    },
-    {
-      id: 4,
-      value: 'Professional Detailing & Paint Correction',
-      to: '/'
-    },
-    {
-      id: 5,
-      value: 'Wheels & Tires',
-      to: '/'
-    }
-  ],
-  HoverSubItems: [
-    {
-      id: 'hover_2',
-      value: 'Ceramic Pro',
-      to: '/'
-    },
-    {
-      id: 'hover_3',
-      value: 'IGL Coatings',
-      to: '/'
-    }
-  ]
 };
 
 HoverBox.displayName = 'HoverBox';

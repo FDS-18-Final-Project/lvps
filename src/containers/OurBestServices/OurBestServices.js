@@ -6,6 +6,7 @@ import Layout from 'pages/Layout/Layout';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAccordionState } from 'hooks/';
 import AccordionList from 'components/AccordionList/AccordionList';
+import { serviceAccordionState } from 'data/Data';
 
 const FullContainer = styled.section`
   position: relative;
@@ -118,51 +119,10 @@ const ServicesContainer = styled.div`
   }
 `;
 
-const accordionState = [
-  {
-    id: 1,
-    title: 'Ceramic Coating',
-    description: `Can be described as an additional clear coat, with three times the hardness and self-cleaning properties.`,
-    imagePath: 'assets/OurBestServiceImage_01.png',
-    active: true,
-    to: '/ceramic-coating'
-  },
-  {
-    id: 2,
-    title: 'Paint Protection Film',
-    description: `Perfect for protecting high impact areas or full car wraps coverage from chips, scratches and road debris.`,
-    imagePath: 'assets/OurBestServiceImage_02.png',
-    active: false,
-    to: '/paint-protection'
-  },
-  {
-    id: 3,
-    title: 'Window Tinting',
-    description: `Enhances privacy, reduces infra-red heat, as well as keeps your skin and eyes safe from harmful UV rays.`,
-    imagePath: 'assets/OurBestServiceImage_03.png',
-    active: false,
-    to: '/window-tinting'
-  },
-  {
-    id: 4,
-    title: 'Detailing & Paint Correction',
-    description: `Get your car looking like new again with the interior/exterior packages we offer.`,
-    imagePath: 'assets/OurBestServiceImage_04.png',
-    active: false,
-    to: '/detailing-and-correction'
-  },
-  {
-    id: 5,
-    title: 'Wheels & Tires',
-    description: `We work with most brands and can get you the wheels and tires you need and want.`,
-    imagePath: 'assets/OurBestServiceImage_05.png',
-    active: false,
-    to: '/wheel-and-tire'
-  }
-];
-
 const OurBestServices = ({ title }) => {
-  const [accordionItemList, handleClick] = useAccordionState(accordionState);
+  const [accordionItemList, handleClick] = useAccordionState(
+    serviceAccordionState
+  );
 
   const setActiveImage = () => {
     return accordionItemList.find(item => item.active).imagePath;

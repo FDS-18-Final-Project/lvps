@@ -11,71 +11,7 @@ import Reviews from 'containers/Reviews/Reviews';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import { motion } from 'framer-motion';
 import GoogleMap from 'containers/GoogleMap/GoogleMap';
-
-const squareCardList = [
-  {
-    id: 1,
-    type: 'square',
-    content: [
-      {
-        id: 1,
-        content:
-          'Professional services & products offered to exceed your expectations'
-      }
-    ],
-    iconType: 'mainGoodLuck',
-    background: colors.black,
-    fontColor: colors.white
-  },
-  {
-    id: 2,
-    type: 'square',
-    content: [
-      { id: 1, content: 'Certified Professional & Trained Installers' }
-    ],
-    iconType: 'mainShield',
-    background: colors.black,
-    fontColor: colors.white
-  },
-  {
-    id: 3,
-    type: 'square',
-    content: [{ id: 1, content: '100% Satisfaction Guaranteed' }],
-    iconType: 'mainSmile',
-    background: colors.black,
-    fontColor: colors.white
-  },
-  {
-    id: 4,
-    type: 'square',
-    content: [{ id: 1, content: 'Work with every make & model' }],
-    iconType: 'mainPerson',
-    background: colors.black,
-    fontColor: colors.white
-  },
-  {
-    id: 5,
-    type: 'square',
-    content: [{ id: 1, content: 'Pick up & delivery services available' }],
-    iconType: 'mainTruck',
-    background: colors.black,
-    fontColor: colors.black
-  },
-  {
-    id: 6,
-    type: 'square',
-    content: [
-      {
-        id: 1,
-        content:
-          'When requested, certain mobile services available at your location '
-      }
-    ],
-    iconType: 'mainCheck',
-    background: colors.black,
-    fontColor: colors.white
-  }
-];
+import { squareCardList } from 'data/Data';
 
 const Home = () => {
   return (

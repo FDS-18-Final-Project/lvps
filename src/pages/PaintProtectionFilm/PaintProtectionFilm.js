@@ -5,36 +5,13 @@ import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import React from 'react';
 import Video from 'containers/Video/Video';
-import PaintProtectionFilmPackage from 'containers/PaintProtectionFilmPackage/PaintProtectionFilmPackage';
 import PaintProtectionFilmOptions from 'containers/PaintProtectionFilmOptions/PaintProtectionFilmOptions';
+import PaintProtectionFilmPackageOption from 'containers/PaintProtectionFilmPackageOption/PaintProtectionFilmPackageOption';
 import OurWorks from 'containers/OurWorks/OurWorks';
 import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
-import PaintProtectionFilmPackageOption from 'containers/PaintProtectionFilmPackageOption/PaintProtectionFilmPackageOption';
 import { motion } from 'framer-motion';
 import GoogleMap from 'containers/GoogleMap/GoogleMap';
-
-const carouselImgs = [
-  {
-    id: 1,
-    path: 'assets/paintOurWorks_01.png'
-  },
-  {
-    id: 2,
-    path: 'assets/paintOurWorks_02.jpg'
-  },
-  {
-    id: 3,
-    path: 'assets/paintOurWorks_03.png'
-  },
-  {
-    id: 4,
-    path: 'assets/paintOurWorks_04.png'
-  },
-  {
-    id: 5,
-    path: 'assets/paintOurWorks_05.png'
-  }
-];
+import { PPFcarouselImgs } from 'data/Data';
 
 const PaintProtectionFilm = () => {
   return (
@@ -80,10 +57,9 @@ const PaintProtectionFilm = () => {
         videoId="hI4lW8uNRqY"
         videoTitle="paint protection film products"
       />
-      <PaintProtectionFilmPackage />
       <PaintProtectionFilmPackageOption />
       <PaintProtectionFilmOptions />
-      <OurWorks contents={carouselImgs} />
+      <OurWorks contents={PPFcarouselImgs} />
       <GetAQuoteBanner
         title="Get a Free Quote"
         desc="Book Youar Service button link to contact form."

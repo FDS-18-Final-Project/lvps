@@ -2,14 +2,11 @@ import styled from 'styled-components';
 import PriceCardLayout from 'pages/Layout/PriceCardLayout';
 import TitlePriceTable from 'components/PriceTable/TitlePriceTable';
 import Carousel from 'components/Carousel/Carousel';
-
-const option_01 = ['2 Layers of "Glass" on all glass and mirrors.'];
-
-const option_02 = ['1 Layer of “Wheel & Caliper” on Wheels & Calipers.'];
-
-const option_03 = [
-  '1 Coat of "Leather" on the high traffic area and "Textile" on the carpet floor.'
-];
+import {
+  ceramicOption_01,
+  ceramicOption_02,
+  ceramicOption_03
+} from 'data/Data';
 
 const option_group = [
   <TitlePriceTable
@@ -17,7 +14,7 @@ const option_group = [
     heading="Glass"
     title="Starting from"
     price={199}
-    info={option_01}
+    info={ceramicOption_01}
     priceColor="pink"
     hover
   />,
@@ -27,7 +24,7 @@ const option_group = [
     Protection"
     title="Starting from"
     price={399}
-    info={option_02}
+    info={ceramicOption_02}
     priceColor="pink"
     hover
   />,
@@ -36,7 +33,7 @@ const option_group = [
     heading="Interior Protection"
     title="Starting from"
     price={599}
-    info={option_03}
+    info={ceramicOption_03}
     priceColor="pink"
     hover
   />
