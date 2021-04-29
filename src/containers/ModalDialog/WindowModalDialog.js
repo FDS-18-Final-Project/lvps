@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 
 import styled from 'styled-components';
@@ -234,106 +234,103 @@ const StyledCarouselContainer = styled.div`
     margin-bottom: ${calcRem(0)};
   }
 `;
-const WindowModalDialog = forwardRef(
-  ({ onChange, confirmCheck, ...restProps }, ref) => {
-    const {
-      modalData,
-      onlyOneSelected,
-      addServices,
-      checkActive,
-      totalPrice
-    } = useModalSelected(
-      'windowModal',
-      windowSingleToggleActive,
-      windowMultiToggleActive,
-      onChange,
-      confirmCheck
-    );
-    const { label, title, firstPackage } = modalData;
-    const { desktop } = useViewSize();
+const WindowModalDialog = ({ onChange, confirmCheck, ...restProps }) => {
+  const {
+    modalData,
+    onlyOneSelected,
+    addServices,
+    checkActive,
+    totalPrice
+  } = useModalSelected(
+    'windowModal',
+    windowSingleToggleActive,
+    windowMultiToggleActive,
+    onChange,
+    confirmCheck
+  );
+  const { label, title, firstPackage } = modalData;
+  const { desktop } = useViewSize();
 
-    const firstPackageContents = firstPackage.contents?.map(content => (
-      <HelmetPriceTable
-        key={content.id}
-        id={content.id}
-        data-name="firstPackage"
-        active={content.active}
-        onClick={onlyOneSelected}
-        {...content}
-      />
-    ));
-    return (
-      // <Portal id="modal-root">
-      <StyledModalContainer className="dim">
-        <motion.div
-          role="dialog"
-          aria-modal="true"
-          aria-label={label}
-          aria-describedby={label}
-          ref={ref}
-          tabIndex={0}
-          {...restProps}
-        >
-          <header id={label}>
-            <A11yHidden as="h3">{title}</A11yHidden>
-          </header>
-          <StyledModalBodyContainer>
-            {/* 카드 컨텐츠  */}
-            {desktop ? (
-              <>
-                <StyledPackageContainer>
-                  <h4>{firstPackage.title}</h4>
-                  <StyledPackageListContainer
-                    className="firstPackage"
-                    numOfProd={firstPackage.contents?.length}
-                  >
-                    {firstPackage.contents?.map(content => (
-                      <HelmetPriceTable
-                        key={content.id}
-                        id={content.id}
-                        data-name="firstPackage"
-                        active={content.active}
-                        onClick={onlyOneSelected}
-                        {...content}
-                      />
-                    ))}
-                  </StyledPackageListContainer>
-                </StyledPackageContainer>
-              </>
-            ) : (
-              <StyledCarouselContainer>
+  const firstPackageContents = firstPackage.contents?.map(content => (
+    <HelmetPriceTable
+      key={content.id}
+      id={content.id}
+      data-name="firstPackage"
+      active={content.active}
+      onClick={onlyOneSelected}
+      {...content}
+    />
+  ));
+  return (
+    // <Portal id="modal-root">
+    <StyledModalContainer className="dim">
+      <motion.div
+        role="dialog"
+        aria-modal="true"
+        aria-label={label}
+        aria-describedby={label}
+        tabIndex={0}
+        {...restProps}
+      >
+        <header id={label}>
+          <A11yHidden as="h3">{title}</A11yHidden>
+        </header>
+        <StyledModalBodyContainer>
+          {/* 카드 컨텐츠  */}
+          {desktop ? (
+            <>
+              <StyledPackageContainer>
                 <h4>{firstPackage.title}</h4>
-                <Carousel
-                  type="card"
-                  className="firstCarousel"
-                  contents={firstPackageContents}
-                />
-              </StyledCarouselContainer>
-            )}
+                <StyledPackageListContainer
+                  className="firstPackage"
+                  numOfProd={firstPackage.contents?.length}
+                >
+                  {firstPackage.contents?.map(content => (
+                    <HelmetPriceTable
+                      key={content.id}
+                      id={content.id}
+                      data-name="firstPackage"
+                      active={content.active}
+                      onClick={onlyOneSelected}
+                      {...content}
+                    />
+                  ))}
+                </StyledPackageListContainer>
+              </StyledPackageContainer>
+            </>
+          ) : (
+            <StyledCarouselContainer>
+              <h4>{firstPackage.title}</h4>
+              <Carousel
+                type="card"
+                className="firstCarousel"
+                contents={firstPackageContents}
+              />
+            </StyledCarouselContainer>
+          )}
 
-            <StyledTotalPriceContainer>
-              <p>Total Price</p>
-              <span>${totalPrice(firstPackage)}</span>
-            </StyledTotalPriceContainer>
-            <StyledButtonContainer>
-              <Button
-                disabled={checkActive(firstPackage)}
-                mode="button"
-                onClick={addServices('window', firstPackage)}
-              >
-                Confirm
-              </Button>
-            </StyledButtonContainer>
-            <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
-              <Icon type="close" title="close" />
+          <StyledTotalPriceContainer>
+            <p>Total Price</p>
+            <span>${totalPrice(firstPackage)}</span>
+          </StyledTotalPriceContainer>
+          <StyledButtonContainer>
+            <Button
+              disabled={checkActive(firstPackage)}
+              mode="button"
+              onClick={addServices('window', firstPackage)}
+            >
+              Confirm
             </Button>
-          </StyledModalBodyContainer>
-        </motion.div>
-      </StyledModalContainer>
-      // </Portal>
-    );
-  }
-);
+          </StyledButtonContainer>
+          <Button mode="button" aria-label="Modal 닫기" onClick={onChange}>
+            <Icon type="close" title="close" />
+          </Button>
+        </StyledModalBodyContainer>
+      </motion.div>
+    </StyledModalContainer>
+    // </Portal>
+  );
+};
 
 A11yHidden.displayName = 'Modal Title';
 StyledModalContainer.displayName = 'Modal Container';

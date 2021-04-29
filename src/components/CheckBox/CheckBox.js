@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { string, node, func, object, oneOfType } from 'prop-types';
 import styled from 'styled-components';
 import { fontSizes, colors, calcRem, calcInterval } from 'theme/theme';
@@ -13,7 +13,6 @@ const CheckBoxContainer = styled.div`
   border: ${({ confirm }) =>
     confirm ? `4px solid ${colors.redMain}` : '4px solid #c9c9c9'};
   background-color: white;
-
   width: 300px;
   height: 380px;
   cursor: pointer;
@@ -70,7 +69,6 @@ const CheckBoxContainer = styled.div`
 const CheckBox = ({ imagePath, desc, Modal, handleReset }) => {
   const [visible, isVisible] = useState(false);
   const [confirm, setConfirm] = useState(false);
-  const openerRef = useRef(null);
 
   const handleModalVisible = () => {
     isVisible(!visible);
@@ -81,10 +79,7 @@ const CheckBox = ({ imagePath, desc, Modal, handleReset }) => {
       isVisible(!visible);
     }
     if (!visible) {
-      console.log(openerRef.current);
       // 다이얼로그를 연 버튼 참조가 존재할 경우 포커스 이동
-      const openerRefNode = openerRef.current;
-      openerRefNode && openerRefNode.focus();
     }
   };
 
@@ -126,7 +121,6 @@ const CheckBox = ({ imagePath, desc, Modal, handleReset }) => {
         {visible && (
           <Portal id="modal-root">
             <Modal
-              ref={openerRef}
               onChange={handleModalVisible}
               confirmCheck={handleConfirmCheck}
               initial={{

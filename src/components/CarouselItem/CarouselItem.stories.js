@@ -1,10 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 import GlobalStyle from 'styles/GlobalStyle';
 import CarouselItem from './CarouselItem';
-import theme from 'theme/theme';
+import { colors } from 'theme/theme';
 import PriceTable from 'components/PriceTable/PriceTable';
-
-const { colors } = theme;
 
 export default {
   title: 'LVPS/Component/CarouselItem',

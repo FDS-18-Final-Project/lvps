@@ -18,7 +18,6 @@ const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
   z-index: 10000;
-  height: 92px;
 
   .logo {
     min-width: ${calcRem(100)};

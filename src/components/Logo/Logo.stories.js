@@ -1,8 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import Logo from './Logo';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import theme from 'theme/theme';
 
 export default {
   title: 'LVPS/Component/Logo',
@@ -31,9 +29,7 @@ export default {
 //template 만들기
 const Template = args => (
   <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <Logo {...args}></Logo>
-    </ThemeProvider>
+    <Logo {...args}></Logo>
   </BrowserRouter>
 );
 

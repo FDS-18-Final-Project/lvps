@@ -1,5 +1,4 @@
-import { ThemeProvider } from 'styled-components';
-import theme, { colors } from 'theme/theme';
+import { colors } from 'theme/theme';
 import GlobalStyle from 'styles/GlobalStyle';
 import Divider from './Divider';
 
@@ -28,10 +27,10 @@ export default {
 };
 
 const Template = (...args) => (
-  <ThemeProvider theme={theme}>
+  <>
     <GlobalStyle />
     <Divider {...args}></Divider>
-  </ThemeProvider>
+  </>
 );
 
 //스토리 구성 객체 기본 내보내기

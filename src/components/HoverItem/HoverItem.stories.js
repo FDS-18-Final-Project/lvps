@@ -1,7 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import theme from 'theme/theme';
 import GlobalStyle from 'styles/GlobalStyle';
 import HoverItem from './HoverItem';
 
@@ -59,10 +57,8 @@ export default {
 //template 만들기
 const Template = args => (
   <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <HoverItem {...args}></HoverItem>
-    </ThemeProvider>
+    <GlobalStyle />
+    <HoverItem {...args}></HoverItem>
   </BrowserRouter>
 );
 
