@@ -71,7 +71,7 @@ const GetAQuoteFormSection = () => {
       cur.price = !cur.price ? 0 : cur.price;
       return acc + cur.price;
     }, 0);
-  console.log(Object.values(selectedService));
+
   return (
     <FullContainer>
       <Paragraph
