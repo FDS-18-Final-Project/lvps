@@ -98,7 +98,7 @@ const MainBanner = ({ bgImg }) => {
       <FullContainer>
         <StyledHeading>
           <span className="ourName">LVPS</span>
-          <span className="subTitle">For Your Car</span>
+          <span className="subTitle">Specialized Services</span>
         </StyledHeading>
         <Divider width={150} className="divider" />
         {linkLists.map(linkList => (

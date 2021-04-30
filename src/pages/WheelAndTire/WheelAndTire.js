@@ -6,6 +6,7 @@ import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import { motion } from 'framer-motion';
 import GoogleMap from 'containers/GoogleMap/GoogleMap';
 import { tireList, wheelList } from 'data/Data';
+import { Helmet } from 'react-helmet-async';
 
 const ContactUs = () => {
   return (
@@ -18,6 +19,9 @@ const ContactUs = () => {
       enter={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
+      <Helmet>
+        <title>Wheels and Tires Page</title>
+      </Helmet>
       <SubMainBanner
         bgImg="/assets/wheel-and-tire.png"
         title="Wheels &amp; Tires"

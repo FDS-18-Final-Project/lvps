@@ -13,6 +13,7 @@ import CeramicCoating from 'containers/CeramicCoating/CeramicCoating';
 import { motion } from 'framer-motion';
 import GoogleMap from 'containers/GoogleMap/GoogleMap';
 import { ceramicCardList } from 'data/Data';
+import { Helmet } from 'react-helmet-async';
 
 const ServiceCeramic = () => {
   return (
@@ -25,6 +26,9 @@ const ServiceCeramic = () => {
       enter={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
+      <Helmet>
+        <title>Ceramic Pro Page</title>
+      </Helmet>
       <SubMainBanner
         title="Ceramic Coating"
         desc="Ceramic Pro"

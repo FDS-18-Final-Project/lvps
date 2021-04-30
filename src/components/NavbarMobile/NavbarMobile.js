@@ -57,7 +57,6 @@ NavbarMobile.defaultProps = {
       type: 'service',
       to: '/ceramic-coating'
     },
-
     {
       id: 'coating_2',
       value: 'IGL Coatings',

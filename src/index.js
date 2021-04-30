@@ -11,12 +11,14 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import promiseMiddleware from 'redux-promise';
 import appReducers from './store';
+import logger from 'redux-logger';
 
 //web accessbility
 //import { autoA11yTest } from './utils/autoA11yTest';
-import logger from 'redux-logger';
-// 한국어 출력
-//autoA11yTest();
+
+// SEO
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   appReducers,
@@ -26,10 +28,12 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <GlobalStyle />
-      <Router>
-        <App />
-      </Router>
+      <HelmetProvider>
+        <GlobalStyle />
+        <Router>
+          <App />
+        </Router>
+      </HelmetProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

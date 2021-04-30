@@ -4,6 +4,7 @@ import { calcRem, colors, device } from 'theme/theme';
 import MessageContainer from 'containers/MessageBox/MessageBox';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import { Helmet } from 'react-helmet-async';
 
 const SuccessMessage = styled(MessageContainer)`
   background-color: ${colors.white};
@@ -36,6 +37,9 @@ const StyledButton = styled(Button)`
 const SuccessfullySent = () => {
   return (
     <StyledPage>
+      <Helmet>
+        <title>Successfully Sent</title>
+      </Helmet>
       <SuccessMessage
         title="Successfully Sent"
         message={

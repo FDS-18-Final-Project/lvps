@@ -5,6 +5,7 @@ import GoogleMap from 'containers/GoogleMap/GoogleMap';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { aboutUsCardList } from 'data/Data';
+import { Helmet } from 'react-helmet-async';
 
 const AboutUs = () => {
   return (
@@ -17,6 +18,9 @@ const AboutUs = () => {
       enter={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
+      <Helmet>
+        <title>About Us Page</title>
+      </Helmet>
       <SubMainBanner
         bgImg="/assets/about-us-bg.png"
         title="About Us"

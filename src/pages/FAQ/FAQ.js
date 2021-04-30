@@ -4,6 +4,7 @@ import GetAQuoteBanner from 'containers/GetAQuoteBanner/GetAQuoteBanner';
 import GoogleMap from 'containers/GoogleMap/GoogleMap';
 import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 const FAQPage = () => {
   return (
@@ -16,6 +17,9 @@ const FAQPage = () => {
       enter={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
+      <Helmet>
+        <title>FAQ Page</title>
+      </Helmet>
       <A11yHidden as="h2">FAQ page</A11yHidden>
       <SubMainBanner
         bgImg="/assets/FAQBannerImg.png"

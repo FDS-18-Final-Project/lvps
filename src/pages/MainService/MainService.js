@@ -7,6 +7,7 @@ import { useViewSize } from 'hooks';
 import React from 'react';
 import { motion } from 'framer-motion';
 import GoogleMap from 'containers/GoogleMap/GoogleMap';
+import { Helmet } from 'react-helmet-async';
 
 const MainService = () => {
   const { desktop } = useViewSize();
@@ -20,6 +21,9 @@ const MainService = () => {
       enter={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
+      <Helmet>
+        <title>Main Services Page</title>
+      </Helmet>
       <SubMainBanner
         title="Services"
         desc="Luxury Vehicle Protection Services For Your Car"

@@ -3,6 +3,7 @@ import SubMainBanner from 'containers/SubMainBanner/SubMainBanner';
 import SubPageTitle from 'containers/SubPageTitle/SubPageTitle';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 const GetAQuote = () => {
   return (
@@ -15,6 +16,9 @@ const GetAQuote = () => {
       enter={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
+      <Helmet>
+        <title>Get a Quote Page</title>
+      </Helmet>
       <SubMainBanner
         title="GET A QUOTE"
         desc="Luxury Vehicle Protection Services For Your Car"

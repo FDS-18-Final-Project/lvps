@@ -4,6 +4,7 @@ import { calcRem, colors, device } from 'theme/theme';
 import MessageBox from 'containers/MessageBox/MessageBox';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import { Helmet } from 'react-helmet-async';
 
 const StyledPage = styled.section`
   display: flex;
@@ -26,6 +27,9 @@ const PageNotFound = ({ ...restProps }) => {
   return (
     <>
       <StyledPage>
+        <Helmet>
+          <title>Page Not Found Page</title>
+        </Helmet>
         <MessageBox
           title="404 Page Not Found"
           message={

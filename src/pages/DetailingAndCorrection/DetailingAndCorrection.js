@@ -12,6 +12,7 @@ import {
   paintCorrectionInfoList,
   paintCorrectionCarouselImgs
 } from 'data/Data';
+import { Helmet } from 'react-helmet-async';
 
 const DetailingAndCorrection = () => {
   return (
@@ -24,6 +25,9 @@ const DetailingAndCorrection = () => {
       enter={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
+      <Helmet>
+        <title>Detailing and Paint Correction Page</title>
+      </Helmet>
       <SubMainBanner
         bgImg="/assets/wheel-and-tire.png"
         title="Detailing &amp; Paint Correction"

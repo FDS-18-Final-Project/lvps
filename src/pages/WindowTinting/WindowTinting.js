@@ -10,6 +10,7 @@ import WindowTintingCeramic from 'containers/WindowTintingCeramic/WindowTintingC
 import { motion } from 'framer-motion';
 import React from 'react';
 import { windowTintingCarouselImgs } from 'data/Data';
+import { Helmet } from 'react-helmet-async';
 
 const WindowTinting = () => {
   return (
@@ -22,6 +23,9 @@ const WindowTinting = () => {
       enter={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
+      <Helmet>
+        <title>Window Tinting Page</title>
+      </Helmet>
       <SubMainBanner
         title="Window Tinting"
         desc="Luxury Vehicle Protection Services For Your Car"

@@ -9,6 +9,7 @@ import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import { motion } from 'framer-motion';
 import GoogleMap from 'containers/GoogleMap/GoogleMap';
 import Video from 'containers/Video/Video';
+import { Helmet } from 'react-helmet-async';
 
 const IGLCoatings = () => {
   return (
@@ -21,6 +22,9 @@ const IGLCoatings = () => {
       enter={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
+      <Helmet>
+        <title>IGL Coating Page</title>
+      </Helmet>
       <A11yHidden as="h2">IGL Coating page</A11yHidden>
       <SubMainBanner
         bgImg="/assets/IGLCar.png"
