@@ -62,7 +62,7 @@ npm run storybook
 
 #### 👨 이재훈[@dannylee9212](https://github.com/dannylee9212)
 
-#### 👩🏻‍🍳 김연구[@yg-0103](https://github.com/yg-0103)
+#### 👦 김연구[@yg-0103](https://github.com/yg-0103)
 
 #### 👩 배근아[@green9930](https://github.com/green9930)
 
