@@ -5,6 +5,7 @@ import { calcRem, colors, fontSizes, device } from 'theme/theme';
 import CardInfo from 'components/CardInfo/CardInfo';
 import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import useViewSize from 'hooks/useViewSize';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ServiceInfoType3Container = styled.section`
   border-top: 2px solid ${colors.lightGray};
@@ -139,7 +140,7 @@ const ServiceInfoType3 = ({
             {mobile && (
               <ImageSideContainer>
                 <div>
-                  <img
+                  <LazyLoadImage
                     src="./assets/mobile-paint-correction.png"
                     alt="mobile paint correction"
                   />

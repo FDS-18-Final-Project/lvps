@@ -68,7 +68,7 @@ import { ReactComponent as FooterPhone } from './svg/footer-phone.svg';
 import { ReactComponent as FooterWheelTire } from './svg/footer-wheel-tire.svg';
 import { ReactComponent as FooterWindowTinting } from './svg/footer-window-tinting.svg';
 import { ReactComponent as Logo } from './svg/logo.svg';
-import { ReactComponent as HeaderLogo } from './svg/LVPS_logo.svg';
+import { ReactComponent as HeaderLogo } from './svg/headerLogo.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {

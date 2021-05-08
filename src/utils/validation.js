@@ -23,13 +23,13 @@ export const validationSchema = Yup.object({
         'Please input your mobile number with numbers'
       </>
     )
-    .matches(
-      /^\d{3}[-.]?\d{3}[-.]?\d{4}$/,
-      <>
-        <Icon title="alert" type="alert" />
-        'Please follow the format(ex: 012-345-6789)'
-      </>
-    )
+    // .matches(
+    //   /^\d{3}[-.]?\d{3}[-.]?\d{4}$/,
+    //   <>
+    //     <Icon title="alert" type="alert" />
+    //     'Please follow the format(ex: 012-345-6789)'
+    //   </>
+    // )
     .required(
       <>
         <Icon title="alert" type="alert" />

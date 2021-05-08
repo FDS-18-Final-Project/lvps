@@ -1,7 +1,7 @@
 import { object } from 'prop-types';
 import styled from 'styled-components';
-
-const StyledImgContent = styled.img`
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+const StyledImgContent = styled(LazyLoadImage)`
   width: 100%;
   height: 100%;
 `;

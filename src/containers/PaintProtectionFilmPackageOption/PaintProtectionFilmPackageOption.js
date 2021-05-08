@@ -4,6 +4,7 @@ import TagPriceTable from 'components/PriceTable/TagPriceTable';
 import Carousel from 'components/Carousel/Carousel';
 import { useViewSize } from 'hooks';
 import { PPFPackage_01, PPFPackage_02, PPFPackage_03 } from 'data/Data';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const StyledTitle = styled.h2`
   margin-bottom: ${calcRem(60)};
@@ -54,8 +55,8 @@ const CarouselContainer = styled(Carousel)`
 const paint_group = [
   <OptionContainer key="opt_3">
     <ImageContainer key="img_3">
-      <img
-        src="assets/ppf_silver.png"
+      <LazyLoadImage
+        src="assets/desktop-car1.png"
         alt="Paint Protection Film Silver Package"
       />
     </ImageContainer>
@@ -72,7 +73,10 @@ const paint_group = [
   </OptionContainer>,
   <OptionContainer key="opt_2">
     <ImageContainer key="img_2">
-      <img src="assets/ppf_gold.png" alt="Paint Protection Film Gold Package" />
+      <LazyLoadImage
+        src="assets/desktop-car2.png"
+        alt="Paint Protection Film Gold Package"
+      />
     </ImageContainer>
     <TagPriceTable
       key="2"
@@ -87,8 +91,8 @@ const paint_group = [
   </OptionContainer>,
   <OptionContainer key="opt_1">
     <ImageContainer key="img_1">
-      <img
-        src="assets/ppf_platinum.png"
+      <LazyLoadImage
+        src="assets/desktop-car3.png"
         alt="Paint Protection Film Platinum Package"
       />
     </ImageContainer>

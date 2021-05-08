@@ -7,6 +7,7 @@ import A11yHidden from 'components/A11yHidden/A11yHidden.styled';
 import Paragraph from 'components/Paragraph/Paragraph';
 import useViewSize from 'hooks/useViewSize';
 import { bool } from 'prop-types';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ServiceInfoType2Container = styled.section`
   border-top: 2px solid ${colors.lightGray};
@@ -141,7 +142,7 @@ const ServiceInfoType2 = ({
         {mode === 'left' && desktop && (
           <ImageSideContainer>
             <div>
-              <img src={imagePath} alt={imageLabel} />
+              <LazyLoadImage src={imagePath} alt={imageLabel} />
             </div>
           </ImageSideContainer>
         )}
@@ -151,7 +152,7 @@ const ServiceInfoType2 = ({
             {mobile && (
               <ImageSideContainer>
                 <div>
-                  <img src={mobileImagePath} alt={imageLabel} />
+                  <LazyLoadImage src={mobileImagePath} alt={imageLabel} />
                 </div>
               </ImageSideContainer>
             )}
@@ -170,7 +171,7 @@ const ServiceInfoType2 = ({
         {mode === 'right' && desktop && (
           <ImageSideContainer>
             <div>
-              <img src={imagePath} alt={imageLabel} />
+              <LazyLoadImage src={imagePath} alt={imageLabel} />
             </div>
           </ImageSideContainer>
         )}

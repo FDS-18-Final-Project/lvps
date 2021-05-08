@@ -7,6 +7,7 @@ import Paragraph from 'components/Paragraph/Paragraph';
 import Icon from 'components/Icon/Icon';
 import AccordionList from 'components/AccordionList/AccordionList';
 import { FAQAccordionState } from 'data/Data';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const FullContainer = styled.section``;
 
@@ -144,7 +145,7 @@ const FAQ = () => {
         </Paragraph>
 
         <div className="gridImage">
-          <img src="assets/FAQImage.png" alt="wheelCeramic" />
+          <LazyLoadImage src="assets/FAQImage.png" alt="wheelCeramic" />
         </div>
         <div className="gridAccordion">
           <AccordionList

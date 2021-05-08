@@ -5,6 +5,7 @@ import { calcInterval, calcRem, colors, device, fontSizes } from 'theme/theme';
 import Layout from 'pages/Layout/Layout';
 import Paragraph from 'components/Paragraph/Paragraph';
 import Button from 'components/Button/Button';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const FullContainer = styled.section`
   ${device.mobile} {
@@ -104,7 +105,7 @@ const SubBanner = ({ title, description, imagePath, children }) => {
           </a>
         </LayoutContainer>
         <LayoutContainer className="gridImg">
-          <img src={imagePath} alt={title} />
+          <LazyLoadImage src={imagePath} alt={title} />
         </LayoutContainer>
       </SubBannerContainer>
     </FullContainer>

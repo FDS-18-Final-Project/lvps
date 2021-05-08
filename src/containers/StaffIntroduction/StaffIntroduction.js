@@ -3,6 +3,7 @@ import Icon from 'components/Icon/Icon';
 import React from 'react';
 import styled from 'styled-components';
 import { calcRem, colors, calcInterval, fontSizes, device } from 'theme/theme';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const FullContainer = styled.section`
   position: relative;
@@ -218,7 +219,7 @@ const StaffIntroduction = () => {
           </a>
         </div>
         <div className="gridImage">
-          <img src="assets/staff.png" alt="owner profile" />
+          <LazyLoadImage src="assets/staff.png" alt="owner profile" />
         </div>
         <div className="gridDescription">
           <h3>Maxim Malyshau</h3>

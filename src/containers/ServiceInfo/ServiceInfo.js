@@ -5,6 +5,7 @@ import { calcInterval, calcRem, colors, device, fontSizes } from 'theme/theme';
 import Paragraph from 'components/Paragraph/Paragraph';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const FullContainer = styled.section`
   border-top: 1px solid ${colors.lightGray};
@@ -127,7 +128,7 @@ const ServiceInfo = ({
         </Paragraph>
 
         <div className="gridImage">
-          <img src={imagePath} alt={imageLabel} />
+          <LazyLoadImage src={imagePath} alt={imageLabel} />
         </div>
 
         <div className="gridParagraph">{children}</div>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { calcRem, calcInterval, colors } from 'theme/theme';
 import { useDispatch } from 'react-redux';
 import { wheelAndTiretoggleActive } from 'store/modal/wheelAndTire';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const modeSize = {
   wheel: {
@@ -15,7 +16,7 @@ const modeSize = {
   }
 };
 
-const StyledImg = styled.img`
+const StyledImg = styled(LazyLoadImage)`
   width: 100%;
   height: auto;
 `;
@@ -68,7 +69,7 @@ const InputComp = ({ id, value, src, checked, name }) => {
         checked={checked}
       />
       <StyledLabel htmlFor={id} aria-label={value}>
-        <img src={src} alt={value} />
+        <LazyLoadImage src={src} alt={value} />
       </StyledLabel>
     </>
   );

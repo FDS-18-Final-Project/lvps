@@ -46,7 +46,7 @@ const ServiceMainBanner = ({ title, children, imagePath }) => {
         <h2 className="gridTitle">{title}</h2>
         <p className="gridParagraph">{children}</p>
         <div className="gridImage">
-          <img src={imagePath} alt="CeramicPro" />
+          <LazyLoadImage src={imagePath} alt="CeramicPro" />
         </div>
       </ServiceMainBannerContainer>
     </FullContainer>
