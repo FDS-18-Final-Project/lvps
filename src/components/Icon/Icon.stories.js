@@ -30,7 +30,7 @@ export default {
           // 'checkedCar',
           // 'clickHand',
           'close',
-          'searchWhite',
+          'search',
           // 'searchGray',
           // 'like',
           'checked',

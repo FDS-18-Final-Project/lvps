@@ -93,7 +93,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
             mobile ? null : (
               <Icon
                 title="search"
-                type="searchWhite"
+                type="search"
                 color={colors.lightGray}
                 width={calcRem(22)}
               />
@@ -121,7 +121,7 @@ const SearchForm = ({ onClick, mobile, ...restProps }) => {
         <Icon
           title={mobile ? 'search' : 'close'}
           button={!mobile}
-          type={mobile ? 'searchWhite' : 'close'}
+          type={mobile ? 'search' : 'close'}
           color={colors.lightGray}
           width={mobile ? calcRem(25) : calcRem(20)}
           onClick={mobile ? null : onClick}

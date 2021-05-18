@@ -21,6 +21,8 @@ const SubBannerContainer = styled.div`
   grid-template: repeat(2, 1fr) / repeat(2, 1fr);
 
   .gridParagraph {
+    display: flex;
+    text-align: center;
     padding-top: ${calcRem(70)};
     margin-bottom: ${calcRem(10)};
     p {
@@ -31,6 +33,7 @@ const SubBannerContainer = styled.div`
   .gridBtn {
     grid-row: 2 / 3;
     padding-bottom: ${calcRem(30)};
+    margin: 0 auto;
   }
 
   .gridImg {

@@ -7,7 +7,7 @@ import { linkLists } from 'data/Data';
 
 const StyledFooterContainer = styled.footer`
   background-color: ${colors.black};
-  padding: ${calcInterval([65, 0, 35])};
+  padding: ${calcInterval([105, 0, 35])};
 `;
 
 const StyledFooterContent = styled.div`

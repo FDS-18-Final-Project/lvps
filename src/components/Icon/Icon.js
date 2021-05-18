@@ -23,7 +23,7 @@ const StyledIconButton = styled.button`
   cursor: pointer;
 
   &:focus-visible {
-    outline 1px solid blue;
+    outline: 1px solid blue;
   }
 `;
 

@@ -23,19 +23,19 @@ const initialSearchState = {
   focusIdx: 0
 };
 
-const serachReducer = (state, action) => {
+const searchReducer = (state, action) => {
   switch (action.type) {
     case 'CHANGE':
       return { ...state, value: action.value, results: action.results };
     case 'KEYDOWN':
       return { ...state, focusIdx: action.focusIdx };
     default:
-      throw new Error('Unhandled action type: ' + action.type);
+      alert('Unhandled action type: ' + action.type);
   }
 };
 
 const useSearch = inputRef => {
-  const [state, dispatch] = useReducer(serachReducer, initialSearchState);
+  const [state, dispatch] = useReducer(searchReducer, initialSearchState);
   const { results, focusIdx } = state;
   const { pathname } = useLocation();
   const history = useHistory();
@@ -70,6 +70,10 @@ const useSearch = inputRef => {
         });
 
       if (e.key === 'Enter') {
+        if (!results[focusIdx]) {
+          alert('Results not found');
+          return;
+        }
         history.push(results[focusIdx].link);
         dispatch({ type: 'CHANGE', value: '', results: [] });
       }

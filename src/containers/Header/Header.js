@@ -10,7 +10,45 @@ import Navbar from 'components/Navbar/Navbar';
 import Icon from 'components/Icon/Icon';
 import NavbarMobile from 'components/NavbarMobile/NavbarMobile';
 import Tooltip from 'components/ToolTip/Tooltip';
+import { ReactComponent as SearchIcon } from '../../assets/svg/search.svg';
 
+const IconContainer = styled(Layout.FlexContainer)`
+  flex: 0.7;
+  justify-content: flex-end;
+  padding-left: 0.5rem;
+  position: relative;
+  a {
+    margin-left: 20%;
+  }
+
+  & > div {
+    position: relative;
+  }
+  & div button {
+    background: transparent;
+    border: 0;
+  }
+  & div > div {
+    opacity: 0;
+    z-index: -1000;
+    transition: 0.3s;
+  }
+  & div button:hover + div {
+    position: absolute;
+    opacity: 1;
+    z-index: 1000;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    svg {
+      width: ${calcRem(22)};
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    flex: 0;
+  }
+`;
 const HeaderContainer = styled.header`
   background: ${colors.black};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -62,38 +100,6 @@ const HeaderContainer = styled.header`
       top: ${calcRem(65)};
       right: ${calcRem(-10)};
     }
-  }
-`;
-
-const IconContainer = styled(Layout.FlexContainer)`
-  flex: 0.7;
-  justify-content: flex-end;
-  a {
-    margin-left: 20%;
-  }
-
-  .searchBtn {
-    position: relative;
-    height: ${calcRem(60)};
-    div {
-      opacity: 0;
-      z-index: -1000;
-      transition: 0.3s;
-    }
-  }
-  .searchBtn:hover div {
-    opacity: 1;
-    z-index: 1000;
-  }
-
-  @media only screen and (max-width: 1200px) {
-    svg {
-      width: ${calcRem(30)};
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    flex: 0;
   }
 `;
 
@@ -182,34 +188,41 @@ const Header = () => {
             />
           ) : (
             <>
-              <Icon
+              <div>
+                {/* <button  */}
+                <SearchIcon onClick={handleSearchActive}></SearchIcon>
+                {/* </button> */}
+                <Tooltip top="75px" left="-62px" />
+              </div>
+
+              {/* <Icon
                 button
                 title="search button"
-                className="searchBtn"
-                type="searchWhite"
+                className="searchIcon"
+                type="search"
                 color={colors.white}
-                width={calcRem(25)}
-                onClick={handleSearchActive}
+                width={calcRem(22)}
+                // onClick={handleSearchActive}
                 motionProps={{
                   variants: iconVariants,
                   animate: searchAcitve ? 'hidden' : 'visible'
                 }}
               >
-                <Tooltip top="75px" right="-65px" />
-              </Icon>
+                <Tooltip top="75px" left="-62px" />
+              </Icon> */}
               <a href="https://www.instagram.com/lvps.ca/?hl=en">
                 <Icon
                   type="instagram"
                   title="instagram"
                   color={colors.white}
-                  width={calcRem(25)}
+                  width={calcRem(22)}
                 />
               </a>
               <a href="https://m.facebook.com/lvps.ca/">
                 <Icon
                   type="facebook"
                   color={colors.white}
-                  width={calcRem(25)}
+                  width={calcRem(22)}
                   title="facebook"
                 />
               </a>

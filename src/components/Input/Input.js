@@ -83,7 +83,7 @@ Input.defaultProps = {
   label: (
     <Icon
       title="search input"
-      type="searchWhite"
+      type="search"
       color={colors.white}
       width={calcRem(30)}
     />

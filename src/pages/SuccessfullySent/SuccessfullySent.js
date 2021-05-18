@@ -44,9 +44,8 @@ const SuccessfullySent = () => {
         title="Successfully Sent"
         message={
           <>
-            'Contrary to belief, Lorem Ipsum is not simply random text.
-            <br />
-            making it over 2000 years old.'
+            Your request was successfully received. We will get back to you as
+            soon as possible. Thank you.
           </>
         }
       />

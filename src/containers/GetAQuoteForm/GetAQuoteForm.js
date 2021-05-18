@@ -8,6 +8,7 @@ import {
   device,
   fontSizes
 } from '../../theme/theme';
+import { useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
 import Layout from 'pages/Layout/Layout';
 import { updateForm } from 'store/form/form';
@@ -170,6 +171,7 @@ const postForm = async values => {
       body: JSON.stringify(values)
     });
     const resId = await response.json();
+    console.log(resId.id);
     return resId.id;
   } catch (error) {
     throw new Error(error.message);
@@ -182,7 +184,12 @@ const sendId = async id => {
 };
 
 const sendMail = async (values, services) => {
+  console.log(values, CreateServiceForm(services));
   try {
+    console.log({
+      ...values,
+      services: CreateServiceForm(services)
+    });
     const id = await postForm({
       ...values,
       services: CreateServiceForm(services)
@@ -214,6 +221,8 @@ const CreateServiceForm = services => {
 const GetAQuoteForm = () => {
   const services = useSelector(state => state.service);
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -226,8 +235,13 @@ const GetAQuoteForm = () => {
     },
     validationSchema,
     onSubmit: values => {
-      dispatch(updateForm(values));
-      sendMail(values, services);
+      try {
+        dispatch(updateForm(values));
+        sendMail(values, services);
+        history.push('successfully-sent');
+      } catch (error) {
+        console.log(error);
+      }
     }
   });
   return (

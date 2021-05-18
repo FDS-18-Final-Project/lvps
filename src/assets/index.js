@@ -6,7 +6,7 @@ import { ReactComponent as Map } from './svg/map.svg';
 // import { ReactComponent as CheckedCar } from './svg/checkedCar.svg';
 // import { ReactComponent as ClickHand } from './svg/clickHand.svg';
 import { ReactComponent as Close } from './svg/close.svg';
-import { ReactComponent as SearchWhite } from './svg/search-white.svg';
+import { ReactComponent as Search } from './svg/search.svg';
 // import { ReactComponent as SearchGray } from './svg/search-gray.svg';
 // import { ReactComponent as Like } from './svg/like.svg';
 import { ReactComponent as Checked } from './svg/checked.svg';
@@ -67,7 +67,6 @@ import { ReactComponent as FooterPaintProtectionFilm } from './svg/footer-paint-
 import { ReactComponent as FooterPhone } from './svg/footer-phone.svg';
 import { ReactComponent as FooterWheelTire } from './svg/footer-wheel-tire.svg';
 import { ReactComponent as FooterWindowTinting } from './svg/footer-window-tinting.svg';
-import { ReactComponent as Logo } from './svg/logo.svg';
 import { ReactComponent as HeaderLogo } from './svg/headerLogo.svg';
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -88,11 +87,10 @@ export default {
   // checkedCar: CheckedCar,
   // clickHand: ClickHand,
   close: Close,
-  searchWhite: SearchWhite,
+  search: Search,
   alert: Alert,
   // searchGray: SearchGray,
   // like: Like,
-  logo: Logo,
   headerLogo: HeaderLogo,
   checked: Checked,
   circle: Circle,

@@ -81,7 +81,7 @@ const GetAQuoteFormSection = () => {
         size={24}
         headingNum={2}
       >
-        ${servicesTotalPrice}
+        From ${servicesTotalPrice}
       </Paragraph>
       <GetAQuoteForm />
     </FullContainer>
