@@ -13,7 +13,7 @@
 
 ## :wave: Links
 
-### [🎲 HOMEPAGE(배포 예정)](https://lvps.ca/)
+### [🎲 HOMEPAGE](https://lvps.ca/)
 
 ### [🧱 Ground Rule](https://trello.com/b/vyPEnPyt/lvps)
 
