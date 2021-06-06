@@ -60,14 +60,14 @@ const ContactUs = () => {
           Contact us today to get your wheels and tires package pricing!!
         </ServiceInfoType2>
         <BrandList
-          title="Feature Wheel Brands"
+          title="Featured Wheel Brands"
           mode="image"
           size="wheel"
           type="wheel"
           wheelList={wheelList}
         />
         <BrandList
-          title="Feature Tire Brands"
+          title="Featured Tire Brands"
           mode="image"
           size="tire"
           type="tire"

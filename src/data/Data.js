@@ -942,7 +942,7 @@ export const reviews = [
   {
     id: 1,
     name: 'Aleksandra',
-    model: 'SQ5',
+    model: '2016 Audi SQ5',
     star: 5,
     review:
       'My Audi SQ5 got windows tinted with Xpel XR Ceramic film. The car looks so much better and the heat rejection is great! Would come back for other car services. Would recommend to all my friends and family!'
